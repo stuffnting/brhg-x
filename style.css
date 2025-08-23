@@ -112,45 +112,40 @@ meter {
 
 @font-face {
   font-family: essays1743;
-  src: url("fonts/essays1743-webfont.eot");
-  src: url("fonts/essays1743-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/essays1743-webfont.woff2") format("woff2"), url("fonts/essays1743-webfont.woff") format("woff"), url("fonts/essays1743-webfont.ttf") format("truetype"), url("fonts/essays1743-webfont.svg#essays1743medium") format("svg");
+  src: url("fonts/essays1743-webfont.woff2") format("woff2"), url("fonts/essays1743-webfont.woff") format("woff"), url("fonts/essays1743-webfont.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: notosans;
-  src: url("fonts/notosans-regular-webfont.eot");
-  src: url("fonts/notosans-regular-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/notosans-regular-webfont.woff2") format("woff2"), url("fonts/notosans-regular-webfont.woff") format("woff"), url("fonts/notosans-regular-webfont.ttf") format("truetype"), url("fonts/notosans-regular-webfont.svg#noto_sansregular") format("svg");
+  src: url("fonts/notosans-regular-webfont.woff2") format("woff2"), url("fonts/notosans-regular-webfont.woff") format("woff"), url("fonts/notosans-regular-webfont.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: notosans;
-  src: url("fonts/notosans-italic-webfont.eot");
-  src: url("fonts/notosans-italic-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/notosans-italic-webfont.woff2") format("woff2"), url("fonts/notosans-italic-webfont.woff") format("woff"), url("fonts/notosans-italic-webfont.ttf") format("truetype"), url("fonts/notosans-italic-webfont.svg#noto_sansitalic") format("svg");
+  src: url("fonts/notosans-italic-webfont.woff2") format("woff2"), url("fonts/notosans-italic-webfont.woff") format("woff"), url("fonts/notosans-italic-webfont.ttf") format("truetype");
   font-weight: 400;
   font-style: italic;
   font-display: swap;
 }
 @font-face {
   font-family: notosans;
-  src: url("fonts/notosans-bold-webfont.eot");
-  src: url("fonts/notosans-bold-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/notosans-bold-webfont.woff2") format("woff2"), url("fonts/notosans-bold-webfont.woff") format("woff"), url("fonts/notosans-bold-webfont.ttf") format("truetype"), url("fonts/notosans-bold-webfont.svg#noto_sansbold") format("svg");
+  src: url("fonts/notosans-bold-webfont.woff2") format("woff2"), url("fonts/notosans-bold-webfont.woff") format("woff"), url("fonts/notosans-bold-webfont.ttf") format("truetype");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: notosans;
-  src: url("fonts/notosans-bolditalic-webfont.eot");
-  src: url("fonts/notosans-bolditalic-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/notosans-bolditalic-webfont.woff2") format("woff2"), url("fonts/notosans-bolditalic-webfont.woff") format("woff"), url("fonts/notosans-bolditalic-webfont.ttf") format("truetype"), url("fonts/notosans-bolditalic-webfont.svg#noto_sansbold_italic") format("svg");
+  src: url("fonts/notosans-bolditalic-webfont.woff2") format("woff2"), url("fonts/notosans-bolditalic-webfont.woff") format("woff"), url("fonts/notosans-bolditalic-webfont.ttf") format("truetype");
   font-weight: 700;
   font-style: italic;
   font-display: swap;
 }
-.page-header__archive-intro p, .page-header__archive-intro ul, .page-header__archive-intro blockquote, .current-series, .search-filter__field-name, .search-filter__field-description, .q-list {
+.tag-index, .page-header__archive-intro p, .page-header__archive-intro ul, .page-header__archive-intro blockquote, .current-series, .search-filter__field-name, .search-filter__field-description, .q-list {
   font-family: notosans, Helvetica, Arial, sans-serif;
   line-height: 1.6;
   color: #303030;
@@ -173,7 +168,7 @@ meter {
   padding-left: 1.2em;
 }
 
-.page-header__title-wrap a, .page-header__archive-intro a, .current-series__link, .fp-tag-cloud__wrap a, .fp-recent__more, .fp-recent__item-link, .fp-friends__page-link, .fp-featured-item__title-link, .footer-menu__nav a {
+.tag-index__link, .page-header__title-wrap a, .page-header__archive-intro a, .current-series__link, .fp-tag-cloud__wrap a, .fp-recent__more, .fp-recent__item-link, .fp-friends__page-link, .fp-featured-item__title-link, .footer-menu__nav a {
   color: #a40000;
 }
 
@@ -185,7 +180,7 @@ meter {
   text-underline-offset: 3px;
 }
 
-.page-header__title-wrap a:hover, .page-header__archive-intro a:hover, .current-series__link:hover, .fp-tag-cloud__wrap a:hover, .fp-recent__more:hover, .fp-recent__item-link:hover, .fp-friends__page-link:hover, .fp-featured-item__title-link:hover, .footer-menu__nav a:hover, .page-header__title-wrap a:focus, .page-header__archive-intro a:focus, .current-series__link:focus, .fp-tag-cloud__wrap a:focus, .fp-recent__more:focus, .fp-recent__item-link:focus, .fp-friends__page-link:focus, .fp-featured-item__title-link:focus, .footer-menu__nav a:focus {
+.tag-index__link:hover, .page-header__title-wrap a:hover, .page-header__archive-intro a:hover, .current-series__link:hover, .fp-tag-cloud__wrap a:hover, .fp-recent__more:hover, .fp-recent__item-link:hover, .fp-friends__page-link:hover, .fp-featured-item__title-link:hover, .footer-menu__nav a:hover, .tag-index__link:focus, .page-header__title-wrap a:focus, .page-header__archive-intro a:focus, .current-series__link:focus, .fp-tag-cloud__wrap a:focus, .fp-recent__more:focus, .fp-recent__item-link:focus, .fp-friends__page-link:focus, .fp-featured-item__title-link:focus, .footer-menu__nav a:focus {
   text-decoration-line: underline;
   text-decoration-style: solid;
 }
@@ -1674,4 +1669,9 @@ body:not(.home) .torso {
 }
 .archive-p8n__link:hover {
   background-color: #eeeeee;
+}
+.tag-index {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: justify;
 }/*# sourceMappingURL=style.css.map */

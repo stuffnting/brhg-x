@@ -1317,9 +1317,15 @@ function brhg2016_encode_email($e = '') {
 /**
  * Tag cloud
  *
- * @param int    $n the nnmer of tags to return
+ * @param int    $n the number of tags to return. For all, pass 0
  */
 function brhg2016_tag_cloud($n = 45) {
+
+    // Change classname on links
+    add_filter('wp_tag_cloud', function ($tag_index) {
+        return str_replace('tag-cloud-link', 'tag-index__link', $tag_index);
+    });
+
     $tag_args = array(
         'smallest'                  => 16,
         'largest'                   => 34,

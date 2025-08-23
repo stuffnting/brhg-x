@@ -24,17 +24,16 @@ if (is_tax('contrib_alpha')) {
     $archive_type = "other";
 }
 
+// Pagination
 if ($archive_type === 'contributor') {
-
     brhg2016_make_conrib_alpha_list();
 } elseif ($archive_type === 'other') {
-
     brhg2016_archive_pagination();
 }
 
 if ($archive_type === 'tag-index') {
 ?>
-    <section id="tag-index-tag-cloud" class="tag-index-tag-cloud-container">
+    <section id="tag-index-tag-cloud" class="tag-index" aria-label="Tag index">
         <?php brhg2016_tag_cloud(0); ?>
     </section>
 
@@ -43,7 +42,7 @@ if ($archive_type === 'tag-index') {
 ?>
 
 <?php if ($archive_type !== 'tag-index') : ?>
-    <div class="archive-container">
+    <div class="archive-content">
         <?php
         if (have_posts()) :
 
@@ -66,15 +65,12 @@ if ($archive_type === 'tag-index') {
 <?php endif; // !tag-index
 
 
+// Pagination
 if ($archive_type === 'other') {
     brhg2016_archive_pagination();
 } elseif (is_tax('contrib_alpha')) {
-?>
-    <nav class="contrib-alpha" aria-label="Archive pagination">
-        <?php brhg2016_make_conrib_alpha_list(); ?>
-    </nav>
-<?php
+    brhg2016_make_conrib_alpha_list();
 }
-?>
 
-<?php get_footer();
+
+get_footer();

@@ -44,7 +44,7 @@
 
 
     <?php if (is_search()) {
-        get_template_part('search-form');
+        get_template_part('searchform');
         get_template_part('chunk', 'search-filter');
     }
     // Current & Forthcoming Event Series
