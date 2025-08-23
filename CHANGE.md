@@ -5,3 +5,7 @@
 - main menu: remove urls for dropdowns
 - main menu: remove mobile menu extras
 - make a new mobile menu
+
+## Search Results
+
+- Change the intro text to reflect new form.

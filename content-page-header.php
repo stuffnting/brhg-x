@@ -38,21 +38,23 @@
     // Archive and search page header; includes archive intro and search form. 
     if (is_archive() || is_search()) { ?>
         <div class="page-header__archive-intro">
-            <?php get_template_part('chunk', 'archive-header');  ?>
-        </div>
-    <?php } ?>
+            <?php get_template_part('chunk', 'archive-header');
+            if (is_search()) {
 
-
-    <?php if (is_search()) {
-        get_template_part('searchform');
-        get_template_part('chunk', 'search-filter');
-    }
-    // Current & Forthcoming Event Series
-    if (get_query_var('special_url') === 'event-diary' || is_post_type_archive('events') || is_post_type_archive('event_series')) { ?>
-        <div class="current-series">
-            <?php get_template_part('chunk', 'current-series'); ?>
+                //get_template_part('searchform');
+                //get_template_part('chunk', 'search-filter');
+                get_template_part('content', 'search-page');
+            ?>
+                <button type="button" id="search-filter-form-btn" class="search-form__btn">Refine Search</button>
         </div>
-    <?php } ?>
+    <?php }
+        }
+        // Current & Forthcoming Event Series
+        if (get_query_var('special_url') === 'event-diary' || is_post_type_archive('events') || is_post_type_archive('event_series')) { ?>
+    <div class="current-series">
+        <?php get_template_part('chunk', 'current-series'); ?>
+    </div>
+<?php } ?>
 
 </header>
 <hr class="page-header__pale-rule">

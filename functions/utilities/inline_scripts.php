@@ -177,10 +177,10 @@ function brhg_x_footer_inline_scripts() {
 
           if ($(this).data('clicked')) {
             $form.slideToggle();
-            $(this).text('Hide Filter');
+            $(this).text('Hide Search Form');
           } else {
             $form.slideToggle();
-            $(this).text('Filter Search');
+            $(this).text('Refine Search');
           }
         });
       })(jQuery);

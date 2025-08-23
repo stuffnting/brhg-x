@@ -11,15 +11,15 @@
      */
     ?>
 
- <fieldset class="search-filter__fieldset" name="post_type_slector">
-     <label for="post-types" class="search-filter__label">
-         <span class="search-filter__field-name">Section filter:</span>
-         <span class="search-filter__field-description">
+ <fieldset class="search-form__filter-fieldset" name="post_type_slector">
+     <label for="post-types" class="search-form__label">
+         <span class="search-form__field-name">Section filter:</span>
+         <span class="search-form__field-description">
              Choose as many as you like using ctr+click/apple+click. You can reset the filter by selecting 'Any'.
          </span>
      </label>
-     <select multiple id="post-types" class="search-filter__select" name="post_type[]">
-         <option value='' class="search-filter__option">-- Any -- </option>
+     <select multiple id="post-types" class="search-form__select" name="post_type[]">
+         <option value='' class="search-form__option">-- Any -- </option>
          <?php
             $args = array(
                 'public' => true,
@@ -53,20 +53,20 @@
             if (isset($post_types)) {
                 foreach ($options as $option) {
                     $selected = (in_array($option['name'], (array) get_query_var('post_type'))) ? 'selected' : '';
-                    echo "<option $selected value='{$option['name']}' class='search-filter__option'>{$option['label']}</option>\n";
+                    echo "<option $selected value='{$option['name']}' class='search-form__option'>{$option['label']}</option>\n";
                 }
             } ?>
      </select>
  </fieldset>
- <fieldset class="search-filter__fieldset" name="category_name_slector">
-     <label for="category_name" class="search-filter__label">
-         <span class="search-filter__field-name">Subject filter:</span>
-         <span class="search-filter__field-description">
+ <fieldset class="search-form__filter-fieldset" name="category_name_slector">
+     <label for="category_name" class="search-form__label">
+         <span class="search-form__field-name">Subject filter:</span>
+         <span class="search-form__field-description">
              Choose as many as you like using ctr+click/apple+click. You can reset the filter by selecting 'Any'.
          </span>
      </label>
-     <select multiple id="category_name" class="search-filter__select" name="category_name[]">
-         <option value='' class="search-filter__option">-- Any -- </option>
+     <select multiple id="category_name" class="search-form__select" name="category_name[]">
+         <option value='' class="search-form__option">-- Any -- </option>
          <?php
             $args = array(
                 'orderby'   => 'name',
@@ -84,7 +84,7 @@
                     if (isset($wp_query->query['category_name'])) {
                         $selected = (in_array($option->slug, $cat_vars)) ? 'selected' : '';
                     }
-                    echo "<option $selected value='{$option->slug}' class='search-filter__option'>{$option->name}</option>\n";
+                    echo "<option $selected value='{$option->slug}' class='search-form__option'>{$option->name}</option>\n";
                 }
             }
             ?>

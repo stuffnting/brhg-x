@@ -69,7 +69,8 @@
 %default-button {
   color: c.$light-text;
   background-color: c.$red;
-  padding: 6px 12px;
+  padding: 18px 12px;
+  line-height: 0;
   text-align: center;
   -ms-touch-action: manipulation;
   touch-action: manipulation;
@@ -84,7 +85,8 @@
 %default-input {
   color: c.$red;
   background-color: c.$light-bg;
-  padding: 0 10px;
+  padding: 6px 12px;
+  line-height: 0;
   border: 1px solid c.$form-input-border;
   text-align: left;
 }

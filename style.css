@@ -145,7 +145,7 @@ meter {
   font-style: italic;
   font-display: swap;
 }
-.tag-index, .page-header__archive-intro p, .page-header__archive-intro ul, .page-header__archive-intro blockquote, .current-series, .search-filter__field-name, .search-filter__field-description, .q-list {
+.tag-index, .search-form, .page-header__archive-intro p, .page-header__archive-intro ul, .page-header__archive-intro blockquote, .current-series, .q-list {
   font-family: notosans, Helvetica, Arial, sans-serif;
   line-height: 1.6;
   color: #303030;
@@ -207,10 +207,11 @@ meter {
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
 }
 
-.archive-filter__btn, .search-form__btn, .search-filter__btn {
+.search-form__btn, .archive-filter__btn {
   color: #ffffff;
   background-color: #a40000;
-  padding: 6px 12px;
+  padding: 18px 12px;
+  line-height: 0;
   text-align: center;
   touch-action: manipulation;
   -webkit-user-select: none;
@@ -218,14 +219,15 @@ meter {
           user-select: none;
   cursor: pointer;
 }
-.archive-filter__btn:hover, .search-form__btn:hover, .search-filter__btn:hover {
+.search-form__btn:hover, .archive-filter__btn:hover {
   background-color: #ffbd21;
 }
 
 .search-form__input, .search-modal__input {
   color: #a40000;
   background-color: #ffffff;
-  padding: 0 10px;
+  padding: 6px 12px;
+  line-height: 0;
   border: 1px solid #a40000;
   text-align: left;
 }
@@ -1553,73 +1555,6 @@ body:not(.home) .torso {
 .current-series__title {
   font-weight: 800;
 }
-.search-form {
-  display: flex;
-  justify-content: center;
-  align-items: stretch;
-  gap: 10px;
-  width: 90%;
-  max-width: 780px;
-  margin: 50px auto;
-}
-.search-form__input {
-  width: 100%;
-  max-width: 400px;
-}
-.search-filter {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  max-width: 780px;
-  margin: 0 auto;
-}
-.search-filter__form {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  gap: 0 4%;
-  margin-bottom: 50px;
-}
-@media only screen and (min-width: 780px) {
-  .search-filter__form {
-    flex-direction: row;
-    align-items: center;
-  }
-}
-.search-filter__fieldset {
-  width: 90%;
-}
-@media only screen and (min-width: 780px) {
-  .search-filter__fieldset {
-    width: 48%;
-  }
-}
-.search-filter__field-name {
-  font-weight: 800;
-  display: block;
-}
-.search-filter__field-description {
-  font-size: small;
-  display: block;
-}
-.search-filter__select {
-  width: 100%;
-  border: 1px solid #a40000;
-  padding: 6px 0;
-  margin: 25px 0;
-  overflow-y: scroll;
-  overflow-x: hidden;
-}
-.search-filter__option {
-  padding: 0 12px;
-  white-space: nowrap;
-}
-.search-filter__option:checked {
-  background-color: #cccccc;
-}
 .archive-p8n__no-link, .archive-p8n__link {
   display: flex;
   justify-content: center;
@@ -1669,6 +1604,78 @@ body:not(.home) .torso {
 }
 .archive-p8n__link:hover {
   background-color: #eeeeee;
+}
+.search-form {
+  width: 100%;
+  max-width: 780px;
+  margin: 50px auto;
+  text-align: center;
+}
+.search-form__form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.search-form__search-fieldset {
+  width: 90%;
+  text-align: center;
+  margin-bottom: 50px;
+}
+.search-form__field-name {
+  font-weight: 800;
+  display: block;
+  margin-bottom: 1em;
+}
+.search-form__field-description {
+  font-size: small;
+  display: block;
+}
+.search-form__input {
+  width: 100%;
+}
+@media only screen and (min-width: 780px) {
+  .search-form__input {
+    max-width: 400px;
+  }
+}
+.search-form__filter {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 0 4%;
+  margin-bottom: 50px;
+}
+@media only screen and (min-width: 780px) {
+  .search-form__filter {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+.search-form__filter-fieldset {
+  width: 90%;
+}
+@media only screen and (min-width: 780px) {
+  .search-form__filter-fieldset {
+    width: 48%;
+  }
+}
+.search-form__select {
+  width: 100%;
+  border: 1px solid #a40000;
+  padding: 6px 0;
+  margin: 25px 0;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.search-form__option {
+  padding: 0 12px;
+  white-space: nowrap;
+}
+.search-form__option:checked {
+  background-color: #cccccc;
 }
 .tag-index {
   max-width: 1200px;

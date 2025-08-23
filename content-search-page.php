@@ -10,26 +10,30 @@
      */
     ?>
 
- <form role="search" method="post" class="search-page-search-form" action="<?php echo home_url('/'); ?>">
-     <fieldset class="form-group" name="search-box">
-         <label for="search-term" class="filter-form-label">Search Term:</label>
-         <span class="screen-reader-text"><?php echo _x('Search for:', 'label') ?></span>
-         <input
-             id="search-term"
-             type="search"
-             class="form-control search-field"
-             placeholder="<?php echo esc_attr_x('Search …', 'placeholder') ?>"
-             value="<?php echo get_search_query() ?>"
-             name="s"
-             title="<?php echo esc_attr_x('Search for:', 'label') ?>" />
-         <input type="hidden" name="sent_from" value="search-filter">
-     </fieldset>
+ <div id="search-filter-form" class="search-form">
+     <form role="search" method="post" class="search-form__form" action="<?php echo home_url('/'); ?>">
+         <fieldset class="search-form__search-fieldset" name="search-box">
+             <label for="search-term" class="search-form__label">
+                 <span class="search-form__field-name">Search Term:</span>
+             </label>
+             <input
+                 id="search-form__input"
+                 type="search"
+                 class="search-form__input"
+                 placeholder="<?php echo esc_attr_x('Search …', 'placeholder') ?>"
+                 value="<?php echo get_search_query() ?>"
+                 name="s"
+                 title="<?php echo esc_attr_x('Search for:', 'label') ?>" />
+             <input type="hidden" name="sent_from" value="search-filter">
+         </fieldset>
 
-     <div class="search-filters-wrapper">
-         <?php get_template_part('chunk', 'search-filter-inner'); ?>
-     </div>
+         <div class="search-form__filter">
+             <?php get_template_part('chunk', 'search-filter-inner'); ?>
+         </div>
 
-     <div class="filter-button-wrap">
-         <input type="submit" class="btn btn-primary" value="Go Search!">
-     </div>
- </form>
+
+         <input type="submit" class="search-form__btn" value="Go Search!">
+
+     </form>
+
+ </div>
