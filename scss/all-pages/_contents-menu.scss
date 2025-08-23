@@ -1,0 +1,250 @@
+@use "sass:map";
+
+@use "../globals" as g;
+
+.main-menu-bar {
+  background-color: g.$dark-bg;
+  position: relative;
+  margin-bottom: 10px; // cancels out absolute position of bottom wavey line
+
+  @include g.mediaQ(g.$hamburger-menu-break) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 35px;
+  }
+
+  &::after {
+    content: "";
+    background: {
+      image: url(images/menu-bottom-line.svg);
+      size: 100% 100%;
+    }
+    width: 100%;
+    height: 10px;
+    position: absolute;
+    bottom: -10px;
+    z-index: -10; // Keep below all menu items
+  }
+
+  &__search-btn {
+    display: none;
+
+    @include g.mediaQ(g.$hamburger-menu-break) {
+      display: block;
+      background: {
+        image: url(images/search.svg);
+        size: 65%;
+        position: center;
+        color: g.$red;
+      }
+      margin-right: 20px;
+      border-radius: 26px;
+      height: 80%;
+      aspect-ratio: 1 / 1;
+      cursor: pointer;
+    }
+  }
+
+  &__mobile-menu-btn {
+    @extend %menu-link;
+    cursor: pointer;
+    text-align: center;
+    display: block;
+    width: 100%;
+    padding: 0.5em 0;
+    font-family: g.$highlight-font;
+
+    @include g.mediaQ(g.$hamburger-menu-break) {
+      display: none;
+    }
+
+    &:focus-within + .mobile-menu {
+      display: block;
+    }
+  }
+
+  &__hamburger-icon {
+    background: {
+      image: url(images/hamburger.svg);
+      size: 35px 35px;
+      position: center;
+    }
+    height: 35px;
+    width: 35px;
+    display: inline-block;
+    vertical-align: text-top;
+  }
+
+  &__hamburger-text {
+    position: relative;
+    top: 8px;
+  }
+
+  &__mobile-menu {
+    text-align: center;
+    background-color: g.$dark-bg;
+    padding: 1em 0 0 0;
+    font-family: g.$highlight-font;
+    font-size: 1.4rem;
+
+    @include g.mediaQ(g.$hamburger-menu-break) {
+      display: none;
+    }
+
+    a {
+      @extend %menu-link;
+      margin-bottom: 0.8em;
+      padding: 0.2em 0;
+    }
+  }
+}
+
+.main-menu-bar__menu {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 10px;
+  display: none;
+  position: relative;
+  top: 3px;
+  font-family: g.$highlight-font;
+  letter-spacing: 0.025em;
+
+  @include g.mediaQ(g.$hamburger-menu-break) {
+    display: flex;
+  }
+
+  > li {
+    position: relative;
+    width: max-content;
+
+    &.hide-on-small {
+      display: none;
+    }
+
+    // .hide-on-small and .hide-on-big added to menu items in WP admin
+    @include g.mediaQ(g.$main-menu-contents-break) {
+      &.hide-on-small {
+        display: block;
+      }
+
+      &.hide-on-big {
+        display: none;
+      }
+    }
+
+    > a {
+      @extend %menu-link;
+      padding: 0 0.8em;
+    }
+
+    &.menu-item-has-children {
+      > a::after {
+        content: "";
+        width: 0;
+        height: 0;
+        margin-left: 7px;
+        border: {
+          top: 4px dashed;
+          right: 4px solid transparent;
+          left: 4px solid transparent;
+        } // Dropdown caret
+        display: inline-block;
+        vertical-align: middle;
+      }
+
+      &:focus-within > .sub-menu {
+        display: block;
+      }
+    }
+
+    $sub-menu-width: 180px;
+
+    .sub-menu {
+      @extend %sub-menu-dropdown;
+
+      top: 150%;
+      right: 0;
+      min-width: $sub-menu-width;
+
+      li {
+        position: relative;
+        min-width: $sub-menu-width;
+
+        a {
+          @extend %menu-link;
+
+          background: transparent;
+          padding: 0.5em 0.5em;
+          &:hover,
+          &:focus {
+            color: g.$light-text;
+          }
+        }
+      }
+    }
+  }
+
+  // All but last three children
+  > li:not(:nth-last-child(-n + 3)) {
+    .sub-menu {
+      right: unset;
+      left: 0;
+    }
+  }
+}
+
+.search-modal {
+  background-color: #000d;
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  z-index: 2000; // Must be higher than the banner (modal HTML just before footer)
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: g.$highlight-font;
+
+  &__form {
+    display: block;
+    height: 50px;
+    width: 100%;
+    padding: 0 10px;
+    text-align: center;
+
+    @include g.mediaQ(450px) {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 0;
+    }
+  }
+
+  &__input {
+    @extend %default-input;
+    width: 100%;
+    height: 100%;
+    border-radius: 50px;
+    margin-bottom: 10px;
+    padding: 0 20px;
+
+    @include g.mediaQ(450px) {
+      width: 50%;
+      max-width: 500px;
+      min-width: 300px;
+    }
+  }
+
+  &__button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background-color: g.$red;
+    color: g.$light-text;
+    height: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 100%;
+    cursor: pointer;
+  }
+}

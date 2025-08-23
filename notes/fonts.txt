@@ -1,0 +1,3 @@
+All of the fonts in the fonts folder have been subsetted for European languages.
+
+Notto has quite a large charecter set outside of this range and if needed they can be added using Font Squirel.

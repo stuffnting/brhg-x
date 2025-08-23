@@ -1,0 +1,133 @@
+@use "../globals" as g;
+@use "fp-section-spacing";
+
+%frame-scrolls {
+  content: "";
+  display: block;
+  background-position-x: center;
+  background-size: contain;
+  width: 100%;
+  position: absolute;
+}
+
+$scroll-top-height: 87px;
+$scroll-bottom-height: 74px;
+
+%frame-top-bottom {
+  content: "";
+  background-size: 100% 103%;
+  display: block;
+  width: 100%;
+  position: absolute;
+  left: 0;
+}
+
+.fp-headlines {
+  @extend %fp-headlines-spacing;
+
+  display: block;
+  justify-content: space-evenly;
+  padding: 0 5px;
+
+  @include g.mediaQ(850px) {
+    display: flex;
+  }
+
+  &__frame-outer {
+    margin: $scroll-top-height auto $scroll-bottom-height;
+    font-size: 1.2rem;
+    color: g.$light-text;
+    container-type: inline-size;
+    container-name: headline-frame;
+    position: relative;
+
+    &:not(:last-child) {
+      margin-bottom: 200px;
+    }
+
+    @include g.mediaQ(850px) {
+      width: 100%;
+      &:not(:last-child) {
+        margin-bottom: unset;
+      }
+    }
+
+    @include g.mediaQ(1500px) {
+      flex-basis: 45%;
+    }
+
+    &::before {
+      @extend %frame-scrolls;
+      background-image: url(images/headline-frame-top-scroll.svg);
+      background-position-y: bottom;
+      height: $scroll-top-height;
+      bottom: 100%;
+    }
+
+    &::after {
+      @extend %frame-scrolls;
+      background-image: url(images/headline-frame-bottom-scroll.svg);
+      background-position-y: top;
+      height: $scroll-bottom-height;
+      left: -5px;
+      margin-top: -1px;
+    }
+  }
+
+  &__frame-inner {
+    $frame-top-height: 37px;
+    $frame-bottom-height: 61px;
+
+    background-image: url(images/headline-frame-middle.svg);
+    background-size: 100% 100%;
+    width: 100%;
+    min-height: 600px;
+    padding: 0 12% 0 7%;
+    margin-top: $frame-top-height;
+    margin-bottom: $frame-bottom-height;
+    position: relative;
+
+    &::before {
+      @extend %frame-top-bottom;
+      background-image: url(images/headline-frame-top.svg);
+      height: $frame-top-height;
+      bottom: 100%;
+    }
+
+    &::after {
+      @extend %frame-top-bottom;
+      background-image: url(images/headline-frame-bottom.svg), none;
+      height: $frame-bottom-height;
+      top: 100%;
+    }
+  }
+
+  &__title {
+    font-family: g.$highlight-font;
+    font-size: 9cqw;
+    text-align: center;
+    margin: 0;
+  }
+
+  &__more {
+    text-align: center;
+  }
+}
+
+.fp-headlines-item {
+  margin-bottom: 0.5em;
+
+  &:last-child {
+    margin-bottom: 2em;
+  }
+
+  &__link {
+    color: g.$light-text;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      text-decoration: underline;
+    }
+  }
+}

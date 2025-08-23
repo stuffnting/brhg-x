@@ -1,0 +1,50 @@
+{
+    "key": "group_5baa59cd2f4f8",
+    "title": "Other People's Events",
+    "fields": [
+        {
+            "key": "field_4f83418dac671",
+            "label": "BRHG Event Filter",
+            "name": "brhg_event_filter",
+            "aria-label": "",
+            "type": "radio",
+            "instructions": "Is this a BRHG event or somebody else's event?",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "brhg": "BRHG Event",
+                "other": "Somebody Else's Event"
+            },
+            "default_value": "brhg",
+            "return_format": "value",
+            "allow_null": 0,
+            "other_choice": 0,
+            "layout": "vertical",
+            "save_other_choice": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "events"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": false,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1709208825
+}

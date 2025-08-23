@@ -1,0 +1,83 @@
+{
+    "key": "group_5baa59cd1fd63",
+    "title": "Event Series Details",
+    "fields": [
+        {
+            "key": "field_4f7c8c3106dfb",
+            "label": "Series Start Date",
+            "name": "series_start_date",
+            "aria-label": "",
+            "type": "date_picker",
+            "instructions": "Choose the start date for the Event Series. <span style=\"color:red;\" ><b>IMPORTANT! This is required.<\/b><\/span>.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33.333",
+                "class": "",
+                "id": ""
+            },
+            "display_format": "d\/m\/Y",
+            "save_format": "DD d MM yy",
+            "first_day": 1,
+            "return_format": "d\/m\/Y"
+        },
+        {
+            "key": "field_4f7c8c310f6fa",
+            "label": "Series End Date",
+            "name": "series_end_date",
+            "aria-label": "",
+            "type": "date_picker",
+            "instructions": "Enter the end date of the Event Series. This is optional; if no value is entered it is assumed the Event Series is 1 day long, e.g a series of talks at a bookfair.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33.3333",
+                "class": "",
+                "id": ""
+            },
+            "display_format": "d\/m\/Y",
+            "save_format": "DD d MM yy",
+            "first_day": 1,
+            "return_format": "d\/m\/Y"
+        },
+        {
+            "key": "field_568f8bfe7e323",
+            "label": "Front Page Slider",
+            "name": "event_series_in_slider",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "Check if this event series is to be displayed in the 'front page slider' at the top of the home page. <span style=\"color:red;\" ><b>IMPORTANT! If you select this option make sure you set a Featured Image for this Event Series<\/b><\/span>.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33.333",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "event_series"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1709204621
+}

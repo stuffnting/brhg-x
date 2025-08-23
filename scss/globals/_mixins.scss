@@ -1,0 +1,61 @@
+@use "colours" as c;
+@use "placeholders";
+
+@mixin mediaQ($width) {
+  @media only screen and (min-width: $width) {
+    @content;
+  }
+}
+
+@mixin defaultLink($colour: true, $decor: true, $hover: true) {
+  @if $colour {
+    @extend %default-link-colour;
+  }
+  @if $decor {
+    @extend %default-link-decor;
+  }
+  @if $hover {
+    @extend %default-link-hover;
+  }
+}
+
+@mixin defaultTextItems($p: true, $ul: true, $ol: true, $blockquote: true) {
+  @if $p {
+    & p {
+      @extend %default-text;
+      @extend %default-v-space;
+    }
+  }
+  @if $ul {
+    & ul {
+      @extend %default-text;
+      @extend %default-v-space;
+
+      & li {
+        @extend %default-ul-li;
+        @extend %default-x-space;
+      }
+    }
+  }
+  @if ol {
+    & ol {
+      @extend %default-x-space;
+      list-style-type: decimal;
+      list-style-position: outside;
+
+      & li {
+        margin-left: 1.1em;
+      }
+    }
+  }
+  @if $blockquote {
+    & blockquote {
+      @extend %default-text;
+      @extend %default-v-space;
+      @extend %default-x-space;
+      & footer {
+        text-align: right;
+      }
+    }
+  }
+}

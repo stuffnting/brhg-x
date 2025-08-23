@@ -1,0 +1,45 @@
+{
+    "key": "group_65f04e35507f5",
+    "title": "Publication Range Taxonomy Meta",
+    "fields": [
+        {
+            "key": "field_65f04e36bb124",
+            "label": "Range Name Abbreviation",
+            "name": "range_name_abbreviation",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Enter an abbreviation for the publication range. <span style=\"color: red;\">Maximum, 3 letters.<\/span>.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": 3,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "taxonomy",
+                "operator": "==",
+                "value": "pub_range"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1710247844
+}

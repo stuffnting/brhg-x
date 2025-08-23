@@ -1,0 +1,212 @@
+@use "../globals" as g;
+@use "pc-spacing";
+
+%pre-sub-titles {
+  text-align: center;
+  font-size: clamp(20px, 3vw, 25px);
+  font-weight: 700;
+}
+
+.page-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+
+  &__title-wrap {
+    & a {
+      @include g.defaultLink(true, false, true);
+    }
+  }
+
+  &__pre-title {
+    @extend %pre-sub-titles;
+    @extend %ph-pre-title-spacing;
+  }
+
+  &__title {
+    @extend %ph-title-spacing;
+
+    font-size: clamp(28px, 5vw, 45px);
+    text-align: center;
+  }
+
+  &__sub-title {
+    @extend %pre-sub-titles;
+  }
+
+  &__after-title {
+    @extend %ph-after-title;
+
+    font-size: 1.2rem;
+    text-align: center;
+  }
+
+  &__archive-intro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: g.$main-text-width;
+    margin: 0 auto;
+
+    @include g.defaultTextItems();
+
+    & a {
+      @include g.defaultLink();
+    }
+  }
+
+  &__search-title {
+    font-weight: 800;
+    text-align: center;
+    font-size: 1.4rem;
+    margin-bottom: 1em;
+  }
+
+  &__searched-for {
+    color: g.$mid-text;
+  }
+
+  &__pale-rule {
+    @extend %ph-pale-rule-spacing;
+    border-bottom: 1px solid g.$border-rule;
+  }
+}
+
+// Filter archive button
+.archive-filter {
+  display: inline-flex;
+  flex-direction: column;
+  position: relative;
+  margin: 0 auto;
+
+  &:focus-within .archive-filter__dropdown {
+    display: block;
+  }
+
+  &__btn {
+    @extend %default-button;
+  }
+
+  &__dropdown {
+    @extend %sub-menu-dropdown;
+
+    top: 110%;
+    left: 0;
+    min-width: 180px;
+    list-style: none;
+
+    & a {
+      @extend %menu-link;
+
+      padding: 0.5em 0.5em;
+    }
+  }
+}
+
+// Event series that are current and forthcoming
+.current-series {
+  @extend %default-text;
+  @extend %ph-current-series-spacing;
+
+  max-width: g.$main-text-width;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+
+  &__title {
+    font-weight: 800;
+  }
+
+  &__link {
+    @include g.defaultLink;
+  }
+}
+
+.search-form {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 10px;
+  width: 90%;
+  max-width: g.$main-text-width;
+  margin: 50px auto;
+
+  &__input {
+    @extend %default-input;
+    width: 100%;
+    max-width: 400px;
+  }
+
+  &__btn {
+    @extend %default-button;
+  }
+}
+
+.search-filter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: g.$main-text-width;
+  margin: 0 auto;
+
+  &__form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 0 4%;
+    margin-bottom: 50px;
+
+    @include g.mediaQ(g.$main-text-width) {
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+
+  &__fieldset {
+    width: 90%;
+
+    @include g.mediaQ(g.$main-text-width) {
+      width: 48%;
+    }
+  }
+
+  &__field-name {
+    @extend %default-text;
+    font-weight: 800;
+    display: block;
+  }
+
+  &__field-description {
+    @extend %default-text;
+    font-size: small;
+    display: block;
+  }
+
+  &__select {
+    width: 100%;
+    border: 1px solid g.$form-input-border;
+    padding: 6px 0;
+    margin: 25px 0;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+
+  &__option {
+    padding: 0 12px;
+    white-space: nowrap;
+
+    &:checked {
+      background-color: g.$midLight-bg;
+    }
+  }
+
+  &__btn {
+    @extend %default-button;
+  }
+}

@@ -1,0 +1,58 @@
+@use "globals" as g;
+
+strong,
+b {
+  font-weight: 800;
+}
+
+em,
+i {
+  font-style: italic;
+}
+
+.q-list {
+  @extend %default-text;
+  @extend %default-v-space;
+
+  & li {
+    @extend %default-ul-li;
+    @extend %default-x-space;
+  }
+}
+
+.brhg-body {
+  font-family: g.$main-font;
+  line-height: 1.6;
+  color: g.$dark-text;
+}
+
+.site-header {
+  position: relative;
+  z-index: 1000; // Keep all menu dropdowns above other content
+}
+
+.torso {
+  min-height: calc(100vh - 500px);
+  padding: 0 10px;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+#tns1-iw,
+.cli-barmodal-open,
+.cli-modal-open,
+.modal-open,
+.tns-ovh {
+  overflow: hidden;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}

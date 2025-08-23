@@ -1,0 +1,22 @@
+{
+    "key": "ui_options_page_65f97083e675a",
+    "title": "BRHG Details",
+    "active": true,
+    "menu_order": 0,
+    "page_title": "BRHG Details",
+    "menu_slug": "brhg-details",
+    "parent_slug": "none",
+    "advanced_configuration": 1,
+    "icon_url": "dashicons-id-alt",
+    "menu_title": "BRHG Details",
+    "position": "",
+    "redirect": 0,
+    "description": "Details about BRHG, such as, address, email address etc.",
+    "update_button": "Update",
+    "updated_message": "Options Updated",
+    "capability": "manage_options",
+    "data_storage": "options",
+    "post_id": "",
+    "autoload": 0,
+    "modified": 1710846475
+}

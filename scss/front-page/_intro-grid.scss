@@ -1,0 +1,137 @@
+@use "../globals" as g;
+
+// Grid ignores this element
+#front-page-featured {
+  display: contents;
+}
+
+// Grid areas
+#front-page-about {
+  grid-area: ABT;
+
+  @include g.mediaQ(g.$front-page-intro-grid-bp-x-small) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+  }
+}
+
+#featured-item-1 {
+  & .fp-featured-item__title {
+    grid-area: F1T;
+  }
+
+  & .fp-featured-item__image-link {
+    grid-area: F1I;
+  }
+
+  & .fp-featured-item__text {
+    grid-area: F1C;
+  }
+
+  & .fp-featured-item__btn-wrapper {
+    grid-area: F1B;
+  }
+
+  &-hr {
+    grid-area: F1H;
+  }
+}
+
+#featured-item-2 {
+  & .fp-featured-item__title {
+    grid-area: F2T;
+  }
+  & .fp-featured-item__image-link {
+    grid-area: F2I;
+  }
+  & .fp-featured-item__text {
+    grid-area: F2C;
+  }
+  & .fp-featured-item__btn-wrapper {
+    grid-area: F2B;
+  }
+}
+
+#featured-item-3 {
+  & .fp-featured-item__title {
+    grid-area: F3T;
+  }
+
+  & .fp-featured-item__image-link {
+    grid-area: F3I;
+  }
+
+  & .fp-featured-item__text {
+    grid-area: F3C;
+  }
+
+  & .fp-featured-item__btn-wrapper {
+    grid-area: F3B;
+  }
+}
+
+#featured-item-4 {
+  & .fp-featured-item__title {
+    grid-area: F4T;
+  }
+  & .fp-featured-item__image-link {
+    grid-area: F4I;
+  }
+  & .fp-featured-item__text {
+    grid-area: F4C;
+  }
+  & .fp-featured-item__btn-wrapper {
+    grid-area: F4B;
+  }
+}
+
+#front-page-intro {
+  @include g.mediaQ(g.$front-page-intro-grid-bp-x-small) {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0 30px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas:
+      "ABT ABT ABT"
+      "F1T F1T F1T"
+      "F1I F1C F1C"
+      "F1B F1B F1B"
+      "F2T F2T F2T"
+      "F2I F2C F2C"
+      "F2B F2B F2B"
+      "F3T F3T F3T"
+      "F3I F3C F3C"
+      "F3B F3B F3B"
+      "F4T F4T F4T"
+      "F4I F4C F4C"
+      "F4B F4B F4B";
+  }
+
+  @include g.mediaQ(g.$front-page-intro-grid-bp-medium) {
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-areas:
+      "ABT ABT ABT ABT ABT ABT"
+      "ABT ABT ABT ABT ABT ABT"
+      "ABT ABT ABT ABT ABT ABT"
+      "F1T F1T F1T F2T F2T F2T"
+      "F1I F1C F1C F2I F2C F2C"
+      "F1B F1B F1B F2B F2B F2B"
+      "F3T F3T F3T F4T F4T F4T"
+      "F3I F3C F3C F4I F4C F4C"
+      "F3B F3B F3B F4B F4B F4B";
+  }
+
+  @include g.mediaQ(g.$front-page-intro-grid-bp-large) {
+    grid-template-columns: repeat(18, 1fr);
+    grid-template-areas:
+      "ABT ABT ABT ABT ABT ABT ABT ABT ABT F1I F1I F1I F1T F1T F1T F1T F1T F1T"
+      "ABT ABT ABT ABT ABT ABT ABT ABT ABT F1I F1I F1I F1C F1C F1C F1C F1C F1C"
+      "ABT ABT ABT ABT ABT ABT ABT ABT ABT F1I F1I F1I F1B F1B F1B F1B F1B F1B"
+      "ABT ABT ABT ABT ABT ABT ABT ABT ABT F1H F1H F1H F1H F1H F1H F1H F1H F1H"
+      "F2T F2T F2T F2T F2T F2T F3T F3T F3T F3T F3T F3T F4T F4T F4T F4T F4T F4T"
+      "F2I F2I F2C F2C F2C F2C F3I F3I F3C F3C F3C F3C F4I F4I F4C F4C F4C F4C"
+      "F2B F2B F2B F2B F2B F2B F3B F3B F3B F3B F3B F3B F4B F4B F4B F4B F4B F4B";
+    grid-template-rows: auto 1fr auto auto auto auto auto auto;
+  }
+}

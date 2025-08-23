@@ -1,0 +1,28 @@
+/*!
+  Theme Name:        BRHG X
+  Theme URI:         https://brh.org.uk
+  Description:       Complete CSS overhaul
+  Version:           1.0.0
+  Author:            Randell Brantley
+  Author URI:        https://brh.org.uk
+  Tags:              classic, template
+  Text Domain:       fabled-sunset
+  Domain Path:       /assets/lang
+  Tested up to:      6.8
+  Requires at least: 6.8
+  Requires PHP:      8.0
+  License:           GNU General Public License v2.0 or later
+  License URI:       https://www.gnu.org/licenses/gpl-2.0.html
+ */
+
+// Get stuff
+@use "reset";
+@use "font-faces";
+@use "general";
+@use "vendor/tiny-slider";
+@use "all-pages/banner";
+@use "all-pages/contents-menu";
+@use "all-pages/torso";
+@use "all-pages/footer";
+@use "front-page";
+@use "page-components";

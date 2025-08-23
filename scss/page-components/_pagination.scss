@@ -1,0 +1,65 @@
+@use "../globals" as g;
+
+%link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.archive-p8n {
+  display: flex;
+  justify-content: end;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  @at-root .archive-p8n--alpha {
+    justify-content: center;
+  }
+
+  &__ul {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__li {
+    border: 1px solid g.$pagination-borders;
+    border-right: none;
+    margin-left: -1px;
+    margin-bottom: 5px;
+    width: 40px;
+    height: 40px;
+    color: g.$red;
+    font-weight: 700;
+
+    &:first-child {
+      border-radius: 5px 0 0 5px;
+    }
+
+    &:last-child {
+      border-right: 1px solid g.$pagination-borders;
+      border-radius: 0 5px 5px 0;
+    }
+
+    &--current {
+      color: g.$pagination-current-text;
+      background-color: g.$pagination-current-bg;
+    }
+  }
+
+  &__link {
+    @extend %link;
+
+    cursor: pointer;
+
+    &:hover {
+      background-color: g.$pagination-hover;
+    }
+  }
+
+  &__no-link {
+    @extend %link;
+  }
+}

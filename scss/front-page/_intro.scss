@@ -1,0 +1,198 @@
+@use "intro-grid";
+
+@use "../globals" as g;
+@use "fp-section-spacing";
+
+.fp-intro {
+  @extend %fp-intro-spacing;
+  display: block;
+  width: 100%;
+  padding: 0 15px;
+
+  & p {
+    margin-bottom: 1em;
+  }
+
+  & img {
+    width: 100%;
+    display: block;
+  }
+}
+
+@mixin introButtonHover {
+  &:hover {
+    color: g.$light-text;
+  }
+}
+
+%intro-button {
+  font-weight: 800;
+  text-align: center;
+  padding: 3px;
+  margin-top: 5px;
+
+  @include introButtonHover;
+}
+
+.fp-about {
+  background-color: g.$red;
+  color: g.$light-text;
+  font-weight: 700;
+  padding: 50px 5vw 30px;
+  z-index: -5;
+  position: relative;
+  margin-right: -25px; // Pull background flush .front-page-intro padding 10px + .page padding 15px
+  margin-left: -25px;
+
+  @include g.mediaQ(g.$front-page-intro-grid-bp-large) {
+    padding: 30px;
+    z-index: 0;
+    margin: 0;
+  }
+
+  &__logo {
+    margin: -10px 0 20px;
+  }
+
+  &__text-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    @include g.mediaQ(g.$front-page-intro-grid-bp-large) {
+      justify-content: space-between;
+    }
+  }
+
+  &__btn {
+    @extend %intro-button;
+    color: g.$red;
+    background-color: g.$accent;
+  }
+}
+
+.fp-featured-item {
+  @include g.mediaQ(g.$front-page-intro-grid-bp-x-small) {
+    display: contents;
+  }
+
+  &__title {
+    place-self: end start;
+    width: 100%;
+    font-family: g.$highlight-font;
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1.3em;
+    margin: 80px 0 0.5em;
+    padding-bottom: 0.5em;
+    border-bottom: 1px solid g.$red;
+
+    @include g.mediaQ(g.$front-page-intro-grid-bp-x-small) {
+      font-size: clamp(20px, 4vw, 28px);
+      text-align: left;
+    }
+
+    @include g.mediaQ(g.$front-page-intro-grid-bp-medium) {
+      font-size: 20px;
+      text-align: left;
+    }
+  }
+
+  @at-root .fp-featured-item--1 &__title {
+    @include g.mediaQ(g.$front-page-intro-grid-bp-large) {
+      margin-top: 0;
+      font-size: clamp(20px, 1.5vw, 24px);
+    }
+  }
+
+  &__title-link {
+    @include g.defaultLink(true, false, true);
+  }
+
+  &__text {
+    font-size: 16px;
+    margin-top: 0;
+
+    @include g.mediaQ(g.$front-page-intro-grid-bp-small) {
+      margin-top: 0;
+      margin-left: -15px;
+      width: calc(100% + 15px);
+    }
+
+    @include g.mediaQ(g.$front-page-intro-grid-bp-medium) {
+      font-size: 14px;
+    }
+
+    & ul {
+      font-size: 0.9em;
+      margin-top: 0;
+      padding-left: 1.2em;
+    }
+  }
+
+  &__image-link {
+    display: block;
+    aspect-ratio: 1 / 1.414135;
+    overflow: hidden;
+    margin-bottom: 20px;
+
+    @include g.mediaQ(g.$front-page-intro-grid-bp-x-small) {
+      margin-bottom: 0;
+    }
+
+    & img {
+      border: 1px solid g.$image-border;
+    }
+  }
+
+  &__btn-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    margin-top: 5px;
+  }
+
+  &__btn {
+    color: g.$yellow;
+    background-color: g.$red;
+
+    @extend %intro-button;
+  }
+
+  @at-root .fp-featured-item--1 {
+    @include g.mediaQ(g.$front-page-intro-grid-bp-large) {
+      & .fp-featured-item__text {
+        margin-left: 0;
+        width: 100%;
+        font-weight: 700;
+        font-size: 16px;
+      }
+
+      & .fp-featured-item__btn-wrapper {
+        padding-bottom: calc(30px - 3px - 5px);
+        margin: 0;
+      }
+
+      & .fp-featured-item__btn {
+        color: g.$red;
+        background-color: g.$yellow;
+
+        @include introButtonHover;
+      }
+    }
+  }
+}
+
+.fp-featured-item__item-1-hr {
+  display: none;
+
+  @include g.mediaQ(g.$front-page-intro-grid-bp-large) {
+    display: block;
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 0;
+    border: 0;
+    border-bottom: 3px solid g.$red;
+  }
+}

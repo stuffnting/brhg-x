@@ -1,0 +1,163 @@
+{
+    "key": "group_5baa59cd0dcbf",
+    "title": "Event Details",
+    "fields": [
+        {
+            "key": "field_4f7c24905eb88",
+            "label": "Start Date",
+            "name": "start_date",
+            "aria-label": "",
+            "type": "date_picker",
+            "instructions": "Choose a start date for the event. <span style=\"color:red;\" ><b>IMPORTANT! This is required<\/b><\/span>.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "display_format": "d\/m\/Y",
+            "save_format": "DD d MM yy",
+            "first_day": 1,
+            "return_format": "d\/m\/Y"
+        },
+        {
+            "key": "field_4f7c24906a886",
+            "label": "Start Time",
+            "name": "start_time",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Choose a start time for the event, <span style=\"color:red;\" ><b>IMPORTANT! use the 24 hour clock e.g. 19:30 or 1930<\/b><\/span>.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_4f7c2490755ac",
+            "label": "End Date",
+            "name": "end_date",
+            "aria-label": "",
+            "type": "date_picker",
+            "instructions": "Enter an end date for the event. If you do not enter one it is assumed that the event finishes on the same day as it starts.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "display_format": "d\/m\/Y",
+            "save_format": "DD d MM yy",
+            "first_day": 1,
+            "return_format": "d\/m\/Y"
+        },
+        {
+            "key": "field_4f7c249080396",
+            "label": "End Time",
+            "name": "end_time",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Enter an end time for the event if it has one. This is optional. <span style=\"color:red;\" ><b>IMPORTANT! use the 24 hour clock e.g. 19:30 or 1930<\/b><\/span>.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_4f7c24908b114",
+            "label": "Price",
+            "name": "price",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Enter the price for entry to the event. e.g. Donation, £4\/3 or £4 but no one refused due to lack of funds.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33.33333",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_5e0b7392c7e5a",
+            "label": "Location within venue",
+            "name": "location",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Enter the location within the venue for the event; e.g. Room 101. If there is no location, leave blank. The venue is set using the 'Connected Venues' controls below.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33.33333",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_5e132639e9c2c",
+            "label": "Event Subset",
+            "name": "subset",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Enter a subset of events to which this event belongs; e.g. exhibitions, events on day 1, walks etc. Event Subsets can be used to split up the programme list on the Event Series page. If the events list in the Event Series are to be listed in a single block, this can be left blank.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33.33333",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "events"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1709123669
+}

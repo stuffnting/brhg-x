@@ -1,0 +1,215 @@
+{
+    "key": "group_5baa59cd4f5f0",
+    "title": "Venue Detail",
+    "fields": [
+        {
+            "key": "field_56cf4b6e2bce1",
+            "label": "Address Line 1",
+            "name": "venue_address1",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Enter the address of the Venue. You don't need to enter all three lines but Venues must have a postcode.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "formatting": "html",
+            "maxlength": ""
+        },
+        {
+            "key": "field_56cf5005bfa02",
+            "label": "Address Line 2",
+            "name": "venue_address2",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "formatting": "html",
+            "maxlength": ""
+        },
+        {
+            "key": "field_56cf5023bfa03",
+            "label": "Address Line 3",
+            "name": "venue_address3",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "formatting": "html",
+            "maxlength": ""
+        },
+        {
+            "key": "field_56cf4c482bce2",
+            "label": "Postcode",
+            "name": "venue_postcode",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "<span style=\"color:red;\" ><b>IMPORTANT! This is required<\/b><\/span> Enter the venue's postcode",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "formatting": "html",
+            "maxlength": ""
+        },
+        {
+            "key": "field_56cf504811f4b",
+            "label": "Address City",
+            "name": "venue_city",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Enter the city, e.g. Bristol",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "center_lat": 51.457095600000002,
+            "center_lng": -2.5925802999999998,
+            "zoom": 16,
+            "height": 400,
+            "return_format": "leaflet",
+            "allow_map_layers": 1,
+            "max_markers": "",
+            "layers": [
+                "OpenStreetMap.Mapnik"
+            ],
+            "key": "field_5e4af64daedb3",
+            "label": "OpenStreetMap",
+            "name": "openstreetmap-venue",
+            "aria-label": "",
+            "type": "open_street_map",
+            "instructions": "Search for the venue's postcode, then click and drag the marker to the exact location. Zoom in or out to taste, and centre the map as you wish. Add the marker pop-up text in the field below the map.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "leaflet_map": "{\"lat\":51.4570956,\"lng\":-2.5925803,\"zoom\":16,\"layers\":[\"OpenStreetMap.Mapnik\"],\"markers\":[]}"
+        },
+        {
+            "key": "field_56cf4c6c2bce3",
+            "label": "Phone Number",
+            "name": "venue_phone",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Enter the venue's phone number. Optional.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "formatting": "html",
+            "maxlength": ""
+        },
+        {
+            "key": "field_56cf4d2b0dbb7",
+            "label": "email",
+            "name": "venue_email",
+            "aria-label": "",
+            "type": "email",
+            "instructions": "Enter the venue's email address. Optional.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_56cf4c862bce4",
+            "label": "Website",
+            "name": "venue_website",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Enter the venue's website address.  <span style=\"color: red; font-weight: bold;\">Include http:\/\/ or https:\/\/<\/span>. Optional.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "venues"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "acf_after_title",
+    "style": "seamless",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1705510689
+}

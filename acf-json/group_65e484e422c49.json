@@ -1,0 +1,159 @@
+{
+    "key": "group_65e484e422c49",
+    "title": "Publication Prices Root",
+    "fields": [
+        {
+            "key": "field_65d1eefa88310",
+            "label": "Range Number",
+            "name": "range_number",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "Leave blank.  Auto-fill.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "8",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "min": "",
+            "max": "",
+            "placeholder": "Leave blank",
+            "step": "",
+            "prepend": "#",
+            "append": ""
+        },
+        {
+            "key": "field_65d1128d336b6",
+            "label": "Publication",
+            "name": "publication",
+            "aria-label": "",
+            "type": "post_object",
+            "instructions": "Select a pamphlet",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "pamphlets"
+            ],
+            "post_status": [
+                "publish"
+            ],
+            "taxonomy": "",
+            "return_format": "id",
+            "multiple": 0,
+            "allow_null": 0,
+            "bidirectional": 0,
+            "ui": 1,
+            "bidirectional_target": []
+        },
+        {
+            "key": "field_65d1be5089086",
+            "label": "Price",
+            "name": "price",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "Enter the price as a number with 2 decimal places but without £, e.g. 3.00.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "12",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "0.00",
+            "min": "",
+            "max": "",
+            "placeholder": "0.00",
+            "step": "0.01",
+            "prepend": "£",
+            "append": ""
+        },
+        {
+            "key": "field_65d1bf95db70d",
+            "label": "Shipping",
+            "name": "shipping",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "Enter the price as a number with 2 decimal places but without £, e.g. 3.00.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "12",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "0.00",
+            "min": "",
+            "max": "",
+            "placeholder": "",
+            "step": "0.01",
+            "prepend": "£",
+            "append": ""
+        },
+        {
+            "key": "field_65d22591b31c3",
+            "label": "For Sale",
+            "name": "for_sale",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "Is the pamphlet currently for sale on the website?",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "15",
+                "class": "",
+                "id": ""
+            },
+            "message": "For sale?",
+            "default_value": 1,
+            "ui_on_text": "",
+            "ui_off_text": "",
+            "ui": 1
+        },
+        {
+            "key": "field_65e493189ece7",
+            "label": "Notes",
+            "name": "notes",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Anything else?",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": false,
+    "description": "Contains the fields that are cloned into the publication ranges' price repeaters.",
+    "show_in_rest": 0,
+    "modified": 1709499132
+}

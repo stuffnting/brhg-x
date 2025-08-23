@@ -1,0 +1,31 @@
+{
+  "folders": [
+    {
+      "path": ".."
+    }
+  ],
+  "settings": {
+    "liveSassCompile.settings.formats": [
+      {
+        "format": "expanded",
+        "extensionName": ".css",
+        "savePath": "/"
+      }
+    ],
+    "cSpell.words": [
+      "ABSPATH",
+      "atts",
+      "bloginfo",
+      "brhg",
+      "dashicons",
+      "hellip",
+      "notosans",
+      "numberposts",
+      "widefat",
+      "wpsc",
+      "wpspsc",
+      "wspsc"
+    ],
+    "intelephense.diagnostics.undefinedTypes": false
+  }
+}

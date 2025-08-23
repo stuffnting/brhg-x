@@ -1,0 +1,92 @@
+{
+    "key": "group_6873ad673325e",
+    "title": "Publication Orders GDPR Form",
+    "fields": [
+        {
+            "key": "field_6873b73a7fe98",
+            "label": "Personal information removal settings",
+            "name": "order_gdpr_dates",
+            "aria-label": "",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "layout": "row",
+            "sub_fields": [
+                {
+                    "key": "field_6874c0625132d",
+                    "label": "Number of weeks to keep",
+                    "name": "order_gdpr_weeks_keep",
+                    "aria-label": "",
+                    "type": "number",
+                    "instructions": "How many weeks of orders do you want to retain with personal details intact?",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "25",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": 12,
+                    "min": 0,
+                    "max": "",
+                    "allow_in_bindings": 0,
+                    "placeholder": "",
+                    "step": 1,
+                    "prepend": "",
+                    "append": "Weeks"
+                },
+                {
+                    "key": "field_6873b806f83a5",
+                    "label": "Query and process",
+                    "name": "process_gdpr_details",
+                    "aria-label": "",
+                    "type": "radio",
+                    "instructions": "\"Query only\" performs the query with out deleting any personal details.\r\n\"Query and process\" will delete the personal details from the orders found by the query.",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "25",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": [
+                        "Query only",
+                        "Query and process"
+                    ],
+                    "default_value": "false",
+                    "return_format": "value",
+                    "allow_null": 0,
+                    "other_choice": 0,
+                    "allow_in_bindings": 0,
+                    "layout": "vertical",
+                    "save_other_choice": 0
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "add_new_options_page"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": false,
+    "description": "Used by the form that deletes personal information from sales records.",
+    "show_in_rest": 0,
+    "modified": 1752764013
+}

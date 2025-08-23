@@ -1,0 +1,23 @@
+{
+    "key": "ui_options_page_65d0f680ec84e",
+    "title": "Shop Settings",
+    "active": true,
+    "menu_order": 0,
+    "page_title": "Shop Settings",
+    "menu_slug": "shop-settings",
+    "parent_slug": "publication-orders-gdpr",
+    "advanced_configuration": 1,
+    "icon_url": "",
+    "menu_title": "Publications Prices",
+    "position": "",
+    "redirect": false,
+    "description": "Sets the prices of all the pamphlets sold on this site",
+    "menu_icon": [],
+    "update_button": "Update",
+    "updated_message": "Options Updated",
+    "capability": "manage_options",
+    "data_storage": "options",
+    "post_id": "",
+    "autoload": 0,
+    "modified": 1753107692
+}

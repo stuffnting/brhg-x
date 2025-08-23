@@ -1,0 +1,203 @@
+{
+    "key": "group_5baa59cd36ebc",
+    "title": "Pamphlet Details",
+    "fields": [
+        {
+            "key": "field_4f834448a7039",
+            "label": "Pamphlet Number",
+            "name": "pamphlet_number",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "Enter the publication number as an integer, e.g. 1 or 15. Each publication range is numbered separately, the range is selected above.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33.3333333",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "min": "",
+            "max": "",
+            "allow_in_bindings": 1,
+            "placeholder": "",
+            "step": 1,
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_58a069afcf0f7",
+            "label": "Edition",
+            "name": "edition",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Add the year and edition, e.g.  2016 - for a 1st edition, or 2nd Edition 2016 (1st Edition 2014) - for  subsequent editions.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33.3333333",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 1,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_58a06753eebe0",
+            "label": "ISBN",
+            "name": "isbn",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Enter the ISBN.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33.3333333",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 1,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_4f8f43614f5df",
+            "label": "Front Cover",
+            "name": "pam_front_cover",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "Select the file to use as the front cover image. You will probably want to select this for the Featured Image as well.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "id",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "preview_size": "thumbnail"
+        },
+        {
+            "key": "field_4f8f48faa9e3f",
+            "label": "Back Cover",
+            "name": "pam_back_cover",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "Select an image for the back cover.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "id",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "preview_size": "thumbnail"
+        },
+        {
+            "key": "field_56bbb11ac1a57",
+            "label": "Number of Pages",
+            "name": "number_of_pages",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Enter the number of pages in the publication as a plain number.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33.3333333",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 1,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_66aaaa5b8b953",
+            "label": "Number of images",
+            "name": "number_of_images",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33.3333333",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 1,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_65f19c267f013",
+            "label": "Format",
+            "name": "format",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Enter the format of the publication: <br>\r\nstapled = <b>Stapled Pamphlet<\/b>, <br>\r\nperfect binding up to 100 pp = <b>Bound Booklet<\/b>,<br>\r\nperfect binding over 100 pp = <b>Paperback Book<\/b>",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33.33333",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 1,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "pamphlets"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1727119530
+}

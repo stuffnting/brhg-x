@@ -1,0 +1,47 @@
+@use "sass:map";
+
+$black: #000000;
+$white: #ffffff;
+$red: #a40000;
+$yellow: #ffbd21;
+$pink: #f08080; // lightcoral
+$greys: (
+  "light": #eeeeee,
+  "midLight": #cccccc,
+  "mid": #999999,
+  "midDark": #666666,
+  "dark": #303030,
+);
+
+$primary: $red;
+$accent: $yellow;
+
+$light-text: $white;
+$midLight-text: map.get($greys, midLight); // Main menu
+$mid-text: map.get($greys, mid); // Grey text
+$dark-text: map.get($greys, dark);
+
+$light-bg: $white;
+$midLight-bg: map.get($greys, midLight);
+$midDark-bg: map.get($greys, dark);
+$dark-bg: $black;
+
+$default-link: $primary;
+$default-link-underline: $pink;
+
+$border-rule: map.get($greys, light);
+
+$pagination-borders: map.get($greys, midLight);
+$pagination-hover: map.get($greys, light);
+$pagination-current-text: $light-text;
+$pagination-current-bg: $red;
+
+$image-border: map.get($greys, light);
+$image-border-dark: map.get($greys, dark);
+
+$form-input-border: $red;
+
+$menu-border: map.get($greys, midDark);
+
+$poster-hover-title: $light-text;
+$poster-hover-background: #00000080; // hex 80 = 50%

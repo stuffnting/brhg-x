@@ -1,0 +1,225 @@
+{
+    "key": "group_65dcca5f45109",
+    "title": "Pamphlet Reviews",
+    "fields": [
+        {
+            "key": "field_65dcd13c32add",
+            "label": "Pamphlet Reviews",
+            "name": "pamphlet_reviews",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "Enter the pamphlet's reviews below.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "pagination": 0,
+            "min": 0,
+            "max": 0,
+            "collapsed": "field_65dccbc6c6b9a",
+            "button_label": "Add Review",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_65dccb230518d",
+                    "label": "Text",
+                    "name": "pamphlet_review_text",
+                    "aria-label": "",
+                    "type": "textarea",
+                    "instructions": "Paste in the main text for the review. Allowed HTML tags are: p, a, b, i, em and strong.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "65",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "allow_in_bindings": 1,
+                    "rows": 4,
+                    "placeholder": "Paste review here...",
+                    "new_lines": "wpautop",
+                    "parent_repeater": "field_65dcd13c32add"
+                },
+                {
+                    "key": "field_688a1c2e3885d",
+                    "label": "Split the review?",
+                    "name": "pamphlet_review_split",
+                    "aria-label": "",
+                    "type": "true_false",
+                    "instructions": "If this is a long review, do you want to split it?",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "allow_in_bindings": 0,
+                    "ui_on_text": "Split",
+                    "ui_off_text": "Don't split",
+                    "ui": 1,
+                    "parent_repeater": "field_65dcd13c32add"
+                },
+                {
+                    "key": "field_65dccbc6c6b9a",
+                    "label": "Source",
+                    "name": "pamphlet_review_source",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Add the review source, e.g. Joe Bloggs, Professor of Stuff at The Academy of Stuff.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "Source...",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_65dcd13c32add"
+                },
+                {
+                    "key": "field_65dccc44c6b9b",
+                    "label": "Link type",
+                    "name": "pamphlet_review_link_type",
+                    "aria-label": "",
+                    "type": "radio",
+                    "instructions": "Choose  'No link' if there is no link needed.\r\nChoose 'Add link to the source' to add a link to the review source text.\r\nChoose 'Add link with other text' to add extra text with a link, e.g. Read the full review...",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "33.3",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "none": "No link",
+                        "source": "Add link to the source",
+                        "text": "Add link with other text"
+                    },
+                    "default_value": "none",
+                    "return_format": "value",
+                    "allow_null": 0,
+                    "other_choice": 0,
+                    "layout": "vertical",
+                    "save_other_choice": 0,
+                    "parent_repeater": "field_65dcd13c32add"
+                },
+                {
+                    "key": "field_65dccd97c6b9c",
+                    "label": "Link",
+                    "name": "pamphlet_review_link",
+                    "aria-label": "",
+                    "type": "url",
+                    "instructions": "Add the link",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_65dccc44c6b9b",
+                                "operator": "!=",
+                                "value": "none"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "66.7",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "parent_repeater": "field_65dcd13c32add"
+                },
+                {
+                    "key": "field_65dceb7f565c3",
+                    "label": "Link is citation?",
+                    "name": "pamphlet_review_link_cite",
+                    "aria-label": "",
+                    "type": "true_false",
+                    "instructions": "Does the link lead to a webpage from which the review was taken? Set to 'Yes', and a 'cite' attribute is added to the &lt;blockquote&gt; tag.",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_65dccc44c6b9b",
+                                "operator": "!=",
+                                "value": "none"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "33.3",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "ui_on_text": "Yes",
+                    "ui_off_text": "No",
+                    "ui": 1,
+                    "parent_repeater": "field_65dcd13c32add"
+                },
+                {
+                    "key": "field_65dcce25c6b9f",
+                    "label": "Link text",
+                    "name": "pamphlet_review_link_text",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Add the text for the link.",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_65dccc44c6b9b",
+                                "operator": "==",
+                                "value": "text"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "66.7",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "Link text here...",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_65dcd13c32add"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "pamphlets"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Pamphlet reviews.",
+    "show_in_rest": 0,
+    "modified": 1753885798
+}

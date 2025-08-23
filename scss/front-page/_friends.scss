@@ -1,0 +1,59 @@
+@use "../globals" as g;
+@use "fp-section-spacing";
+
+%front-page-friends-lines {
+  content: "";
+  display: block;
+  border-bottom: 1px solid g.$red;
+}
+
+.fp-friends {
+  @extend %fp-friends-spacing;
+
+  &::before {
+    @extend %front-page-friends-lines;
+    position: relative;
+    top: 20px;
+    z-index: -5;
+  }
+
+  &::after {
+    @extend %front-page-friends-lines;
+  }
+
+  &__header {
+    text-align: center;
+  }
+
+  &__title {
+    font-family: g.$highlight-font;
+    font-size: 1.5rem;
+    background-color: g.$light-bg;
+    display: inline-block;
+    padding: 0 50px;
+  }
+
+  &__page-link {
+    @include g.defaultLink(true, true, true);
+  }
+
+  &__items-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: space-evenly;
+    gap: 30px;
+    margin: 50px 0;
+  }
+
+  &__item-img {
+    max-width: 150px;
+    max-height: 86px;
+
+    @include g.mediaQ(g.$front-page-intro-grid-bp-small) {
+      max-width: 200px;
+      max-height: 115px;
+    }
+  }
+}

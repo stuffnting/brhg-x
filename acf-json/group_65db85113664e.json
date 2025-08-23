@@ -1,0 +1,836 @@
+{
+    "key": "group_65db85113664e",
+    "title": "Front Page Featured Items",
+    "fields": [
+        {
+            "key": "field_65dbb4329f85d",
+            "label": "About BRHG Section",
+            "name": "about_brhg_section",
+            "aria-label": "",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_65ae812ccc3fd",
+                    "label": "About text",
+                    "name": "fp_about_text",
+                    "aria-label": "",
+                    "type": "textarea",
+                    "instructions": "Enter the \"About Text\" to describe BRHG. This will appear next to the Main logo at the top-left of the front page. <span style=\"color: red; font-weight: bolder\">350 characters max.<\/b>",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": 350,
+                    "rows": "",
+                    "placeholder": "",
+                    "new_lines": "wpautop"
+                },
+                {
+                    "key": "field_65ae8461ac2dc",
+                    "label": "About button link",
+                    "name": "fp_about_button_link",
+                    "aria-label": "",
+                    "type": "page_link",
+                    "instructions": "Choose which page the \"Find out more about BRHG\" button links to.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "post_type": [
+                        "page"
+                    ],
+                    "post_status": "",
+                    "taxonomy": "",
+                    "allow_archives": 0,
+                    "multiple": 0,
+                    "allow_null": 0
+                },
+                {
+                    "key": "field_65ae8255cc3fe",
+                    "label": "About button text",
+                    "name": "fp_about_button_text",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Enter the text to use on the \"Find out more about BRHG\" button. This button appears at the bottom of the \"About Text\". <span style=\"color: red; font-weight: bolder\">30 characters max.<\/span>",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": 30,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                }
+            ]
+        },
+        {
+            "key": "field_65db8d67d7819",
+            "label": "Featured Items Order",
+            "name": "fp_order_featured_items",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "<p>There are four featured items, A to D, and four positions, 1-4.  Position 1 will appear next the About BRHG section on larger screens.<\/P>\r\n\r\n<p>Grab hold of the number and drag the featured items to the required positions.<\/p>",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "table",
+            "pagination": 0,
+            "min": 4,
+            "max": 4,
+            "collapsed": "",
+            "button_label": "Add Row",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_65db9872b75e1",
+                    "label": "Featured Item Position",
+                    "name": "fp_item_position",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_65db8d67d7819"
+                }
+            ]
+        },
+        {
+            "key": "field_65dbae8598a48",
+            "label": "Featured Item A",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 1
+        },
+        {
+            "key": "field_65aea39b2b0ce",
+            "label": "Featured item A title",
+            "name": "fp_featured_item_A_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Enter the title of the featured item A. <span style=\"color: red; font-weight: bolder\">100 characters max.<\/span>",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": 100,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_65ae9fe31d2aa",
+            "label": "Featured item A text",
+            "name": "fp_featured_item_A_text",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "Enter the text for the featured item A. <span style=\"color: red; font-weight: bolder\">450 characters max.<\/span>",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": 450,
+            "rows": "",
+            "placeholder": "",
+            "new_lines": "wpautop"
+        },
+        {
+            "key": "field_65aea0fa1d2ab",
+            "label": "Featured item A image",
+            "name": "fp_featured_item_A_image",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "Choose an image to use for the featured item A. This file should be portrait format, with the same aspect ratio as A4 (1:1.41), and at least 470px high.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "preview_size": "listing_thumbnails"
+        },
+        {
+            "key": "field_65aea1e8f353c",
+            "label": "Featured item A link",
+            "name": "fp_featured_item_A_link",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "Enter a URL for the featured item A link. The link will be placed on the image, and the button.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": ""
+        },
+        {
+            "key": "field_65aea24aa560c",
+            "label": "Featured item A button text",
+            "name": "fp_featured_item_A_button_text",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Enter the text to appear on the featured item A button. <span style=\"color: red; font-weight: bolder\">60 characters max.<\/span>",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": 60,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_65dbaeec1724c",
+            "label": "Featured Item B",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_65aeb17d847e6",
+            "label": "Featured item B title",
+            "name": "fp_featured_item_B_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Enter the title of featured item B. <span style=\"color: red; font-weight: bolder\">100 characters max.<\/span>",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": 100,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_65aeb17d8845e",
+            "label": "Featured item B text",
+            "name": "fp_featured_item_B_text",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "Enter the text for featured item B. <span style=\"color: red; font-weight: bolder\">450 characters max.<\/span>",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": 450,
+            "rows": "",
+            "placeholder": "",
+            "new_lines": "wpautop"
+        },
+        {
+            "key": "field_65aeb17d8be6d",
+            "label": "Featured item B image",
+            "name": "fp_featured_item_B_image",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "Choose an image to use for featured item B. This file should be portrait format, with the same aspect ratio as A4 (1:1.41), and at least 470px high.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "preview_size": "listing_thumbnails"
+        },
+        {
+            "key": "field_65aeb17d8f7e3",
+            "label": "Featured item B link",
+            "name": "fp_featured_item_B_link",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "Enter a URL for featured item B link. The link will be placed on the image, and the button.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": ""
+        },
+        {
+            "key": "field_65aeb17d93387",
+            "label": "Featured item B button text",
+            "name": "fp_featured_item_B_button_text",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Enter the text to appear on featured item B button. <span style=\"color: red; font-weight: bolder\">60 characters max.<\/span>",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": 60,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_65dbb198d5ad3",
+            "label": "Featured Item C",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_65aeb46d8bf0d",
+            "label": "Featured item C title",
+            "name": "fp_featured_item_C_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Enter the title of featured item C. <span style=\"color: red; font-weight: bolder\">100 characters max.<\/span>",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": 100,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_65aeb46d8faa6",
+            "label": "Featured  item C text",
+            "name": "fp_featured_item_C_text",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "Enter the text for featured item C. <span style=\"color: red; font-weight: bolder\">450 characters max.<\/span>",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": 450,
+            "rows": "",
+            "placeholder": "",
+            "new_lines": "wpautop"
+        },
+        {
+            "key": "field_65aeb46d9352f",
+            "label": "Featured item C image",
+            "name": "fp_featured_item_C_image",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "Choose an image to use for featured item C. This file should be portrait format, with the same aspect ratio as A4 (1:1.41), and at least 470px high.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "preview_size": "listing_thumbnails"
+        },
+        {
+            "key": "field_65aeb46d97024",
+            "label": "Featured item C link",
+            "name": "fp_featured_item_C_link",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "Enter a URL for featured item C link. The link will be placed on the image, and the button.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": ""
+        },
+        {
+            "key": "field_65aeb46d9aadb",
+            "label": "Featured item C button text",
+            "name": "fp_featured_item_C_button_text",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Enter the text to appear on featured item C button. <span style=\"color: red; font-weight: bolder\">60 characters max<\/span>",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": 60,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_65dbb342e9c2b",
+            "label": "Featured Item D",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_65b1730c745f3",
+            "label": "Featured item D title",
+            "name": "fp_featured_item_D_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Enter the title of featured item D. <span style=\"color: red; font-weight: bolder\">100 characters max.<\/span>",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": 100,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_65b1730c77f82",
+            "label": "Featured item D text",
+            "name": "fp_featured_item_D_text",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "Enter the text for featured item D. <span style=\"color: red; font-weight: bolder\">450 characters max.<\/span>",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": 450,
+            "rows": "",
+            "placeholder": "",
+            "new_lines": "wpautop"
+        },
+        {
+            "key": "field_65b1730c7bcae",
+            "label": "Featured item D image",
+            "name": "fp_featured_item_D_image",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "Choose an image to use for featured item D. This file should be portrait format, with the same aspect ratio as A4 (1:1.41), and at least 470px high.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "preview_size": "listing_thumbnails"
+        },
+        {
+            "key": "field_65b1730c7f7b2",
+            "label": "Featured item D link",
+            "name": "fp_featured_item_D_link",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "Enter a URL for featured item link D. The link will be placed on the image, and the button.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": ""
+        },
+        {
+            "key": "field_65b1730c834ce",
+            "label": "Featured item D button text",
+            "name": "fp_featured_item_D_button_text",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Enter the text to appear on the 4th featured item button. <span style=\"color: red; font-weight: bolder\">60 characters max.<\/span>",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": 60,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_65f5714ceb22d",
+            "label": "",
+            "name": "",
+            "aria-label": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 1
+        },
+        {
+            "key": "field_65f56f53feab9",
+            "label": "Friends",
+            "name": "fp_friends",
+            "aria-label": "",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_65f57e6af07c2",
+                    "label": "Show friends section",
+                    "name": "fp_show_friends_section",
+                    "aria-label": "",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "Show?",
+                    "default_value": 1,
+                    "ui_on_text": "",
+                    "ui_off_text": "",
+                    "ui": 1
+                },
+                {
+                    "key": "field_65f56fedfeaba",
+                    "label": "Friends section title",
+                    "name": "fp_friends_title",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Enter the title to be used on the front page friends section.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_65f5754f32752",
+                    "label": "Friends page link",
+                    "name": "fp_friends_page_link",
+                    "aria-label": "",
+                    "type": "page_link",
+                    "instructions": "Select a page where details of the friends appear.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "post_type": [
+                        "page"
+                    ],
+                    "post_status": [
+                        "publish"
+                    ],
+                    "taxonomy": "",
+                    "allow_archives": 0,
+                    "multiple": 0,
+                    "allow_null": 1
+                },
+                {
+                    "key": "field_65f58273985cd",
+                    "label": "Friends page link text",
+                    "name": "fp_friends_page_link_text",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Enter the text used for the link to the page that has details about the friends.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "Find out more on the Friends page.",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                },
+                {
+                    "key": "field_65f57026feabb",
+                    "label": "Friends section items",
+                    "name": "fp_friends_repeater",
+                    "aria-label": "",
+                    "type": "repeater",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "layout": "table",
+                    "pagination": 0,
+                    "min": 0,
+                    "max": 0,
+                    "collapsed": "",
+                    "button_label": "Add Row",
+                    "rows_per_page": 20,
+                    "sub_fields": [
+                        {
+                            "key": "field_65f57058feabc",
+                            "label": "Name",
+                            "name": "fp_friends_name",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "parent_repeater": "field_65f57026feabb"
+                        },
+                        {
+                            "key": "field_65f57085feabd",
+                            "label": "Link",
+                            "name": "fp_friends_link",
+                            "aria-label": "",
+                            "type": "url",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "parent_repeater": "field_65f57026feabb"
+                        },
+                        {
+                            "key": "field_65f5709bfeabe",
+                            "label": "Logo",
+                            "name": "fp_friends_logo",
+                            "aria-label": "",
+                            "type": "image",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "array",
+                            "library": "all",
+                            "min_width": "",
+                            "min_height": "",
+                            "min_size": "",
+                            "max_width": "",
+                            "max_height": "",
+                            "max_size": "",
+                            "mime_types": "",
+                            "preview_size": "medium",
+                            "parent_repeater": "field_65f57026feabb"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "front-page"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "The settins for the front page featured items.",
+    "show_in_rest": 0,
+    "modified": 1710589488
+}

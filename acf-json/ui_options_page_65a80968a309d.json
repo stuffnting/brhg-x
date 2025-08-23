@@ -1,0 +1,22 @@
+{
+    "key": "ui_options_page_65a80968a309d",
+    "title": "Front Page Settings",
+    "active": true,
+    "menu_order": 0,
+    "page_title": "Front Page Settings",
+    "menu_slug": "front-page",
+    "parent_slug": "none",
+    "advanced_configuration": 1,
+    "icon_url": "dashicons-edit-page",
+    "menu_title": "Front Page",
+    "position": 25,
+    "redirect": 0,
+    "description": "Settings for the top section of the front page.",
+    "update_button": "Update",
+    "updated_message": "Options Updated",
+    "capability": "edit_posts",
+    "data_storage": "options",
+    "post_id": "",
+    "autoload": 0,
+    "modified": 1705937736
+}

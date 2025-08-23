@@ -1,0 +1,129 @@
+@use "../globals" as g;
+@use "placeholders" as p;
+
+$angel-skeleton-height: clamp(80px, 20vw, 145px);
+
+.banner {
+  background-color: g.$red;
+  padding: 20px 0 10px 0;
+  font-family: g.$highlight-font;
+
+  &__title-wrap {
+    display: flex;
+    justify-content: center;
+    margin-left: -26.5px; // angle is wider than skeleton, compensate to centre site title
+  }
+
+  &__site-title {
+    text-align: center;
+    margin: 0;
+    display: inline-block;
+    font-size: clamp(1rem, 10vw, 4rem);
+    line-height: 1.1;
+    overflow: hidden;
+  }
+
+  &__title-link {
+    color: g.$light-text;
+
+    &:hover {
+      text-decoration: underline;
+      text-decoration-thickness: 0.1em;
+    }
+  }
+
+  &__title-break {
+    @include g.mediaQ(g.$title-break) {
+      display: none;
+    }
+  }
+
+  &__logo-angel {
+    height: $angel-skeleton-height;
+    margin-right: 5px;
+  }
+
+  &__logo-skeleton {
+    height: $angel-skeleton-height;
+    margin-left: 10px;
+  }
+}
+
+$scroll-height: 63px;
+
+%scrolls {
+  content: "";
+  background: {
+    size: 100% 100%;
+  }
+  display: block;
+  position: absolute;
+  top: 0;
+  height: $scroll-height;
+}
+
+.top-info-menu {
+  display: none;
+  justify-content: center;
+
+  @include g.mediaQ(g.$title-break) {
+    margin-top: -68px;
+  }
+
+  @include g.mediaQ(g.$hamburger-menu-break) {
+    display: flex;
+  }
+
+  &__wrap {
+    background: {
+      image: url(images/scroll-middle.svg), none;
+      size: 100% 100%;
+    }
+
+    height: $scroll-height;
+
+    display: flex;
+    justify-content: center;
+    padding: 8px 10px 0;
+    font-size: 1.15rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    position: relative;
+
+    &::before {
+      @extend %scrolls;
+      background-image: url(images/scroll-left.svg);
+      right: 99.9%;
+      width: 56px;
+      margin-right: -1px;
+    }
+
+    &::after {
+      @extend %scrolls;
+      background-image: url(images/scroll-right.svg);
+      left: 99.9%;
+      width: 42px;
+      margin-left: -2px;
+    }
+
+    & li:not(:last-child) {
+      &::after {
+        content: "*";
+        font-size: 1rem;
+        margin: 0 10px;
+      }
+    }
+
+    & a {
+      color: g.$red;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.header-oxo {
+  @extend %oxo;
+}

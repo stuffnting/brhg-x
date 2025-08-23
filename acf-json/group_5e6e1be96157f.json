@@ -1,0 +1,51 @@
+{
+    "key": "group_5e6e1be96157f",
+    "title": "Open Street Map Only (Not Venues)",
+    "fields": [
+        {
+            "center_lat": 51.453472099999999,
+            "center_lng": -2.5726890999999998,
+            "zoom": 13,
+            "height": 400,
+            "return_format": "leaflet",
+            "allow_map_layers": 1,
+            "max_markers": "",
+            "layers": [
+                "OpenStreetMap.Mapnik"
+            ],
+            "key": "field_5e6e1cbbd4c29",
+            "label": "OpenStreetMap",
+            "name": "OSM_article_maps",
+            "aria-label": "",
+            "type": "open_street_map",
+            "instructions": "<p>Search for the venue's postcode, then click and drag the marker to the exact location. Zoom in or out to taste, and centre the map as you wish. Or, just double click on the location you wan tot mark.<\/p>\r\n<p>Add the marker pop-up text in the field below the map.<\/p>\r\n<p>To place the map in the post copy and paste the shortcode [acf field=\"OSM_article_maps\"]<\/p>",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "leaflet_map": "{\"lat\":51.4534721,\"lng\":-2.5726891,\"zoom\":13,\"layers\":[\"OpenStreetMap.Mapnik\"],\"markers\":[]}"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_taxonomy",
+                "operator": "==",
+                "value": "article_type:map"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1705510648
+}

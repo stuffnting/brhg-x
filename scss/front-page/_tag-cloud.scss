@@ -1,0 +1,16 @@
+@use "../globals" as g;
+@use "fp-section-spacing";
+
+.fp-tag-cloud {
+  @extend %fp-tag-cloud-spacing;
+
+  &__wrap {
+    text-align: justify;
+    max-width: 1600px;
+    margin: 0 auto;
+
+    & a {
+      @include g.defaultLink(true, false, true);
+    }
+  }
+}

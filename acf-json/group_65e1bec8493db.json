@@ -1,0 +1,214 @@
+{
+    "key": "group_65e1bec8493db",
+    "title": "Publication Collections",
+    "fields": [
+        {
+            "key": "field_65e1beca34d66",
+            "label": "",
+            "name": "publication_collections",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "publicaiton-collections-outer",
+                "id": ""
+            },
+            "layout": "block",
+            "pagination": 0,
+            "min": 0,
+            "max": 0,
+            "collapsed": "field_65e1bfcc34d68",
+            "button_label": "Add Collection",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_65e1bfcc34d68",
+                    "label": "Collection Title",
+                    "name": "publication_collection_title",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Enter a title for the collection.",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_65e1beca34d66"
+                },
+                {
+                    "key": "field_65e3305a7e9fb",
+                    "label": "Description",
+                    "name": "publication_collection_description",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Enter a description for this range.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_65e1beca34d66"
+                },
+                {
+                    "key": "field_65e1bf1134d67",
+                    "label": "Collection Items",
+                    "name": "pamphlet_collection_items",
+                    "aria-label": "",
+                    "type": "repeater",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "layout": "table",
+                    "min": 0,
+                    "max": 0,
+                    "collapsed": "",
+                    "button_label": "Add Publication",
+                    "rows_per_page": 20,
+                    "sub_fields": [
+                        {
+                            "key": "field_65e1c08434d69",
+                            "label": "Publication title",
+                            "name": "publication_collection_item_id",
+                            "aria-label": "",
+                            "type": "post_object",
+                            "instructions": "Select a publication by its title.",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "45",
+                                "class": "",
+                                "id": ""
+                            },
+                            "post_type": [
+                                "pamphlets"
+                            ],
+                            "post_status": [
+                                "publish"
+                            ],
+                            "taxonomy": "",
+                            "return_format": "id",
+                            "multiple": 0,
+                            "allow_null": 0,
+                            "bidirectional": 0,
+                            "ui": 1,
+                            "bidirectional_target": [],
+                            "parent_repeater": "field_65e1bf1134d67"
+                        },
+                        {
+                            "key": "field_65e2496e3110b",
+                            "label": "Range",
+                            "name": "publication_collection_item_range",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "This column will autofill with the publication range.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "30",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "Leave Blank",
+                            "prepend": "",
+                            "append": "",
+                            "parent_repeater": "field_65e1bf1134d67"
+                        },
+                        {
+                            "key": "field_65e1c0f134d6a",
+                            "label": "Number",
+                            "name": "publication_collection_item_number",
+                            "aria-label": "",
+                            "type": "number",
+                            "instructions": "Autofills with the publication number.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "15",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "min": "",
+                            "max": "",
+                            "placeholder": "Leave blank",
+                            "step": 1,
+                            "prepend": "#",
+                            "append": "",
+                            "parent_repeater": "field_65e1bf1134d67"
+                        },
+                        {
+                            "key": "field_65e243221c174",
+                            "label": "Cover",
+                            "name": "pamphlet_collection_item_ft_img",
+                            "aria-label": "",
+                            "type": "image",
+                            "instructions": "Autofills with the front cover of the publication.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "10",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "array",
+                            "library": "all",
+                            "min_width": "",
+                            "min_height": "",
+                            "min_size": "",
+                            "max_width": "",
+                            "max_height": "",
+                            "max_size": "",
+                            "mime_types": "",
+                            "preview_size": "tiny_thumbs",
+                            "parent_repeater": "field_65e1bf1134d67"
+                        }
+                    ],
+                    "parent_repeater": "field_65e1beca34d66"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "publication-collections"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1709476540
+}
