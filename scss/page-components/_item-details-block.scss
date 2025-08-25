@@ -1,0 +1,33 @@
+@use "../globals" as g;
+
+.details-block {
+  font-weight: 800;
+  @extend %default-text;
+
+  &__title {
+    color: g.$mid-text;
+  }
+
+  &--archive {
+    font-size: g.$small-text;
+  }
+
+  &__key {
+    color: g.$mid-text;
+  }
+
+  &__value {
+    font-weight: 800;
+
+    &--sub-section {
+      &::before {
+        content: "\003D\003E";
+        margin: 0 5px;
+      }
+    }
+
+    & a {
+      @include g.defaultLink(true, false, true);
+    }
+  }
+}

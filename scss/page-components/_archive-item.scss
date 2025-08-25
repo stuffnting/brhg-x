@@ -1,0 +1,114 @@
+@use "../globals" as g;
+
+.archive-item {
+  @extend %default-text;
+  margin: 0 auto 100px;
+}
+
+.archive-item-header {
+  margin-bottom: 25px;
+
+  &__header {
+    text-align: center;
+    margin-bottom: 20px;
+
+    @include g.mediaQ(g.$archive-page-small) {
+      text-align: left;
+    }
+  }
+
+  &__title {
+    margin: 0 0 10px;
+    font-size: clamp(24px, 3vw, 32px);
+    line-height: 1.3;
+    font-weight: 800;
+  }
+
+  &__title-link {
+    @include g.defaultLink(true, false, true);
+  }
+
+  &__sub-title {
+    margin: 0 0 10px;
+    font-size: clamp(20px, 2vw, 24px);
+    line-height: 1.3;
+    font-weight: 800;
+  }
+
+  &__after-title {
+    @include g.defaultLink(true, false, true);
+  }
+}
+
+.archive-item-content {
+  @include g.mediaQ(g.$archive-page-small) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 4%;
+  }
+
+  &__thumb-wrap {
+    @extend %a4-img-wrap;
+
+    @include g.mediaQ(g.$archive-page-small) {
+      width: 20%;
+    }
+  }
+
+  &__thumb-img {
+    @extend %responsive-img;
+    margin: 0 auto;
+    border: 1px solid g.$image-border;
+  }
+
+  &__excerpt {
+    width: 76%;
+  }
+
+  &__excerpt--no-thumb {
+    width: 100%;
+  }
+
+  &__more-wrap {
+    margin-top: 10px;
+    text-align: right;
+    width: 100%;
+
+    &--gallery {
+      grid-column: span 2;
+
+      @include g.mediaQ(g.$archive-page-x-small) {
+        grid-column: span 4;
+      }
+    }
+  }
+
+  &__more-btn {
+    @extend %default-button;
+  }
+}
+
+.archive-item-footer {
+  margin-top: 25px;
+  border-top: 1px solid g.$border-rule;
+  padding-top: 25px;
+}
+
+.archive-item-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+
+  @include g.mediaQ(g.$archive-page-x-small) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  &__img-wrap {
+    @extend %a4-img-wrap;
+  }
+
+  &__img {
+    @extend %responsive-img;
+  }
+}

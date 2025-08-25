@@ -1,0 +1,38 @@
+@use "../globals" as g;
+@use "placeholders";
+
+.brhg-body {
+  font-family: g.$main-font;
+  line-height: 1.6;
+  color: g.$dark-text;
+}
+
+.site-header {
+  position: relative;
+  z-index: 1000; // Keep all menu dropdowns above other content
+}
+
+body:not(.home) .torso {
+  @extend %torso-spacing;
+}
+
+.torso {
+  min-height: calc(100vh - 500px);
+  padding: 0 10px;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.entry-content {
+  width: 100%;
+
+  @include g.mediaQ(g.$main-text-width) {
+    width: g.$main-text-width;
+  }
+}
+
+.archive .entry-content,
+.search .entry-content,
+.page .entry-content {
+  margin: 0 auto;
+}

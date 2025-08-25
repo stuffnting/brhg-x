@@ -16,6 +16,8 @@ get_header(); ?>
 <?php
 $archive_type = false;
 
+
+// Archive type
 if (is_tax('contrib_alpha')) {
     $archive_type = "contributor";
 } elseif (get_query_var('special_url') === 'tag-index') {
@@ -24,11 +26,13 @@ if (is_tax('contrib_alpha')) {
     $archive_type = "other";
 }
 
+$pagination = "";
+
 // Pagination
 if ($archive_type === 'contributor') {
-    brhg2016_make_conrib_alpha_list();
+    $pagination = brhg2016_make_conrib_alpha_list();
 } elseif ($archive_type === 'other') {
-    brhg2016_archive_pagination();
+    $pagination = brhg2016_archive_pagination();
 }
 
 if ($archive_type === 'tag-index') {
@@ -38,11 +42,12 @@ if ($archive_type === 'tag-index') {
     </section>
 
 <?php
-}
-?>
+} else { ?>
+    <div class="archive-p8n__wrap archive-p8n__wrap--top">
+        <?php echo $pagination; ?>
+    </div>
 
-<?php if ($archive_type !== 'tag-index') : ?>
-    <div class="archive-content">
+    <div class="entry-content">
         <?php
         if (have_posts()) :
 
@@ -62,15 +67,11 @@ if ($archive_type === 'tag-index') {
         ?>
     </div>
 
-<?php endif; // !tag-index
+<?php } ?>
 
+<div class="archive-p8n__wrap archive-p8n__wrap--bottom">
+    <?php echo $pagination; ?>
+</div>
 
-// Pagination
-if ($archive_type === 'other') {
-    brhg2016_archive_pagination();
-} elseif (is_tax('contrib_alpha')) {
-    brhg2016_make_conrib_alpha_list();
-}
-
-
+<?php
 get_footer();

@@ -15,7 +15,7 @@ get_header(); ?>
 
 <?php get_template_part('content', 'page-header');  ?>
 
-<div class="single-page-content single-item-content entry-content">
+<div class="entry-content">
 
     <?php
     // Display the Venue meta details; address etc.

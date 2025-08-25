@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Loop for the archive page excerpt Pamphlets and Event Series custom post types which use loop-thumbs-only.php
  *
@@ -6,30 +7,34 @@
  * @subpackage BRHG2016
  * @since BRHG2016 1.0
  *
- */ 
+ */
 
 // Archive item type
-$archive_item_type = "";
 
-if ( has_term( 'gallery', 'article_type' ) ) {
-
-    $archive_item_type = " archive-item-gallery";
-
-} elseif ( has_term( 'video-2', 'article_type' ) && brhg2016_get_vids( 1, false ) ) {
-
-    $archive_item_type = " archive-item-video";
-
-} 
+if (has_term('gallery', 'article_type')) {
+    $archive_item_content = "archive-item-gallery";
+    $archive_item_more = "archive-item-content__more-wrap--gallery";
+} elseif (has_term('video-2', 'article_type') && brhg2016_get_vids(1, false)) {
+    $archive_item_content = "archive-item-content";
+    $archive_item_more = '';
+} else {
+    $archive_item_content = "archive-item-content";
+    $archive_item_more = "";
+}
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class( 'archive-item' ); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class('archive-item'); ?> aria-label="Archive item">
     <header class="archive-item-header">
-        <h2 class='archive-item-title'><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-        <?php get_template_part( 'chunk', 'post-title-meta' ); ?>
+        <h2 class='archive-item-header__title'>
+            <a href="<?php the_permalink(); ?>" class="archive-item-header__title-link">
+                <?php the_title(); ?>
+            </a>
+        </h2>
+        <?php get_template_part('chunk', 'post-title-meta'); ?>
     </header>
 
-    <div class="archive-entry-content<?php echo $archive_item_type; ?>">
-        
+    <div class="<?php echo $archive_item_content; ?>">
+
         <?php
         /*  
         *   brhg2016_get_vids() finds videos from embed urls. 
@@ -37,50 +42,59 @@ if ( has_term( 'gallery', 'article_type' ) ) {
         *   $vids is used to indicate if an embed video was found in a article-type = video post
         */
         $vids = 0;
-        
-        if ( has_term( 'video-2', 'article_type' ) ) { ?>
 
-                <div class="archive-video">
-                    <?php 
-                    // If a video is found output video and set $vids to true, no videos and $vids set to 0
-                    $vids = brhg2016_get_vids( 1 ); 
+        if (has_term('video-2', 'article_type')) {
+            // If a video is found, output video and set $vids to true, no videos and $vids set to 0
+            $vids = brhg2016_get_vids(1);
+
+            if (!empty($vids)) {
+        ?>
+                <div class="archive-item-content__video">
+                    <?php
+                    foreach ($vids as $vid) {
+                        echo $vid;
+                    }
                     ?>
                 </div>
-                <?php
-        } 
+            <?php
+            }
+        }
 
         // Only show title for these post types, don't show thumb and excerpt
-        $no_excerpt_or_thumb = array( 'contributors', 'venues' );
+        $no_excerpt_or_thumb = array('contributors', 'venues');
 
-        if ( !in_array( get_post_type(), $no_excerpt_or_thumb ) && !$vids && !has_term( 'gallery', 'article_type' ) ) {
+        if (!in_array(get_post_type(), $no_excerpt_or_thumb) && !$vids && !has_term('gallery', 'article_type')) {
 
             // Find out if there is a thumbnail to be used
-            $class = ( brhg2016_archive_thumb( '', false ) ) ? '' : 'archive-item-missing-thumb';
-            ?>
-   
-            <?php 
-                $excerpt_no_thumb = array('rad_his_listings'); 
-                $no_thumb_class = " archive-item-excerpt-no-thumb";
-                
-                if ( !in_array( get_post_type(),  $excerpt_no_thumb ) ) { 
-                    $no_thumb_class = "";
+            $class = (brhg2016_archive_thumb('', false)) ? '' : 'archive-item-content__missing-thumb';
             ?>
 
-            <div class='archive-item-thumb-wrap <?php echo $class ?>'>      
-                <?php brhg2016_archive_thumb(); ?>
+            <?php
+            $excerpt_no_thumb = array('rad_his_listings');
+            $no_thumb_class = "";
+
+            if (in_array(get_post_type(), $excerpt_no_thumb)) {
+                $no_thumb_class = " archive-item-content__excerpt--no-thumb";
+            }
+
+            if (!in_array(get_post_type(),  $excerpt_no_thumb)) {
+            ?>
+
+                <div class='archive-item-content__thumb-wrap <?php echo $class ?>'>
+                    <?php brhg2016_archive_thumb(); ?>
+                </div>
+
+            <?php
+            }
+            ?>
+
+            <div class="archive-item-content__excerpt<?php echo $no_thumb_class; ?>">
+                <?php echo brhg2016_custom_excerpt(500); ?>
             </div>
 
-            <?php 
-               }
-            ?>
 
-            <div class="archive-item-excerpt<?php echo $no_thumb_class; ?>">
-                <?php echo brhg2016_custom_excerpt( 500 ); ?>
-            </div>
-                
-            
-        <?php
-        } elseif ( has_term( 'gallery', 'article_type' ) ) {
+            <?php
+        } elseif (has_term('gallery', 'article_type')) {
             /** 
              * Show the featured image and 3 other images for a gallery
              * 
@@ -90,52 +104,54 @@ if ( has_term( 'gallery', 'article_type' ) ) {
              * 
              */
             $post_thumb = get_post_thumbnail_id();
-            $images = get_attached_media( 'image' );
-            $chosen_images = array_rand( $images, 4 );
+            $images = get_attached_media('image');
+            $chosen_images = array_rand($images, 4);
 
             // If the featured image is not in the chosen images, add it and take one of the others out.
-            if ( $post_thumb !== false && !in_array( $post_thumb, $chosen_images ) ) {
+            if ($post_thumb !== false && !in_array($post_thumb, $chosen_images)) {
 
-                array_unshift( $chosen_images, $post_thumb );
-                array_pop( $chosen_images );
-
+                array_unshift($chosen_images, $post_thumb);
+                array_pop($chosen_images);
             }
 
-            foreach ( $chosen_images as $image ) { ?>
+            foreach ($chosen_images as $image) {
+                $atts = array('class' => 'archive-item-gallery__img');
+            ?>
 
-                <figure class="listing-thumb-only archive-gallery-pics">
-                    <a href="<?php the_permalink(); ?>" class="listing-thumb-only-img-link">
-                        <?php echo wp_get_attachment_image( $image, 'big_thumb' ); ?>
+                <figure class="archive-item-gallery__img-wrap">
+                    <a href="<?php the_permalink(); ?>" class="archive-item-gallery__img-link">
+                        <?php echo wp_get_attachment_image($image, 'big_thumb', false, $atts); ?>
                     </a>
                 </figure>
-                
-                <?php
-            }
 
-         } ?>
-            
-            <div class="archive-read-more-button-wrap">
-                <a href="<?php the_permalink() ;?>" class="read-more-button"><?php _e( 'Read More', 'brhg2016' );?> &raquo;</a>
-            </div>
+        <?php
+            }
+        } ?>
+
+        <div class="archive-item-content__more-wrap <?php echo $archive_item_more; ?>">
+            <a href="<?php the_permalink(); ?>" class="archive-item-content__more-btn">
+                <?php _e('Read More', 'brhg2016'); ?> &raquo;
+            </a>
+        </div>
     </div>
 
-    <footer class="archive-item-footer">
-        <div class="archive-item-meta-wrap">
-                <?php 
-                    $class = '';
-                    if ( get_query_var( 'special_url', 'none' ) != 'event-diary' && get_post_type() == 'events' ) {
-                        $class  = 'archive-event-meta';
-                        ?>
-                            <div class="archive-item-meta archive-item-event-details-wrap">
-                                <span class="item-meta-title">Event Details </span><br>
-                                 <?php get_template_part( 'chunk', 'events' ); ?>
-                            </div>
-                        <?php
-                    } 
-                ?>
-            <div class="<?php echo $class ?> archive-item-meta archive-item-details-wrap">
-                <?php get_template_part( 'chunk', 'item-details' ); ?>
+    <footer class="archive-item-footer" aria-label="Archive item details">
+        <div class="details-block details-block--archive">
+            <?php
+            $class = '';
+            if (get_query_var('special_url', 'none') != 'event-diary' && get_post_type() == 'events') {
+                $class  = 'details-block__details--after-event';
+            ?>
+                <div class="details-block__details archive-item-footer__details--event">
+                    <span class="details-block__title">Event Details </span><br>
+                    <?php get_template_part('chunk', 'events'); ?>
+                </div>
+            <?php
+            }
+            ?>
+            <div class=" details-block__details <?php echo $class ?>">
+                <?php get_template_part('chunk', 'item-details'); ?>
             </div>
         </div>
-    </footer> 
+    </footer>
 </article>

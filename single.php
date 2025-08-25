@@ -27,7 +27,7 @@ if (have_posts()) :
         // brhg2016_add_single_after_contents();
 ?>
 
-        <article id="content" class="single-page hentry">
+        <article id="content">
 
             <?php
             /*
@@ -36,12 +36,12 @@ if (have_posts()) :
             get_template_part('content', 'page-header');
 
             ?>
-            <div id="single-item-container" class="single-item-wrap">
-                <section id="single-item-block-wrapper" class="single-item-block-wrapper" aria-label="Article details">
+            <div id="single-item-container" class="single-item__wrap">
+                <section id="single-item-block-wrapper" class="details-block--single" aria-label="Article details">
                     <?php
 
                     # If this is an event/book/pamphlet there will be two blocks in the info box
-                    $extra_class = 'single-item-block-1-up';
+                    $extra_class = 'details-block__block--1up';
 
                     /**
                      * Add details block
@@ -49,13 +49,13 @@ if (have_posts()) :
                      * First add the details of the event/book/pamphlet
                      */
                     if (get_post_type() === 'events' || get_post_type() === 'books' || get_post_type() === 'pamphlets') {
-                        $extra_class = "single-item-block-2-up";
+                        $extra_class = "details-block__block--2up";
                     ?>
-                        <div class="single-item-block single-item-block-extra single-item-block-2-up">
-                            <div class="single-item-block-heading">
+                        <div class="details-block__block details-block__block--1up">
+                            <div class="details-block__heading">
                                 <?php echo get_post_type_object(get_post_type())->labels->singular_name ?> Details
                             </div>
-                            <div class="single-item-block-details single-item-block-extra-details">
+                            <div class="details-block__details">
                                 <?php get_template_part('chunk', get_post_type()); ?>
                             </div>
                         </div>
@@ -66,21 +66,21 @@ if (have_posts()) :
                      * Now add the item details - Section, Subjects, Tags, Post Date etc
                      */
                     ?>
-                    <div class="single-item-block single-item-block-page <?php echo $extra_class ?>">
-                        <div class="single-item-block-heading">Page Details</div>
-                        <div class="single-item-block-details single-item-block-page-details">
+                    <div class="details-block__block <?php echo $extra_class ?>">
+                        <div class="details-block__heading">Page Details</div>
+                        <div class="details-block__details">
                             <?php get_template_part('chunk', 'item-details'); ?>
                         </div>
                     </div>
                     <?php if (post_type_supports(get_post_type(), 'comments')) { ?>
-                        <div class="comments-link ">
+                        <div class="details-block__comments-link ">
                             <?php get_template_part('chunk', 'comment-link'); ?>
                         </div>
                     <?php
                     }
                     ?>
                 </section>
-                <div class="single-item-main-content single-item-content entry-content">
+                <div class="entry-content">
                     <section aria-label="Article main content">
                         <?php
 
@@ -99,7 +99,7 @@ if (have_posts()) :
                     */
                     if (post_type_supports(get_post_type(), 'comments')  && comments_open()) { ?>
 
-                        <section class="comments-wrapper" aria-label="Comments">
+                        <section class="comments__wrap" aria-label="Comments">
                             <?php comments_template(); ?>
                         </section>
                     <?php

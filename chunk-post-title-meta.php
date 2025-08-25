@@ -12,21 +12,24 @@
  */
 ?>
 
-<?php $tag = (is_home() || is_archive() || is_search()) ? 'h3' : 'h2'; ?>
-
 <?php
+$subtitle_tag = (is_home() || is_archive() || is_search()) ? 'h3' : 'h2';
+$class_base = (is_home() || is_archive() || is_search())
+    ? "archive-item-header"
+    : "page-header";
+
 // Subtitle
 if (brhg2016_get_item_meta_singles('sub_title', false)) {
 
-    echo "<{$tag} class='page-header__sub-title'>";
+    echo "<{$subtitle_tag} class='{$class_base}__sub-title'>";
     brhg2016_get_item_meta_singles('sub_title');
-    echo "</{$tag}>";
+    echo "</{$subtitle_tag}>";
 }
 
 // Event series - dates
 if (get_post_type() === 'event_series' && brhg2016_event_series_dates(false)) {
 
-    echo "<{$tag} class='page-header__sub-title page-header__sub-title--event-series'>";
+    echo "<{$tag} class='{$class_base}__sub-title'>";
     brhg2016_event_series_dates();
     echo "</{$tag}>";
 }
@@ -61,7 +64,7 @@ switch (get_post_type()) {
 
 if ($author) {
 ?>
-    <div class="page-header__after-title">
+    <div class="<?php echo $class_base; ?>__after-title">
         By <?php echo $author; ?>
     </div>
 <?php

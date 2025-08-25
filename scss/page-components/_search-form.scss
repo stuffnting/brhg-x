@@ -5,7 +5,9 @@
   width: 100%;
   max-width: g.$main-text-width;
   margin: 50px auto;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
 
   &__form {
     display: flex;
@@ -27,7 +29,7 @@
   }
 
   &__field-description {
-    font-size: small;
+    font-size: g.$small-text;
     display: block;
   }
 

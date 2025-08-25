@@ -1,5 +1,0 @@
-@use "placeholders";
-
-body:not(.home) .torso {
-  @extend %torso-spacing;
-}

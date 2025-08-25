@@ -186,10 +186,10 @@ function brhg2024_find_video_urls() {
  *
  * @param int        $number the max number of videos to get 
  *
- * @return boolean   1 if there are videos echoed and 0 if there are not
+ * @return array|bool   An array of video embeds or false if there are not. Each item in the array is an iframe.
  *
  */
-function brhg2016_get_vids($number = 1, $output_video = true) {
+function brhg2016_get_vids(int $number = 1) {
     $content = get_the_content();
 
     // Get all video urls from the content
@@ -209,14 +209,14 @@ function brhg2016_get_vids($number = 1, $output_video = true) {
     }
 
     if (!empty($embed_list)) {
+        snt_dump($embed_list);
         // Echo the embedded videos
-        if ($output_video) {
-            for ($n = 1; $n <= $number; $n++) {
-                echo $embed_list[$n - 1];
-            }
+        $output = array();
+        for ($n = 1; $n <= $number; $n++) {
+            $output[] = $embed_list[$n - 1];
         }
-        // Return 1 to show videos were found
-        return 1;
+
+        return $output;
     } else {
         // Return 0 to show no videos were found
         return 0;
@@ -368,8 +368,8 @@ function brhg2025_pagination_classes() {
         "li_dots_class"         => $base_class . "__li--dots",
         "li_next_class"         => $base_class . "__li--next",
         "li_prev_class"         => $base_class . "__li--prev",
-        "link_class"               => $base_class . "__link",
-        "no_link_class"         => $base_class . "__no-link",
+        "link_class"            => $base_class . "__link",
+        "no_link_class"         => "no-link",
     );
 }
 
@@ -398,13 +398,13 @@ function brhg2016_make_conrib_alpha_list() {
     endforeach;
     // Finish the list
     $alpha_list_output = "
-        <nav class='$base_class {$base_class}--alpha' aria-label='Contributors alphabetical pagination'>\n
+        <nav class='{$base_class}__nav {$base_class}__nav--alpha' aria-label='Contributors alphabetical pagination'>\n
             <ul class='$ul_class'>\n
                 $alpha_list
             </ul>\n
         </nav>\n";
 
-    echo $alpha_list_output;
+    return $alpha_list_output;
 }
 
 /**
@@ -454,13 +454,13 @@ function brhg2016_archive_pagination($args = '') {
     }
 
     $pagination_html = "
-        <nav class='$base_class' aria-label='Archive pagination'>
+        <nav class='{$base_class}__nav' aria-label='Archive pagination'>
             <ul class='{$ul_class}'>
                 $pagination_list_items
             </ul>
         </nav>";
 
-    echo $pagination_html;
+    return $pagination_html;
 }
 
 
@@ -477,6 +477,7 @@ function brhg2016_archive_pagination($args = '') {
  */
 function brhg2016_archive_thumb($size = 'big_thumb', $echo = true) {
     global $post;
+    $thumb_img_class = "archive-item-content__thumb-img";
 
     //make events use the thumbnail from the event series
     if (get_post_type() == 'events') :
@@ -528,7 +529,7 @@ function brhg2016_archive_thumb($size = 'big_thumb', $echo = true) {
             else:
 
                 $thumb_attr = array(
-                    'class' => 'archive-item-thumb',
+                    'class' => $thumb_img_class,
                 );
 
                 if ($echo === true) {
@@ -555,7 +556,7 @@ function brhg2016_archive_thumb($size = 'big_thumb', $echo = true) {
 
             $thumb_attr = array(
 
-                'class' => 'archive-item-thumb',
+                'class' => $thumb_img_class,
 
             );
 
@@ -875,6 +876,26 @@ function brhg2016_get_item_timestamps($id) {
     }
 
     return $event_time_date;
+}
+
+/**
+ * sets the classes for single and archive page item detail blocks.
+ * 
+ * This needs to be in a function because the variables are shared across multiple
+ * template levels and they are set here once.
+ * 
+ * @return array The classes to use.
+ */
+
+function brhg2025_get_details_block_classes() {
+
+    // Used for single items and archive items
+    $classes = array(
+        "key_class" => "details-block__key",
+        "value_class" => "details-block__value"
+    );
+
+    return $classes;
 }
 
 /**

@@ -20,10 +20,6 @@
 @use "font-faces";
 @use "general";
 @use "vendor/tiny-slider";
-@use "all-pages/banner";
-@use "all-pages/contents-menu";
-@use "all-pages/torso";
-@use "all-pages/footer";
+@use "all-pages";
 @use "front-page";
 @use "page-components";
-@use "pages";

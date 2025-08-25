@@ -1,5 +1,6 @@
 @use "globals" as g;
 
+// Legacy
 strong,
 b {
   font-weight: 800;
@@ -18,24 +19,6 @@ i {
     @extend %default-ul-li;
     @extend %default-x-space;
   }
-}
-
-.brhg-body {
-  font-family: g.$main-font;
-  line-height: 1.6;
-  color: g.$dark-text;
-}
-
-.site-header {
-  position: relative;
-  z-index: 1000; // Keep all menu dropdowns above other content
-}
-
-.torso {
-  min-height: calc(100vh - 500px);
-  padding: 0 10px;
-  max-width: 1600px;
-  margin: 0 auto;
 }
 
 #tns1-iw,

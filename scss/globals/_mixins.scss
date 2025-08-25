@@ -27,7 +27,7 @@
     }
   }
   @if $ul {
-    & ul {
+    & > ul {
       @extend %default-text;
       @extend %default-v-space;
 

@@ -69,6 +69,7 @@
 %default-button {
   color: c.$light-text;
   background-color: c.$red;
+  display: inline-block;
   padding: 18px 12px;
   line-height: 0;
   text-align: center;
@@ -89,4 +90,15 @@
   line-height: 0;
   border: 1px solid c.$form-input-border;
   text-align: left;
+}
+
+%a4-img-wrap {
+  aspect-ratio: 1 / 1.4142135623730950488016887242097;
+  overflow: hidden;
+}
+
+%responsive-img {
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
