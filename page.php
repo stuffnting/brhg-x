@@ -47,10 +47,11 @@ get_header(); ?>
     ?>
         <img
             id="about-brhg-logo"
-            class="img-responsive"
+            class="brhg-full-size-logo"
             src="<?php echo get_stylesheet_directory_uri() ?>/images/bob.png"
             srcset="<?php echo get_stylesheet_directory_uri() ?>/images/full-logo-small.svg"
-            alt="BRHG Logo" />
+            alt="BRHG Logo"
+            loading="eager" />
     <?php
     }
     ?>

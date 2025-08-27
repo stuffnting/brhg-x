@@ -1,0 +1,28 @@
+@use "../globals/" as g;
+
+// Subject Index and Rad His Index
+
+.archive-content {
+  &__desc-term-link {
+    @include g.defaultLink(true, false, true);
+    font-weight: 800;
+  }
+
+  &__desc-def {
+    @extend %default-x-space;
+    @extend %default-v-space;
+  }
+}
+
+// Tag index
+
+.tag-index {
+  @extend %default-text;
+  max-width: g.$wide-content-width;
+  margin: 0 auto;
+  text-align: justify;
+
+  &__link {
+    @include g.defaultLink(true, false, true);
+  }
+}

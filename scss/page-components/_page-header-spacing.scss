@@ -1,3 +1,5 @@
+@use "../globals/" as g;
+
 %ph-pre-title-spacing {
   margin-bottom: 40px;
 }
@@ -16,5 +18,5 @@
 
 %ph-pale-rule-spacing {
   margin-top: 25px;
-  margin-bottom: 100px;
+  margin-bottom: g.$ph-margin-bottom;
 }

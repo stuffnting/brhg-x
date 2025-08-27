@@ -37,14 +37,20 @@ function brhg2024_add_pamphlet_content($content) {
   // Where to buy
   $where_to_buy_link = get_field('where_to_buy_page_link', 'options');
   $where_buy_html = sprintf(
-    "<aside class='where-to-buy' aria-label='Where to buy'>\n%s\n<p><a href='%s'>Find out where to buy all our publications.</a></p>\n</aside>\n",
-    $buy_book_box ? "<p><a href='#buy-book' class='buy-now-link'>Buy this publication from us now.</a></p>" : '',
+    "<aside class='pubs-buy-where' aria-label='Where to buy'>\n
+      %s\n
+      <p><a href='%s' class='pub-buy-where__link'>Find out where to buy all our publications.</a></p>\n
+    </aside>\n",
+    $buy_book_box ? "<p><a href='#buy-book' class='pub-buy-where__link'>Buy this publication from us now.</a></p>" : '',
     $where_to_buy_link
   );
 
   // Covers
   $pamphlet_covers_html = sprintf(
-    "<div class='single-pamphlet-covers'><a href='%s'>%s</a><a href='%s'>%s</a></div>\n",
+    "<div class='pub-covers'>
+      <a href='%s' class='pub-covers_link'>%s</a>
+      <a href='%s' class='pub-covers_link'>%s</a>
+    </div>\n",
     wp_get_attachment_image_url(get_field('pam_front_cover'), 'full'),
     wp_get_attachment_image(get_field('pam_front_cover'), 'big_thumb'),
     wp_get_attachment_image_url(get_field('pam_back_cover'), 'full'),
@@ -107,7 +113,10 @@ function brhg2024_pamphlet_reviews_html($pamphlet_id) {
           //$review_text_summary .= ' <span class="review-hellip">[&hellip;]</span>';
 
           $review_text_processed = sprintf(
-            "<details name='review'>\n<summary>%s</summary>\n%s\n</details>\n",
+            "<details name='review' class='pub-reviews__details'>\n
+              <summary class='pub-reviews__summary'>%s</summary>\n
+              %s\n
+            </details>\n",
             $review_text_summary ?? '',
             implode($matches[0])
           );
@@ -120,23 +129,24 @@ function brhg2024_pamphlet_reviews_html($pamphlet_id) {
 
       // Format the review blockquote
       $blockquote_html = sprintf(
-        "<blockquote%s class='pamphlet-review-text'>%s</blockquote>\n",
+        "<blockquote%s class='class='pub-reviews__text'>%s</blockquote>\n",
         $review_link_type !== 'none' && $cite_link ? " cite='$review_link'" : '',
         $review_text_processed ?? ''
       );
 
       // Format the source and source link
       $source_html = sprintf(
-        "<p class='pamphlet-review-source pamphlet-review-after-quote'>%s%s%s</p>",
-        $review_link_type === 'source' ? "<a href='$review_link' target='_blank'>" : '',
+        "<p class='pub-reviews__source'>%s%s%s</p>",
+        $review_link_type === 'source' ? "<a href='$review_link' target='_blank' class='class='pub-reviews__source-link'>" : '',
         $review_source ?? '',
         $review_link_type === 'source' ? "</a>" : ''
       );
 
       if ($review_link_type === 'text') {
         $link_html = sprintf(
-          "<p class='pamphlet-review-link pamphlet-review-after-quote'><a href='%s' target='_blank'>%s</a>
-      <p>\n",
+          "<p class='pub-reviews__link-wrap'>
+            <a href='%s' target='_blank' class='pub-reviews__link'>%s</a>
+          <p>\n",
           $review_link ?? '',
           $review_link_text ?? '',
         );
@@ -145,14 +155,14 @@ function brhg2024_pamphlet_reviews_html($pamphlet_id) {
       }
 
       $review_rows .= "
-      <div class='pamphlet-reviews-item'>" . $blockquote_html . $source_html . $link_html . "</div>";
+      <div class='pub-reviews__item'>" . $blockquote_html . $source_html . $link_html . "</div>";
 
     // End loop.
     endwhile;
 
     $reviews_html = sprintf(
-      "<aside id='reviews' class='pamphlet-reviews-wrapper' aria-label='Reviews'>\n%s%s\n</aside>",
-      "<p class='pamphlet-reviews-title'>Reviews</P>",
+      "<aside id='reviews' class='pub-reviews__wrap' aria-label='Reviews'>\n%s%s\n</aside>",
+      "<p class='pub-reviews__title'>Reviews</P>",
       $review_rows
     );
 

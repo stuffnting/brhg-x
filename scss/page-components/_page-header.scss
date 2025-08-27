@@ -1,5 +1,5 @@
 @use "../globals" as g;
-@use "header-spacing";
+@use "page-header-spacing";
 
 %pre-sub-titles {
   text-align: center;
@@ -51,10 +51,11 @@
     max-width: g.$main-text-width;
     margin: 0 auto;
 
-    @include g.defaultTextItems();
+    @include g.defaultTextItems;
+    @include g.defaultHeadings;
 
     & a {
-      @include g.defaultLink();
+      @include g.defaultLink;
     }
   }
 
@@ -71,7 +72,7 @@
 
   &__pale-rule {
     @extend %ph-pale-rule-spacing;
-    border-bottom: 1px solid g.$border-rule;
+    @extend %pale-rule;
   }
 }
 

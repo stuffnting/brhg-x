@@ -1,0 +1,157 @@
+@use "../globals/" as g;
+
+.comments {
+  &__wrap {
+    margin-top: 50px;
+
+    @include g.defaultTextItems(true, false, false, false);
+  }
+
+  &__pale-rule {
+    @extend %pale-rule;
+  }
+
+  &__title {
+    font-weight: 800;
+    margin-bottom: 1em;
+  }
+
+  // Comment form
+
+  &__form-wrap {
+    font-weight: normal;
+    margin-top: 2em;
+  }
+
+  &__form {
+    @extend %default-checkbox;
+
+    & label {
+      display: block;
+      width: 100%;
+    }
+
+    & p {
+      margin-bottom: 1em;
+      font-size: g.$small-text;
+    }
+  }
+
+  &__form &__input {
+    margin-bottom: 25px;
+  }
+
+  &__input input:not(input[type="checkbox"]) {
+    @extend %default-input;
+    width: 100%;
+  }
+
+  &__input--comment textarea {
+    @extend %default-form-field;
+    width: 100%;
+  }
+
+  &__input--cookies-consent {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+  }
+
+  &__submit-btn {
+    @extend %default-button;
+  }
+
+  &__note-after {
+    & code {
+      font-family: monospace;
+    }
+  }
+
+  // Comments
+  $comment-bottom-margin: 3em;
+
+  &__list {
+    list-style-type: decimal;
+    list-style-position: inside;
+    margin-bottom: 50px;
+
+    @include g.mediaQ(g.$comments-bp-x-small) {
+      list-style-position: outside;
+      padding-left: 2em;
+    }
+
+    & .children {
+      padding-left: 1em;
+      margin-top: $comment-bottom-margin;
+      border-left: 3px solid g.$border-rule;
+
+      @include g.mediaQ(g.$comments-bp-x-small) {
+        padding-left: 2em;
+      }
+    }
+  }
+
+  &__comment {
+    font-weight: 800;
+    margin-bottom: $comment-bottom-margin;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &.depth-1 {
+      border-bottom: 3px solid g.$border-rule;
+      padding-bottom: 1em;
+    }
+
+    & a:not(.comments__reply-btn a) {
+      @include g.defaultLink;
+    }
+
+    & p:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__body {
+    font-size: g.$small-text;
+  }
+
+  &__meta {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    margin-bottom: 1em;
+
+    & img {
+      display: none;
+
+      @include g.mediaQ(g.$comments-bp-x-small) {
+        display: block;
+      }
+    }
+  }
+
+  &__author {
+    & a {
+      font-size: smaller;
+      vertical-align: super;
+    }
+  }
+
+  &__date {
+    color: g.$mid-text;
+  }
+
+  &__text {
+    font-weight: initial;
+  }
+
+  &__reply-btn {
+    margin-top: 1em;
+
+    & a {
+      @extend %default-button;
+    }
+  }
+}

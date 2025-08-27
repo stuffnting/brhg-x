@@ -132,7 +132,7 @@ function brhg2016_register_my_cpts() {
         "exclude_from_search"   => false,
         "capability_type"       => "post",
         "map_meta_cap"          => true,
-        "hierarchical"          => true,
+        "hierarchical"          => false,
         "rewrite"               => array("slug" => "articles", "with_front" => true),
         "query_var"             => true,
         "supports" => array("title", "editor", "excerpt", "trackbacks", "comments", "revisions", "thumbnail", "author", "page-attributes"),
@@ -221,7 +221,7 @@ function brhg2016_register_my_cpts() {
         "exclude_from_search"   => false,
         "capability_type"       => "post",
         "map_meta_cap"          => true,
-        "hierarchical"          => true,
+        "hierarchical"          => false,
         "rewrite"               => array("slug" => "events", "with_front" => true),
         "query_var"             => true,
         "supports"              => array("title", "editor", "excerpt", "trackbacks", "custom-fields", "comments", "thumbnail", "author"),
@@ -440,7 +440,7 @@ function brhg2016_register_my_taxes() {
 
     $args = array(
         "labels"                => $labels,
-        "hierarchical"          => 1,
+        "hierarchical"          => 0,
         "label"                 => "Article Types",
         "show_ui"               => true,
         "query_var"             => true,
@@ -513,7 +513,7 @@ function brhg2016_register_my_taxes() {
 
     $args = array(
         "labels"            => $labels,
-        "hierarchical"      => 1,
+        "hierarchical"      => 0,
         "label"             => "Radical History Listing Types",
         "show_ui"           => true,
         "query_var"         => true,
@@ -550,7 +550,7 @@ function brhg2016_register_my_taxes() {
 
     $args = array(
         "labels"            => $labels,
-        "hierarchical"      => true,
+        "hierarchical"      => false,
         "label"             => "Publication Ranges",
         "show_ui"           => true,
         "query_var"         => true,

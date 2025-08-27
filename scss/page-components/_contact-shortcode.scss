@@ -1,0 +1,18 @@
+@use "../globals/" as g;
+
+.contact-details {
+  text-align: center;
+  margin-bottom: 1rem;
+
+  &--frame {
+    font-family: g.$highlight-font;
+    background-image: url("images/contact.png");
+    background-size: 100% auto;
+    font-size: 21px;
+    height: 486px;
+    margin: 0 auto;
+    max-width: 100%;
+    padding-top: 140px;
+    width: 566px;
+  }
+}

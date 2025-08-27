@@ -1,0 +1,50 @@
+@use "../globals/" as g;
+
+.single-item {
+  &__wrap {
+    width: 100%;
+    margin: calc(g.$ph-margin-bottom / 4 * -3) auto 0;
+    overflow: hidden;
+
+    @include g.mediaQ(780px) {
+      width: 780px;
+    }
+
+    @include g.mediaQ(1100px) {
+      display: grid;
+      grid-template-areas:
+        "details"
+        "content";
+      grid-template-columns: 250px 750px;
+      grid-template-areas: "details content";
+      gap: 80px;
+      width: 1080px;
+    }
+
+    @include g.mediaQ(1470px) {
+      grid-template-columns: 270px 780px;
+      gap: 60px;
+      width: 1110px;
+      transform: translateX(-165px);
+    }
+  }
+
+  &__details {
+    max-width: g.$main-text-width;
+    grid-area: details;
+    width: 100%;
+    margin: 0 auto 50px;
+
+    @include g.mediaQ(1100px) {
+      display: block;
+      width: 270px;
+      margin: 0;
+    }
+  }
+
+  &__main {
+    grid-area: content;
+    margin-bottom: 100px;
+    max-width: 100%;
+  }
+}

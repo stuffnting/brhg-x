@@ -1,15 +1,54 @@
 @use "../globals" as g;
 
 .details-block {
-  font-weight: 800;
   @extend %default-text;
+  margin-bottom: 50px;
+
+  &--2up {
+    @include g.mediaQ(g.$single-page-bp-small) {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0 4%;
+    }
+
+    @include g.mediaQ(g.$single-page-bp-large) {
+      display: block;
+    }
+
+    & .details-block__block {
+      @include g.mediaQ(g.$single-page-bp-small) {
+        width: 48%;
+      }
+
+      @include g.mediaQ(g.$single-page-bp-large) {
+        width: 100%;
+      }
+    }
+  }
+
+  &__block {
+    margin-bottom: 25px;
+  }
+
+  &__heading {
+    background: g.$red;
+    color: g.$light-text;
+    text-align: center;
+    padding: 5px;
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
 
   &__title {
     color: g.$mid-text;
   }
 
-  &--archive {
+  &__key,
+  &__value,
+  &__comments-link {
     font-size: g.$small-text;
+    font-weight: 800;
   }
 
   &__key {
@@ -17,17 +56,15 @@
   }
 
   &__value {
-    font-weight: 800;
-
     &--sub-section {
       &::before {
         content: "\003D\003E";
         margin: 0 5px;
       }
     }
+  }
 
-    & a {
-      @include g.defaultLink(true, false, true);
-    }
+  & a {
+    @include g.defaultLink(true, false, true);
   }
 }

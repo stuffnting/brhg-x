@@ -1,7 +1,28 @@
 @use "../globals" as g;
 @use "placeholders" as p;
 
+@use "contents-menu";
+
 $angel-skeleton-height: clamp(80px, 20vw, 145px);
+
+.site-header {
+  position: relative;
+  z-index: 1000; // Keep all menu dropdowns above other content
+  background-color: g.$dark-bg;
+
+  &::after {
+    content: "";
+    background: {
+      image: url(images/menu-bottom-line.svg);
+      size: 100% 100%;
+    }
+    width: 100%;
+    height: 10px;
+    position: absolute;
+    bottom: -10px;
+    z-index: -10; // Keep below all menu items
+  }
+}
 
 .banner {
   background-color: g.$red;

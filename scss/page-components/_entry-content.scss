@@ -1,0 +1,25 @@
+@use "../globals" as g;
+
+.entry-content {
+  margin-bottom: 100px;
+
+  @include g.defaultTextItems;
+  & a {
+    @include g.defaultLink;
+  }
+
+  @include g.defaultHeadings;
+
+  & img {
+    @extend %responsive-img;
+    margin: 0 auto;
+  }
+
+  & figure {
+    margin: 0 auto 1em;
+  }
+
+  & figcaption {
+    font-size: g.$small-text;
+  }
+}

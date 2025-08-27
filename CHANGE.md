@@ -9,3 +9,7 @@
 ## Search Results
 
 - Change the intro text to reflect new form.
+
+## Comments settings
+
+- Tick add cookies notice to settings -> discussion

@@ -35,23 +35,23 @@ if (have_posts()) :
             */
             get_template_part('content', 'page-header');
 
+            // If this is an event/book/pamphlet there will be two blocks in the info box
+            $two_up = (get_post_type() === 'events' || get_post_type() === 'books' || get_post_type() === 'pamphlets') ? true : false;
+            $extra_class = $two_up ? " details-block--2up" : "";
+
             ?>
             <div id="single-item-container" class="single-item__wrap">
-                <section id="single-item-block-wrapper" class="details-block--single" aria-label="Article details">
+                <section id="single-item-block-wrapper" class="details-block <?php echo $extra_class; ?> single-item__details" aria-label="Article details">
                     <?php
-
-                    # If this is an event/book/pamphlet there will be two blocks in the info box
-                    $extra_class = 'details-block__block--1up';
 
                     /**
                      * Add details block
                      *
                      * First add the details of the event/book/pamphlet
                      */
-                    if (get_post_type() === 'events' || get_post_type() === 'books' || get_post_type() === 'pamphlets') {
-                        $extra_class = "details-block__block--2up";
+                    if ($two_up) {
                     ?>
-                        <div class="details-block__block details-block__block--1up">
+                        <div class="details-block__block">
                             <div class="details-block__heading">
                                 <?php echo get_post_type_object(get_post_type())->labels->singular_name ?> Details
                             </div>
@@ -66,7 +66,7 @@ if (have_posts()) :
                      * Now add the item details - Section, Subjects, Tags, Post Date etc
                      */
                     ?>
-                    <div class="details-block__block <?php echo $extra_class ?>">
+                    <div class="details-block__block">
                         <div class="details-block__heading">Page Details</div>
                         <div class="details-block__details">
                             <?php get_template_part('chunk', 'item-details'); ?>
@@ -80,8 +80,8 @@ if (have_posts()) :
                     }
                     ?>
                 </section>
-                <div class="entry-content">
-                    <section aria-label="Article main content">
+                <div class="single-item__main">
+                    <section aria-label="Article main content" class="entry-content">
                         <?php
 
                         /**
@@ -99,6 +99,7 @@ if (have_posts()) :
                     */
                     if (post_type_supports(get_post_type(), 'comments')  && comments_open()) { ?>
 
+                        <hr class="comments__pale-rule">
                         <section class="comments__wrap" aria-label="Comments">
                             <?php comments_template(); ?>
                         </section>

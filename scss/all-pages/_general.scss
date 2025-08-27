@@ -5,25 +5,22 @@
   font-family: g.$main-font;
   line-height: 1.6;
   color: g.$dark-text;
-}
-
-.site-header {
-  position: relative;
-  z-index: 1000; // Keep all menu dropdowns above other content
-}
-
-body:not(.home) .torso {
-  @extend %torso-spacing;
+  font-size: 18px;
 }
 
 .torso {
   min-height: calc(100vh - 500px);
   padding: 0 10px;
-  max-width: 1600px;
+  max-width: g.$max-width-torso;
+  @extend %torso-spacing;
+}
+
+.home .torso {
   margin: 0 auto;
 }
 
-.entry-content {
+.entry-content,
+.archive-content {
   width: 100%;
 
   @include g.mediaQ(g.$main-text-width) {
@@ -31,8 +28,8 @@ body:not(.home) .torso {
   }
 }
 
-.archive .entry-content,
 .search .entry-content,
-.page .entry-content {
+.page .entry-content,
+.archive-content {
   margin: 0 auto;
 }

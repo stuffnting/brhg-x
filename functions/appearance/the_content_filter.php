@@ -33,7 +33,7 @@ function brhg2016_content_filter() {
     elseif (get_post_type() == 'books' && has_post_thumbnail($post->ID)) :
 
         $book_cover_html = wp_get_attachment_image(get_post_thumbnail_id($post->ID), 'big_thumb');
-        $book_html_out = "<div id='programme-list' class='single-book-covers'>$book_cover_html</div>\n";
+        $book_html_out = "<div id='pub-covers' class='books__single-covers'>$book_cover_html</div>\n";
         $content_out = $content . $book_html_out;
 
     // Add list of involvement to contributors

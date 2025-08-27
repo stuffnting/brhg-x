@@ -26,28 +26,30 @@
       @extend %default-v-space;
     }
   }
+
   @if $ul {
     & > ul {
       @extend %default-text;
       @extend %default-v-space;
-
       & li {
         @extend %default-ul-li;
         @extend %default-x-space;
       }
     }
   }
-  @if ol {
+
+  @if $ol {
+    // Changed from @if ol to @if $ol
     & ol {
       @extend %default-x-space;
       list-style-type: decimal;
       list-style-position: outside;
-
       & li {
         margin-left: 1.1em;
       }
     }
   }
+
   @if $blockquote {
     & blockquote {
       @extend %default-text;
@@ -57,5 +59,25 @@
         text-align: right;
       }
     }
+  }
+}
+
+@mixin defaultHeadings {
+  & h2 {
+    @extend %default-h2;
+  }
+
+  & h3 {
+    @extend %default-h3;
+  }
+
+  & h4 {
+    @extend %default-h4;
+  }
+
+  & h2:first-child,
+  & h3:first-child,
+  & h4:first-child {
+    margin-top: 0;
   }
 }

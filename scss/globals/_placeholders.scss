@@ -15,6 +15,25 @@
   margin-right: 2em;
 }
 
+%default-h2 {
+  font-size: clamp(24px, 3vw, 30px);
+  margin-top: 1em;
+  margin-bottom: 1rem;
+}
+
+%default-h3 {
+  font-size: clamp(20px, 3vw, 26px);
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+%default-h4 {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
 %default-ul-li {
   background-image: url("images/q.svg");
   background-size: 0.65em auto;
@@ -83,13 +102,44 @@
   }
 }
 
-%default-input {
+%default-form-field {
   color: c.$red;
   background-color: c.$light-bg;
+  border: 1px solid c.$form-input-border;
+}
+
+%default-input {
+  @extend %default-form-field;
   padding: 6px 12px;
   line-height: 0;
-  border: 1px solid c.$form-input-border;
   text-align: left;
+}
+
+%default-checkbox {
+  input[type="checkbox"] {
+    @extend %default-form-field;
+    width: 1.5em;
+    height: 1.5em;
+    display: grid;
+    place-content: center;
+    color: c.$light-text;
+  }
+
+  input[type="checkbox"]::after {
+    content: "✓";
+    font-size: 1em;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    font-weight: 800;
+  }
+
+  input[type="checkbox"]:checked {
+    background-color: c.$red;
+  }
+
+  input[type="checkbox"]:checked::after {
+    transform: scale(1);
+  }
 }
 
 %a4-img-wrap {
@@ -101,4 +151,8 @@
   display: block;
   max-width: 100%;
   height: auto;
+}
+
+%pale-rule {
+  border-top: 1px solid c.$border-rule;
 }

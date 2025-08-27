@@ -37,7 +37,7 @@ if (get_post_type() === 'event_series' && brhg2016_event_series_dates(false)) {
 // Events diary - current event series
 if (get_query_var('special_url') === 'event-diary') {
 ?>
-    <div class="page-header__after-title">
+    <div class="<?php echo $class_base; ?>__after-title">
         <?php get_template_part('chunk', 'events'); ?>
     </div>
 <?php

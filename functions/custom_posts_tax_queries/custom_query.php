@@ -288,10 +288,12 @@ function brhg2016_special_urls($request, $slugs) {
             $brhg2016_request['page_title'] = __('Blog', 'brhg2016');
             $brhg2016_request['paged'] = $request['paged'] ?? 1;
             /*
-        *  No template redirect needed. Without query vars Wordpress assumes this is the blog list page and looks for home.php in the theme.
-        *  Changing the contents of the <title> tag is needed using brhg2016_special_urls_title_tag(). Runs just before the tag is created.
+            *  No template redirect needed. Without query vars Wordpress assumes this is the blog list page and looks for home.php in the theme.
+            *  Changing the contents of the <title> tag is needed using brhg2016_special_urls_title_tag(). Runs just before the tag is created.
         */
             add_filter('pre_get_document_title', 'brhg2016_special_urls_title_tag', 99);
+            // Temple redirect, archive.php instead of page, using brhg2016_template_redirects(). Runs immediately before WordPress includes the predetermined template file.
+            add_filter('template_include', 'brhg2016_template_redirects', 99);
             break;
 
         case 'event-diary':
@@ -703,16 +705,22 @@ function brhg2016_template_redirects($template) {
 
     switch ($special_url) {
 
+        case 'blog':
+            $special_template = locate_template('archive.php');
+            break;
+
         case 'news-feed':
             $special_template = locate_template('archive.php');
             break;
 
         case 'subject-index':
-            $special_template = locate_template('tax-index.php');
+            //$special_template = locate_template('tax-index.php');
+            $special_template = locate_template('archive.php');
             break;
 
         case 'radical-history-listings':
-            $special_template = locate_template('tax-index.php');
+            // $special_template = locate_template('tax-index.php');
+            $special_template = locate_template('archive.php');
             break;
 
         case 'tag-index':
