@@ -1,7 +1,6 @@
 @use "../globals" as g;
 
 .search-form {
-  @extend %default-text;
   width: 100%;
   max-width: g.$main-text-width;
   margin: 50px auto;
@@ -17,15 +16,18 @@
   }
 
   &__search-fieldset {
-    width: 90%;
+    width: 100%;
     text-align: center;
     margin-bottom: 50px;
+
+    @include g.mediaQ(g.$main-text-width) {
+      width: 90%;
+    }
   }
 
   &__field-name {
     font-weight: 800;
     display: block;
-    margin-bottom: 1em;
   }
 
   &__field-description {
@@ -45,22 +47,30 @@
   &__filter {
     display: block;
     margin-bottom: 25px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2em 4%;
 
     @include g.mediaQ(g.$main-text-width) {
       grid-template-columns: 1fr 1fr;
-      display: grid;
-      gap: 0 4%;
     }
   }
 
   &__filter-fieldset {
+    display: grid;
+    grid-template-rows: subgrid;
+    grid-row: span 3;
+    row-gap: 1em;
+
+    & .search-form__label {
+      display: contents;
+    }
   }
 
   &__select {
     @extend %default-form-field;
     width: 100%;
     padding: 6px 0;
-    margin: 25px 0 0;
     overflow: {
       y: scroll;
       x: hidden;

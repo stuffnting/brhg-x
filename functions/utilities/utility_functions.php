@@ -413,20 +413,24 @@ function brhg2016_make_conrib_alpha_list() {
  *
  */
 function brhg2016_archive_pagination($args = '') {
-    $defaults = array(
-        'prev_text'          => '&laquo;',
-        'next_text'          => '&raquo;',
-        'before_page_number' => '<span class="sr-only">' . __('Page', 'brhg2016') . ' </span>',
-        'type'               => 'array',
-        'mid_size'           => '4',
-        'screen_reader_text' => 'Archive page navigation'
-    );
+    $comments = false;
 
-    $args = wp_parse_args($args, $defaults);
+    if (is_singular()) {
+        $comments = true;
+        $pagination = paginate_comments_links(array('type' => 'array'));
+    } else {
+        $defaults = array(
+            'prev_text'          => '&laquo;',
+            'next_text'          => '&raquo;',
+            'before_page_number' => '<span class="sr-only">' . __('Page', 'brhg2016') . ' </span>',
+            'type'               => 'array',
+            'mid_size'           => '4',
+            'screen_reader_text' => 'Archive page navigation'
+        );
 
-    //$pagination = get_the_posts_pagination($args);
-
-    $pagination = paginate_links($args);
+        $args = wp_parse_args($args, $defaults);
+        $pagination = paginate_links($args);
+    }
 
     if (!is_array($pagination)) {
         return;
@@ -443,9 +447,11 @@ function brhg2016_archive_pagination($args = '') {
         } elseif (str_contains($page, "dots")) {
             $li .= "<li class='$li_class {$li_dots_class}'>" . substr_replace($page, $no_link_class, 13, 17) . "</li>\n";
         } elseif (str_contains($page, "next")) {
-            $li .= "<li class='$li_class {$li_next_class}'>" . substr_replace($page, $link_class, 10, 17) . "</li>\n";
+            $li_new = "<li class='$li_class {$li_next_class}'>" . substr_replace($page, $link_class, 10, 17) . "</li>\n";
+            $li .= str_replace("Next &raquo;", '&raquo;', $li_new);
         } elseif (str_contains($page, "prev")) {
-            $li .= "<li class='$li_class {$li_prev_class}'>" . substr_replace($page, $link_class, 10, 17) . "</li>\n";
+            $li_new = "<li class='$li_class {$li_prev_class}'>" . substr_replace($page, $link_class, 10, 17) . "</li>\n";
+            $li .= str_replace("&laquo; Previous", '&laquo;', $li_new);
         } else {
             $li .= "<li class='$li_class'>" . substr_replace($page, $link_class, 10, 12) . "</li>\n";
         }
@@ -453,12 +459,18 @@ function brhg2016_archive_pagination($args = '') {
         $pagination_list_items .= $li;
     }
 
-    $pagination_html = "
-        <nav class='{$base_class}__nav' aria-label='Archive pagination'>
-            <ul class='{$ul_class}'>
-                $pagination_list_items
+    $pagination_html = sprintf(
+        "<nav class='%s' aria-label='Archive pagination'>
+            %s
+            <ul class='%s'>
+               %s
             </ul>
-        </nav>";
+        </nav>",
+        $base_class . "__nav",
+        $comments ? "<div class='{$base_class}__nav-title'>More comments</div>" : '',
+        $ul_class,
+        $pagination_list_items
+    );
 
     return $pagination_html;
 }
@@ -500,18 +512,17 @@ function brhg2016_archive_thumb($size = 'big_thumb', $echo = true) {
                 brhg2016_archive_missing_thumb('Not A BRHG Event');
             } else {
 
-                return false;
+                return 'text';
             }
 
         // if it is a brhg event but there is no connected event series
         elseif (get_post_meta($post->ID, 'brhg_event_filter', true) == 'brhg' && $connected_series == 'no series') :
 
             if ($echo === true) {
-
                 brhg2016_archive_missing_thumb('Not In An Event Series');
             } else {
 
-                return false;
+                return 'text';
             }
 
         else:
@@ -522,7 +533,7 @@ function brhg2016_archive_thumb($size = 'big_thumb', $echo = true) {
                 if ($echo === true) {
                     brhg2016_archive_missing_thumb(get_the_title($connected_series));
                 } else {
-                    return false;
+                    return 'text';
                 }
 
             // if there is a connected Event Series and it has a featured image
@@ -535,7 +546,7 @@ function brhg2016_archive_thumb($size = 'big_thumb', $echo = true) {
                 if ($echo === true) {
                     echo get_the_post_thumbnail($connected_series, $size, $thumb_attr);
                 } else {
-                    return true;
+                    return 'image';
                 }
 
             endif;
@@ -547,7 +558,7 @@ function brhg2016_archive_thumb($size = 'big_thumb', $echo = true) {
 
             if ($echo === true) {
 
-                brhg2016_archive_missing_thumb(get_the_title());
+                //brhg2016_archive_missing_thumb(get_the_title());
             } else {
 
                 return false;
@@ -565,7 +576,7 @@ function brhg2016_archive_thumb($size = 'big_thumb', $echo = true) {
                 echo the_post_thumbnail($size, $thumb_attr);
             } else {
 
-                return true;
+                return 'image';
             }
         }
     endif;
@@ -584,7 +595,7 @@ function brhg2016_archive_missing_thumb($text) {
     $link_tag_open = "";
     $link_tag_close = "";
 
-    // Make missing thumb a link for pamphlet and event series archive pages.
+    /*     // Make missing thumb a link for pamphlet and event series archive pages.
     if (is_post_type_archive('pamphlets') || is_post_type_archive('event_series')) {
         $link_tag_open = sprintf(
             "<a href ='%s' title='%s' class='archive-item-missing-thumb-link'>",
@@ -603,9 +614,11 @@ function brhg2016_archive_missing_thumb($text) {
         get_stylesheet_directory_uri() . '/images/transparent-212x300.png',
         $text,
         $link_tag_close
-    );
+    ); */
 
-    echo $missing_thumb;
+    $missing_thumb_replacement_text = "<div class='archive-item-content__missing-thumb-text'>$text</div>";
+
+    echo  $missing_thumb_replacement_text;
 }
 
 

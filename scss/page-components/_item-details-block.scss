@@ -1,8 +1,11 @@
 @use "../globals" as g;
 
 .details-block {
-  @extend %default-text;
   margin-bottom: 50px;
+
+  &--archive {
+    margin-bottom: 0;
+  }
 
   &--2up {
     @include g.mediaQ(g.$single-page-bp-small) {
@@ -42,6 +45,11 @@
 
   &__title {
     color: g.$mid-text;
+  }
+
+  &__p {
+    line-height: 1.2;
+    margin-bottom: 0.25em;
   }
 
   &__key,

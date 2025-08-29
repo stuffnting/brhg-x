@@ -5,6 +5,8 @@
     }
   ],
   "settings": {
+    "editor.hover.delay": 1000,
+    "editor.hover.above": false,
     "liveSassCompile.settings.formats": [
       {
         "format": "expanded",

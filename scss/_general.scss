@@ -12,12 +12,11 @@ i {
 }
 
 .q-list {
-  @extend %default-text;
-  @extend %default-v-space;
+  @include g.defaultYSpace;
 
   & li {
     @extend %default-ul-li;
-    @extend %default-x-space;
+    @include g.defaultXSpace;
   }
 }
 

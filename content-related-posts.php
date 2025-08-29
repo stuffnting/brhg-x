@@ -18,11 +18,11 @@ $related_items_array = brhg2024_get_related($show_related);
 
 if (! empty($related_items_array) && is_array($related_items_array)) :
 ?>
-    <section id="related-posts-section" aria-label="Related content">
+    <section id="related-posts-section" class="related" aria-label="Related content">
         <?php foreach ($related_items_array as $key => $related) :  ?>
-            <aside class="related-list-wrapper related-list-wrapper-<?php echo $key ?>" aria-label="Related <?php echo $key ?>">
-                <header class="related-post-type-title">More <?php echo $key; ?></header>
-                <div class="thumb-only-listing-wrapper">
+            <aside class="related__type-wrap related--<?php echo $key ?>" aria-label="Related <?php echo $key ?>">
+                <header class="related__type-title">More <?php echo $key; ?></header>
+                <div class="related__items-wrap">
                     <?php
                     foreach ($related as $post):
                         setup_postdata($post);
@@ -30,7 +30,7 @@ if (! empty($related_items_array) && is_array($related_items_array)) :
                     endforeach;
                     ?>
                 </div>
-                <div class="related-archive-link">
+                <div class="related__archive-link">
                     <?php if ($key === 'pamphlets') echo '<a href="' . site_url('publication-collections') . '">See Publication Collections</a><br>'; ?>
                     <a href="<?php echo get_post_type_archive_link($key); ?>">See all <?php echo array_search($key, $show_related); ?></a>
                 </div>

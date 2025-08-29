@@ -9,15 +9,14 @@
   }
 
   &__desc-def {
-    @extend %default-x-space;
-    @extend %default-v-space;
+    @include g.defaultXSpace;
+    @include g.defaultYSpace;
   }
 }
 
 // Tag index
 
 .tag-index {
-  @extend %default-text;
   max-width: g.$wide-content-width;
   margin: 0 auto;
   text-align: justify;

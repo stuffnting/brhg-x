@@ -1,0 +1,47 @@
+@use "../globals/" as g;
+
+.pubs-buy-where {
+  font-weight: 700;
+  padding: 30px 10px;
+  margin-bottom: 25px;
+  text-align: center;
+  line-height: 1.4em;
+  color: g.$red;
+  border: 3px solid g.$red;
+
+  & a {
+    @include g.defaultLink(true, false, true);
+  }
+}
+
+.pub-covers {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.pub-reviews {
+  &__wrap {
+    margin-top: 100px;
+  }
+
+  &__title {
+    padding: 5px;
+    margin-bottom: 30px;
+    color: g.$light-text;
+    text-align: center;
+    font-weight: 800;
+    background-color: g.$red;
+  }
+
+  &__item {
+    margin: 50px 0;
+    padding-bottom: 20px;
+    border-bottom: 1px solid g.$border-rule;
+  }
+
+  &__source,
+  &__link-wrap {
+    font-size: g.$small-text;
+  }
+}

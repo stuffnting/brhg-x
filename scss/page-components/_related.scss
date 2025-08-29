@@ -1,0 +1,54 @@
+@use "../globals/" as g;
+
+.related {
+  width: 100%;
+
+  @include g.mediaQ(1000px) {
+    display: flex;
+    gap: 30px;
+    max-width: g.$max-width-torso;
+    margin: 0 auto;
+    padding: 15px;
+  }
+
+  &__type-wrap {
+    width: 100%;
+    margin-bottom: 50px;
+  }
+
+  &__items-wrap {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    width: 100%;
+
+    @include g.mediaQ(500px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @include g.mediaQ(800px) {
+      grid-template-columns: repeat(6, 1fr);
+    }
+    @include g.mediaQ(1000px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @include g.mediaQ(1200px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  &__type-title {
+    font-family: g.$highlight-font;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 20px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid g.$border-rule;
+  }
+
+  &__archive-link {
+    @include g.defaultLink(true, false, true);
+    font-weight: 800;
+    text-align: right;
+    margin-top: 1em;
+  }
+}

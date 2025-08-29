@@ -109,7 +109,6 @@
 
 // Event series that are current and forthcoming
 .current-series {
-  @extend %default-text;
   @extend %ph-current-series-spacing;
 
   max-width: g.$main-text-width;

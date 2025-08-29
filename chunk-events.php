@@ -44,64 +44,73 @@ extract(brhg2025_get_details_block_classes());
 ?>
 
 <?php if (brhg2016_get_item_event_date() && $show_none === 'no' &&  $show_date === 'yes') { ?>
-    <span class="<?php echo $key_class; ?>">Date: </span>
-    <span class="<?php echo $value_class; ?>">
-        <?php echo brhg2016_get_item_event_date(); ?>
-    </span>
+    <p class="details-block__p">
+        <span class="<?php echo $key_class; ?>">Date: </span>
+        <span class="<?php echo $value_class; ?>">
+            <?php echo brhg2016_get_item_event_date(); ?>
+        </span>
+    </p>
 <?php } ?>
 
 <?php if (brhg2016_get_item_event_time() && $show_none === 'no' &&  $show_time === 'yes') { ?>
-    <br>
-    <span class="<?php echo $key_class; ?>">Time: </span>
-    <span class="<?php echo $value_class; ?>">
-        <?php echo brhg2016_get_item_event_time(); ?>
-    </span>
+    <p class="details-block__p">
+        <span class="<?php echo $key_class; ?>">Time: </span>
+        <span class="<?php echo $value_class; ?>">
+            <?php echo brhg2016_get_item_event_time(); ?>
+        </span>
+    </p>
 <?php } ?>
 
 <?php if (brhg2016_get_item_meta_singles('location', false) && $show_none === 'no' &&  $show_location === 'yes') { ?>
-    <br>
-    <span class="<?php echo $key_class; ?>">Location: </span>
-    <span class="<?php echo $value_class; ?>">
-        <?php echo brhg2016_get_item_meta_singles('location'); ?>
-    </span>
+    <p class="details-block__p">
+        <span class="<?php echo $key_class; ?>">Location: </span>
+        <span class="<?php echo $value_class; ?>">
+            <?php echo brhg2016_get_item_meta_singles('location'); ?>
+        </span>
+    </p>
 <?php } ?>
 
 <?php if (brhg2016_get_item_connected('venues', false) && $show_none === 'no' &&  $show_venues === 'yes') { ?>
-    <br>
-    <span class="<?php echo $key_class; ?>">Venue: </span>
-    <span class="<?php echo $value_class; ?>">
-        <?php brhg2016_get_item_connected('venues'); ?>
-    </span>
+    <p class="details-block__p">
+        <span class="<?php echo $key_class; ?>">Venue: </span>
+        <span class="<?php echo $value_class; ?>">
+            <?php brhg2016_get_item_connected('venues'); ?>
+        </span>
+    </p>
 <?php } ?>
 
 <?php if (brhg2016_get_item_meta_singles('price', false) && $show_none === 'no' &&  $show_price === 'yes') { ?>
-    <br>
-    <span class="<?php echo $key_class; ?>">Price: </span>
-    <span class="<?php echo $value_class; ?>">
-        <?php echo brhg2016_get_item_meta_singles('price'); ?>
-    </span>
+    <p class="details-block__p">
+        <span class="<?php echo $key_class; ?>">Price: </span>
+        <span class="<?php echo $value_class; ?>">
+            <?php echo brhg2016_get_item_meta_singles('price'); ?>
+        </span>
+    </p>
 <?php } ?>
 
 <?php if (brhg2016_get_item_connected('speakers', false) && $show_none === 'no' &&  $show_speakers === 'yes') { ?>
-    <br>
-    <span class="<?php echo $key_class; ?>">With: </span>
-    <span class="<?php echo $value_class; ?>">
-        <?php brhg2016_get_item_connected('speakers'); ?>
-    </span>
+    <p class="details-block__p">
+        <span class="<?php echo $key_class; ?>">With: </span>
+        <span class="<?php echo $value_class; ?>">
+            <?php brhg2016_get_item_connected('speakers'); ?>
+        </span>
+    </p>
 <?php } ?>
 
 <?php if (brhg2016_get_item_connected('series', false) && $show_none === 'no' &&  $show_series === 'yes') { ?>
-    <br>
-    <span class="<?php echo $key_class; ?>">Series: </span>
-    <span class="<?php echo $value_class; ?>">
-        <?php brhg2016_get_item_connected('series'); ?>
-    </span>
+    <p class="details-block__p">
+        <span class="<?php echo $key_class; ?>">Series: </span>
+        <span class="<?php echo $value_class; ?>">
+            <?php brhg2016_get_item_connected('series'); ?>
+        </span>
+    </p>
 <?php } ?>
 
 <?php if (brhg2016_get_item_meta_singles('brhg_event_filter', false) === 'other' && $show_none === 'no' &&  $show_event_filter === 'yes') { ?>
-    <br>
-    <span class="<?php echo $key_class; ?>">Note: </span>
-    <span class="<?php echo $value_class; ?>">
-        This event was not organised by BRHG.
-    </span>
+    <p class="details-block__p">
+        <span class="<?php echo $key_class; ?>">Note: </span>
+        <span class="<?php echo $value_class; ?>">
+            This event was not organised by BRHG.
+        </span>
+    </p>
 <?php }

@@ -14,13 +14,25 @@
 if (has_term('gallery', 'article_type')) {
     $archive_item_content = "archive-item-gallery";
     $archive_item_more = "archive-item-content__more-wrap--gallery";
+    $extra_content_class = '';
 } elseif (has_term('video-2', 'article_type') && brhg2016_get_vids(1, false)) {
     $archive_item_content = "archive-item-content";
     $archive_item_more = '';
+    $extra_content_class = '';
 } else {
     $archive_item_content = "archive-item-content";
     $archive_item_more = "";
+    // Find out if there is a thumbnail to be used
+    $thumb_test = brhg2016_archive_thumb('', false);
+    $extra_content_class = '';
+
+    if ($thumb_test === 'text') {
+        $extra_content_class = 'archive-item-content--text-thumb';
+    } elseif ($thumb_test === false) {
+        $extra_content_class = 'archive-item-content--no-thumb';
+    }
 }
+
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class('archive-item'); ?> aria-label="Archive item">
@@ -33,7 +45,7 @@ if (has_term('gallery', 'article_type')) {
         <?php get_template_part('chunk', 'post-title-meta'); ?>
     </header>
 
-    <div class="<?php echo $archive_item_content; ?>">
+    <div class="<?php echo $archive_item_content; ?> <?php echo $extra_content_class; ?>">
 
         <?php
         /*  
@@ -61,34 +73,21 @@ if (has_term('gallery', 'article_type')) {
         }
 
         // Only show title for these post types, don't show thumb and excerpt
-        $no_excerpt_or_thumb = array('contributors', 'venues');
+        $title_only = array('contributors', 'venues');
 
-        if (!in_array(get_post_type(), $no_excerpt_or_thumb) && !$vids && !has_term('gallery', 'article_type')) {
+        if (
+            !in_array(get_post_type(), $title_only)
+            && !$vids
+            && !has_term('gallery', 'article_type')
+        ) {
 
-            // Find out if there is a thumbnail to be used
-            $class = (brhg2016_archive_thumb('', false)) ? '' : 'archive-item-content__missing-thumb';
-            ?>
-
-            <?php
-            $excerpt_no_thumb = array('rad_his_listings');
-            $no_thumb_class = "";
-
-            if (in_array(get_post_type(), $excerpt_no_thumb)) {
-                $no_thumb_class = " archive-item-content__excerpt--no-thumb";
-            }
-
-            if (!in_array(get_post_type(),  $excerpt_no_thumb)) {
-            ?>
-
-                <div class='archive-item-content__thumb-wrap <?php echo $class ?>'>
+            if ($thumb_test !== false): ?>
+                <div class='archive-item-content__thumb-wrap'>
                     <?php brhg2016_archive_thumb(); ?>
                 </div>
+            <?php endif; ?>
 
-            <?php
-            }
-            ?>
-
-            <div class="archive-item-content__excerpt<?php echo $no_thumb_class; ?>">
+            <div class="archive-item-content__excerpt">
                 <?php echo brhg2016_custom_excerpt(500); ?>
             </div>
 

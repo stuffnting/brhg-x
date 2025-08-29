@@ -45,16 +45,17 @@ function brhg2024_add_pamphlet_content($content) {
     $where_to_buy_link
   );
 
+  $img_args = array('class' => 'pub-covers__img');
+
   // Covers
   $pamphlet_covers_html = sprintf(
     "<div class='pub-covers'>
-      <a href='%s' class='pub-covers_link'>%s</a>
-      <a href='%s' class='pub-covers_link'>%s</a>
+      <a href='%s' class='pub-covers__link'>%s</a><a href='%s' class='pub-covers__link'>%s</a>
     </div>\n",
     wp_get_attachment_image_url(get_field('pam_front_cover'), 'full'),
-    wp_get_attachment_image(get_field('pam_front_cover'), 'big_thumb'),
+    wp_get_attachment_image(get_field('pam_front_cover'), 'big_thumb', false, $img_args),
     wp_get_attachment_image_url(get_field('pam_back_cover'), 'full'),
-    wp_get_attachment_image(get_field('pam_back_cover'), 'big_thumb')
+    wp_get_attachment_image(get_field('pam_back_cover'), 'big_thumb', false, $img_args)
   );
 
   //reviews

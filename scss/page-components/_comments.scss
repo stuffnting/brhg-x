@@ -3,8 +3,6 @@
 .comments {
   &__wrap {
     margin-top: 50px;
-
-    @include g.defaultTextItems(true, false, false, false);
   }
 
   &__pale-rule {
@@ -30,14 +28,9 @@
       display: block;
       width: 100%;
     }
-
-    & p {
-      margin-bottom: 1em;
-      font-size: g.$small-text;
-    }
   }
 
-  &__form &__input {
+  &__input {
     margin-bottom: 25px;
   }
 
@@ -46,7 +39,7 @@
     width: 100%;
   }
 
-  &__input--comment textarea {
+  &__textarea {
     @extend %default-form-field;
     width: 100%;
   }
@@ -61,24 +54,38 @@
     @extend %default-button;
   }
 
+  &__note-before,
   &__note-after {
+    margin-bottom: 1em;
+    font-size: g.$small-text;
+
+    & a {
+      @include g.defaultLink;
+    }
+  }
+
+  &__note-after {
+    margin-bottom: 2em;
+
     & code {
       font-family: monospace;
     }
   }
 
-  // Comments
+  // Comments list
   $comment-bottom-margin: 3em;
 
   &__list {
     list-style-type: decimal;
     list-style-position: inside;
-    margin-bottom: 50px;
+    margin-bottom: 100px;
 
     @include g.mediaQ(g.$comments-bp-x-small) {
       list-style-position: outside;
       padding-left: 2em;
     }
+
+    @include g.defaultTextItems(true, false, false, false);
 
     & .children {
       padding-left: 1em;
@@ -99,7 +106,7 @@
       margin-bottom: 0;
     }
 
-    &.depth-1 {
+    &.depth-1:not(:last-child) {
       border-bottom: 3px solid g.$border-rule;
       padding-bottom: 1em;
     }

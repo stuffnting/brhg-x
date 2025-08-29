@@ -75,6 +75,8 @@ if (! is_admin()) {
     require_once('functions/appearance/the_content_filter.php');
     // Content filter for single publications page
     require_once('functions/publications/publication_the_content_filter.php');
+    //Comments and comment form
+    require_once('functions/appearance/comment_form.php');
     // Front page about and featured sections
     require_once('functions/appearance/front_page_about_featured.php');
 }
@@ -442,34 +444,3 @@ function my_disable_emojis_tinymce($plugins) {
 
 add_filter('wp_is_application_passwords_available', '__return_false');
 add_filter('xmlrpc_enabled', '__return_false');
-
-
-add_filter('comment_form_fields', function ($fields) {
-
-    $find = array(
-        'comment-form-',
-        '<p',
-        '</p'
-    );
-
-    $replace = array(
-        'comments__input comments__input--',
-        '<div',
-        '</div'
-    );
-
-    $new_fields = str_replace($find, $replace, $fields);
-
-    return $new_fields;
-});
-
-function test_callback($a, $b, $c) {
-    snt_dump($a);
-    snt_dump($b);
-    snt_dump($c);
-}
-function test_end_callback($a, $b, $c) {
-    snt_dump($a);
-    snt_dump($b);
-    snt_dump($c);
-}

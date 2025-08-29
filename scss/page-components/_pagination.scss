@@ -18,14 +18,22 @@
 
   &__nav {
     display: flex;
+    flex-direction: column;
+    align-items: end;
     justify-content: end;
     flex-wrap: wrap;
-    max-width: g.$wide-content-width;
     margin: 0 auto;
+    max-width: g.$wide-content-width;
 
     &--alpha {
       justify-content: center;
     }
+  }
+
+  &__nav-title {
+    margin-bottom: 0.5em;
+    font-size: g.$small-text;
+    font-weight: bold;
   }
 
   &__ul {

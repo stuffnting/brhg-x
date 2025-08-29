@@ -13,44 +13,48 @@
 ?>
 
 <?php extract(brhg2025_get_details_block_classes()); ?>
+<p class="details-block__p">
+    <span class="<?php echo $key_class; ?>">Section: </span>
+    <span class="<?php echo $value_class; ?>"> <?php brhg2016_get_item_section(); ?></span>
 
-<span class="<?php echo $key_class; ?>">Section: </span>
-<span class="<?php echo $value_class; ?>"> <?php brhg2016_get_item_section(); ?></span>
-
-<?php if (brhg2016_get_item_sub_section(false)) { ?>
-    <span class="<?php echo $value_class; ?> <?php echo $value_class; ?>--sub-section">
-        <?php brhg2016_get_item_sub_section(); ?>
-    </span>
+    <?php if (brhg2016_get_item_sub_section(false)) { ?>
+        <span class="<?php echo $value_class; ?> <?php echo $value_class; ?>--sub-section">
+            <?php brhg2016_get_item_sub_section(); ?>
+        </span>
+</p>
 <?php } ?>
 
 <?php if (brhg2016_get_item_project(false)) { ?>
-    <br>
-    <span class="<?php echo $key_class; ?>">Projects: </span>
-    <span class="<?php echo $value_class; ?>">
-        <?php brhg2016_get_item_project(); ?>
-    </span>
+    <p class="details-block__p">
+        <span class="<?php echo $key_class; ?>">Projects: </span>
+        <span class="<?php echo $value_class; ?>">
+            <?php brhg2016_get_item_project(); ?>
+        </span>
+    </p>
 <?php } ?>
 
 <?php if (in_array('category', get_object_taxonomies(get_post_type(), 'names'))) { ?>
-    <br>
-    <span class="<?php echo $key_class; ?>">Subjects: </span>
-    <span class="<?php echo $value_class; ?>"><?php the_category(', ') ?></span>
+    <p class="details-block__p">
+        <span class="<?php echo $key_class; ?>">Subjects: </span>
+        <span class="<?php echo $value_class; ?>"><?php the_category(', ') ?></span>
+    </p>
 <?php } ?>
 
 <?php
 the_tags(
-    "<br>\n<span class='$key_class'>Tags: </span>
+    "<p class='details-block__p'>\n<span class='$key_class'>Tags: </span>
         <span class='$value_class'>",
     ', ',
-    '</span>'
+    '</span></p>'
 );
 ?>
-<br>
-<span class="<?php echo $key_class; ?> <?php echo $key_class; ?>--posted">Posted: </span>
-<span class="<?php echo $value_class; ?> <?php echo $value_class; ?>--posted">
-    <?php brhgh2016_post_date(); ?>
-</span>
-<span class="<?php echo $key_class; ?> <?php echo $key_class; ?>--mod">Modified: </span>
-<span class="<?php echo $value_class; ?> <?php echo $value_class; ?>--mod">
-    <?php brhgh2016_post_modified(); ?>
-</span>
+<p class="details-block__p">
+    <span class="<?php echo $key_class; ?> <?php echo $key_class; ?>--posted">Posted: </span>
+    <span class="<?php echo $value_class; ?> <?php echo $value_class; ?>--posted">
+        <?php brhgh2016_post_date(); ?>
+    </span>
+    <span class="<?php echo $key_class; ?> <?php echo $key_class; ?>--mod">Modified: </span>
+    <span class="<?php echo $value_class; ?> <?php echo $value_class; ?>--mod">
+        <?php brhgh2016_post_modified(); ?>
+    </span>
+</p>

@@ -4,6 +4,7 @@
   margin-bottom: 100px;
 
   @include g.defaultTextItems;
+
   & a {
     @include g.defaultLink;
   }
@@ -12,14 +13,34 @@
 
   & img {
     @extend %responsive-img;
+    border: 1px solid g.$image-border;
     margin: 0 auto;
   }
 
+  & img:not(figure img) {
+    margin-bottom: 2em;
+    margin-top: 2em;
+  }
+
   & figure {
-    margin: 0 auto 1em;
+    margin: 2em auto 2em;
   }
 
   & figcaption {
     font-size: g.$small-text;
+    margin-top: 1em;
+  }
+
+  summary {
+    @include g.defaultYSpace;
+  }
+
+  summary::after {
+    content: "\2002\005B\2002\2026\2002\005D\2002";
+    color: g.$red;
+  }
+
+  details[open] summary::after {
+    display: none;
   }
 }
