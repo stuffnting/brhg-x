@@ -66,6 +66,10 @@
     }
   }
 
+  &__text {
+    font-size: 1rem;
+  }
+
   &__btn {
     @extend %intro-button;
     color: g.$red;
@@ -113,7 +117,7 @@
   }
 
   &__text {
-    font-size: 16px;
+    font-size: 1rem;
     margin-top: 0;
 
     @include g.mediaQ(g.$front-page-intro-grid-bp-small) {
@@ -123,7 +127,7 @@
     }
 
     @include g.mediaQ(g.$front-page-intro-grid-bp-medium) {
-      font-size: 14px;
+      font-size: 0.875rem;
     }
 
     & ul {
@@ -168,7 +172,7 @@
         margin-left: 0;
         width: 100%;
         font-weight: 700;
-        font-size: 16px;
+        font-size: 1rem;
       }
 
       & .fp-featured-item__btn-wrapper {

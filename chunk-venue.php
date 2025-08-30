@@ -36,24 +36,30 @@ $venue_details = array(
 
 foreach ($venue_details as $title => $detail) {
     if (brhg2016_get_item_meta_singles($detail[0], false)) { ?>
-        <h3 class="venue-details-title"><?php echo $title; ?></h3>
-<?php
-        if ($title === 'Address') {
-            array_shift($detail);
-        }
+        <section class="venue-detail__section" aria-label="<?php echo $title ?>">
+            <h2 class="venue-details__title"><?php echo $title; ?></h2>
+            <div class="venue-details__item-wrap">
+                <?php
+                if ($title === 'Address') {
+                    array_shift($detail);
+                }
 
-        foreach ($detail as $key => $value) {
-            if (brhg2016_get_item_meta_singles($value, false)) {
-                $meta = brhg2016_get_item_meta_singles($value, false);
-                printf(
-                    "<span class='venue-details venue-details-%s'>%s%s%s</span>%s\n",
-                    $value,
-                    ($title === 'Website') ? "<a href='" . $meta . "' target='blank'>" : '',
-                    ($title === 'email') ? brhg2016_encode_email($meta) : $meta,
-                    ($title === 'Website') ? "</a>" : '',
-                    (count($detail) > $key + 1) ?  '<br>' : ''
-                );
-            }
-        }
-    }
+                foreach ($detail as $key => $value) {
+                    if (brhg2016_get_item_meta_singles($value, false)) {
+                        $meta = brhg2016_get_item_meta_singles($value, false);
+                        printf(
+                            "<span class='venue-details__item venue-details-%s'>%s%s%s</span>%s\n",
+                            $value,
+                            ($title === 'Website') ? "<a href='" . esc_url($meta) . "' target='blank'>" : '',
+                            ($title === 'email') ? brhg2016_encode_email($meta) : $meta,
+                            ($title === 'Website') ? "</a>" : '',
+                            (count($detail) > $key + 1) ?  '<br>' : ''
+                        );
+                    }
+                } ?>
+            </div>
+        <?php
+    } ?>
+        </section>
+    <?php
 }

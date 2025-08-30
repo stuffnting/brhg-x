@@ -150,20 +150,19 @@ $event_series = brhg_event_series_slider();
                     if (has_post_thumbnail()) {
                         $slide_img = wp_get_attachment_image_src(get_post_thumbnail_id(), 'big_thumb');
                     } ?>
-
                     <div class="fp-slider__item">
-                        <div class="fp-slider__item-content">
-                            <a href="<?php the_permalink(); ?>" class="fp-slider__item-link">
-                                <img
-                                    src="<?php echo  $slide_img[0]; ?>"
-                                    data-src="<?php echo  $slide_img[0]; ?>"
-                                    width="<?php echo  $slide_img[1]; ?>"
-                                    height="<?php echo
-                                            $slide_img[2]; ?>"
-                                    class="tns-lazy-img fp-slider__item-img"
-                                    alt="Poster for <?php the_title(); ?>"
-                                    loading="lazy">
-                                <h2 class="fp-slider__item-title"><?php the_title(); ?></h2>
+                        <div class="thumb-only-listing">
+                            <img
+                                src="<?php echo  $slide_img[0]; ?>"
+                                data-src="<?php echo  $slide_img[0]; ?>"
+                                width="<?php echo  $slide_img[1]; ?>"
+                                height="<?php echo
+                                        $slide_img[2]; ?>"
+                                class="tns-lazy-img thumb-only-listing__item-img"
+                                alt="Poster for <?php the_title(); ?>"
+                                loading="lazy">
+                            <a href="<?php the_permalink(); ?>" class="thumb-only-listing__item-link">
+                                <h2 class="thumb-only-listing__item-title"><?php the_title(); ?></h2>
                             </a>
                         </div>
                     </div>

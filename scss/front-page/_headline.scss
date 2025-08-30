@@ -9,9 +9,6 @@
   position: absolute;
 }
 
-$scroll-top-height: 87px;
-$scroll-bottom-height: 74px;
-
 %frame-top-bottom {
   content: "";
   background-size: 100% 103%;
@@ -20,6 +17,8 @@ $scroll-bottom-height: 74px;
   position: absolute;
   left: 0;
 }
+
+// Begin
 
 .fp-headlines {
   margin-top: g.$fp-headlines-spacing;
@@ -31,6 +30,9 @@ $scroll-bottom-height: 74px;
   @include g.mediaQ(850px) {
     display: flex;
   }
+
+  $scroll-top-height: 87px;
+  $scroll-bottom-height: 74px;
 
   &__frame-outer {
     margin: $scroll-top-height auto $scroll-bottom-height;
@@ -57,16 +59,20 @@ $scroll-bottom-height: 74px;
 
     &::before {
       @extend %frame-scrolls;
-      background-image: url(images/headline-frame-top-scroll.svg);
-      background-position-y: bottom;
+      background: {
+        image: url(images/headline-frame-top-scroll.svg);
+        position-y: bottom;
+      }
       height: $scroll-top-height;
       bottom: 100%;
     }
 
     &::after {
       @extend %frame-scrolls;
-      background-image: url(images/headline-frame-bottom-scroll.svg);
-      background-position-y: top;
+      background: {
+        image: url(images/headline-frame-bottom-scroll.svg);
+        position-y: top;
+      }
       height: $scroll-bottom-height;
       left: -5px;
       margin-top: -1px;
@@ -77,8 +83,10 @@ $scroll-bottom-height: 74px;
     $frame-top-height: 37px;
     $frame-bottom-height: 61px;
 
-    background-image: url(images/headline-frame-middle.svg);
-    background-size: 100% 100%;
+    background: {
+      image: url(images/headline-frame-middle.svg);
+      size: 100% 100%;
+    }
     width: 100%;
     min-height: 600px;
     padding: 0 12% 0 7%;

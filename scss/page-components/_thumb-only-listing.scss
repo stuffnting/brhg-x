@@ -7,10 +7,15 @@
   flex: auto;
   aspect-ratio: 1 / 1.414135;
   overflow: hidden;
-
+  border: 1px solid g.$image-border;
+  // For title sizing
   container-type: inline-size;
   container-name: listing-item-box;
   position: relative;
+
+  &:hover {
+    border-color: g.$image-border-dark;
+  }
 
   &:hover a {
     opacity: 1;
@@ -36,7 +41,6 @@
     background-color: rgba(0, 0, 0, 0.5);
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
-    border: 1px solid g.$image-border;
   }
 
   &__missing-img a {

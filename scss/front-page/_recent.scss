@@ -7,6 +7,28 @@
   }
 }
 
+%slider-scrolls {
+  content: "";
+  width: 100%; // Full width of parent
+  position: absolute;
+  right: 100%; // Align right edge with left edge of parent to mitigate for parent padding
+  transform: translate(100%); // Centre on parent
+  display: none;
+}
+
+@mixin sliderFrameScrolls($bg-img, $margin, $height, $top-bottom) {
+  @extend %slider-scrolls;
+  background: {
+    image: url($bg-img), none;
+    position: center;
+  }
+  margin: $margin;
+  height: $height;
+  #{$top-bottom}: 100%;
+}
+
+// Begin
+
 .fp-recent {
   margin-top: g.$fp-recent-spacing;
 
@@ -34,7 +56,7 @@
     @include g.defaultLink(true, false, true);
 
     display: block;
-    font-weight: 700;
+    font-weight: 800;
     align-self: center;
   }
 
@@ -104,7 +126,7 @@
 
 ///// Slider //////
 
-//so see ../vendor/tiny-slider.scss
+//also see ../vendor/tiny-slider.scss
 
 $slider-scroll-bottom-height: 33px;
 
@@ -132,73 +154,42 @@ $slider-scroll-bottom-height: 33px;
       padding: 50px 60px 30px 50px;
     }
 
-    @include g.mediaQ(g.$front-page-recent-bp-small) {
-      &::before {
-        content: "";
-        background: {
-          image: url(images/slider-frame-top.svg);
-          position: center;
-        }
-        margin: 0 auto -1px;
-        width: 100%; // Full width of parent
-        height: 35px;
-        position: absolute;
-        bottom: 100%;
-        right: 100%; // Align right edge with left edge of parent to mitigate for parent padding
-        transform: translate(100%); // Centre on parent
-      }
-
-      &::after {
-        content: "";
-        background-image: url(images/slider-frame-bottom.svg), none;
-        background-position: center;
-        margin: -1px auto 0;
-        width: 100%; // Full width of parent
-        height: $slider-scroll-bottom-height;
-        position: absolute;
-        top: 100%;
-        right: 100%; // Align right edge with left edge of parent to mitigate for parent padding
-        transform: translate(100%); // Centre on parent
-      }
+    &::before {
+      @include sliderFrameScrolls(
+        "images/slider-frame-top.svg",
+        0 auto -1px,
+        35px,
+        bottom
+      );
     }
-  }
 
-  &__item {
-    container-type: inline-size;
-    container-name: listing-item-box;
-  }
+    &::after {
+      @include sliderFrameScrolls(
+        "images/slider-frame-bottom.svg",
+        -1px auto 0,
+        $slider-scroll-bottom-height,
+        top
+      );
+    }
 
-  &__item-link {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    flex-direction: column;
-    text-align: center;
-    transition: background-color 0.3s ease-out;
-
-    &:hover {
-      background-color: g.$poster-hover-background;
-
-      .fp-slider__item-title {
+    @include g.mediaQ(g.$front-page-recent-bp-small) {
+      &::before,
+      &::after {
         display: block;
       }
     }
   }
 
-  &__item-title {
-    display: none;
-    color: g.$poster-hover-title;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7), 0 0 5px rgba(0, 0, 0, 0.5);
-    font-size: 10cqw;
-    padding: 10px;
-    position: absolute;
+  &__item {
+    padding-bottom: 1px; // Accommodate hover border
   }
 
-  &__item-img {
-    height: auto;
-    border: 1px solid g.$image-border-dark;
-    z-index: -10; // Move below link's background
+  &__item .thumb-only-listing {
+    border-color: g.$image-border-dark;
+
+    &:hover {
+      border-color: g.$image-border;
+    }
   }
 
   & .tns-nav {
@@ -210,11 +201,11 @@ $slider-scroll-bottom-height: 33px;
       padding: 0;
       margin: 0 5px;
       border-radius: 50%;
-      background: #aaaaaa;
+      background: g.$midLight-bg;
       border: 0;
     }
     & .tns-nav-active {
-      background: g.$midDark-bg;
+      background: g.$mid-bg;
     }
   }
 }

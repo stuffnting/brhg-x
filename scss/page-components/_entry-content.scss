@@ -11,10 +11,11 @@
 
   @include g.defaultHeadings;
 
-  & > p :where(img) {
+  & :where(img) {
     @extend %responsive-img;
     border: 1px solid g.$image-border;
     margin: 0 auto;
+    display: block;
   }
 
   & img:where(:not(figure img)) {
@@ -22,7 +23,7 @@
     margin-top: 2em;
   }
 
-  & :not(.gallery) figure {
+  & figure:not(.gallery-item) {
     margin: 2em auto 2em;
   }
 
@@ -32,7 +33,7 @@
     margin-top: 0;
   }
 
-  & :not(.gallery) figcaption {
+  & figure:not(.gallery-item) figcaption {
     font-size: g.$small-text;
     margin-top: 1em;
   }

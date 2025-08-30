@@ -1,16 +1,25 @@
+// Archive and single
+
 @forward "page-header";
 @forward "entry-content";
+@forward "search-form";
+@forward "item-details-block";
+@forward "thumb-only-listing";
+@forward "pagination";
+
+// Archive only
+
 @forward "archive-item";
+@forward "other-archive-content";
+
+// Single only
+
 @forward "single-item";
 @forward "comments";
 @forward "related";
-@forward "pagination";
-@forward "item-details-block";
-@forward "search-form";
-@forward "other-archive-content";
 @forward "contact-shortcode";
-@forward "thumb-only-listing";
 @forward "single-publication";
 @forward "shopping-trolley";
 @forward "contact-forms";
 @forward "galleries";
+@forward "venues";
