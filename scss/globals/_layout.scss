@@ -2,9 +2,29 @@ $main-text-width: 780px;
 $wide-content-width: 1200px;
 $max-width-torso: 1600px;
 
-// Default margin under page header
-$ph-margin-bottom: 100px;
-
 // Default spacing for paragraphs, blockquotes etc.
 $default-y-space: 1em;
 $default-x-space: 2em;
+
+// Default margin under page header
+$ph-margin-bottom: 100px;
+
+// Page Header spacings
+$ph-pre-title-spacing: 40px;
+$ph-title-spacing: 0.35em;
+$ph-after-title: 50px;
+$ph-current-series-spacing: 25px;
+$ph-pale-rule-spacing-top: 25px;
+$ph-pale-rule-spacing-bottom: $ph-margin-bottom;
+
+// Front Page spacing
+$fp-intro-spacing: -20px;
+$fp-intro-spacing-bp-large: 50px;
+$fp-friends-spacing: 200px;
+$fp-headlines-spacing: 200px;
+$fp-slider-spacing: 200px;
+$fp-section-slider-spacing: 200px;
+$fp-recent-spacing: 100px;
+$fp-recent__section: 50px;
+$fp-tag-cloud-spacing-top: 200px;
+$fp-tag-cloud-spacing-top: 50px;

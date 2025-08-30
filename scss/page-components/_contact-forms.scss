@@ -1,0 +1,21 @@
+@use "../globals/" as g;
+
+.wpcf7-form {
+  & input:not([type="submit"]) {
+    @extend %default-input;
+    width: 100%;
+  }
+
+  & textarea {
+    @extend %default-form-field;
+    width: 100%;
+  }
+
+  .wpcf7-submit {
+    @extend %default-button;
+  }
+
+  .wpcf7-captchac {
+    margin: 0;
+  }
+}

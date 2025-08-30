@@ -225,6 +225,7 @@ function brhg_remove_unwanted_css() {
     // Cookie banner, now  in main css
     wp_dequeue_style('cookie-law-info-gdpr');
     wp_dequeue_style('cookie-law-info');
+    wp_dequeue_style('wpsc-style');
 }
 
 add_action('wp_enqueue_scripts', 'brhg_remove_unwanted_css', 999);

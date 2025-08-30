@@ -64,7 +64,7 @@ if (brhg2016_get_item_meta_singles('isbn', false)) { ?>
 if (brhg2016_get_item_meta_singles('number_of_pages', false)) { ?>
     <p class="details-block__p">
         <span class="<?php echo $key_class; ?>">Number of pages: </span>
-        <span class="value">
+        <span class="<?php echo $value_class; ?>">
             <?php brhg2016_get_item_meta_singles('number_of_pages'); ?>
         </span>
     </p>
@@ -93,7 +93,7 @@ if (brhg2016_get_item_meta_singles('format', false)) { ?>
 
 if (have_rows('pamphlet_reviews', $post->ID)) { ?>
     <p class="details-block__p">
-        <span class="details-block__reviews-link"><a href="#reviews">Reviews</span>
+        <span class="details-block__reviews-link <?php echo $value_class; ?>"><a href="#reviews">Reviews</a></span>
     </p>
 <?php
 }

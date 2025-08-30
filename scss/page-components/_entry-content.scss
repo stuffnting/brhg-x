@@ -11,36 +11,42 @@
 
   @include g.defaultHeadings;
 
-  & img {
+  & > p :where(img) {
     @extend %responsive-img;
     border: 1px solid g.$image-border;
     margin: 0 auto;
   }
 
-  & img:not(figure img) {
+  & img:where(:not(figure img)) {
     margin-bottom: 2em;
     margin-top: 2em;
   }
 
-  & figure {
+  & :not(.gallery) figure {
     margin: 2em auto 2em;
   }
 
-  & figcaption {
+  // For a page that starts with and image
+  & > p > img,
+  & figure:first-child {
+    margin-top: 0;
+  }
+
+  & :not(.gallery) figcaption {
     font-size: g.$small-text;
     margin-top: 1em;
   }
 
-  summary {
+  & summary {
     @include g.defaultYSpace;
   }
 
-  summary::after {
+  & summary::after {
     content: "\2002\005B\2002\2026\2002\005D\2002";
     color: g.$red;
   }
 
-  details[open] summary::after {
+  & details[open] summary::after {
     display: none;
   }
 }

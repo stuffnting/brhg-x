@@ -190,8 +190,8 @@
   top: 0;
   z-index: 2000; // Must be higher than the banner (modal HTML just before footer)
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   font-family: g.$highlight-font;
 
   &__form {

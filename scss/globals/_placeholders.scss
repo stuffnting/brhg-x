@@ -1,11 +1,5 @@
 @use "colours" as c;
 
-%default-text {
-  font-family: notosans, Helvetica, Arial, sans-serif;
-  line-height: 1.6;
-  color: c.$dark-text;
-}
-
 %default-h2 {
   font-size: clamp(24px, 3vw, 30px);
   margin-top: 1em;
@@ -116,14 +110,17 @@
     display: grid;
     place-content: center;
     color: c.$light-text;
+    display: inline-block;
   }
 
   input[type="checkbox"]::after {
     content: "✓";
     font-size: 1em;
     transform: scale(0);
-    transition: 120ms transform ease-in-out;
+    transition: 1000ms transform ease-in-out;
     font-weight: 800;
+    position: relative;
+    left: 6px;
   }
 
   input[type="checkbox"]:checked {
@@ -148,4 +145,14 @@
 
 %pale-rule {
   border-top: 1px solid c.$border-rule;
+}
+
+%highlight-box {
+  text-align: center;
+  line-height: 1.4em;
+  border: 3px solid c.$red;
+
+  & p:last-child {
+    margin-bottom: 0;
+  }
 }

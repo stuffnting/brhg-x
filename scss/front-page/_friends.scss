@@ -1,5 +1,4 @@
 @use "../globals" as g;
-@use "fp-section-spacing";
 
 %front-page-friends-lines {
   content: "";
@@ -8,7 +7,7 @@
 }
 
 .fp-friends {
-  @extend %fp-friends-spacing;
+  margin-top: g.$fp-friends-spacing;
 
   &::before {
     @extend %front-page-friends-lines;
@@ -39,9 +38,9 @@
 
   &__items-wrap {
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
     align-content: space-evenly;
     gap: 30px;
     margin: 50px 0;

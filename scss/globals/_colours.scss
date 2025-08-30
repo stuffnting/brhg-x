@@ -20,12 +20,14 @@ $light-text: $white;
 $midLight-text: map.get($greys, midLight); // Main menu
 $mid-text: map.get($greys, mid); // Grey text
 $dark-text: map.get($greys, dark);
+$highlight-text: $yellow;
 
 $light-bg: $white;
 $midLight-bg: map.get($greys, midLight);
 $midDark-bg: map.get($greys, dark);
 $dark-bg: $black;
 $missing-thumb-bg: whitesmoke;
+$highlight-bg: $yellow;
 
 $default-link: $primary;
 $default-link-underline: $pink;

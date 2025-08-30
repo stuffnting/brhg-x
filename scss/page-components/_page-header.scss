@@ -1,5 +1,4 @@
 @use "../globals" as g;
-@use "page-header-spacing";
 
 %pre-sub-titles {
   text-align: center;
@@ -23,12 +22,11 @@
 
   &__pre-title {
     @extend %pre-sub-titles;
-    @extend %ph-pre-title-spacing;
+    margin-bottom: g.$ph-pre-title-spacing;
   }
 
   &__title {
-    @extend %ph-title-spacing;
-
+    margin-bottom: g.$ph-title-spacing;
     font-size: clamp(28px, 5vw, 45px);
     text-align: center;
   }
@@ -38,8 +36,7 @@
   }
 
   &__after-title {
-    @extend %ph-after-title;
-
+    margin-top: g.$ph-after-title;
     font-size: 1.2rem;
     text-align: center;
   }
@@ -71,7 +68,8 @@
   }
 
   &__pale-rule {
-    @extend %ph-pale-rule-spacing;
+    margin-top: g.$ph-pale-rule-spacing-top;
+    margin-bottom: g.$ph-pale-rule-spacing-bottom;
     @extend %pale-rule;
   }
 }
@@ -109,11 +107,10 @@
 
 // Event series that are current and forthcoming
 .current-series {
-  @extend %ph-current-series-spacing;
-
-  max-width: g.$main-text-width;
+  margin-top: g.$ph-current-series-spacing;
   margin-left: auto;
   margin-right: auto;
+  max-width: g.$main-text-width;
   text-align: center;
 
   &__title {

@@ -1,5 +1,4 @@
 @use "../globals" as g;
-@use "fp-section-spacing";
 
 %frame-scrolls {
   content: "";
@@ -23,7 +22,7 @@ $scroll-bottom-height: 74px;
 }
 
 .fp-headlines {
-  @extend %fp-headlines-spacing;
+  margin-top: g.$fp-headlines-spacing;
 
   display: block;
   justify-content: space-evenly;

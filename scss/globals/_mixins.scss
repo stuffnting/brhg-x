@@ -70,6 +70,13 @@
   }
 }
 
+@mixin normalList {
+  & ul {
+    list-style-type: disc;
+    list-style-position: inside;
+  }
+}
+
 @mixin defaultHeadings {
   & h2 {
     @extend %default-h2;

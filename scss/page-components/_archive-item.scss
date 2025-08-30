@@ -41,8 +41,8 @@
 
 .archive-item-content {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
+  flex-wrap: wrap;
   gap: 4%;
   @include g.mediaQ(g.$archive-page-bp-small) {
     justify-content: space-between;

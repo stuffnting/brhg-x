@@ -29,9 +29,9 @@ if (brhg2016_get_item_meta_singles('sub_title', false)) {
 // Event series - dates
 if (get_post_type() === 'event_series' && brhg2016_event_series_dates(false)) {
 
-    echo "<{$tag} class='{$class_base}__sub-title'>";
+    echo "<{$subtitle_tag} class='{$class_base}__sub-title'>";
     brhg2016_event_series_dates();
-    echo "</{$tag}>";
+    echo "</{$subtitle_tag}>";
 }
 
 // Events diary - current event series

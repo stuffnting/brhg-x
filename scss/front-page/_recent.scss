@@ -1,5 +1,4 @@
 @use "../globals" as g;
-@use "fp-section-spacing";
 
 %title-wrap {
   @include g.mediaQ(g.$front-page-recent-bp-small) {
@@ -9,7 +8,7 @@
 }
 
 .fp-recent {
-  @extend %fp-recent-spacing;
+  margin-top: g.$fp-recent-spacing;
 
   &__title-wrap {
     @extend %title-wrap;
@@ -22,6 +21,8 @@
   &__title-wrap--slider {
     @extend %title-wrap;
 
+    z-index: 100;
+    position: relative;
     margin-bottom: 0;
   }
 
@@ -38,7 +39,7 @@
   }
 
   &__section {
-    @extend %fp-recent__section;
+    margin-top: g.$fp-recent__section;
   }
 
   &__items-wrap {
@@ -62,16 +63,21 @@
   }
 
   &__item-thumb {
+    display: flex; // To stretch missing thumb
     width: 100%;
     aspect-ratio: 0.70710678118654752440084436210485;
     border: 1px solid g.$image-border;
     overflow: hidden;
   }
 
+  &__item-missing-thumb {
+    flex: 1;
+    background-color: g.$missing-thumb-bg;
+  }
+
   &__item-img {
     display: block;
     width: 100%;
-    height: auto;
     object-fit: cover;
   }
 
@@ -103,15 +109,16 @@
 $slider-scroll-bottom-height: 33px;
 
 .fp-slider {
-  @extend %fp-section-slider-spacing;
+  margin-top: g.$fp-section-slider-spacing;
 
   &__outer {
-    background-image: url(images/slider-frame-middle.svg);
-    background-size: 100% 100%;
+    background: {
+      image: url(images/slider-frame-middle.svg);
+      size: 100% 100%;
+    }
     margin-bottom: $slider-scroll-bottom-height;
     padding: 40px 20px;
     position: relative;
-    z-index: -10; // Move below more link
 
     @include g.mediaQ(600px) {
       padding: 40px 40px 40px 35px;
@@ -128,8 +135,10 @@ $slider-scroll-bottom-height: 33px;
     @include g.mediaQ(g.$front-page-recent-bp-small) {
       &::before {
         content: "";
-        background-image: url(images/slider-frame-top.svg);
-        background-position: center;
+        background: {
+          image: url(images/slider-frame-top.svg);
+          position: center;
+        }
         margin: 0 auto -1px;
         width: 100%; // Full width of parent
         height: 35px;
@@ -161,10 +170,10 @@ $slider-scroll-bottom-height: 33px;
 
   &__item-link {
     display: flex;
-    position: relative;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: relative;
+    flex-direction: column;
     text-align: center;
     transition: background-color 0.3s ease-out;
 

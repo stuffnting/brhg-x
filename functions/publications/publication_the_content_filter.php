@@ -15,7 +15,7 @@ function brhg2025_number_items_trolley_link() {
 
   if ($num_items > 0) {
     $trolley_url = get_option('cart_checkout_page_url');
-    return "<div id='floating-trolley'>\n
+    return "<div id='floating-trolley' class='floating-trolley'>\n
             <a href='{$trolley_url}' class='cart-number-items'>Shopping Trolley <span class='trolley-items'>{$num_items}</span></a>\n
             </div>";
   } else {
@@ -262,13 +262,13 @@ function brhg2024_wp_simple_cart_buy_button_shortcode($passed_post_id = 0) {
 
   // Make the HTML for the buy-book box, including the shortcode
   $html_with_shortcode = sprintf(
-    "<aside id='buy-book' aria-name='Buy publication'>\n
-        <p class='buy-book-title'>Buy this publication</p>\n
-        <p class='buy-book-post-warning'><strong>* If you want books posting outside the UK <a href='https://www.brh.org.uk/site/contact-us/'>please email</a> first to check postal rates.</strong></p>
+    "<aside id='buy-book' class='buy' aria-name='Buy publication'>\n
+        <p class='buy__title'>Buy this publication</p>\n
+        <p class='buy__post-warning'><strong>* If you want books posting outside the UK <a href='https://www.brh.org.uk/site/contact-us/'>please email</a> first to check postal rates.</strong></p>
         <p>%s</p>\n
         <p>£%s %s</p>\n
         <p>%s</p>\n
-        <div class='buy-book-paypal-img'>\n
+        <div class='buy__paypal-img'>\n
           <img class='paypal-img' src='https://www.paypalobjects.com/webstatic/mktg/Logo/AM_mc_vs_ms_ae_UK.png' alt='PayPal Acceptance Mark' width='200' border='0' />
         </div>\n
       </aside\n",
@@ -308,14 +308,15 @@ function brhg2024_filter_wp_simple_cart_trolly_shortcode($output, $tag) {
 
     // Find where to add the delivery warning
     $position = strpos($new_output, $searchString) - strlen($searchString);
+    $contact_url = get_site_url(null, '/contact-us/');
 
-    $delivery_warning = '<div class="delivery-address-warning">
+    $delivery_warning = "<div class='delivery-address-warning'>
       <p>*** Delivery Address ***</p>
       <ul>
-        <li>Check your delivery address in PayPal when you checkout (<a href="#delivery-address">see below</a>).</li>
-        <li>If you want delivery outside the UK <a href="https://brh.org.uk/site/contact-us/">please email</a> first to check postal rates.</li>
+        <li>Check your delivery address in PayPal when you checkout (<a href='#delivery-address'>see below</a>).</li>
+        <li>If you want delivery outside the UK <a href='$contact_url'>please email</a> first to check postal rates.</li>
       </ul>
-    </div>';
+    </div>";
 
     $position += strlen($searchString);
     $new_output = substr_replace($new_output, $delivery_warning, $position, 0);

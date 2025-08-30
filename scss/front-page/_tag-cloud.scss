@@ -1,8 +1,8 @@
 @use "../globals" as g;
-@use "fp-section-spacing";
 
 .fp-tag-cloud {
-  @extend %fp-tag-cloud-spacing;
+  margin-top: g.$fp-tag-cloud-spacing-top;
+  margin-bottom: g.$fp-tag-cloud-spacing-top;
 
   &__wrap {
     text-align: justify;

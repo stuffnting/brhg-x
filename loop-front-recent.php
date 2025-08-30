@@ -23,7 +23,7 @@ while ($recent_stuff->have_posts()) : $recent_stuff->the_post(); ?>
             if (has_post_thumbnail()) {
                 the_post_thumbnail('big_thumb', $thumb_attr);
             } else {
-                echo '<div class="fp-recent_item-missing-thumb"><!--missing image--></div>';
+                echo '<div class="fp-recent__item-missing-thumb"><!--missing image--></div>';
             }
             ?>
         </div>

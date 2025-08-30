@@ -1,0 +1,112 @@
+@use "../globals/" as g;
+
+.floating-trolley {
+  background: g.$highlight-bg;
+  position: relative;
+  color: g.$light-text;
+  font-weight: 800;
+  text-align: center;
+  z-index: -11; // Must stay below main menu dropdown
+
+  & .trolley-items {
+    background-color: g.$red;
+    color: g.$highlight-text;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    width: 25px;
+    height: 25px;
+    font-size: g.$small-text;
+    margin-left: 3px;
+  }
+
+  & a {
+    @include g.defaultLink(true, false, true);
+    padding: 3px 0 3px 38px;
+    display: inline-block;
+    background: {
+      image: url(images/trolley.svg);
+      size: auto 75%;
+      position: 3px 4px;
+    }
+  }
+}
+
+.shopping_cart {
+  @include g.normalList;
+
+  & + p > img {
+    margin: 1.5em 0 0 0;
+    border: none;
+  }
+}
+
+.wspsc_cart {
+  &_header_image {
+    margin: 0 auto 0 0;
+  }
+
+  &_item_row {
+    font-weight: 800;
+    text-align: center;
+  }
+
+  &_item_row th {
+    padding-bottom: 10px;
+  }
+
+  &_item_name_th {
+    text-align: left;
+  }
+
+  &_item_qty {
+    @extend %default-input;
+  }
+
+  &_item_thumb td {
+    vertical-align: middle;
+  }
+
+  &_subtotal td {
+    padding-top: 10px;
+  }
+}
+
+.wp_cart {
+  &_item_info {
+    display: flex;
+    gap: 10px;
+  }
+
+  &_item_thumbnail img {
+    margin: 0;
+  }
+
+  &_checkout_button:hover {
+    opacity: 0.7;
+  }
+}
+
+.wpsc_checkout {
+  &_form_standard {
+    margin-top: 2em;
+  }
+
+  &_form {
+    font-weight: 800;
+  }
+}
+
+.wp-shopping-cart-tnc-container {
+  @extend %default-checkbox;
+}
+
+.empty-trolley-wrap {
+  border: 3px solid g.$red;
+  background: white;
+  text-align: center;
+  font-weight: 800;
+  padding: 50px;
+  margin: 50px auto;
+}

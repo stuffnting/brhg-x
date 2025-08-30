@@ -74,6 +74,7 @@ function brhg2024_make_for_sale_list() {
             continue;
           }
 
+
           $list_items .= sprintf(
             "<li><a href='%s'>#%s %s</a></li>",
             get_the_permalink(get_sub_field('publication')),

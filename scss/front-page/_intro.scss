@@ -1,13 +1,15 @@
 @use "intro-grid";
-
 @use "../globals" as g;
-@use "fp-section-spacing";
 
 .fp-intro {
-  @extend %fp-intro-spacing;
+  margin-top: g.$fp-intro-spacing;
   display: block;
   width: 100%;
   padding: 0 15px;
+
+  @include g.mediaQ(g.$front-page-intro-grid-bp-large) {
+    margin-top: g.$fp-intro-spacing-bp-large;
+  }
 
   & p {
     margin-bottom: 1em;
