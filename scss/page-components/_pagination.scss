@@ -26,7 +26,7 @@
     max-width: g.$wide-content-width;
 
     &--alpha {
-      justify-content: center;
+      align-items: center;
     }
   }
 
@@ -51,13 +51,15 @@
     font-weight: 700;
     overflow: hidden;
 
+    $border-radius: 3px;
+
     &:first-child {
-      border-radius: 5px 0 0 5px;
+      border-radius: $border-radius 0 0 $border-radius;
     }
 
     &:last-child {
       border-right: 1px solid g.$pagination-borders;
-      border-radius: 0 5px 5px 0;
+      border-radius: 0 $border-radius $border-radius 0;
     }
 
     &--current .no-link {

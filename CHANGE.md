@@ -13,3 +13,7 @@
 ## Comments settings
 
 - Tick add cookies notice to settings -> discussion
+
+## TinyMCE
+
+- Advanced Editor Tools plugin, add the alignment tools back in.

@@ -1,0 +1,141 @@
+/* brhg2016 admin styles */
+
+/* Admin menu */
+#adminmenu li.wp-menu-separator {
+  height: 2px;
+  padding: 0;
+  margin: 10px 0 10px;
+  cursor: inherit;
+  background-color: #a40000;
+}
+
+/* Meta boxes */
+
+#postbox-container-2 {
+  container-name: bottom-meta-boxes;
+  container-type: inline-size;
+}
+
+.acf-fields > .acf-field {
+  min-width: 100%;
+  height: auto !important;
+}
+
+body.js .closed .inside {
+  display: none !important;
+}
+
+.acf-label label {
+  font-weight: 600 !important;
+  font-size: 1.1em;
+}
+
+@container bottom-meta-boxes (min-width: 500px) {
+  .acf-fields > .acf-field {
+    min-width: initial;
+  }
+
+  #acf-group_5baa59cd0dcbf .acf-fields,
+  #acf-group_5baa59cd1fd63 .acf-fields,
+  #acf-group_5baa59cd1fd63 .acf-fields,
+  #acf-group_5baa59cccc806 .acf-fields,
+  #acf-group_5baa59cd36ebc .acf-fields {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  #acf-group_5baa59cd36ebc .acf-field,
+  #acf-group_5baa59cd0dcbf .acf-field,
+  #acf-group_5baa59cd1fd63 .acf-field,
+  #acf-group_5baa59cccc806 .acf-field,
+  #acf-group_5baa59cd36ebc .acf-field {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-bottom: 25px;
+  }
+
+  #acf-group_65dcca5f45109 .acf-field-65dcd13c32add .acf-fields {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+  }
+}
+
+.toplevel_page_publications-prices .acf-repeater .acf-actions {
+  display: none;
+}
+
+/* hide arrows on selects */
+.toplevel_page_publications-prices .acf-repeater select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 1px;
+  text-overflow: "";
+}
+
+.toplevel_page_publications-prices .acf-row-handle.order,
+.toplevel_page_publications-prices .acf-row-handle {
+  display: none;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+.toplevel_page_publications-prices
+  .acf-repeater
+  .select2-container--default
+  .select2-selection--single
+  .select2-selection__arrow
+  b {
+  border-color: #f0f0f1 !important;
+}
+
+.toplevel_page_publications-prices
+  .acf-repeater
+  .select2-selection.select2-selection--single {
+  background: #f0f0f1;
+}
+
+/* Hide + - add remove buttons */
+acf-field-repeater.pub-range-repeater {
+  display: none;
+}
+
+/* Hide new terms links */
+
+#category-adder,
+#article_type-adder,
+#book_type-adder,
+#listing_type-adder {
+  display: none;
+}
+
+/* Hide buttons on options pages */
+
+.acf-field-65e243221c174 .acf-button {
+  display: none;
+}
+
+/* Chrome, Safari, Edge, Opera */
+.acf-field-65e1c0f134d6a input::-webkit-outer-spin-button,
+.acf-field-65e1c0f134d6a input::-webkit-inner-spin-button,
+.acf-field-65d1eefa88310 input::-webkit-outer-spin-button,
+.acf-field-65d1eefa88310 input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+.acf-field-65e1c0f134d6a input[type="number"],
+.acf-field-65d1eefa88310 input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* Publication price page */
+.extra-update-button {
+  text-align: right;
+  padding: 20px;
+}

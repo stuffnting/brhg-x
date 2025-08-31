@@ -12,7 +12,7 @@
 <?php get_template_part('content', 'page-header');  ?>
 <section id="thumb-only-list-page" class="thumb-only-list">
 
-	<?php // $pub_sets set in archive-pamphlets.php i.e. are we on the Pamphlet Archive page, or Publications Collections page
+  <?php // $pub_sets set in archive-pamphlets.php i.e. are we on the Pamphlet Archive page, or Publications Collections page
 
   if (get_query_var('post_type', false) === 'pamphlets') {
 
@@ -33,14 +33,14 @@
 
       // First the publication range/collection title & description 
   ?>
-			<header class="publication-range-header">
-				<h2 class="publication-range-title"><?php echo $title; ?></h2>
-				<h3 class="publication-range-description"><?php echo $description; ?></h3>
-			</header>
+      <header class="thumb-only-list__header">
+        <h2 class="thumb-only-list__title"><?php echo $title; ?></h2>
+        <h3 class="thumb-only-list__description"><?php echo $description; ?></h3>
+      </header>
 
-			<div class="thumb-only-listing-wrapper">
+      <div class="thumb-only-listing__wrapper">
 
-				<?php /* Start the Loop for the pamphlets */
+        <?php /* Start the Loop for the pamphlets */
         while (have_posts()) : the_post();
 
           if (get_query_var('special_url', false) === 'publication-collections') {
@@ -58,19 +58,19 @@
 
         endwhile;
         rewind_posts(); ?>
-			</div> <!-- thumb-only-listing-wrapper -->
-		<?php endforeach;
+      </div> <!-- thumb-only-listing-wrapper -->
+    <?php endforeach;
   } else {
 
     // i.e. we are on the Events Series Archive page 
     ?>
-		<div class="thumb-only-listing-wrapper">
-			<?php /* Start the Loop */
+    <div class="thumb-only-listing__wrapper">
+      <?php /* Start the Loop */
 
       while (have_posts()) : the_post();
         get_template_part('loop', 'thumbs-only');
       endwhile; ?>
-		</div>
-	<?php } ?>
+    </div>
+  <?php } ?>
 
 </section> <!-- thumb-only-list -->

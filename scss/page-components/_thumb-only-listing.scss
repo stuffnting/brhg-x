@@ -55,3 +55,39 @@
     color: g.$light-text;
   }
 }
+
+// Publications and event series archive pages
+
+.thumb-only-list {
+  @include g.defaultTextItems;
+  @include g.defaultHeadings;
+
+  & a {
+    @include g.defaultLink;
+  }
+
+  &__header {
+    max-width: 780px;
+    margin-bottom: 2em;
+  }
+}
+
+.thumb-only-listing__wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  width: 100%;
+  margin-bottom: 100px;
+
+  @include g.mediaQ(g.$toa-bp-small) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @include g.mediaQ(g.$toa-bp-medium) {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  @include g.mediaQ(g.$toa-bp-large) {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}

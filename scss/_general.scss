@@ -11,6 +11,10 @@ i {
   font-style: italic;
 }
 
+small {
+  font-size: g.$small-text;
+}
+
 .q-list {
   @include g.defaultYSpace;
 
@@ -20,6 +24,20 @@ i {
   }
 }
 
+// For TinyMCE alignment buttons
+.aligncenter {
+  text-align: center;
+}
+
+.alignleft {
+  text-align: initial;
+}
+
+.alignright {
+  text-align: right;
+}
+
+// Screen Readers
 .sr-only {
   position: absolute;
   width: 1px;

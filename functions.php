@@ -230,14 +230,40 @@ function brhg_remove_unwanted_css() {
 
 add_action('wp_enqueue_scripts', 'brhg_remove_unwanted_css', 999);
 
+
+// Prevent default TintMCE styles loading
+add_filter('mce_css', function ($styles) {
+    return '';
+}, 15);
+
+add_filter('mce_css', function ($styles) {
+
+    $custom_stylesheet = get_template_directory_uri() . '/css/brhg-editor-styles.css';
+
+    // If other styles are already enqueued, append yours
+    if (!empty($styles)) {
+        $styles .= ',' . $custom_stylesheet;
+    } else {
+        $styles = $custom_stylesheet;
+    }
+
+    snt_dump($styles);
+    return $styles;
+}, 20);
+
+
+
 // Add admin stylesheets and scripts
+add_action('admin_enqueue_scripts', 'brhg2016_admin_theme_style_scripts');
+add_action('login_enqueue_scripts', 'brhg2016_admin_theme_style_scripts');
+
 function brhg2016_admin_theme_style_scripts() {
-    /*     wp_enqueue_style(
-        'brhg2016-admin-theme',
-        get_template_directory_uri() . '/css/brhg2016-admin.css',
+    wp_enqueue_style(
+        'brhg2025-admin-theme',
+        get_template_directory_uri() . '/css/brhg-admin-styles.css',
         false,
-        filemtime(get_template_directory() . '/css/brhg2016-admin.css')
-    ); */
+        filemtime(get_template_directory() . '/css/brhg-admin-styles.css')
+    );
     // Contains the quick edit js
     wp_enqueue_script(
         'admin-extra-script',
@@ -248,8 +274,6 @@ function brhg2016_admin_theme_style_scripts() {
     );
 }
 
-add_action('admin_enqueue_scripts', 'brhg2016_admin_theme_style_scripts');
-add_action('login_enqueue_scripts', 'brhg2016_admin_theme_style_scripts');
 
 /**
  * Preload
@@ -351,13 +375,20 @@ add_action('wp_head', 'brhg2016_favicon');
 */
 
 // Remove version
+add_filter('the_generator', 'brhg2016_remove_version');
+
 function brhg2016_remove_version() {
     return '';
 }
 
-add_filter('the_generator', 'brhg2016_remove_version');
+// Wrap embed iframe
+function brhg_wrap_embed_with_div($html, $url, $attr) {
+    return '<div class="iframe-container">' . $html . '</div>';
+}
 
 // Add custom image sizes to media uploader
+add_filter('image_size_names_choose', 'brhg2016_insert_custom_image_sizes');
+
 function brhg2016_insert_custom_image_sizes($sizes) {
     global $_wp_additional_image_sizes;
 
@@ -372,11 +403,11 @@ function brhg2016_insert_custom_image_sizes($sizes) {
     return $sizes;
 }
 
-add_filter('image_size_names_choose', 'brhg2016_insert_custom_image_sizes');
-
 // Add a bs class to make image size responsive
 // This only works for new images added via tinyMCE
 // functions/utility_functions.php/brhg2016_content_filter() takes care of legacy images
+add_filter('get_image_tag_class', 'brhg2016_image_tag', 0, 4);
+
 function brhg2016_image_tag($class, $id, $align, $size) {
 
     $class = $class . ' img-responsive';
@@ -384,7 +415,6 @@ function brhg2016_image_tag($class, $id, $align, $size) {
     return $class;
 }
 
-add_filter('get_image_tag_class', 'brhg2016_image_tag', 0, 4);
 
 
 add_filter('wp_get_attachment_image_attributes', function ($attr) {
@@ -407,12 +437,6 @@ function wpse151723_remove_yoast_seo_posts_filter() {
 // Kill Yoast Schema
 
 add_filter('wpseo_json_ld_output', '__return_false');
-
-
-// Wrap embed iframe
-function brhg_wrap_embed_with_div($html, $url, $attr) {
-    return '<div class="iframe-container">' . $html . '</div>';
-}
 
 add_filter('embed_oembed_html', 'brhg_wrap_embed_with_div', 10, 3);
 
@@ -445,3 +469,21 @@ function my_disable_emojis_tinymce($plugins) {
 
 add_filter('wp_is_application_passwords_available', '__return_false');
 add_filter('xmlrpc_enabled', '__return_false');
+
+function my_mce_before_init_insert_formats($init_array) {
+
+
+    // Insert the custom formats into the TinyMCE settings
+    //$init_array['style_formats'] = json_encode( $style_formats );
+
+    $formats = json_encode([
+        'alignleft'     => ['selector' => 'p,h1,h2,h3,h4,h5,h6', 'classes' => 'alignleft'],
+        'aligncenter'   => ['selector' => 'p,h1,h2,h3,h4,h5,h6', 'classes' => 'aligncenter'],
+        'alignright'    => ['selector' => 'p,h1,h2,h3,h4,h5,h6', 'classes' => 'alignright'],
+    ]);
+
+    $init_array['formats'] = $formats;
+
+    return $init_array;
+}
+add_filter('tiny_mce_before_init', 'my_mce_before_init_insert_formats');

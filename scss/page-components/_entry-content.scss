@@ -27,15 +27,37 @@
     margin: 2em auto 2em;
   }
 
-  // For a page that starts with and image
+  // For a page that starts with and image and thumb-row galleries
   & > p > img,
-  & figure:first-child {
-    margin-top: 0;
+  & figure:first-child,
+  & .thumb-row img,
+  & .thumb-row p &,
+  .thumb-row figure {
+    margin: 0;
   }
 
   & figure:not(.gallery-item) figcaption {
     font-size: g.$small-text;
     margin-top: 1em;
+  }
+
+  .thumb-row {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: first baseline;
+    gap: 10px;
+    margin: 4rem 0;
+  }
+
+  // Hack to compensate for missing caption, where there is no baseline to align to
+  & .thumb-row a::after {
+    content: "\200B"; /* Zero width space */
+    display: block;
+    line-height: 0;
+  }
+
+  & img {
+    height: auto;
   }
 
   & summary {

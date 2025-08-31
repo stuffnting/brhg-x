@@ -128,9 +128,16 @@
 
   &__img-wrap {
     @include g.a4Image;
+    display: flex;
+  }
+
+  &__img-link {
+    display: flex;
   }
 
   &__img {
     @extend %responsive-img;
+    object-fit: cover;
+    border: 1px solid g.$image-border;
   }
 }
