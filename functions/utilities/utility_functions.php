@@ -209,7 +209,6 @@ function brhg2016_get_vids(int $number = 1) {
     }
 
     if (!empty($embed_list)) {
-        snt_dump($embed_list);
         // Echo the embedded videos
         $output = array();
         for ($n = 1; $n <= $number; $n++) {

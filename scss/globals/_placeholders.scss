@@ -1,4 +1,5 @@
 @use "colours" as c;
+@use "layout" as l;
 
 %default-h2 {
   font-size: clamp(24px, 3vw, 30px);
@@ -19,12 +20,42 @@
   margin-bottom: 1em;
 }
 
-%default-ul-li {
-  background-image: url("images/q.svg");
-  background-size: 0.65em auto;
-  background-repeat: no-repeat;
-  background-position: 0 6px;
-  padding-left: 1.2em;
+%default-ul-list {
+  & > :where(ul) {
+    margin-bottom: l.$default-y-space;
+    & > :where(li) {
+      background-image: url("images/q.svg");
+      background-size: 0.65em auto;
+      background-repeat: no-repeat;
+      background-position: 0 6px;
+      padding-left: 1.2em;
+      margin-left: l.$default-x-space;
+      margin-right: l.$default-x-space;
+    }
+  }
+  & :where(ul ul li) {
+    list-style-type: disc;
+    margin-left: l.$default-x-space;
+  }
+  & :is(ul, ol) ol li {
+    margin-left: 0;
+  }
+}
+
+%default-ol-list {
+  & :where(ol) {
+    margin-left: l.$default-x-space;
+    margin-right: l.$default-x-space;
+    & :where(li) {
+      list-style-type: decimal;
+      list-style-position: outside;
+      margin-left: 1.1em;
+    }
+  }
+  & :where(ol ul li) {
+    list-style-type: disc;
+    margin-left: l.$default-x-space;
+  }
 }
 
 %default-link-colour {
@@ -91,7 +122,7 @@
 
 %default-form-field {
   color: c.$red;
-  background-color: c.$light-bg;
+  background-color: c.$lightest-bg;
   border: 1px solid c.$form-input-border;
 }
 

@@ -402,7 +402,7 @@ a[data-wplink-url-error]:before {
   outline: none;
 }
 
-.gallery a {
+/* .gallery a {
   cursor: default;
 }
 
@@ -489,7 +489,7 @@ a[data-wplink-url-error]:before {
   height: auto;
   border: none;
   padding: 0;
-}
+} */
 
 img.wp-oembed {
   border: 1px dashed #888;

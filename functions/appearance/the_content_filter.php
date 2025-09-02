@@ -1,6 +1,12 @@
 <?php
 
 /**
+ * Tame the p tags when shortcodes execute
+ */
+remove_filter('the_content', 'wpautop');
+add_filter('the_content', 'wpautop', 12);
+
+/**
  * Filters a single post content. Called from the single.php template file.
  * 
  * Pamphlets: adds cover images, where to buy link,reviews, and buy-book box.

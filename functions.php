@@ -247,7 +247,6 @@ add_filter('mce_css', function ($styles) {
         $styles = $custom_stylesheet;
     }
 
-    snt_dump($styles);
     return $styles;
 }, 20);
 

@@ -22,7 +22,8 @@ $mid-text: map.get($greys, mid); // Grey text
 $dark-text: map.get($greys, dark);
 $highlight-text: $yellow;
 
-$light-bg: $white;
+$lightest-bg: $white;
+$light-bg: map.get($greys, light);
 $midLight-bg: map.get($greys, midLight);
 $mid-bg: map.get($greys, mid);
 $midDark-bg: map.get($greys, dark);

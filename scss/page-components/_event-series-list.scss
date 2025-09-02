@@ -1,0 +1,115 @@
+@use "../globals/" as g;
+
+.event-prog {
+  &__date {
+    margin-top: 100px;
+    padding: 0.5em 0;
+    text-align: center;
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+
+    $border: top, bottom;
+    @each $position in $border {
+      border-#{$position}: 1px solid g.$border-rule;
+    }
+  }
+}
+
+.event-list {
+  display: grid;
+  justify-content: center;
+  max-width: 1200px;
+  margin-top: 50px;
+
+  &__title {
+    margin-bottom: 0;
+  }
+
+  &__scroll {
+    display: block;
+    margin: 0;
+  }
+
+  &__table-wrap {
+    overflow-y: scroll;
+  }
+
+  &__table {
+    font-size: g.$small-text;
+    font-weight: 800;
+    margin-bottom: 1em;
+
+    & a {
+      text-decoration: none;
+    }
+
+    & thead {
+      background-color: g.$dark-bg;
+      color: g.$light-text;
+    }
+
+    & tbody tr:nth-of-type(2n + 1) {
+      background-color: g.$light-bg;
+    }
+
+    & td {
+      border: 1px solid g.$pagination-borders;
+    }
+
+    & th {
+      border: 1px solid g.$dark-bg;
+    }
+
+    & td,
+    & th {
+      padding: 0.5em;
+    }
+  }
+
+  &__head {
+    &--title {
+      text-align: center;
+    }
+  }
+
+  &__cell {
+    white-space: nowrap;
+    &--title {
+      white-space: normal;
+      text-wrap: balance;
+      text-align: center;
+    }
+  }
+
+  $tables: (
+    cols-3: 780px,
+    cols-4: 900px,
+    cols-5: 1050px,
+    cols-6: 1200px,
+  );
+
+  @each $cols, $width in $tables {
+    &--#{$cols} {
+      & .event-list__table {
+        width: $width;
+      }
+      & .event-list__table-wrap {
+        width: calc(100vw - 30px);
+      }
+      @include g.mediaQ($width) {
+        & .event-list__title {
+          margin-bottom: 0;
+          text-align: center;
+        }
+        & .event-list__scroll {
+          display: none;
+        }
+        & .event-list__table-wrap {
+          width: $width;
+        }
+      }
+    }
+  }
+}

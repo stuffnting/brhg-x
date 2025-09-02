@@ -9,22 +9,15 @@
  */
 
 /**
- * [event_list] shortcode for event table on event series page.
- *
- * @param    array   $atts an array of attributes passed from the shortcode
- *                   The short code atts are:
- *                      posts - a comma separated list of event post IDs used to override the events connected to 
- *                          the event series, default is false.
- *                      subset - the subset of the events series, used to break up the event table into smaller chunks.
- *                      title - the h3 title to add before the subset table is added to the page.
- *                      venue - the event venue.
- *                      location - the location within the venue.
- *                      date - Show or hide the date column. Default is to show.
- *                      time - Show or hide the time column. Default is to show.
- *
- * @return   string  The events programme as a table with some additional markup
+ * A wrapper for all events list tables.
+ * 
+ * @param array     $atts       The attributes from the shortcode.
+ *                  title       The title for the events list wrapper, e.g. 'Programme 2025.
+ * @param string    $content    The content of the shortcode. This will include the shortcodes 
+ *                              for the individual tables.
+ * @return string   All of the programme lists, including the wrapper. Only returns a populated 
+ *                  string if the shortcode has contents, otherwise returns an empty string.
  */
-
 add_shortcode('event_list_wrapper', 'brhg2024_make_event_programme');
 
 function brhg2024_make_event_programme($atts, $content = null) {
@@ -36,13 +29,20 @@ function brhg2024_make_event_programme($atts, $content = null) {
         'event_list_wrapper'
     );
 
+    // Only return a populated string if the shortcode has contents.
     if (isset($content)) {
         $new_content = sprintf(
-            "<div class='event-programme-wrapper' id='full-programme'><h2 class='event-list-wrap-title'>%s</h2>%s</div>",
+            "<section id='full-programme' class='event-prog'>\n
+                <h2 class='event-prog__title'>%s</h2>\n
+                %s\n
+            </section>\n",
             $atts['title'],
-            brhg2024_change_headers($content, 'h3', 'event-series-programme-date'),
+            brhg2024_change_headers($content, 'h3', 'event-prog__date'),
         );
-        return do_shortcode($new_content);
+        // DO the shortcodes contained within the contents.
+        $content_out = do_shortcode($new_content);
+
+        return wpautop(trim($content_out));
     }
 
     return '';
@@ -61,6 +61,24 @@ function brhg2024_change_headers($html = '', $new_tag = 'h3', $class = '') {
     return $new_html;
 }
 
+
+/**
+ * [event_list] shortcode for event table on event series page.
+ *
+ * @param    array   $atts an array of attributes passed from the shortcode
+ *                   The short code atts are:
+ *                   posts - a comma separated list of event post IDs used to override the events connected to 
+ *                   the event series, default is false.
+ *                   subset - the subset of the events series, used to break up the event table into smaller chunks.
+ *                   title - the h3 title to add before the subset table is added to the page.
+ *                   venue - the event venue.
+ *                   location - the location within the venue.
+ *                   with - the speakers. Default is to show.
+ *                   date - Show or hide the date column. Default is to show.
+ *                   time - Show or hide the time column. Default is to show.
+ *
+ * @return   string  The events programme as a table with some additional markup
+ */
 add_shortcode('event_list', 'brhg2016_make_event_list');
 
 function brhg2016_make_event_list($atts) {
@@ -75,6 +93,7 @@ function brhg2016_make_event_list($atts) {
             'title'     => false,
             'venue'     => false,
             'location'  => false,
+            'with'      => true,
             'time'      => true,
             'date'      => true
         ),
@@ -82,6 +101,7 @@ function brhg2016_make_event_list($atts) {
         'event_list'
     );
 
+    $atts['with'] = filter_var($atts['with'], FILTER_VALIDATE_BOOLEAN);
     $atts['venue'] = filter_var($atts['venue'], FILTER_VALIDATE_BOOLEAN);
     $atts['location'] = filter_var($atts['location'], FILTER_VALIDATE_BOOLEAN);
     $atts['date'] = filter_var($atts['date'], FILTER_VALIDATE_BOOLEAN);
@@ -132,31 +152,36 @@ function brhg2016_make_event_list($atts) {
 
         // Connect the speakers to each event in the $connected object
         if (function_exists('p2p_type')):
-            p2p_type('speaker_to_event')->each_connected($connected, array(), 'speakers');
-            p2p_type('venue_to_events')->each_connected($connected, array(), 'venues');
+            if ($atts['with']) {
+                p2p_type('speaker_to_event')->each_connected($connected, array(), 'speakers');
+            }
+            if ($atts['venue']) {
+                p2p_type('venue_to_events')->each_connected($connected, array(), 'venues');
+            }
         endif;
 
         // Loop through the posts and create a table row for each one
         $header_rows = '';
         $list_rows = '';
         // Keep track of how many optional columns are used (from date, time, and location)
-        $count_optional_cols = 0;
+        $col_count = 0;
 
         while ($connected->have_posts()) : $connected->the_post();
             // From here $post refers to the current event in $connected
 
             if ($atts['subset'] === false || $atts['subset'] == get_post_meta($post->ID, 'subset', true)) {
 
-                $list_rows .= "<tr class='event_programme_table_row'\n>";
+                $list_rows .= "<tr class='event-list__event'>\n";
 
                 if ($atts['date']) {
                     $date = brhg2016_get_item_event_date(false);
-                    $list_rows .=  "<td class='event-programme-table-date'>$date</td>\n";
+                    $date = str_replace(' to ', ' —<br>', $date);
+                    $list_rows .=  "<td class='event-list__cell event-list__cell--date'>$date</td>\n";
                 }
 
                 if ($atts['time']) {
                     $time = brhg2016_get_item_event_time(true);
-                    $list_rows .=  "<td class='event-programme-table-time'>$time</td>\n";
+                    $list_rows .=  "<td class='event-list__cell event-list__cell--time'>$time</td>\n";
                 }
 
                 $link = get_the_permalink();
@@ -165,19 +190,25 @@ function brhg2016_make_event_list($atts) {
                     ? ': ' . brhg2016_get_item_meta_singles('sub_title', false)
                     : '';
 
-                $list_rows .= "<td class='event-programme-table-title'><a href='$link'>$title$sub_title</a></td>\n";
+                $list_rows .= "<td class='event-list__cell event-list__cell--title'>\n
+                        <a href='$link'>$title$sub_title</a>\n
+                    </td>\n";
 
-                $speakers = brhg2016_get_item_connected('speakers', false);
-                $list_rows .= "<td class='event-programme-table-speakers'>$speakers</td>\n";
+                if ($atts['with']) {
+                    $speakers = brhg2016_get_item_connected('speakers', false);
+                    $list_rows .= "<td class='event-list__cell event-list__cell--with'>$speakers</td>\n";
+                }
 
                 if ($atts['venue']) {
                     $venue = brhg2016_get_item_connected('venues', false);
-                    $list_rows .= "<td class='event-programme-table-venue'>$venue</td>\n";
+                    $list_rows .= "<td class='event-list__cell event-list__cell--venue'>$venue</td>\n";
                 }
 
                 if ($atts['location']) {
-                    $location = brhg2016_get_item_meta_singles('location', false, $post->ID) ? brhg2016_get_item_meta_singles('location', false) : "";
-                    $list_rows .=  "<td class='event-programme-table-location'>$location</td>\n";
+                    $location = brhg2016_get_item_meta_singles('location', false, $post->ID)
+                        ? brhg2016_get_item_meta_singles('location', false)
+                        : "";
+                    $list_rows .=  "<td class='event-list__cell event-list__cell--location'>$location</td>\n";
                 }
 
                 $list_rows .= "</tr>\n";
@@ -187,45 +218,53 @@ function brhg2016_make_event_list($atts) {
 
         // Make the table header cells
         if ($atts['date']) {
-            $header_rows .= "<th class='event-programme-table-date'>Date</th>\n";
-            $count_optional_cols++;
+            $header_rows .= "<th class='event-list__head event-list__head--date'>Date</th>\n";
+            $col_count++;
         }
 
         if ($atts['time']) {
-            $header_rows .= "<th class='event-programme-table-time'>Time</th>\n";
-            $count_optional_cols++;
+            $header_rows .= "<th class='event-list__head event-list__head--time'>Time</th>\n";
+            $col_count++;
         }
 
-        $header_rows .= "<th class='event-programme-table-title'>Title</th>\n";
-        $header_rows .= "<th class='event-programme-table-speakers'>With</th>\n";
+        $header_rows .= "<th class='event-list__head event-list__head--title'>Title</th>\n";
+        $col_count++;
+
+        if ($atts['with']) {
+            $header_rows .= "<th class='event-list__head event-list__head--with'>With</th>\n";
+            $col_count++;
+        }
 
         if ($atts['venue']) {
-            $header_rows .= "<th class='event-programme-table-venue'>venue</th>\n";
-            $count_optional_cols++;
+            $header_rows .= "<th class='event-list__head event-list__head--venue'>venue</th>\n";
+            $col_count++;
         }
 
         if ($atts['location']) {
-            $header_rows .= "<th class='event-programme-table-location'>Location</th>\n";
-            $count_optional_cols++;
+            $header_rows .= "<th class='event-list__head event-list__head--location'>Location</th>\n";
+            $col_count++;
         }
 
         // Build the table
         $list_output = sprintf(
-            "<div class='event-list-wrapper optional-cols-%s'>\n
-                %s
-                <div class='event-list'>\n
-                    <table class='table table-striped event-programme-table'>\n
+            "<div class='event-list event-list--cols-%s'>\n
+                %s\n
+                <p class='event-list__scroll'>(Drag left/right)</p>\n
+                <div class='event-list__table-wrap'>\n
+                    <table class='event-list__table'>\n
                         <thead>\n
                             <tr>\n
-                                %s \n 
+                                %s\n
                             </tr>\n
                         </thead>\n
                             %s\n
                     </table>\n
-                </div>
+                </div>\n
             </div>\n",
-            $count_optional_cols,
-            ($atts['title']) ? "<h3 class='event-programme-title'>{$atts['title']} <span class='event-programme-scroll'>(drag left/right)</span>:</h3>\n" : '',
+            $col_count,
+            ($atts['title'])
+                ? "<h3 class='event-list__title'>{$atts['title']}</h3>\n"
+                : '',
             $header_rows,
             $list_rows
         );

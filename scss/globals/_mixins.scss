@@ -38,25 +38,12 @@
   }
 
   @if $ul {
-    & > :where(ul) {
-      @include defaultYSpace;
-      & :where(li) {
-        @extend %default-ul-li;
-        @include defaultXSpace;
-      }
-    }
+    @extend %default-ul-list;
   }
 
   @if $ol {
     // Changed from @if ol to @if $ol
-    & :where(ol) {
-      @include defaultXSpace;
-      list-style-type: decimal;
-      list-style-position: outside;
-      & li {
-        margin-left: 1.1em;
-      }
-    }
+    @extend %default-ol-list;
   }
 
   @if $blockquote {
@@ -78,21 +65,21 @@
 }
 
 @mixin defaultHeadings {
-  & h2 {
+  & :where(h2) {
     @extend %default-h2;
   }
 
-  & h3 {
+  & :where(h3) {
     @extend %default-h3;
   }
 
-  & h4 {
+  & :where(h4) {
     @extend %default-h4;
   }
 
-  & h2:first-child,
-  & h3:first-child,
-  & h4:first-child {
+  & :where(h2:first-child),
+  & :where(h3:first-child),
+  & :where(h4:first-child) {
     margin-top: 0;
   }
 }

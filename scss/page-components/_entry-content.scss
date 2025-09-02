@@ -1,5 +1,18 @@
 @use "../globals" as g;
 
+%gallery-thumb-row {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: first baseline;
+  gap: 10px;
+  margin: 4rem 0;
+
+  & img {
+    margin: 0;
+    width: 100%;
+  }
+}
+
 .entry-content {
   margin-bottom: 100px;
 
@@ -27,39 +40,37 @@
     margin: 2em auto 2em;
   }
 
-  // For a page that starts with and image and thumb-row galleries
-  & > p > img,
-  & figure:first-child,
-  & .thumb-row img,
-  & .thumb-row p &,
-  .thumb-row figure {
-    margin: 0;
-  }
-
-  & figure:not(.gallery-item) figcaption {
+  & figcaption {
     font-size: g.$small-text;
     margin-top: 1em;
   }
 
+  .gallery {
+    @extend %gallery-thumb-row;
+  }
+
+  & .gallery-item {
+    flex: 1;
+  }
+
+  // Gallery and thumb-row gallery
   .thumb-row {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: first baseline;
-    gap: 10px;
-    margin: 4rem 0;
+    @extend %gallery-thumb-row;
   }
 
   // Hack to compensate for missing caption, where there is no baseline to align to
-  & .thumb-row a::after {
+  & .thumb-row a::after,
+  & .gallery-icon::after {
     content: "\200B"; /* Zero width space */
     display: block;
     line-height: 0;
+
+    & img {
+      height: auto;
+    }
   }
 
-  & img {
-    height: auto;
-  }
-
+  // detail-summary for publication reviews
   & summary {
     @include g.defaultYSpace;
   }
