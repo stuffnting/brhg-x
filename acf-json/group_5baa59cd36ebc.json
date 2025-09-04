@@ -3,6 +3,32 @@
     "title": "Pamphlet Details",
     "fields": [
         {
+            "key": "field_68b956ea19352",
+            "label": "Publication Range",
+            "name": "publication_range",
+            "aria-label": "",
+            "type": "taxonomy",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            },
+            "taxonomy": "pub_range",
+            "add_term": 0,
+            "save_terms": 1,
+            "load_terms": 1,
+            "return_format": "id",
+            "field_type": "select",
+            "allow_null": 1,
+            "allow_in_bindings": 0,
+            "bidirectional": 0,
+            "multiple": 0,
+            "bidirectional_target": []
+        },
+        {
             "key": "field_4f834448a7039",
             "label": "Pamphlet Number",
             "name": "pamphlet_number",
@@ -199,5 +225,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1727119530
+    "modified": 1756981401
 }

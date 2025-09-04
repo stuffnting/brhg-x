@@ -1,0 +1,29 @@
+@use "../globals/" as g;
+
+%toggle-list-first-last {
+  text-align: center;
+  font-weight: 800;
+  cursor: pointer;
+  margin: 25px 0;
+}
+
+.entry-content .toggle-list {
+  margin-bottom: 50px;
+
+  & li {
+    padding-bottom: 1em;
+  }
+
+  & li:first-child {
+    @extend %toggle-list-first-last;
+    color: g.$light-text;
+    background-color: g.$primary;
+    padding: 0.75em 0;
+  }
+
+  & li:last-child {
+    @extend %toggle-list-first-last;
+    color: g.$primary;
+    border-bottom: 3px solid g.$primary;
+  }
+}

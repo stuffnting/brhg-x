@@ -40,9 +40,14 @@
     transition: opacity 0.3s ease-in-out;
   }
 
-  &__missing-img a {
-    background-color: rgba(0, 0, 0, 1);
+  &__item-link--missing {
     opacity: 1;
+    background-color: g.$missing-thumb-bg;
+
+    & .thumb-only-listing__item-title {
+      text-shadow: none;
+      color: g.$dark-text;
+    }
   }
 
   &__item-title {

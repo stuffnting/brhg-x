@@ -1,5 +1,6 @@
 @use "sass:map";
 
+// Colours
 $black: #000000;
 $white: #ffffff;
 $red: #a40000;
@@ -13,15 +14,20 @@ $greys: (
   "dark": #303030,
 );
 
+// Colour hierarchy
 $primary: $red;
 $accent: $yellow;
+$accent-2: $pink;
 
+// Text
 $light-text: $white;
 $midLight-text: map.get($greys, midLight); // Main menu
 $mid-text: map.get($greys, mid); // Grey text
 $dark-text: map.get($greys, dark);
-$highlight-text: $yellow;
+$highlight-text: $accent;
+$poster-hover-title: $light-text;
 
+// Background
 $lightest-bg: $white;
 $light-bg: map.get($greys, light);
 $midLight-bg: map.get($greys, midLight);
@@ -29,24 +35,24 @@ $mid-bg: map.get($greys, mid);
 $midDark-bg: map.get($greys, dark);
 $dark-bg: $black;
 $missing-thumb-bg: whitesmoke;
-$highlight-bg: $yellow;
+$highlight-bg: $accent;
+$poster-hover-background: #00000080; // hex 80 = 50%
 
+// Link
 $default-link: $primary;
-$default-link-underline: $pink;
+$default-link-underline: $accent-2;
 
+// Borders
 $border-rule: map.get($greys, light);
 
 $pagination-borders: map.get($greys, midLight);
 $pagination-hover: map.get($greys, light);
 $pagination-current-text: $light-text;
-$pagination-current-bg: $red;
+$pagination-current-bg: $primary;
 
 $image-border: map.get($greys, light);
 $image-border-dark: map.get($greys, dark);
 
-$form-input-border: $red;
+$form-input-border: $primary;
 
 $menu-border: map.get($greys, midDark);
-
-$poster-hover-title: $light-text;
-$poster-hover-background: #00000080; // hex 80 = 50%

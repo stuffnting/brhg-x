@@ -39,3 +39,18 @@ small {
   clip: rect(0, 0, 0, 0);
   border: 0;
 }
+
+.highlight-box {
+  @extend %highlight-box;
+}
+
+.dotted-highlight-box {
+  @extend %yellow-highlight-box;
+  & > p {
+    margin-bottom: 2em;
+  }
+}
+
+.brhg-btn {
+  @extend %default-button;
+}

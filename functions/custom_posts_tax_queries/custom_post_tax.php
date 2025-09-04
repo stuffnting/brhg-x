@@ -556,7 +556,8 @@ function brhg2016_register_my_taxes() {
         "query_var"         => true,
         "rewrite"           => array('slug' => 'pub_range', 'with_front' => false),
         "show_admin_column" => true,
-        "meta_box_cb"       => "brhg2016_pub_range_meta_cb",
+        //"meta_box_cb"       => "brhg2016_pub_range_meta_cb", ***** Removed 2025
+        "meta_boc_cb"       => false,
         "show_in_quick_edit" => false
     );
 
@@ -565,66 +566,18 @@ function brhg2016_register_my_taxes() {
     // End cptui_register_my_taxes
 }
 
-
 /**
- * Makes the pub_type admin meta box use a dropdown instead of checkboxes 
- * This is also done for Quick Edit in admin_columns.php
- * 
- * @see {@link https://codebriefly.com/display-wordpress-custom-taxonomy-dropdown/}
- *
- * @param $post object
- * @param $box array
+ * Remove default pub_range meta box form the editor
  */
+add_action('admin_menu', 'brhg_2025_remove_pub_range_metabox');
 
+function brhg_2025_remove_pub_range_metabox() {
+    $taxonomy = 'pub_range'; // Replace with your taxonomy slug
+    $post_type = 'pamphlets';     // Replace with your post type
 
-function brhg2016_pub_range_meta_cb($post, $box) {
-    $defaults = array('taxonomy' => 'category');
-
-    if (!isset($box['args']) || !is_array($box['args']))
-        $args = array();
-    else
-        $args = $box['args'];
-
-    extract(wp_parse_args($args, $defaults), EXTR_SKIP);
-
-    $tax = get_taxonomy($taxonomy);
-    $selected = wp_get_object_terms($post->ID, $taxonomy, array('fields' => 'ids'));
-    $hierarchical = $tax->hierarchical;
-?>
-    <p>Choose a publication range. <span style="color: red;"><strong>***Required</strong></span></p>
-    <div id="taxonomy-<?php echo $taxonomy; ?>" class="selectdiv">
-        <?php
-        if (current_user_can($tax->cap->edit_terms)):
-            if ($hierarchical) {
-                wp_dropdown_categories(array(
-                    'taxonomy' => $taxonomy,
-                    'class' => 'widefat',
-                    'hide_empty' => 0,
-                    'name' => "tax_input[$taxonomy][]",
-                    'selected' => count($selected) >= 1 ? $selected[0] : '',
-                    'orderby' => 'name',
-                    'hierarchical' => 1,
-                    'show_option_all' => " "
-                ));
-            } else { ?>
-                <select name="<?php echo "tax_input[$taxonomy][]"; ?>" class="widefat">
-                    <option value="0"></option>
-                    <?php foreach (get_terms($taxonomy, array('hide_empty' => false)) as $term) : ?>
-                        <option
-                            value="<?php echo esc_attr($term->slug); ?>"
-                            <?php echo selected($term->term_id, count($selected) >= 1 ? $selected[0] : ''); ?>>
-                            <?php echo esc_html($term->name); ?>
-                        </option>
-                    <?php endforeach; ?>
-                </select>
-        <?php
-            }
-        endif;
-        ?>
-    </div>
-<?php
+    // Use 'tagsdiv-' prefix for non-hierarchical taxonomies (tags)
+    remove_meta_box('tagsdiv-' . $taxonomy, $post_type, 'side');
 }
-
 
 // Remove page attribute meta box from hierarchical custom post types
 function brhg2024_remove_post_type_attribute_support() {

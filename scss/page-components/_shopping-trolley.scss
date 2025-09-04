@@ -9,7 +9,7 @@
   z-index: -11; // Must stay below main menu dropdown
 
   & .trolley-items {
-    background-color: g.$red;
+    background-color: g.$primary;
     color: g.$highlight-text;
     display: inline-flex;
     justify-content: center;
@@ -103,7 +103,7 @@
 }
 
 .empty-trolley-wrap {
-  border: 3px solid g.$red;
+  border: 3px solid g.$primary;
   background: white;
   text-align: center;
   font-weight: 800;

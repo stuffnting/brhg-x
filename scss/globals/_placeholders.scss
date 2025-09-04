@@ -21,7 +21,7 @@
 }
 
 %default-ul-list {
-  & > :where(ul) {
+  & > :where(ul:not(.toggle-list)) {
     margin-bottom: l.$default-y-space;
     & > :where(li) {
       background-image: url("images/q.svg");
@@ -103,9 +103,9 @@
 
 %default-button {
   color: c.$light-text;
-  background-color: c.$red;
+  background-color: c.$primary;
   display: inline-block;
-  padding: 18px 12px;
+  padding: 1.5em 1em;
   line-height: 0;
   text-align: center;
   -ms-touch-action: manipulation;
@@ -116,19 +116,19 @@
   font-weight: 800;
 
   &:hover {
-    background-color: c.$yellow;
+    background-color: c.$accent;
   }
 }
 
 %default-form-field {
-  color: c.$red;
+  color: c.$primary;
   background-color: c.$lightest-bg;
   border: 1px solid c.$form-input-border;
+  padding: 6px 12px;
 }
 
 %default-input {
   @extend %default-form-field;
-  padding: 6px 12px;
   line-height: 0;
   text-align: left;
 }
@@ -155,7 +155,7 @@
   }
 
   input[type="checkbox"]:checked {
-    background-color: c.$red;
+    background-color: c.$primary;
   }
 
   input[type="checkbox"]:checked::after {
@@ -179,11 +179,19 @@
 }
 
 %highlight-box {
-  text-align: center;
   line-height: 1.4em;
-  border: 3px solid c.$red;
+  padding: 2em;
+  border: 3px solid c.$primary;
+  margin-bottom: 1em;
 
   & p:last-child {
     margin-bottom: 0;
   }
+}
+
+%yellow-highlight-box {
+  margin: 50px 0;
+  padding: 20px;
+  border: 5px dotted c.$accent;
+  text-align: center;
 }

@@ -28,6 +28,7 @@ if (! empty($related_items_array) && is_array($related_items_array)) :
                         setup_postdata($post);
                         get_template_part('loop', 'thumbs-only');
                     endforeach;
+                    wp_reset_postdata();
                     ?>
                 </div>
                 <div class="related__archive-link">

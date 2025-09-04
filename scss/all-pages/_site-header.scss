@@ -25,7 +25,7 @@ $angel-skeleton-height: clamp(80px, 20vw, 145px);
 }
 
 .banner {
-  background-color: g.$red;
+  background-color: g.$primary;
   padding: 20px 0 10px 0;
   font-family: g.$highlight-font;
 
@@ -136,7 +136,7 @@ $scroll-height: 63px;
     }
 
     & a {
-      color: g.$red;
+      color: g.$primary;
 
       &:hover {
         text-decoration: underline;

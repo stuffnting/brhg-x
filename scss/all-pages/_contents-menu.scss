@@ -24,7 +24,7 @@
         image: url(images/search.svg);
         size: 65%;
         position: center;
-        color: g.$red;
+        color: g.$primary;
       }
       margin-right: 20px;
       border-radius: 26px;
@@ -228,7 +228,7 @@
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    background-color: g.$red;
+    background-color: g.$primary;
     color: g.$light-text;
     height: 100%;
     aspect-ratio: 1 / 1;

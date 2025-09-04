@@ -2,8 +2,8 @@
 
 .pubs-buy-where {
   @extend %highlight-box;
+  text-align: center;
   font-weight: 800;
-  padding: 2em 10px;
   margin-bottom: 25px;
 
   & a {
@@ -33,7 +33,7 @@
     color: g.$light-text;
     text-align: center;
     font-weight: 800;
-    background-color: g.$red;
+    background-color: g.$primary;
   }
 
   &__item {
@@ -50,10 +50,11 @@
 
 .buy {
   @extend %highlight-box;
+  text-align: center;
   padding: 1em;
 
   &__title {
-    background-color: g.$red;
+    background-color: g.$primary;
     color: g.$light-text;
     padding: 10px 5px;
   }

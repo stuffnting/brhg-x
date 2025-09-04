@@ -115,8 +115,9 @@ function brhg_x_footer_inline_scripts() {
 
   <?php
 
-  if (has_term('material-for-schools', 'article_type')) { ?>
-    <!--Schools course material file list toggle-->
+  if (has_term('material-for-schools', 'article_type')) {
+  ?>
+    <!--Material For Schools file list toggle-->
     <script>
       (function($) {
         /**

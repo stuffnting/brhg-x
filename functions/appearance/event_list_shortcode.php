@@ -1,14 +1,6 @@
 <?php
 
 /**
- * The event-list shortcode.
- *
- * @package Wordpress
- * @subpackage BRHG2016
- * @since BRHG2016 1.0
- */
-
-/**
  * A wrapper for all events list tables.
  * 
  * @param array     $atts       The attributes from the shortcode.
@@ -29,20 +21,20 @@ function brhg2024_make_event_programme($atts, $content = null) {
         'event_list_wrapper'
     );
 
+    $nested_content = do_shortcode($content);
     // Only return a populated string if the shortcode has contents.
     if (isset($content)) {
         $new_content = sprintf(
             "<section id='full-programme' class='event-prog'>\n
-                <h2 class='event-prog__title'>%s</h2>\n
-                %s\n
+            <h2 class='event-prog__title'>%s</h2>\n
+            %s\n
             </section>\n",
             $atts['title'],
-            brhg2024_change_headers($content, 'h3', 'event-prog__date'),
+            brhg2024_change_headers($nested_content, 'h3', 'event-prog__date'),
         );
-        // DO the shortcodes contained within the contents.
-        $content_out = do_shortcode($new_content);
 
-        return wpautop(trim($content_out));
+        // DO the shortcodes contained within the contents.
+        return preg_replace('/^\s*[\r\n]+/m', '', $new_content);
     }
 
     return '';

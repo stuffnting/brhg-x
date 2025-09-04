@@ -1,10 +1,38 @@
 <?php
 
 /**
- * Tame the p tags when shortcodes execute
+ * Kill wpautop for WPCF7
  */
-remove_filter('the_content', 'wpautop');
-add_filter('the_content', 'wpautop', 12);
+add_filter('wpcf7_autop_or_not', '__return_false');
+
+/**
+ * The event-list shortcode.
+ *
+ * @package Wordpress
+ * @subpackage BRHG2016
+ * @since BRHG2016 1.0
+ */
+
+/**
+ * Normally, wpautop runs on the_content with priority 10, and do_shortcodes with priority 11.
+ * This function runs selected shortcodes at priority 8 to protect against wpautop adding stray p tags.
+ */
+
+add_filter('the_content', 'brhg2025_run_shortcodes_before_wpautop', 8);
+
+function brhg2025_run_shortcodes_before_wpautop($content) {
+
+    // Check for the specific shortcode
+    if (has_shortcode($content, 'event_list_wrapper')) {
+        // Run shortcodes. This will include the nested shortcode.
+        $new_content = do_shortcode($content);
+
+        // Belt and braces: remove blank lines before running wpautop.
+        return wpautop(preg_replace('/^\s*[\r\n]+/m', '', $new_content));
+    }
+
+    return $content;
+}
 
 /**
  * Filters a single post content. Called from the single.php template file.
@@ -64,7 +92,7 @@ function brhg2016_content_filter() {
     // Add Footnotes for Wordpress footnotes list, now done in functions/footnotes_shortcode.php
 
     // Apply the normal filters to the content, this includes the [event_list] shortcode
-    // The [event_list] shortcode is in functions/post-2-posts.php 
+
     echo apply_filters('the_content', $content_out);
 }
 

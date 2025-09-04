@@ -123,43 +123,51 @@ function brhg2024_make_publications_price_list() {
   $list_html = '';
 
   $table_headers = array(
-    array('header' => '#', 'tooltip' => 'Publication number'),
-    array('header' => 'Title', 'tooltip' => 'Publication title'),
-    array('header' => 'ISBN', 'tooltip' => 'International Standard Book Number'),
-    array('header' => 'Edition', 'tooltip' => 'Details of the current edition'),
-    array('header' => 'PP', 'tooltip' => 'Number of printed pages in the publication'),
-    array('header' => 'PI', 'tooltip' => 'Number of printed images&sol;illustrations in the publication'),
-    array('header' => 'Format', 'tooltip' => 'Publication&apos;s physical format'),
-    array('header' => 'RRP', 'tooltip' => 'Recommended Retail Price'),
-    array('header' => 'Notes', 'tooltip' => 'Further details'),
+    array('header' => '#', 'class_ext' => 'number', 'tooltip' => 'Publication number'),
+    array('header' => 'Title', 'class_ext' => 'title', 'tooltip' => 'Publication title'),
+    array('header' => 'ISBN', 'class_ext' => 'isbn', 'tooltip' => 'International Standard Book Number'),
+    array('header' => 'Edition', 'class_ext' => 'edition', 'tooltip' => 'Details of the current edition'),
+    array('header' => 'PP', 'class_ext' => 'pp', 'tooltip' => 'Number of printed pages in the publication'),
+    array('header' => 'PI', 'class_ext' => 'pi', 'tooltip' => 'Number of printed images&sol;illustrations in the publication'),
+    array('header' => 'Format', 'class_ext' => 'format', 'tooltip' => 'Publication&apos;s physical format'),
+    array('header' => 'RRP', 'class_ext' => 'rrp', 'tooltip' => 'Recommended Retail Price'),
+    array('header' => 'Notes', 'class_ext' => 'notes', 'tooltip' => 'Further details'),
   );
 
   $table_headers_html = '';
 
   foreach ($table_headers as $header) {
-    $table_headers_html .= "<th title='{$header['tooltip']}'>{$header['header']}</th>\n";
+
+    $table_headers_html .= sprintf(
+      "<th title='%s' class='%s'>%s</th>\n",
+      $header['tooltip'],
+      "price-list__head price-list__head--{$header['class_ext']}",
+      $header['header']
+    );
   }
 
   $table_headers_html = "<thead>\n<tr>\n{$table_headers_html}\n</tr></thead>\n";
 
   foreach ($range_array as $range) {
-    $heading_html = "<h2 class='pub-price-list-range-title'>{$range['publication_range_name']}</h2>\n";
+    $heading_html = "<h2 class='price-list__range-title'>{$range['publication_range_name']}</h2>\n";
     $pub_rows = '';
 
     foreach ($range['publications_in_range'] as $publication) {
       extract($publication, EXTR_OVERWRITE);
 
+
+
       $pub_rows .= sprintf(
         "<tr>
-          <td class='ppl-pub-number'>%s</td>\n
-          <td class='ppl-title'><a href='%s'>%s</a></td>\n
-          <td class='ppl-isbn'>%s</td>\n
-          <td class='ppl-edition'>%s</td>\n
-          <td class='ppl-pages'>%s</td>\n
-          <td class='ppl-images'>%s</td>\n
-          <td class='ppl-format'>%s</td>\n
-          <td class='ppl-price'>£%s</td>\n
-          <td class='ppl-notes'>%s</td>\n
+          <td class='price-table__cell price-table__cell--" . $table_headers[0]['class_ext'] . "'>%s</td>\n
+          <td class='price-table__cell price-table__cell--" . $table_headers[1]['class_ext'] . "'><a href='%s'>%s</a></td>\n
+          <td class='price-table__cell price-table__cell--" . $table_headers[2]['class_ext'] . "'>%s</td>\n
+          <td class='price-table__cell price-table__cell--" . $table_headers[3]['class_ext'] . "'>%s</td>\n
+          <td class='price-table__cell price-table__cell--" . $table_headers[4]['class_ext'] . "'>%s</td>\n
+          <td class='price-table__cell price-table__cell--" . $table_headers[5]['class_ext'] . "'>%s</td>\n
+          <td class='price-table__cell price-table__cell--" . $table_headers[6]['class_ext'] . "'>%s</td>\n
+          <td class='price-table__cell price-table__cell--" . $table_headers[7]['class_ext'] . "'>£%s</td>\n
+          <td class='price-table__cell price-table__cell--" . $table_headers[8]['class_ext'] . "'>%s</td>\n
         </tr>\n",
         $publication_number,
         $url,
@@ -174,10 +182,16 @@ function brhg2024_make_publications_price_list() {
       );
     }
 
-    $list_html .= $heading_html . "<div class='pub-price-list-range'><table class='table table-striped pub-price-list-table'>" . $table_headers_html  . $pub_rows . "</table></div>";
+    $list_html .= $heading_html .
+      "<div class='price-list__range'>
+        <table class='price-list__table'>
+      $table_headers_html
+      $pub_rows
+      </table>
+      </div>";
   }
 
-  return "<div class='pub-price-list-wrapper'>{$list_html}</div>";
+  return "<div class='price-list__wrapper'>{$list_html}</div>";
 }
 
 /*********************************************************************************************************************************
@@ -480,7 +494,7 @@ function brhg2024_acf_validate_publications_save_post() {
   }
 
   // Get the range from the post's select input
-  $input_range = (int) $_POST['tax_input']['pub_range'][0];
+  $input_range = (int) $_POST['acf']['field_68b956ea19352'];
 
   /**
    * If there is no pub_range selected, or, if the pub_range has been deleted, stop the post being published by forcing draft status.
@@ -493,7 +507,7 @@ function brhg2024_acf_validate_publications_save_post() {
     if (empty($input_range)) {
       $missing_message = 'Missing Publication Range';
     } elseif (!term_exists($input_range, 'pub_range')) {
-      $missing_message = 'Publication Range no longe in taxonomy';
+      $missing_message = 'Publication Range no longer in taxonomy';
     } else {
       $missing_message = 'Unknown error.';
     }
@@ -524,6 +538,8 @@ function brhg2024_acf_validate_publications_save_post() {
 
   /**
    * This triggers brhg2024_publication_populate_repeater().
+   * 
+   * *** LEAVE!!!!!!!!!!!!!
    */
   $range_repeater_value = get_field('publication_range_repeater', 'options');
 
@@ -676,9 +692,13 @@ function brhg2024_publication_errors() {
        * @param string $slug The slug of the options page being saved.
        */
       function brhg2024_acf_options_page_call_price_list($page, $slug) {
-        if ($slug !== 'publications-prices') {
+
+        // !!! Changed slug from publications-prices in 2025-x
+        if ($slug !== 'shop-settings') {
           return;
         }
+
+
         brhg2024_construct_publications_price_list();
       }
 

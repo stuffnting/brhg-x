@@ -23,8 +23,8 @@ function brhg2025_donate_button($atts) {
   foreach ($amounts_array as $dosh) {
     $link = esc_url(PAYPALME_LINK) . "/{$dosh}gbp";
 
-    $amounts_list .= "<li class='brhg-donate-button-amount'>\n
-    <a href='{$link}' class='brhg-donate-button-link' target='_blank'>£{$dosh}</a>\n
+    $amounts_list .= "<li class='brhg-donate-btn__li'>\n
+    <a href='{$link}' class='brhg-btn brhg-donate-btn__link' target='_blank'>£{$dosh}</a>\n
     </li>";
   }
 
@@ -32,22 +32,22 @@ function brhg2025_donate_button($atts) {
 
 ?>
 
-  <div class='brhg-donate-button' aria-label="PayPal donate">
-    <p><?php echo $pre_text; ?></p>
-    <ul class='brhg-donate-button-list'><?php echo $amounts_list; ?></ul>
+  <div class='brhg-donate-btn' aria-label="PayPal donate">
+    <p class="brhg-donate-btn__p"><?php echo $pre_text; ?></p>
+    <ul class='brhg-donate-btn__list'><?php echo $amounts_list; ?></ul>
 
-    <form onsubmit="handlePayPalRedirect(event)" class="brhg-donate-custom-amount">
-      <label for="amountInput" class="brhg-donate-input-label">Or, choose amount:</label>
-      <div class="brhg-donate-input-wrap">£
+    <form onsubmit="handlePayPalRedirect(event)" class="brhg-donate-btn__amount">
+      <label for="amountInput" class="brhg-donate-btn__label">Or, choose amount:</label>
+      <div class="brhg-donate-btn__input-wrap">£
         <input
           name="brhgDonateAmount"
           type="text"
-          class="amountInput brhg-donate-input"
+          class="amountInput brhg-donate-btn__input"
           value=<?php echo $custom_default; ?>
           inputmode="decimal"
           pattern="\d+(\.\d{0,2})?"
           title="Enter a number with up to 2 decimal places" />
-        <button type="submit" class="btn btn-primary brhgCustomDonateButton brhg-custom-donate-button"><?php echo $button_text; ?></button>
+        <button type="submit" class="brhgCustomDonateButton brhg-btn brhg-donate-btn__submit"><?php echo $button_text; ?></button>
       </div>
     </form>
     <script>

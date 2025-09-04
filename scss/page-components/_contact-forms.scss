@@ -1,6 +1,16 @@
 @use "../globals/" as g;
 
 .wpcf7-form {
+  &__label {
+    margin-bottom: 1em;
+    display: block;
+  }
+
+  & .wpcf7-form-control-wrap {
+    display: block;
+    padding-top: 0.5em;
+  }
+
   & input:not([type="submit"]) {
     @extend %default-input;
     width: 100%;
@@ -11,11 +21,47 @@
     width: 100%;
   }
 
-  .wpcf7-submit {
+  & .wpcf7-submit {
     @extend %default-button;
+    margin-top: 1em;
   }
 
-  .wpcf7-captchac {
-    margin: 0;
+  & .wpcf7-captchac {
+    margin: 0.5em 0;
+    width: 125px;
+  }
+
+  & .wpcf7-not-valid-tip {
+    background: g.$accent;
+    color: g.$light-text;
+    padding: 0.5em;
+    font-weight: 800;
+
+    &::before,
+    &::after {
+      content: " *** ";
+    }
+  }
+}
+
+// Spinner
+.wpcf7-spinner {
+  visibility: hidden;
+}
+
+form.submitting .wpcf7-spinner {
+  visibility: visible;
+}
+
+.wpcf7.has-spinner {
+  & .wpcf7-spinner {
+    visibility: visible;
+    margin-left: 10px;
+    top: 5px;
+    &::before {
+      border-color: #f3f3f3;
+      border-top: 5px solid #3498db;
+      border-radius: 50%;
+    }
   }
 }

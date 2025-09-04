@@ -341,7 +341,7 @@ function brhg2016_archive_filter($list = 'button', $separator = ' * ') {
     if ($list === 'list' && $filter) {
         $filter = "<nav class='archive-filter' aria-label='Filter by type'>\n
                         <button type='button' class='archive-filter__btn' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>\n
-                            Filter by Type <span class='caret'></span>\n
+                            Filter $name By Type <span class='caret'></span>\n
                         </button>\n 
                         <ul class='archive-filter__dropdown'>$filter</ul>\n 
                     </nav>";

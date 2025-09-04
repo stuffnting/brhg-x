@@ -469,7 +469,11 @@ function my_disable_emojis_tinymce($plugins) {
 add_filter('wp_is_application_passwords_available', '__return_false');
 add_filter('xmlrpc_enabled', '__return_false');
 
-function my_mce_before_init_insert_formats($init_array) {
+/**
+ * Tame TinyMCE styles
+ */
+add_filter('tiny_mce_before_init', 'brhg2025_tame_tinymce_styles');
+function brhg2025_tame_tinymce_styles($init_array) {
 
 
     // Insert the custom formats into the TinyMCE settings
@@ -482,7 +486,33 @@ function my_mce_before_init_insert_formats($init_array) {
     ]);
 
     $init_array['formats'] = $formats;
+    $init_array['width'] = '790px'; // or '100%' for responsive
 
     return $init_array;
 }
-add_filter('tiny_mce_before_init', 'my_mce_before_init_insert_formats');
+
+/**
+ * Alow class attributes in the default gallery shortcode
+ */
+add_filter('post_gallery', 'brhg2025_add_class_to_gallery_wrapper', 10, 3);
+
+function brhg2025_add_class_to_gallery_wrapper($html, $attr, $instance) {
+
+    if (!empty($attr['class'])) {
+
+        $class = $attr['class'];
+        unset($attr['class']);
+
+        // Filter the gallery opening div tag containing the class attribute
+        // ($style) use ($class) -> make $class accessible in the anonymous function's scope
+        add_filter('gallery_style', function ($style) use ($class) {
+            // Add extra style
+            return str_replace("class='gallery ", "class='gallery $class ", $style);
+        });
+
+        // Generate new gallery shortcode output
+        $html = gallery_shortcode($attr);
+    }
+
+    return $html;
+}

@@ -37,7 +37,7 @@
 }
 
 .fp-about {
-  background-color: g.$red;
+  background-color: g.$primary;
   color: g.$light-text;
   font-weight: 700;
   padding: 50px 5vw 30px;
@@ -72,7 +72,7 @@
 
   &__btn {
     @extend %intro-button;
-    color: g.$red;
+    color: g.$primary;
     background-color: g.$accent;
   }
 }
@@ -92,7 +92,7 @@
     line-height: 1.3em;
     margin: 80px 0 0.5em;
     padding-bottom: 0.5em;
-    border-bottom: 1px solid g.$red;
+    border-bottom: 1px solid g.$primary;
 
     @include g.mediaQ(g.$front-page-intro-grid-bp-x-small) {
       font-size: clamp(20px, 4vw, 28px);
@@ -160,8 +160,8 @@
   }
 
   &__btn {
-    color: g.$yellow;
-    background-color: g.$red;
+    color: g.$accent;
+    background-color: g.$primary;
 
     @extend %intro-button;
   }
@@ -181,8 +181,8 @@
       }
 
       & .fp-featured-item__btn {
-        color: g.$red;
-        background-color: g.$yellow;
+        color: g.$primary;
+        background-color: g.$accent;
 
         @include introButtonHover;
       }
@@ -199,6 +199,6 @@
     margin-top: 5px;
     margin-bottom: 0;
     border: 0;
-    border-bottom: 3px solid g.$red;
+    border-bottom: 3px solid g.$primary;
   }
 }
