@@ -1,7 +1,7 @@
 @use "../globals/" as g;
 
 .event-prog {
-  &__date {
+  &__prog-sub-title {
     margin-top: 100px;
     padding: 0.5em 0;
     text-align: center;
@@ -17,7 +17,8 @@
   }
 }
 
-.event-list {
+.event-list,
+.price-list {
   display: grid;
   justify-content: center;
   max-width: 1200px;
@@ -38,7 +39,6 @@
 
   &__table {
     font-size: g.$small-text;
-    font-weight: 800;
     margin-bottom: 1em;
 
     & a {
@@ -59,13 +59,25 @@
     }
 
     & th {
+      font-weight: 800;
       border: 1px solid g.$dark-bg;
+      border-right-color: g.$pagination-borders;
+    }
+
+    & th:last-child {
+      border-right-color: g.$dark-bg;
     }
 
     & td,
     & th {
-      padding: 0.5em;
+      padding: 0.75em 0.5em;
     }
+  }
+}
+
+.event-list {
+  &__table {
+    font-weight: 800;
   }
 
   &__head {
@@ -76,18 +88,59 @@
 
   &__cell {
     white-space: nowrap;
+
     &--title {
+      text-align: center;
       white-space: normal;
       text-wrap: balance;
-      text-align: center;
     }
   }
+}
 
+.price-list {
+  &__cell {
+    &--number {
+      width: 8ch;
+      font-weight: 800;
+    }
+    &--title {
+      //width: 390px;
+    }
+    &--isbn {
+      width: 18ch;
+      font-family: monospace;
+    }
+    &--edition {
+      width: 25ch;
+    }
+    &--pp {
+      width: 4ch;
+      text-align: center;
+    }
+    &--pi {
+      width: 4ch;
+      text-align: center;
+    }
+    &--format {
+      width: 18ch;
+    }
+    &--rrp {
+      width: 6ch;
+      font-family: monospace;
+      text-align: right;
+    }
+    &--notes {
+      //width: 225px;
+    }
+  }
+}
+
+.event-list {
   $tables: (
     cols-3: 780px,
     cols-4: 900px,
     cols-5: 1050px,
-    cols-6: 1200px,
+    cols-6: g.$wide-content-width,
   );
 
   @each $cols, $width in $tables {
@@ -110,6 +163,29 @@
           width: $width;
         }
       }
+    }
+  }
+}
+
+.price-list {
+  &__table-wrap {
+    width: calc(100vw - 30px);
+  }
+
+  &__table {
+    width: g.$wide-content-width;
+  }
+
+  @include g.mediaQ(g.$wide-content-width) {
+    &__table-wrap {
+      width: g.$wide-content-width;
+    }
+    &__title {
+      margin-bottom: 0;
+      text-align: center;
+    }
+    & .event-list__scroll {
+      display: none;
     }
   }
 }

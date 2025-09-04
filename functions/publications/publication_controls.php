@@ -120,8 +120,6 @@ function brhg2024_make_publications_price_list() {
     return;
   }
 
-  $list_html = '';
-
   $table_headers = array(
     array('header' => '#', 'class_ext' => 'number', 'tooltip' => 'Publication number'),
     array('header' => 'Title', 'class_ext' => 'title', 'tooltip' => 'Publication title'),
@@ -134,6 +132,7 @@ function brhg2024_make_publications_price_list() {
     array('header' => 'Notes', 'class_ext' => 'notes', 'tooltip' => 'Further details'),
   );
 
+  $list_html = '';
   $table_headers_html = '';
 
   foreach ($table_headers as $header) {
@@ -146,28 +145,23 @@ function brhg2024_make_publications_price_list() {
     );
   }
 
-  $table_headers_html = "<thead>\n<tr>\n{$table_headers_html}\n</tr></thead>\n";
-
   foreach ($range_array as $range) {
-    $heading_html = "<h2 class='price-list__range-title'>{$range['publication_range_name']}</h2>\n";
     $pub_rows = '';
 
     foreach ($range['publications_in_range'] as $publication) {
       extract($publication, EXTR_OVERWRITE);
 
-
-
       $pub_rows .= sprintf(
         "<tr>
-          <td class='price-table__cell price-table__cell--" . $table_headers[0]['class_ext'] . "'>%s</td>\n
-          <td class='price-table__cell price-table__cell--" . $table_headers[1]['class_ext'] . "'><a href='%s'>%s</a></td>\n
-          <td class='price-table__cell price-table__cell--" . $table_headers[2]['class_ext'] . "'>%s</td>\n
-          <td class='price-table__cell price-table__cell--" . $table_headers[3]['class_ext'] . "'>%s</td>\n
-          <td class='price-table__cell price-table__cell--" . $table_headers[4]['class_ext'] . "'>%s</td>\n
-          <td class='price-table__cell price-table__cell--" . $table_headers[5]['class_ext'] . "'>%s</td>\n
-          <td class='price-table__cell price-table__cell--" . $table_headers[6]['class_ext'] . "'>%s</td>\n
-          <td class='price-table__cell price-table__cell--" . $table_headers[7]['class_ext'] . "'>£%s</td>\n
-          <td class='price-table__cell price-table__cell--" . $table_headers[8]['class_ext'] . "'>%s</td>\n
+          <td class='price-list__cell price-list__cell--" . $table_headers[0]['class_ext'] . "'>%s</td>\n
+          <td class='price-list__cell price-list__cell--" . $table_headers[1]['class_ext'] . "'><a href='%s'>%s</a></td>\n
+          <td class='price-list__cell price-list__cell--" . $table_headers[2]['class_ext'] . "'>%s</td>\n
+          <td class='price-list__cell price-list__cell--" . $table_headers[3]['class_ext'] . "'>%s</td>\n
+          <td class='price-list__cell price-list__cell--" . $table_headers[4]['class_ext'] . "'>%s</td>\n
+          <td class='price-list__cell price-list__cell--" . $table_headers[5]['class_ext'] . "'>%s</td>\n
+          <td class='price-list__cell price-list__cell--" . $table_headers[6]['class_ext'] . "'>%s</td>\n
+          <td class='price-list__cell price-list__cell--" . $table_headers[7]['class_ext'] . "'>£%s</td>\n
+          <td class='price-list__cell price-list__cell--" . $table_headers[8]['class_ext'] . "'>%s</td>\n
         </tr>\n",
         $publication_number,
         $url,
@@ -182,16 +176,29 @@ function brhg2024_make_publications_price_list() {
       );
     }
 
-    $list_html .= $heading_html .
-      "<div class='price-list__range'>
-        <table class='price-list__table'>
-      $table_headers_html
-      $pub_rows
-      </table>
-      </div>";
+    // Make the table for this pub range
+    $list_html .= sprintf(
+      "<h2 class='price-list__title'>%s</h2>\n
+      <p class='event-list__scroll'>(Drag left/right)</p>\n
+      <div class='price-list__table-wrap'>\n
+        <table class='price-list__table'>\n
+          <thead>\n
+            <tr>\n
+              %s
+            </tr>\n
+          </thead>\n
+          <tbody>\n
+              %s
+          </tbody>\n
+        </table>\n
+      </div>\n",
+      $range['publication_range_name'],
+      $table_headers_html,
+      $pub_rows,
+    );
   }
 
-  return "<div class='price-list__wrapper'>{$list_html}</div>";
+  return !empty($list_html) ? "<div class='price-list'>{$list_html}</div>" : '';
 }
 
 /*********************************************************************************************************************************

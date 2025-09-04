@@ -199,11 +199,11 @@ meter {
   margin-left: 2em;
 }
 
-.floating-trolley a, .pubs-buy-where a, .related__archive-link, .comments__note-before a, .comments__note-after a, .comments__comment a:not(.comments__reply-btn a), .archive-content__desc-term-link, .tag-index__link, .archive-item-header__title-link, .archive-item-header__after-title a, .details-block a, .entry-content a:not(.brhg-btn), .page-header__title-wrap a, .page-header__archive-intro a, .current-series__link, .fp-tag-cloud__wrap a, .fp-recent__more, .fp-recent__item-link, .fp-friends__page-link, .fp-featured-item__title-link, .footer-menu__nav a {
+.floating-trolley a, .pubs-buy-where a, .related__archive-link, .comments__note-before a, .comments__note-after a, .comments__comment a:not(.comments__reply-btn a), .archive-content__desc-term-link, .tag-index__link, .archive-item-header__title-link, .archive-item-header__after-title a, .details-block a, .entry-content a:where(:not(.brhg-btn)), .page-header__title-wrap a, .page-header__archive-intro a, .current-series__link, .fp-tag-cloud__wrap a, .fp-recent__more, .fp-recent__item-link, .fp-friends__page-link, .fp-featured-item__title-link, .footer-menu__nav a {
   color: #a40000;
 }
 
-.comments__note-before a, .comments__note-after a, .comments__comment a:not(.comments__reply-btn a), .entry-content a:not(.brhg-btn), .page-header__archive-intro a, .current-series__link, .fp-friends__page-link {
+.comments__note-before a, .comments__note-after a, .comments__comment a:not(.comments__reply-btn a), .entry-content a:where(:not(.brhg-btn)), .page-header__archive-intro a, .current-series__link, .fp-friends__page-link {
   text-decoration-line: underline;
   text-decoration-style: dotted;
   text-decoration-color: #f08080;
@@ -211,7 +211,7 @@ meter {
   text-underline-offset: 3px;
 }
 
-.floating-trolley a:hover, .pubs-buy-where a:hover, .related__archive-link:hover, .comments__note-before a:hover, .comments__note-after a:hover, .comments__comment a:hover:not(.comments__reply-btn a), .archive-content__desc-term-link:hover, .tag-index__link:hover, .archive-item-header__title-link:hover, .archive-item-header__after-title a:hover, .details-block a:hover, .entry-content a:hover:not(.brhg-btn), .page-header__title-wrap a:hover, .page-header__archive-intro a:hover, .current-series__link:hover, .fp-tag-cloud__wrap a:hover, .fp-recent__more:hover, .fp-recent__item-link:hover, .fp-friends__page-link:hover, .fp-featured-item__title-link:hover, .footer-menu__nav a:hover, .floating-trolley a:focus, .pubs-buy-where a:focus, .related__archive-link:focus, .comments__note-before a:focus, .comments__note-after a:focus, .comments__comment a:focus:not(.comments__reply-btn a), .archive-content__desc-term-link:focus, .tag-index__link:focus, .archive-item-header__title-link:focus, .archive-item-header__after-title a:focus, .details-block a:focus, .entry-content a:focus:not(.brhg-btn), .page-header__title-wrap a:focus, .page-header__archive-intro a:focus, .current-series__link:focus, .fp-tag-cloud__wrap a:focus, .fp-recent__more:focus, .fp-recent__item-link:focus, .fp-friends__page-link:focus, .fp-featured-item__title-link:focus, .footer-menu__nav a:focus {
+.floating-trolley a:hover, .pubs-buy-where a:hover, .related__archive-link:hover, .comments__note-before a:hover, .comments__note-after a:hover, .comments__comment a:hover:not(.comments__reply-btn a), .archive-content__desc-term-link:hover, .tag-index__link:hover, .archive-item-header__title-link:hover, .archive-item-header__after-title a:hover, .details-block a:hover, .entry-content a:hover:where(:not(.brhg-btn)), .page-header__title-wrap a:hover, .page-header__archive-intro a:hover, .current-series__link:hover, .fp-tag-cloud__wrap a:hover, .fp-recent__more:hover, .fp-recent__item-link:hover, .fp-friends__page-link:hover, .fp-featured-item__title-link:hover, .footer-menu__nav a:hover, .floating-trolley a:focus, .pubs-buy-where a:focus, .related__archive-link:focus, .comments__note-before a:focus, .comments__note-after a:focus, .comments__comment a:focus:not(.comments__reply-btn a), .archive-content__desc-term-link:focus, .tag-index__link:focus, .archive-item-header__title-link:focus, .archive-item-header__after-title a:focus, .details-block a:focus, .entry-content a:focus:where(:not(.brhg-btn)), .page-header__title-wrap a:focus, .page-header__archive-intro a:focus, .current-series__link:focus, .fp-tag-cloud__wrap a:focus, .fp-recent__more:focus, .fp-recent__item-link:focus, .fp-friends__page-link:focus, .fp-featured-item__title-link:focus, .footer-menu__nav a:focus {
   text-decoration-line: underline;
   text-decoration-style: solid;
 }
@@ -2568,7 +2568,7 @@ form.submitting .wpcf7-spinner {
   margin-top: 50px;
 }
 
-.event-prog__date {
+.event-prog__prog-sub-title {
   margin-top: 100px;
   padding: 0.5em 0;
   text-align: center;
@@ -2580,45 +2580,66 @@ form.submitting .wpcf7-spinner {
   border-bottom: 1px solid #eeeeee;
 }
 
-.event-list {
+.event-list,
+.price-list {
   display: grid;
   justify-content: center;
   max-width: 1200px;
   margin-top: 50px;
 }
-.event-list__title {
+.event-list__title,
+.price-list__title {
   margin-bottom: 0;
 }
-.event-list__scroll {
+.event-list__scroll,
+.price-list__scroll {
   display: block;
   margin: 0;
 }
-.event-list__table-wrap {
+.event-list__table-wrap,
+.price-list__table-wrap {
   overflow-y: scroll;
 }
-.event-list__table {
+.event-list__table,
+.price-list__table {
   font-size: 0.8em;
-  font-weight: 800;
   margin-bottom: 1em;
 }
-.event-list__table a {
+.event-list__table a,
+.price-list__table a {
   text-decoration: none;
 }
-.event-list__table thead {
+.event-list__table thead,
+.price-list__table thead {
   background-color: #000000;
   color: #ffffff;
 }
-.event-list__table tbody tr:nth-of-type(2n + 1) {
+.event-list__table tbody tr:nth-of-type(2n + 1),
+.price-list__table tbody tr:nth-of-type(2n + 1) {
   background-color: #eeeeee;
 }
-.event-list__table td {
+.event-list__table td,
+.price-list__table td {
   border: 1px solid #cccccc;
 }
-.event-list__table th {
+.event-list__table th,
+.price-list__table th {
+  font-weight: 800;
   border: 1px solid #000000;
+  border-right-color: #cccccc;
 }
-.event-list__table td, .event-list__table th {
-  padding: 0.5em;
+.event-list__table th:last-child,
+.price-list__table th:last-child {
+  border-right-color: #000000;
+}
+.event-list__table td, .event-list__table th,
+.price-list__table td,
+.price-list__table th {
+  padding: 0.75em 0.5em;
+}
+
+.event-list__table {
+  font-weight: 800;
 }
 .event-list__head--title {
   text-align: center;
@@ -2627,9 +2648,37 @@ form.submitting .wpcf7-spinner {
   white-space: nowrap;
 }
 .event-list__cell--title {
+  text-align: center;
   white-space: normal;
   text-wrap: balance;
+}
+
+.price-list__cell--number {
+  width: 8ch;
+  font-weight: 800;
+}
+.price-list__cell--isbn {
+  width: 18ch;
+  font-family: monospace;
+}
+.price-list__cell--edition {
+  width: 25ch;
+}
+.price-list__cell--pp {
+  width: 4ch;
   text-align: center;
+}
+.price-list__cell--pi {
+  width: 4ch;
+  text-align: center;
+}
+.price-list__cell--format {
+  width: 18ch;
+}
+.price-list__cell--rrp {
+  width: 6ch;
+  font-family: monospace;
+  text-align: right;
 }
 .event-list--cols-3 .event-list__table {
   width: 780px;
@@ -2701,6 +2750,25 @@ form.submitting .wpcf7-spinner {
   }
   .event-list--cols-6 .event-list__table-wrap {
     width: 1200px;
+  }
+}
+
+.price-list__table-wrap {
+  width: calc(100vw - 30px);
+}
+.price-list__table {
+  width: 1200px;
+}
+@media only screen and (min-width: 1200px) {
+  .price-list__table-wrap {
+    width: 1200px;
+  }
+  .price-list__title {
+    margin-bottom: 0;
+    text-align: center;
+  }
+  .price-list .event-list__scroll {
+    display: none;
   }
 }
 

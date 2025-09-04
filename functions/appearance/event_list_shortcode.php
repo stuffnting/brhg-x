@@ -3,6 +3,8 @@
 /**
  * A wrapper for all events list tables.
  * 
+ * *** !!! NOTE: When this shortcode runs is controlled from publication_the_content_filter !!! ***
+ * 
  * @param array     $atts       The attributes from the shortcode.
  *                  title       The title for the events list wrapper, e.g. 'Programme 2025.
  * @param string    $content    The content of the shortcode. This will include the shortcodes 
@@ -21,7 +23,10 @@ function brhg2024_make_event_programme($atts, $content = null) {
         'event_list_wrapper'
     );
 
+    $content = brhg2024_change_headers_in_content($content, 'h3', 'event-prog__prog-sub-title');
+
     $nested_content = do_shortcode($content);
+
     // Only return a populated string if the shortcode has contents.
     if (isset($content)) {
         $new_content = sprintf(
@@ -30,8 +35,9 @@ function brhg2024_make_event_programme($atts, $content = null) {
             %s\n
             </section>\n",
             $atts['title'],
-            brhg2024_change_headers($nested_content, 'h3', 'event-prog__date'),
+            $nested_content,
         );
+
 
         // DO the shortcodes contained within the contents.
         return preg_replace('/^\s*[\r\n]+/m', '', $new_content);
@@ -40,7 +46,7 @@ function brhg2024_make_event_programme($atts, $content = null) {
     return '';
 }
 
-function brhg2024_change_headers($html = '', $new_tag = 'h3', $class = '') {
+function brhg2024_change_headers_in_content($html = '', $new_tag = 'h3', $class = '') {
     // Define a pattern to match all heading tags
     $pattern = '/<h[1-6](.*?)>(.*?)<\/h[1-6]>/i';
 
