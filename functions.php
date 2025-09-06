@@ -65,6 +65,10 @@ if (! is_admin()) {
     require_once('functions/appearance/contact_details_shortcodes.php');
     // Short codes for the footnotes
     require_once('functions/appearance/footnotes_shortcode.php');
+    // Shortcode for the publication price list
+    require_once('functions/publications/publication_price_list_shortcode.php');
+    // Shortcode for the for sale list on the where to buy page
+    require_once('functions/publications/for_sale_list_shortcode.php');
     // Donate button shortcode
     require_once('functions/appearance/donate_button_shortcode.php');
     // Schema

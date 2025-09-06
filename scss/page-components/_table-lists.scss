@@ -100,92 +100,98 @@
 .price-list {
   &__cell {
     &--number {
-      width: 8ch;
+      width: 10ch;
       font-weight: 800;
     }
-    &--title {
-      //width: 390px;
-    }
     &--isbn {
-      width: 18ch;
+      width: 20ch;
       font-family: monospace;
     }
     &--edition {
-      width: 25ch;
+      width: 32ch;
     }
     &--pp {
-      width: 4ch;
+      width: 7ch;
       text-align: center;
     }
     &--pi {
-      width: 4ch;
+      width: 7ch;
       text-align: center;
     }
     &--format {
-      width: 18ch;
+      width: 20ch;
     }
     &--rrp {
-      width: 6ch;
+      width: 10ch;
       font-family: monospace;
       text-align: right;
     }
     &--notes {
-      //width: 225px;
+      width: 8ch;
+      position: relative;
+    }
+  }
+
+  &__pop-note {
+    display: none;
+    position: absolute;
+    top: -20px;
+    right: 100%;
+    background-color: g.$light-text;
+    padding: 1em;
+    border: 3px solid g.$primary;
+    width: 200px;
+  }
+
+  &__pop-note-btn {
+    color: g.$primary;
+    cursor: pointer;
+    touch-action: manipulation;
+
+    &:hover + .price-list__pop-note {
+      display: block;
+    }
+  }
+}
+
+$table-parents: (event-list, price-list);
+
+$tables: (
+  cols-3: 780px,
+  cols-4: 900px,
+  cols-5: 1050px,
+  cols-6: g.$wide-content-width,
+);
+
+@mixin scrollableTableLoop($pre, $width) {
+  #{$pre}__table {
+    width: $width;
+  }
+  #{$pre}__table-wrap {
+    width: calc(100vw - 30px);
+  }
+  @include g.mediaQ($width) {
+    #{$pre}__title {
+      margin-bottom: 0;
+      text-align: center;
+    }
+    #{$pre}__scroll {
+      display: none;
+    }
+    #{$pre}__table-wrap {
+      width: $width;
     }
   }
 }
 
 .event-list {
-  $tables: (
-    cols-3: 780px,
-    cols-4: 900px,
-    cols-5: 1050px,
-    cols-6: g.$wide-content-width,
-  );
-
   @each $cols, $width in $tables {
     &--#{$cols} {
-      & .event-list__table {
-        width: $width;
-      }
-      & .event-list__table-wrap {
-        width: calc(100vw - 30px);
-      }
-      @include g.mediaQ($width) {
-        & .event-list__title {
-          margin-bottom: 0;
-          text-align: center;
-        }
-        & .event-list__scroll {
-          display: none;
-        }
-        & .event-list__table-wrap {
-          width: $width;
-        }
-      }
+      @include scrollableTableLoop("& .event-list", $width);
     }
   }
 }
 
 .price-list {
-  &__table-wrap {
-    width: calc(100vw - 30px);
-  }
-
-  &__table {
-    width: g.$wide-content-width;
-  }
-
-  @include g.mediaQ(g.$wide-content-width) {
-    &__table-wrap {
-      width: g.$wide-content-width;
-    }
-    &__title {
-      margin-bottom: 0;
-      text-align: center;
-    }
-    & .event-list__scroll {
-      display: none;
-    }
-  }
+  @include scrollableTableLoop("& .price-list", 1320px);
 }

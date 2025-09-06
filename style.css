@@ -2654,32 +2654,55 @@ form.submitting .wpcf7-spinner {
 }
 
 .price-list__cell--number {
-  width: 8ch;
+  width: 10ch;
   font-weight: 800;
 }
 .price-list__cell--isbn {
-  width: 18ch;
+  width: 20ch;
   font-family: monospace;
 }
 .price-list__cell--edition {
-  width: 25ch;
+  width: 32ch;
 }
 .price-list__cell--pp {
-  width: 4ch;
+  width: 7ch;
   text-align: center;
 }
 .price-list__cell--pi {
-  width: 4ch;
+  width: 7ch;
   text-align: center;
 }
 .price-list__cell--format {
-  width: 18ch;
+  width: 20ch;
 }
 .price-list__cell--rrp {
-  width: 6ch;
+  width: 10ch;
   font-family: monospace;
   text-align: right;
 }
+.price-list__cell--notes {
+  width: 8ch;
+  position: relative;
+}
+.price-list__pop-note {
+  display: none;
+  position: absolute;
+  top: -20px;
+  right: 100%;
+  background-color: #ffffff;
+  padding: 1em;
+  border: 3px solid #a40000;
+  width: 200px;
+}
+.price-list__pop-note-btn {
+  color: #a40000;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+.price-list__pop-note-btn:hover + .price-list__pop-note {
+  display: block;
+}
+
 .event-list--cols-3 .event-list__table {
   width: 780px;
 }
@@ -2753,22 +2776,22 @@ form.submitting .wpcf7-spinner {
   }
 }
 
-.price-list__table-wrap {
+.price-list .price-list__table {
+  width: 1320px;
+}
+.price-list .price-list__table-wrap {
   width: calc(100vw - 30px);
 }
-.price-list__table {
-  width: 1200px;
-}
-@media only screen and (min-width: 1200px) {
-  .price-list__table-wrap {
-    width: 1200px;
-  }
-  .price-list__title {
+@media only screen and (min-width: 1320px) {
+  .price-list .price-list__title {
     margin-bottom: 0;
     text-align: center;
   }
-  .price-list .event-list__scroll {
+  .price-list .price-list__scroll {
     display: none;
+  }
+  .price-list .price-list__table-wrap {
+    width: 1320px;
   }
 }
 
