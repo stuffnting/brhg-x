@@ -1,5 +1,4 @@
 @use "../globals" as g;
-@use "placeholders";
 
 html {
   font-size: 14px;
@@ -9,11 +8,18 @@ html {
   }
 }
 
+// Basic text
 .brhg-body {
   font-family: g.$main-font;
   line-height: 1.6;
   color: g.$dark-text;
   font-size: 1.125rem;
+}
+
+// Basic layout
+
+%torso-spacing {
+  margin: 80px auto;
 }
 
 .torso {
@@ -43,4 +49,63 @@ html {
 .single-venues .entry-content,
 .single-project .entry-content {
   margin: 0 auto;
+}
+
+// Legacy
+strong,
+b {
+  font-weight: 800;
+}
+
+em,
+i {
+  font-style: italic;
+}
+
+small {
+  font-size: g.$small-text;
+}
+
+// For TinyMCE alignment buttons
+.aligncenter {
+  text-align: center;
+}
+
+.alignleft {
+  text-align: initial;
+}
+
+.alignright {
+  text-align: right;
+}
+
+// Screen Readers
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+// Boxes
+
+.highlight-box {
+  @extend %highlight-box;
+}
+
+.dotted-highlight-box {
+  @extend %yellow-highlight-box;
+  & > p {
+    margin-bottom: 2em;
+  }
+}
+
+// BUttons
+
+.brhg-btn {
+  @extend %default-button;
 }

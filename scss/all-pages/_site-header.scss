@@ -1,6 +1,4 @@
 @use "../globals" as g;
-@use "placeholders" as p;
-
 @use "contents-menu";
 
 $angel-skeleton-height: clamp(80px, 20vw, 145px);

@@ -40,6 +40,8 @@ add_filter('query_vars', 'brhg2016_query_vars');
  *
  * @return $request The altered request vars
  */
+add_filter('request', 'brhg2016_alter_the_query');
+
 function brhg2016_alter_the_query($request) {
     /**
      * Redirects for neater URLs
@@ -144,7 +146,6 @@ function brhg2016_alter_the_query($request) {
     return $return_request;
 }
 
-add_filter('request', 'brhg2016_alter_the_query');
 
 
 

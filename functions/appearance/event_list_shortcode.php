@@ -69,6 +69,7 @@ function brhg2024_change_headers_in_content($html = '', $new_tag = 'h3', $class 
  *                   the event series, default is false.
  *                   subset - the subset of the events series, used to break up the event table into smaller chunks.
  *                   title - the h3 title to add before the subset table is added to the page.
+ *                   theme - if the event series has themes, these can be added for each event.
  *                   venue - the event venue.
  *                   location - the location within the venue.
  *                   with - the speakers. Default is to show.
@@ -89,6 +90,7 @@ function brhg2016_make_event_list($atts) {
             'posts'     => false,
             'subset'    => false,
             'title'     => false,
+            'theme'     => false,
             'venue'     => false,
             'location'  => false,
             'with'      => true,
@@ -99,9 +101,10 @@ function brhg2016_make_event_list($atts) {
         'event_list'
     );
 
-    $atts['with'] = filter_var($atts['with'], FILTER_VALIDATE_BOOLEAN);
+    $atts['theme'] = filter_var($atts['theme'], FILTER_VALIDATE_BOOLEAN);
     $atts['venue'] = filter_var($atts['venue'], FILTER_VALIDATE_BOOLEAN);
     $atts['location'] = filter_var($atts['location'], FILTER_VALIDATE_BOOLEAN);
+    $atts['with'] = filter_var($atts['with'], FILTER_VALIDATE_BOOLEAN);
     $atts['date'] = filter_var($atts['date'], FILTER_VALIDATE_BOOLEAN);
     $atts['time'] = filter_var($atts['time'], FILTER_VALIDATE_BOOLEAN);
 
@@ -167,6 +170,10 @@ function brhg2016_make_event_list($atts) {
         while ($connected->have_posts()) : $connected->the_post();
             // From here $post refers to the current event in $connected
 
+            /**
+             * Loop through all connected events. Let an event through if it matches the subset from the shortcode.
+             * If there is no subset in the shortcode, let all events through: i.e. list all connected events.
+             */
             if ($atts['subset'] === false || $atts['subset'] == get_post_meta($post->ID, 'subset', true)) {
 
                 $list_rows .= "<tr class='event-list__event'>\n";
@@ -179,7 +186,7 @@ function brhg2016_make_event_list($atts) {
 
                 if ($atts['time']) {
                     $time = brhg2016_get_item_event_time(true);
-                    $list_rows .=  "<td class='event-list__cell event-list__cell--time'>$time</td>\n";
+                    $list_rows .= "<td class='event-list__cell event-list__cell--time'>$time</td>\n";
                 }
 
                 $link = get_the_permalink();
@@ -192,6 +199,11 @@ function brhg2016_make_event_list($atts) {
                         <a href='$link'>$title$sub_title</a>\n
                     </td>\n";
 
+                if ($atts['theme']) {
+                    $theme = brhg2016_get_item_meta_singles('event_theme', false);
+                    $list_rows .= "<td class='event-list__cell event-list__cell--theme'>$theme</td>\n";
+                }
+
                 if ($atts['with']) {
                     $speakers = brhg2016_get_item_connected('speakers', false);
                     $list_rows .= "<td class='event-list__cell event-list__cell--with'>$speakers</td>\n";
@@ -203,9 +215,7 @@ function brhg2016_make_event_list($atts) {
                 }
 
                 if ($atts['location']) {
-                    $location = brhg2016_get_item_meta_singles('location', false, $post->ID)
-                        ? brhg2016_get_item_meta_singles('location', false)
-                        : "";
+                    $location = brhg2016_get_item_meta_singles('location', false);
                     $list_rows .=  "<td class='event-list__cell event-list__cell--location'>$location</td>\n";
                 }
 
@@ -228,18 +238,23 @@ function brhg2016_make_event_list($atts) {
         $header_rows .= "<th class='event-list__head event-list__head--title'>Title</th>\n";
         $col_count++;
 
+        if ($atts['theme']) {
+            $header_rows .= "<th class='event-list__head event-list__head--theme'>Theme</th>\n";
+            $col_count++;
+        }
+
         if ($atts['with']) {
             $header_rows .= "<th class='event-list__head event-list__head--with'>With</th>\n";
             $col_count++;
         }
 
-        if ($atts['venue']) {
-            $header_rows .= "<th class='event-list__head event-list__head--venue'>venue</th>\n";
+        if ($atts['location']) {
+            $header_rows .= "<th class='event-list__head event-list__head--location'>Location</th>\n";
             $col_count++;
         }
 
-        if ($atts['location']) {
-            $header_rows .= "<th class='event-list__head event-list__head--location'>Location</th>\n";
+        if ($atts['venue']) {
+            $header_rows .= "<th class='event-list__head event-list__head--venue'>venue</th>\n";
             $col_count++;
         }
 

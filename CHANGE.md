@@ -24,6 +24,12 @@
 - Material for Schools: redo heading so that only one primary source warning is needed.
 - Miners project page: add .no-borders class to gallery shortcode
 
+## Events
+
+- Add themes to 2025 festival events and change the titles.
+- Add theme column to table lists.
+- Up date the help page.
+
 ## Contact forms
 
 - WWi
@@ -77,7 +83,7 @@
 [email* your-email akismet:author_email id:your-email-subscribe class:wpcf7-form__input]
 </label>
 <label class="wpcf7-form__label" for="your-subject">Subject
-[text your-subject "Please add me to your email list" id:your-subject-subscribe class:wpcf7-form__input]
+[text your-subject default:Please add me to your email list id:your-subject-subscribe class:wpcf7-form__input]
 </label>
 <label class="wpcf7-form__label" for="your-message-subscribe">Your Message (Required)
 [textarea* your-message id:your-message-subscribe class:wpcf7-form__textarea]

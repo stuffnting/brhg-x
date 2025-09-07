@@ -19,7 +19,8 @@
             "display_format": "d\/m\/Y",
             "save_format": "DD d MM yy",
             "first_day": 1,
-            "return_format": "d\/m\/Y"
+            "return_format": "d\/m\/Y",
+            "default_to_current_date": 0
         },
         {
             "key": "field_4f7c24906a886",
@@ -58,7 +59,8 @@
             "display_format": "d\/m\/Y",
             "save_format": "DD d MM yy",
             "first_day": 1,
-            "return_format": "d\/m\/Y"
+            "return_format": "d\/m\/Y",
+            "default_to_current_date": 0
         },
         {
             "key": "field_4f7c249080396",
@@ -90,12 +92,13 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "33.33333",
+                "width": "25",
                 "class": "",
                 "id": ""
             },
             "default_value": "",
             "maxlength": "",
+            "allow_in_bindings": 1,
             "placeholder": "",
             "prepend": "",
             "append": ""
@@ -110,12 +113,13 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "33.33333",
+                "width": "25",
                 "class": "",
                 "id": ""
             },
             "default_value": "",
             "maxlength": "",
+            "allow_in_bindings": 1,
             "placeholder": "",
             "prepend": "",
             "append": ""
@@ -130,12 +134,34 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "33.33333",
+                "width": "25",
                 "class": "",
                 "id": ""
             },
             "default_value": "",
             "maxlength": "",
+            "allow_in_bindings": 1,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_68bc9618b92a4",
+            "label": "Theme",
+            "name": "event_theme",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "When an event series has several themes, one can be entered here. Themes cab be added as a column in the event programme list, by adding theme=true to the shortcode.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
             "placeholder": "",
             "prepend": "",
             "append": ""
@@ -159,5 +185,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1709123669
+    "modified": 1757190331
 }

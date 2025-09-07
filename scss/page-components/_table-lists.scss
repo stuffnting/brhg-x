@@ -161,6 +161,7 @@ $tables: (
   cols-4: 900px,
   cols-5: 1050px,
   cols-6: g.$wide-content-width,
+  cols-7: 1320px,
 );
 
 @mixin scrollableTableLoop($pre, $width) {
