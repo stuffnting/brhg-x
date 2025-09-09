@@ -12,7 +12,7 @@
             "required": 1,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "33.3333",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
@@ -24,7 +24,6 @@
             "return_format": "value",
             "allow_null": 0,
             "other_choice": 0,
-            "allow_in_bindings": 1,
             "layout": "vertical",
             "save_other_choice": 0
         },
@@ -49,69 +48,6 @@
             "layout": "block",
             "prefix_label": 0,
             "prefix_name": 0
-        },
-        {
-            "key": "field_68bff855af93d",
-            "label": "Add map",
-            "name": "add_map",
-            "aria-label": "",
-            "type": "true_false",
-            "instructions": "Do you want a map on this page? When you have generated the map you can add the map with the shortcode [brhg_map]",
-            "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_4f833db702372",
-                        "operator": "!=empty"
-                    }
-                ]
-            ],
-            "wrapper": {
-                "width": "33.333333",
-                "class": "",
-                "id": ""
-            },
-            "message": "Do you want a map on this page?",
-            "default_value": 0,
-            "allow_in_bindings": 0,
-            "ui_on_text": "Yes",
-            "ui_off_text": "No",
-            "ui": 1
-        },
-        {
-            "center_lat": 51.4504409,
-            "center_lng": -2.5939806942,
-            "zoom": 13,
-            "height": 400,
-            "return_format": "leaflet",
-            "allow_map_layers": 1,
-            "max_markers": "",
-            "layers": [
-                "OpenStreetMap.Mapnik"
-            ],
-            "key": "field_68c009614cf50",
-            "label": "Map",
-            "name": "map",
-            "aria-label": "",
-            "type": "open_street_map",
-            "instructions": "When you have made the map, add the [brhg_map] shortcode to the editor where you want the map to appear.",
-            "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_68bff855af93d",
-                        "operator": "==",
-                        "value": "1"
-                    }
-                ]
-            ],
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "allow_in_bindings": 0,
-            "leaflet_map": "{\"lat\":51.4504768,\"lng\":-2.5939751,\"zoom\":13,\"layers\":[\"OpenStreetMap.Mapnik\"],\"markers\":[]}"
         }
     ],
     "location": [
@@ -167,5 +103,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1757415999
+    "modified": 1752589678
 }

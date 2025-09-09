@@ -37,7 +37,7 @@
                 <img src="<?php echo get_theme_file_uri('/images/angel.svg');  ?>" class="banner__logo-angel" alt="Logo angel">
 
                 <<?php echo $title_tag; ?> class="banner__site-title">
-                    <a href="<?php echo esc_url(home_url('/')); ?>" class="banner__title-link">
+                    <a href="<?php echo esc_url(get_site_url()); ?>" class="banner__title-link">
                         Bristol Radical <br class="banner__title-break">History Group
                     </a>
                 </<?php echo $title_tag; ?>>

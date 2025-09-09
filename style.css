@@ -334,7 +334,7 @@ meter {
   margin-left: 2em;
 }
 
-.floating-trolley a, .pubs-buy-where a, .related__archive-link, .comments__note-before a, .comments__note-after a, .comments__comment a:not(.comments__reply-btn a), .archive-content__desc-term-link, .tag-index__link, .archive-item-header__title-link, .archive-item-header__after-title a, .details-block a, .entry-content a:where(:not(.brhg-btn)), .page-header__title-wrap a, .page-header__archive-intro a, .current-series__link, .fp-tag-cloud__wrap a, .fp-recent__more, .fp-recent__item-link, .fp-friends__page-link, .fp-featured-item__title-link, .footer-menu__nav a {
+.project__show-btn, .floating-trolley a, .pubs-buy-where a, .related__archive-link, .comments__note-before a, .comments__note-after a, .comments__comment a:not(.comments__reply-btn a), .archive-content__desc-term-link, .tag-index__link, .archive-item-header__title-link, .archive-item-header__after-title a, .details-block a, .entry-content a:where(:not(.brhg-btn)), .page-header__title-wrap a, .page-header__archive-intro a, .current-series__link, .fp-tag-cloud__wrap a, .fp-recent__more, .fp-recent__item-link, .fp-friends__page-link, .fp-featured-item__title-link, .footer-menu__nav a {
   color: #a40000;
 }
 
@@ -346,7 +346,7 @@ meter {
   text-underline-offset: 3px;
 }
 
-.floating-trolley a:hover, .pubs-buy-where a:hover, .related__archive-link:hover, .comments__note-before a:hover, .comments__note-after a:hover, .comments__comment a:hover:not(.comments__reply-btn a), .archive-content__desc-term-link:hover, .tag-index__link:hover, .archive-item-header__title-link:hover, .archive-item-header__after-title a:hover, .details-block a:hover, .entry-content a:hover:where(:not(.brhg-btn)), .page-header__title-wrap a:hover, .page-header__archive-intro a:hover, .current-series__link:hover, .fp-tag-cloud__wrap a:hover, .fp-recent__more:hover, .fp-recent__item-link:hover, .fp-friends__page-link:hover, .fp-featured-item__title-link:hover, .footer-menu__nav a:hover, .floating-trolley a:focus, .pubs-buy-where a:focus, .related__archive-link:focus, .comments__note-before a:focus, .comments__note-after a:focus, .comments__comment a:focus:not(.comments__reply-btn a), .archive-content__desc-term-link:focus, .tag-index__link:focus, .archive-item-header__title-link:focus, .archive-item-header__after-title a:focus, .details-block a:focus, .entry-content a:focus:where(:not(.brhg-btn)), .page-header__title-wrap a:focus, .page-header__archive-intro a:focus, .current-series__link:focus, .fp-tag-cloud__wrap a:focus, .fp-recent__more:focus, .fp-recent__item-link:focus, .fp-friends__page-link:focus, .fp-featured-item__title-link:focus, .footer-menu__nav a:focus {
+.project__show-btn:hover, .floating-trolley a:hover, .pubs-buy-where a:hover, .related__archive-link:hover, .comments__note-before a:hover, .comments__note-after a:hover, .comments__comment a:hover:not(.comments__reply-btn a), .archive-content__desc-term-link:hover, .tag-index__link:hover, .archive-item-header__title-link:hover, .archive-item-header__after-title a:hover, .details-block a:hover, .entry-content a:hover:where(:not(.brhg-btn)), .page-header__title-wrap a:hover, .page-header__archive-intro a:hover, .current-series__link:hover, .fp-tag-cloud__wrap a:hover, .fp-recent__more:hover, .fp-recent__item-link:hover, .fp-friends__page-link:hover, .fp-featured-item__title-link:hover, .footer-menu__nav a:hover, .project__show-btn:focus, .floating-trolley a:focus, .pubs-buy-where a:focus, .related__archive-link:focus, .comments__note-before a:focus, .comments__note-after a:focus, .comments__comment a:focus:not(.comments__reply-btn a), .archive-content__desc-term-link:focus, .tag-index__link:focus, .archive-item-header__title-link:focus, .archive-item-header__after-title a:focus, .details-block a:focus, .entry-content a:focus:where(:not(.brhg-btn)), .page-header__title-wrap a:focus, .page-header__archive-intro a:focus, .current-series__link:focus, .fp-tag-cloud__wrap a:focus, .fp-recent__more:focus, .fp-recent__item-link:focus, .fp-friends__page-link:focus, .fp-featured-item__title-link:focus, .footer-menu__nav a:focus {
   text-decoration-line: underline;
   text-decoration-style: solid;
 }
@@ -2205,6 +2205,7 @@ small {
 .comments__form label {
   display: block;
   width: 100%;
+  margin-bottom: 0.75em;
 }
 .comments__input {
   margin-bottom: 25px;
@@ -2886,4 +2887,38 @@ form.submitting .wpcf7-spinner {
 }
 .brhg-donate-btn__submit {
   width: 110px;
+}
+
+.project__linked-stuff-title {
+  margin-top: 2em;
+}
+.project__show-btn {
+  margin-bottom: 50px;
+  font-weight: 800;
+  text-align: center;
+  padding: 0.75em 0;
+  border-top: 1px solid #eeeeee;
+  border-bottom: 1px solid #eeeeee;
+}
+
+.project-item {
+  display: flex;
+  gap: 2%;
+  margin-bottom: 2rem;
+}
+.project-item a {
+  text-decoration: none;
+}
+.project-item__content {
+  width: 84%;
+  font-size: 0.8em;
+}
+.project-item--no-thumb .project-item__content {
+  width: 100%;
+}
+.project-item__thumb {
+  width: 14%;
+}
+.project-item__more-link::after {
+  content: "=>";
 }/*# sourceMappingURL=style.css.map */

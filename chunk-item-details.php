@@ -58,3 +58,12 @@ the_tags(
         <?php brhgh2016_post_modified(); ?>
     </span>
 </p>
+
+<?php
+if (current_user_can('edit_posts')) { ?>
+    <p class="details-block__p">
+        <span class="<?php echo $value_class; ?>"><a href=" <?php echo get_edit_post_link($post->ID) ?>">Edit Post</a></span>
+    </p>
+
+<?php
+}

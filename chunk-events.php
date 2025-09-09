@@ -97,11 +97,16 @@ extract(brhg2025_get_details_block_classes());
     </p>
 <?php } ?>
 
-<?php if (brhg2016_get_item_connected('series', false) && $show_none === 'no' &&  $show_series === 'yes') { ?>
+<?php if ($show_none === 'no' &&  $show_series === 'yes') {
+
+    $event_series = brhg2016_get_item_connected('series', false)
+        ? brhg2016_get_item_connected('series')
+        : 'Not in a series'
+?>
     <p class="details-block__p">
         <span class="<?php echo $key_class; ?>">Series: </span>
         <span class="<?php echo $value_class; ?>">
-            <?php brhg2016_get_item_connected('series'); ?>
+            <?php echo $event_series; ?>
         </span>
     </p>
 <?php } ?>

@@ -1,0 +1,46 @@
+@use "../globals/" as g;
+
+.project {
+  &__linked-stuff-title {
+    margin-top: 2em;
+  }
+
+  &__show-btn {
+    @include g.defaultLink(true, false, true);
+    margin-bottom: 50px;
+    font-weight: 800;
+    text-align: center;
+    padding: 0.75em 0;
+    border: {
+      top: 1px solid g.$border-rule;
+      bottom: 1px solid g.$border-rule;
+    }
+  }
+}
+
+.project-item {
+  display: flex;
+  gap: 2%;
+  margin-bottom: 2rem;
+
+  & a {
+    text-decoration: none;
+  }
+
+  &__content {
+    width: 84%;
+    font-size: g.$small-text;
+  }
+
+  &--no-thumb .project-item__content {
+    width: 100%;
+  }
+
+  &__thumb {
+    width: 14%;
+  }
+
+  &__more-link::after {
+    content: "\003D\003E";
+  }
+}

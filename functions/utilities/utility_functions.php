@@ -488,97 +488,71 @@ function brhg2016_archive_pagination($args = '') {
  */
 function brhg2016_archive_thumb($size = 'big_thumb', $echo = true) {
     global $post;
-    $thumb_img_class = "archive-item-content__thumb-img";
 
-    //make events use the thumbnail from the event series
-    if (get_post_type() == 'events') :
-        $connected_series = '';
+    $thumb_attr = array(
+        'class' => "archive-item-content__thumb-img",
+    );
 
-        //get the ID of the connected Event Series    
-        if (isset($post->series[0])) {
-            $connected_series = $post->series[0]->ID;
-        } elseif (is_singular('project')) {
-            $connected_series ??= p2p_type('events_to_series')->get_connected($post->ID)->posts[0]->ID;
-        } else {
-            $connected_series = 'no series';
-        }
+    $item = array(
+        'event'                 => get_post_type() === 'events' ? true : false,
+        'connected_series'      => false,
+        'connected_has_thumb' => false,
+        'brhg_event'            => get_post_meta($post->ID, 'brhg_event_filter', true) !== 'other' ? true : false,
+        'has_thumb'    => has_post_thumbnail($post)
+    );
 
-        // Not a BRHG event
-        if (get_post_meta($post->ID, 'brhg_event_filter', true) == 'other'):
+    if ($item['event'] === true) {
 
-            if ($echo === true) {
+        //get the ID of the connected Event Series, and the series thumb   
+        $item['connected_series'] = (isset($post->series[0]))
+            ? (int) $post->series[0]->ID
+            :  false;
+        $item['connected_has_thumb'] = $item['connected_series']
+            ? has_post_thumbnail($item['connected_series'])
+            : false;
 
-                brhg2016_archive_missing_thumb('Not A BRHG Event');
-            } else {
-
-                return 'text';
-            }
-
-        // if it is a brhg event but there is no connected event series
-        elseif (get_post_meta($post->ID, 'brhg_event_filter', true) == 'brhg' && $connected_series == 'no series') :
+        // Series with thumb
+        if ($item['connected_series'] && $item['connected_has_thumb']) {
 
             if ($echo === true) {
-                brhg2016_archive_missing_thumb('Not In An Event Series');
+                echo get_the_post_thumbnail($item['connected_series'], $size, $thumb_attr);
+                //brhg2016_archive_missing_thumb('Not In An Event Series');
             } else {
-
-                return 'text';
-            }
-
-        else:
-
-            // if there is a connected Event Series but it has no featured image
-            if (!has_post_thumbnail($connected_series)) :
-
-                if ($echo === true) {
-                    brhg2016_archive_missing_thumb(get_the_title($connected_series));
-                } else {
-                    return 'text';
-                }
-
-            // if there is a connected Event Series and it has a featured image
-            else:
-
-                $thumb_attr = array(
-                    'class' => $thumb_img_class,
-                );
-
-                if ($echo === true) {
-                    echo get_the_post_thumbnail($connected_series, $size, $thumb_attr);
-                } else {
-                    return 'image';
-                }
-
-            endif;
-        endif;
-    else:
-        // otherwise if not an event get featured image thumb
-
-        if (!has_post_thumbnail()) {
-
-            if ($echo === true) {
-
-                //brhg2016_archive_missing_thumb(get_the_title());
-            } else {
-
-                return false;
-            }
-        } else {
-
-            $thumb_attr = array(
-
-                'class' => $thumb_img_class,
-
-            );
-
-            if ($echo === true) {
-
-                echo the_post_thumbnail($size, $thumb_attr);
-            } else {
-
                 return 'image';
             }
+
+            // Event with thumb
+        } elseif ($item['has_thumb']) {
+            if ($echo === true) {
+                echo get_the_post_thumbnail($post, $size, $thumb_attr);
+            } else {
+                return 'image';
+            }
+
+            // Event with no thumb
+        } else {
+            if ($echo === true) {
+                brhg2016_archive_missing_thumb('missing thumb');
+            } else {
+                return 'text';
+            }
         }
-    endif;
+
+        // Non-event with thumb
+    } elseif ($item['has_thumb']) {
+        if ($echo === true) {
+            echo get_the_post_thumbnail($post, $size, $thumb_attr);
+        } else {
+            return 'image';
+        }
+    } else {
+        if ($echo === true) {
+            return false;
+            //brhg2016_archive_missing_thumb(get_the_title());
+        } else {
+            return false;
+        }
+    }
 }
 
 
@@ -655,12 +629,30 @@ function brhg2016_get_item_section($echo = true) {
     $details = brhg2016_get_item_details();
 
     if (array_key_exists('page_title', $details)) {
+
+        switch ($details['page_title']) {
+            case 'Blog':
+                $has_link = true;
+                $link = get_site_url(null, '/blog/');
+                break;
+            case 'Venues':
+                $has_link = false;
+                $link = '';
+                break;
+
+            default:
+                $has_link = true;
+                $link = get_post_type_archive_link(get_post_type());
+                break;
+        }
+
         $section = sprintf(
             "%s%s%s",
             // Remember Contributors archive redirects to contrib_alpha taxonomy page
-            ($details['page_title'] === 'Venues') ? '' : "<a href='" . get_post_type_archive_link(get_post_type()) . "'>",
+            // Don't link through to archive page for venues
+            $has_link ? "<a href='$link'>" : '',
             $details['page_title'],
-            ($details['page_title'] === 'Venues') ? '' : "</a>"
+            $has_link ? "</a>" : ''
         );
 
         $GLOBALS['schema'][$post->ID]['section'] = wp_strip_all_tags($section, true);

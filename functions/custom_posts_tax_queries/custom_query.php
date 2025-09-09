@@ -269,7 +269,7 @@ function brhg2024_get_publication_collections() {
  *    /radical-history-listings/
  *    /tag-index/
  *    /bookshop/
- *   /publication-collections/
+ *    /publication-collections/
  *
  * Some 'special urls' need template redirects because they are not Pages, although Wordpress would interpret the url as a page without intervention.
  *
@@ -1020,40 +1020,43 @@ function brhg2016_front_recent_query($type = "", $per_page = 10) {
 function brhg2016_project_query() {
     global $post;
 
+    $project_items = array();
+
+    // The brhg2016_project meta is an array. Each post can be linked to one or more projects.
     $args = array(
         'post_type'         => 'any',
         'posts_per_page'    =>  -1,
+        'orderby'           => 'date',
         'meta_key'          => 'brhg2016_project',
         'meta_value'        => strval($post->ID),
     );
 
-    $project_items = new WP_Query($args);
+    // get_posts returns and array of WP_Post objects
+    $project_items = get_posts($args);
 
-    # Make an array of the post-types with items linked to this project
-    # Note that the post-type is both the key and value in the array
-    if ($project_items) {
-        $linked_post_types = array();
-        foreach ($project_items->posts as $project) {
-            if (!in_array($project->post_type, $linked_post_types)) {
-                $linked_post_types[$project->post_type] = $project->post_type;
-            }
+    // Sort the posts in a project by post type
+    if (!empty($project_items)) {
+        $sorted_project_items = array(
+            'articles'          => array(),
+            'pamphlets'         => array(),
+            'event_series'      => array(),
+            'events'            => array(),
+            'books'             => array(),
+            'post'              => array()
+        );
+
+        foreach ($project_items as $item) {
+            $sorted_project_items[$item->post_type][] = $item;
         }
 
-        # Set the preferred order for the post types to appear on the project page
-        $order = array('articles', 'pamphlets', 'event_series', 'events', 'books', 'post');
+        // Add connected events series to each event
+        if (!empty($sorted_project_items['events'])) {
+            p2p_type('events_to_series')->each_connected($sorted_project_items['events'], array(), 'series');
+        }
 
-        # Flip the $order array: $order values become the new keys, and the $order keys become the new value, which are numbers
-        # Merge $order with $linked_post_types so that if the key exists in both arrays the value from $linked_post_types is used
-        # The keys and values in $linked_post_types are both the post-type, not intigers
-        # Post types that were in $order but not $linked_post_types, i.e. there were no posts of that type linked to this project, are still integers values
-        $linked_post_types = array_merge(array_flip($order),  $linked_post_types);
-
-        $return['project_items'] = $project_items;
-        $return['linked_post_types'] = $linked_post_types;
-
-        return $return;
+        return $sorted_project_items;
     } else {
-        return false;
+        return array();
     }
 }
 
