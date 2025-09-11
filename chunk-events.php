@@ -99,9 +99,7 @@ extract(brhg2025_get_details_block_classes());
 
 <?php if ($show_none === 'no' &&  $show_series === 'yes') {
 
-    $event_series = brhg2016_get_item_connected('series', false)
-        ? brhg2016_get_item_connected('series')
-        : 'Not in a series'
+    $event_series = brhg2016_get_item_connected('series', false) ?: 'Not in a series';
 ?>
     <p class="details-block__p">
         <span class="<?php echo $key_class; ?>">Series: </span>
