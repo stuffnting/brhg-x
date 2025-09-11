@@ -71,6 +71,8 @@ if (! is_admin()) {
     require_once('functions/publications/for_sale_list_shortcode.php');
     // Donate button shortcode
     require_once('functions/appearance/donate_button_shortcode.php');
+    // ACF OpenStreetMap shortcode
+    require_once('functions/appearance/map_shortcode.php');
     // Schema
     require_once('functions/utilities/schema.php');
     // Inline scripts

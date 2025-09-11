@@ -5,6 +5,7 @@
   text-align: center;
   font-weight: 800;
   margin-bottom: 25px;
+  padding: 2em;
 
   & a {
     @include g.defaultLink(true, false, true);
@@ -39,7 +40,7 @@
   &__item {
     margin: 50px 0;
     padding-bottom: 20px;
-    border-bottom: 1px solid g.$border-rule;
+    border-bottom: g.$pale-rule-border;
   }
 
   &__source,
@@ -49,15 +50,10 @@
 }
 
 .buy {
-  @extend %highlight-box;
   text-align: center;
-  padding: 1em;
+  @include g.highlightBox;
 
-  &__title {
-    background-color: g.$primary;
-    color: g.$light-text;
-    padding: 10px 5px;
-  }
+  // highlightBox adds &__title
 
   &__post-warning {
     font-size: g.$small-text;
@@ -69,6 +65,7 @@
 
   & .paypal-img {
     border: none;
+    margin-top: 1em;
     margin-bottom: 0;
   }
 }

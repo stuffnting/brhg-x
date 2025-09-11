@@ -79,8 +79,8 @@
             "ui": 1
         },
         {
-            "center_lat": 51.4504409,
-            "center_lng": -2.5939806942,
+            "center_lat": 51.450440899999997,
+            "center_lng": -2.5939806941999999,
             "zoom": 13,
             "height": 400,
             "return_format": "leaflet",
@@ -91,7 +91,7 @@
             ],
             "key": "field_68c009614cf50",
             "label": "Map",
-            "name": "map",
+            "name": "osm_map",
             "aria-label": "",
             "type": "open_street_map",
             "instructions": "When you have made the map, add the [brhg_map] shortcode to the editor where you want the map to appear.",
@@ -111,7 +111,7 @@
                 "id": ""
             },
             "allow_in_bindings": 0,
-            "leaflet_map": "{\"lat\":51.4504768,\"lng\":-2.5939751,\"zoom\":13,\"layers\":[\"OpenStreetMap.Mapnik\"],\"markers\":[]}"
+            "leaflet_map": "{\"lat\":51.450440899999997,\"lng\":-2.5939806941999999,\"zoom\":13,\"layers\":[\"OpenStreetMap.Mapnik\"],\"markers\":[]}"
         }
     ],
     "location": [
@@ -167,5 +167,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1757415999
+    "modified": 1757447901
 }

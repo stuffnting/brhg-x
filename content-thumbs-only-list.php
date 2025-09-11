@@ -35,7 +35,7 @@
   ?>
       <header class="thumb-only-list__header">
         <h2 class="thumb-only-list__title"><?php echo $title; ?></h2>
-        <h3 class="thumb-only-list__description"><?php echo $description; ?></h3>
+        <p class="thumb-only-list__description"><?php echo $description; ?></p>
       </header>
 
       <div class="thumb-only-listing__wrapper">

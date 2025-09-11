@@ -12,7 +12,7 @@
 
     $border: top, bottom;
     @each $position in $border {
-      border-#{$position}: 1px solid g.$border-rule;
+      border-#{$position}: g.$pale-rule-border;
     }
   }
 }
@@ -139,7 +139,7 @@
     right: 100%;
     background-color: g.$light-text;
     padding: 1em;
-    border: 3px solid g.$primary;
+    border: g.$primary-rule-border;
     width: 200px;
   }
 

@@ -91,7 +91,7 @@
     & .children {
       padding-left: 1em;
       margin-top: $comment-bottom-margin;
-      border-left: 3px solid g.$border-rule;
+      border-left: g.$pale-rule-border;
 
       @include g.mediaQ(g.$comments-bp-x-small) {
         padding-left: 2em;
@@ -108,7 +108,7 @@
     }
 
     &.depth-1:not(:last-child) {
-      border-bottom: 3px solid g.$border-rule;
+      border-bottom: g.$pale-rule-border;
       padding-bottom: 1em;
     }
 

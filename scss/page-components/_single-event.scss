@@ -1,0 +1,12 @@
+@use "../globals/" as g;
+
+.event-details-single {
+  margin-top: 75px;
+
+  &__details {
+    @include g.mediaQ(650px) {
+      columns: auto 2;
+      column-gap: 2em;
+    }
+  }
+}

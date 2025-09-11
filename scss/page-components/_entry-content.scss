@@ -5,43 +5,53 @@
 
   @include g.defaultTextItems;
 
-  & a:where(:not(.brhg-btn)) {
+  & a:where(:not(.brhg-btn):not(h1)) {
     @include g.defaultLink;
   }
 
   @include g.defaultHeadings;
 
+  //:not(.fp-friends__item-img)
   & :where(img) {
     @extend %responsive-img;
-    border: 1px solid g.$image-border;
-    margin: 0 auto;
+    border: g.$pale-image-border;
+    margin: 2em auto 2em;
   }
 
-  & img:where(:not(figure img, :first-child img)) {
-    margin-bottom: 2em;
-    margin-top: 2em;
+  & :where(p:first-child img) {
+    margin-top: 0;
+  }
+
+  //img:where(:not(figure img, :where(a, p):first-child img))
+  & img:where(figure img) {
+    margin-bottom: 0;
+    margin-top: 0;
   }
 
   & img.no-border {
     border: none;
   }
 
-  & figure {
-    margin: 0 auto;
+  & figure:not(.gallery-item) {
+    margin: 0 auto 2em;
   }
 
   & figure:not(.gallery-item, :first-child) {
     margin-top: 2em;
-    margin-bottom: 2em;
   }
 
   & figcaption {
     @extend %gallery-caption;
   }
 
+  & .leaflet-container {
+    margin: 2em 0;
+  }
+
   // detail-summary for publication reviews
   & summary {
     @include g.defaultYSpace;
+    cursor: pointer;
   }
 
   & summary::after {

@@ -1,3 +1,5 @@
+@use "colours" as c;
+
 $main-text-width: 780px;
 $wide-content-width: 1200px;
 $max-width-torso: 1600px;
@@ -26,5 +28,10 @@ $fp-slider-spacing: 200px;
 $fp-section-slider-spacing: 200px;
 $fp-recent-spacing: 100px;
 $fp-recent__section: 50px;
-$fp-tag-cloud-spacing-top: 200px;
-$fp-tag-cloud-spacing-top: 50px;
+$fp-tag-cloud-spacing-top: 150px;
+$fp-tag-cloud-spacing-bottom: 50px;
+
+// Rules and borders
+$pale-rule-border: 3px solid c.$border-rule;
+$primary-rule-border: 3px solid c.$primary;
+$pale-image-border: 1px solid c.$image-border;

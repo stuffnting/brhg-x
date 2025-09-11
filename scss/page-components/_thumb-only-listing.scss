@@ -2,11 +2,11 @@
 
 .thumb-only-listing {
   position: relative;
-  /* With object-fit on the child, flex forces picture to fill container larger than itself */
+  // With object-fit on the child, flex forces picture to fill container larger than itself
   display: flex;
   aspect-ratio: 1 / 1.414135;
   overflow: hidden;
-  border: 1px solid g.$image-border;
+  border: g.$pale-image-border;
   // For title sizing
   container-type: inline-size;
   container-name: listing-item-box;
@@ -54,6 +54,7 @@
     font-size: 12cqw;
     text-decoration: none;
     color: g.$light-text;
+    padding: 0 1rem;
     text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3),
       -1px 1px 10px rgba(0, 0, 0, 0.3), 1px -1px 10px rgba(0, 0, 0, 0.3),
       -1px -1px 10px rgba(0, 0, 0, 0.3);
@@ -67,27 +68,43 @@
 
   &__header {
     max-width: 780px;
-    margin-bottom: 2em;
+    margin: 0 auto 2em;
     @include g.defaultHeadings;
   }
 }
 
+$gap: 20px;
+
+// Calculate the width of a thumb only list item
+@function thumbListItemWidth($cols) {
+  @return calc((100% - ($gap * ($cols - 1))) / $cols);
+}
+
+// with: cols for the media queries
+$window-widths: (
+  g.$toa-bp-small: 4,
+  g.$toa-bp-medium: 5,
+  g.$toa-bp-large: 6,
+);
+
 .thumb-only-listing__wrapper {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: $gap;
   width: 100%;
   margin-bottom: 100px;
 
-  @include g.mediaQ(g.$toa-bp-small) {
-    grid-template-columns: repeat(4, 1fr);
+  & .thumb-only-listing {
+    flex-basis: thumbListItemWidth(2);
   }
 
-  @include g.mediaQ(g.$toa-bp-medium) {
-    grid-template-columns: repeat(5, 1fr);
-  }
-
-  @include g.mediaQ(g.$toa-bp-large) {
-    grid-template-columns: repeat(6, 1fr);
+  // Loop through $window-widths to create the media queries
+  @each $width, $cols in $window-widths {
+    @include g.mediaQ($width) {
+      & .thumb-only-listing {
+        flex-basis: thumbListItemWidth($cols);
+      }
+    }
   }
 }

@@ -94,7 +94,7 @@ small {
 // Boxes
 
 .highlight-box {
-  @extend %highlight-box;
+  @include g.highlightBox;
 }
 
 .dotted-highlight-box {

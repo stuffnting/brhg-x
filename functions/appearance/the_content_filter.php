@@ -55,6 +55,7 @@ function brhg2016_content_filter() {
 
     $content_out = '';
 
+    // Remove blank lines
     $content = str_replace('&nbsp;', '', get_the_content());
 
     // Add a Where To Buy link and covers to pamphlets
@@ -84,16 +85,29 @@ function brhg2016_content_filter() {
     endif;
 
     // Add responsive image class to attached images (galleries not processed yet)
-    $content_out = str_replace('<img class="', '<img class="img-responsive ', $content_out);
+    //$content_out = str_replace('<img class="', '<img class="img-responsive ', $content_out);
 
-    // Deal with the Programme List for Event Series
-    // This is no longer dealt with here 
+    $content_out = apply_filters('the_content', $content_out);
 
-    // Add Footnotes for Wordpress footnotes list, now done in functions/footnotes_shortcode.php
 
-    // Apply the normal filters to the content, this includes the [event_list] shortcode
+    // Add event details to the bottom of the event. After apply_filters to avoid stray tags.
+    if (get_post_type() == 'events') {
+        ob_start();
+        get_template_part('chunk', 'events');
+        $event_details = ob_get_clean();
 
-    echo apply_filters('the_content', $content_out);
+        $content_out = sprintf(
+            "%s\n
+            <section class='event-details-single highlight-box'>
+            <p class='highlight-box__title'>Event details</p>
+            <div class='event-details-single__details'>%s</div>
+            </section>\n",
+            $content_out,
+            $event_details
+        );
+    }
+
+    echo $content_out;
 }
 
 

@@ -12,8 +12,8 @@
     text-align: center;
     padding: 0.75em 0;
     border: {
-      top: 1px solid g.$border-rule;
-      bottom: 1px solid g.$border-rule;
+      top: g.$pale-rule-border;
+      bottom: g.$pale-rule-border;
     }
   }
 }

@@ -94,11 +94,12 @@ function brhg2024_friends_logo_set($atts) {
     return;
   }
 
+  // Returns the friend items, each wrapped in .fp-friends__item
   $repeater_html = brhg2024_front_page_friends_section_repeater_loop($friends_fields['fp_friends_repeater']);
 
   return sprintf(
-    "%s<div class='friends-section-wrapper'>%s</div>\n%s",
-    $wide ? "<div class='friends-section-wide'>" : '',
+    "%s<div class='fp-friends__items-wrap'>%s</div>\n%s",
+    $wide ? "<div class='fp-friends__items-wide'>" : '',
     $repeater_html,
     $wide ? "</div>" : ''
   );

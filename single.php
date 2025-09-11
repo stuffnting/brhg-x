@@ -90,7 +90,7 @@ if (have_posts()) :
                          * Where to buy link added to the top of content for pamphlets pages
                          * Footnotes added by this function
                          */
-                        brhg2016_content_filter()
+                        brhg2016_content_filter();
                         ?>
                     </section>
                     <?php

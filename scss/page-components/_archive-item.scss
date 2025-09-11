@@ -64,7 +64,7 @@
     width: 100%;
     object-fit: cover;
     margin: 0 auto;
-    border: 1px solid g.$image-border;
+    border: g.$pale-image-border;
   }
 
   &__excerpt {
@@ -85,7 +85,7 @@
     display: flex;
     align-items: center;
     background-color: g.$missing-thumb-bg;
-    border: 1px solid g.$image-border;
+    border: g.$pale-image-border;
     padding: 2em;
     font-size: g.$small-text;
     text-align: center;
@@ -112,8 +112,8 @@
 
 .archive-item-footer {
   margin-top: 25px;
-  border-top: 1px solid g.$border-rule;
-  border-bottom: 1px solid g.$border-rule;
+  border-top: g.$pale-rule-border;
+  border-bottom: g.$pale-rule-border;
   padding: 25px 0;
 }
 
@@ -138,6 +138,6 @@
   &__img {
     @extend %responsive-img;
     object-fit: cover;
-    border: 1px solid g.$image-border;
+    border: g.$pale-image-border;
   }
 }

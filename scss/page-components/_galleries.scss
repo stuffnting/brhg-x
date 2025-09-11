@@ -3,6 +3,10 @@
 .gallery {
   @extend %gallery-thumb-row;
 
+  @at-root .entry-content .gallery:first-child {
+    margin-top: 0;
+  }
+
   & figcaption {
     @extend %gallery-caption;
   }

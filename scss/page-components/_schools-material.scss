@@ -24,6 +24,6 @@
   & li:last-child {
     @extend %toggle-list-first-last;
     color: g.$primary;
-    border-bottom: 3px solid g.$primary;
+    border-bottom: g.$primary-rule-border;
   }
 }
