@@ -28,7 +28,7 @@
 }
 
 %intro-button {
-  font-weight: 800;
+  font-weight: g.$bold-font;
   text-align: center;
   padding: 3px;
   margin-top: 5px;
@@ -87,7 +87,7 @@
     width: 100%;
     font-family: g.$highlight-font;
     font-size: 28px;
-    font-weight: bold;
+    font-weight: g.$bold-font;
     text-align: center;
     line-height: 1.3em;
     margin: 80px 0 0.5em;

@@ -69,6 +69,7 @@
   &__header {
     max-width: 780px;
     margin: 0 auto 2em;
+    text-align: center;
     @include g.defaultHeadings;
   }
 }

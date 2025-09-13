@@ -1,0 +1,42 @@
+@use "../globals/" as g;
+
+// Basic layout
+
+%torso-spacing {
+  margin: 80px auto;
+}
+
+.torso {
+  min-height: calc(100vh - 500px);
+  padding: 0 15px;
+  max-width: g.$max-width-torso;
+  @extend %torso-spacing;
+}
+
+.home .torso {
+  margin: 0 auto;
+}
+
+.entry-content,
+.archive-content {
+  width: 100%;
+
+  @include g.mediaQ(g.$main-text-width) {
+    max-width: g.$main-text-width;
+  }
+}
+
+// Centered pages not left-hand column
+
+.archive-content {
+  margin: 0 auto;
+}
+
+$centered-pages: search, page, single-event-series, single-venues,
+  single-project, error404;
+
+@each $page in $centered-pages {
+  .#{$page} .entry-content {
+    margin: 0 auto;
+  }
+}

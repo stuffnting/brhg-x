@@ -11,8 +11,7 @@
 
   @include g.defaultHeadings;
 
-  //:not(.fp-friends__item-img)
-  & :where(img) {
+  & :where(img:not(.fp-friends__item-img)) {
     @extend %responsive-img;
     border: g.$pale-image-border;
     margin: 2em auto 2em;
@@ -22,7 +21,6 @@
     margin-top: 0;
   }
 
-  //img:where(:not(figure img, :where(a, p):first-child img))
   & img:where(figure img) {
     margin-bottom: 0;
     margin-top: 0;
@@ -32,12 +30,12 @@
     border: none;
   }
 
-  & figure:not(.gallery-item) {
-    margin: 0 auto 2em;
+  & :where(figure) {
+    margin: 0 auto 3em;
   }
 
   & figure:not(.gallery-item, :first-child) {
-    margin-top: 2em;
+    margin-top: 3em;
   }
 
   & figcaption {

@@ -54,10 +54,14 @@
     & a {
       @include g.defaultLink;
     }
+
+    & img {
+      border: g.$pale-image-border;
+    }
   }
 
   &__search-title {
-    font-weight: 800;
+    font-weight: g.$bold-font;
     text-align: center;
     font-size: 1.4rem;
     margin-bottom: 1em;
@@ -114,7 +118,7 @@
   text-align: center;
 
   &__title {
-    font-weight: 800;
+    font-weight: g.$bold-font;
   }
 
   &__link {

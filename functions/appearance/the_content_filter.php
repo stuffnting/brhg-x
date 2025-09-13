@@ -75,8 +75,7 @@ function brhg2016_content_filter() {
     elseif (get_post_type() == 'contributors') :
 
         $contributor_list =  brhg2016_add_contributor_list();
-        $contributor_list_html = "<div class='single-contributor-list'>$contributor_list</div>\n";
-        $content_out = $content . $contributor_list_html;
+        $content_out = $content . $contributor_list;
 
     else :
 
@@ -128,28 +127,28 @@ function brhg2016_add_contributor_list() {
 
         //events
         p2p_list_posts($post->speakers, array(
-            'before_list' => '<p class="single-contributor-list-title">Appeared at: </p><ul class="single-contributor-list q-list">',
+            'before_list' => '<p class="single-contributor-list__title">Appeared at: </p><ul>',
             'after_list'  => '</ul>',
             'before_item' => '<li>',
             'after_item'  => '</li>',
         ));
         //pamphlets
         p2p_list_posts($post->author, array(
-            'before_list' => '<p class="single-contributor-list-title">BRHG Publications: </p><ul class="single-contributor-list q-list">',
+            'before_list' => '<p class="single-contributor-list__title">BRHG Publications: </p><ul>',
             'after_list'  => '</ul>',
             'before_item' => '<li>',
             'after_item'  => '</li>',
         ));
         //articles
         p2p_list_posts($post->article_author, array(
-            'before_list' => '<p class="single-contributor-list-title">Articles: </p><ul class="single-contributor-list q-list">',
+            'before_list' => '<p class="single-contributor-list__title">Articles: </p><ul>',
             'after_list'  => '</ul>',
             'before_item' => '<li>',
             'after_item'  => '</li>',
         ));
         //Blog Posts
         p2p_list_posts($post->post_contri_author, array(
-            'before_list' => '<p class="single-contributor-list-title">Blog Posts: </p><ul class="single-contributor-list q-list">',
+            'before_list' => '<p class="single-contributor-list__title">Blog Posts: </p><ul>',
             'after_list'  => '</ul>',
             'before_item' => '<li>',
             'after_item'  => '</li>',

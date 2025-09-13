@@ -5,7 +5,7 @@
 .archive-content {
   &__desc-term-link {
     @include g.defaultLink(true, false, true);
-    font-weight: 800;
+    font-weight: g.$bold-font;
   }
 
   &__desc-def {

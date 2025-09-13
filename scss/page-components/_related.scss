@@ -47,7 +47,7 @@
 
   &__archive-link {
     @include g.defaultLink(true, false, true);
-    font-weight: 800;
+    font-weight: g.$bold-font;
     text-align: right;
     margin-top: 1em;
   }

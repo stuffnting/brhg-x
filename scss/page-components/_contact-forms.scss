@@ -1,9 +1,16 @@
 @use "../globals/" as g;
 
 .wpcf7-form {
+  &__note-before {
+    @extend %note-before-form;
+  }
+
+  &__p--robot {
+    font-style: g.$form-label-font-style;
+  }
+
   &__label {
-    margin-bottom: 1em;
-    display: block;
+    @extend %form-labels;
   }
 
   & .wpcf7-form-control-wrap {
@@ -35,7 +42,7 @@
     background: g.$accent;
     color: g.$light-text;
     padding: 0.5em;
-    font-weight: 800;
+    font-weight: g.$bold-font;
 
     &::before,
     &::after {

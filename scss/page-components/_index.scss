@@ -1,33 +1,15 @@
 // Archive and single
 
 @forward "page-header";
-@forward "entry-content";
 @forward "search-form";
 @forward "item-details-block";
 @forward "pagination";
 @forward "thumb-only-listing";
-
-// Archive only
-
-@forward "archive-item";
-@forward "other-archive-content";
-
-// Single only
-
-@forward "single-item";
 @forward "comments";
 @forward "related";
 @forward "contact-shortcode";
-@forward "single-publication";
-@forward "shopping-trolley";
 @forward "contact-forms";
+@forward "shopping-trolley";
 @forward "galleries";
-@forward "venues";
 @forward "table-lists";
-@forward "schools-material";
 @forward "donate-button";
-@forward "single-event";
-
-// Single like an archive
-
-@forward "project-item";

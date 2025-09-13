@@ -12,8 +12,10 @@
 /**
  * Front and Admin
  */
-// Custom Post Types and Taxonomies - includes brhg2016_pub_range_meta_cb() dropdown list for edit screens
-require_once('functions/custom_posts_tax_queries/custom_post_tax.php');
+// Custom Post Types 
+require_once('functions/custom_posts_tax_queries/custom_post_types.php');
+// Custom Taxonomies - includes brhg2016_pub_range_meta_cb() dropdown list for edit screens
+require_once('functions/custom_posts_tax_queries/custom_taxonomies.php');
 // Contributor Alphabet
 require_once('functions/custom_posts_tax_queries/contrib_alphabet.php');
 /* Utility functions*/
@@ -85,6 +87,8 @@ if (! is_admin()) {
     require_once('functions/appearance/comment_form.php');
     // Front page about and featured sections
     require_once('functions/appearance/front_page_about_featured.php');
+    // Shopping Trolley filters
+    require_once('functions/publications/trolley.php');
 }
 
 // Max theme embed width

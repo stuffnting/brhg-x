@@ -3,7 +3,7 @@
 .pubs-buy-where {
   @extend %highlight-box;
   text-align: center;
-  font-weight: 800;
+  font-weight: g.$bold-font;
   margin-bottom: 25px;
   padding: 2em;
 
@@ -33,7 +33,7 @@
     margin-bottom: 30px;
     color: g.$light-text;
     text-align: center;
-    font-weight: 800;
+    font-weight: g.$bold-font;
     background-color: g.$primary;
   }
 

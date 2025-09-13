@@ -24,26 +24,37 @@
 - Material for Schools: redo heading so that only one primary source warning is needed.
 - Miners project page: add .no-borders class to gallery shortcode
 
+## All articles
+
+- Search for h1
+- Re-order all headings
+- look for where .no-border can be used on images
+
+## Videos
+
+- Check embedding of Youtube Videos.
+
 ## Events
 
 - Add themes to 2025 festival events and change the titles.
+- Look for other titles with location in.
 - Add theme column to table lists.
 - Up date the help page.
 
 ## Contact forms
 
 - WWi
-
-<label class="wpcf7-form__label" for="your-name-wwi">Your Name (Required)
+<p class="wpcf7-form__note-before">Required fields are marked *</p>
+<label class="wpcf7-form__label" for="your-name-wwi">Your Name *
 [text* your-name akismet:author id:your-name-wwi class:wpcf7-form__input]
 </label>
-<label class="wpcf7-form__label" for="your-email-wwi">Your Email (Required)
+<label class="wpcf7-form__label" for="your-email-wwi">Your Email *
 [email* your-email akismet:author_email id:your-email-wwi class:wpcf7-form__input]
 </label>
 <label class="wpcf7-form__label" for="your-subject-wwi">Subject
 [text your-subject id:your-subject-wwi class:wpcf7-form__input]
 </label>
-<label class="wpcf7-form__label" for="your-message-wwi">Your Message (Required)
+<label class="wpcf7-form__label" for="your-message-wwi">Your Message *
 [textarea* your-message id:your-message-wwi class:wpcf7-form__textarea]
 </label>
 
@@ -55,17 +66,17 @@
 
 - miners
 
-<label class="wpcf7-form__label" for="your-name-miners">Your Name (Required)
-[text* your-name akismet:author id:your-name-miners class:wpcf7-form__input]
+<label class="wpcf7-form__label" for="your-name-miners">Your Name _
+[text_ your-name akismet:author id:your-name-miners class:wpcf7-form**input]
 </label>
-<label class="wpcf7-form__label" for="your-email-miners">Your Email (Required)
-[email* your-email akismet:author_email id:your-email-miners class:wpcf7-form__input]
+<label class="wpcf7-form**label" for="your-email-miners">Your Email _
+[email_ your-email akismet:author*email id:your-email-miners class:wpcf7-form**input]
 </label>
-<label class="wpcf7-form__label" for="your-subject-miners">Subject
+<label class="wpcf7-form**label" for="your-subject-miners">Subject
 [text your-subject id:your-subject-miners class:wpcf7-form__input]
 </label>
-<label class="wpcf7-form__label" for="your-message-miners">Your Message (Required)
-[textarea* your-message id:your-message-miners class:wpcf7-form__textarea]
+<label class="wpcf7-form__label" for="your-message-miners">Your Message *
+[textarea_ your-message id:your-message-miners class:wpcf7-form\_\_textarea]
 </label>
 
 <p class="wpcf7-form__p">Prove you are not a robot...</p>
@@ -76,17 +87,17 @@
 
 - subscribe
 
-<label class="wpcf7-form__label" for="your-name-subscribe">Your Name (Required)
-[text* your-name akismet:author id:your-name-subscribe class:wpcf7-form__input]
+<label class="wpcf7-form__label" for="your-name-subscribe">Your Name _
+[text_ your-name akismet:author id:your-name-subscribe class:wpcf7-form**input]
 </label>
-<label class="wpcf7-form__label" for="your-email-subscribe">Your Email (Required)
-[email* your-email akismet:author_email id:your-email-subscribe class:wpcf7-form__input]
+<label class="wpcf7-form**label" for="your-email-subscribe">Your Email _
+[email_ your-email akismet:author*email id:your-email-subscribe class:wpcf7-form**input]
 </label>
-<label class="wpcf7-form__label" for="your-subject">Subject
+<label class="wpcf7-form**label" for="your-subject">Subject
 [text your-subject default:Please add me to your email list id:your-subject-subscribe class:wpcf7-form__input]
 </label>
-<label class="wpcf7-form__label" for="your-message-subscribe">Your Message (Required)
-[textarea* your-message id:your-message-subscribe class:wpcf7-form__textarea]
+<label class="wpcf7-form__label" for="your-message-subscribe">Your Message *
+[textarea_ your-message id:your-message-subscribe class:wpcf7-form\_\_textarea]
 </label>
 
 <p class="wpcf7-form__p">Prove you are not a robot...</p>
@@ -97,17 +108,17 @@
 
 - contact
 
-<label class="wpcf7-form__label" for="your-name-contact">Your Name (Required)
-[text* your-name akismet:author id:your-name-contact class:wpcf7-form__input]
+<label class="wpcf7-form__label" for="your-name-contact">Your Name _
+[text_ your-name akismet:author id:your-name-contact class:wpcf7-form**input]
 </label>
-<label class="wpcf7-form__label" for="your-email-contact">Your Email (Required)
-[email* your-email akismet:author_email id:your-email-contact class:wpcf7-form__input]
+<label class="wpcf7-form**label" for="your-email-contact">Your Email _
+[email_ your-email akismet:author*email id:your-email-contact class:wpcf7-form**input]
 </label>
-<label class="wpcf7-form__label" for="your-subject-contact">Subject
+<label class="wpcf7-form**label" for="your-subject-contact">Subject
 [text your-subject id:your-subject-contact class:wpcf7-form__input]
 </label>
-<label class="wpcf7-form__label" for="your-message-contact">Your Message (Required)
-[textarea* your-message id:your-message-contact class:wpcf7-form__textarea]
+<label class="wpcf7-form__label" for="your-message-contact">Your Message *
+[textarea_ your-message id:your-message-contact class:wpcf7-form\_\_textarea]
 </label>
 
 <p class="wpcf7-form__p">Prove you are not a robot...</p>

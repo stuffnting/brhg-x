@@ -1,0 +1,13 @@
+@use "../globals/" as g;
+
+.single-contributor-list {
+  &__title {
+    font-weight: g.$bold-font;
+  }
+}
+
+.error-4o4 {
+  &__p {
+    text-align: center;
+  }
+}

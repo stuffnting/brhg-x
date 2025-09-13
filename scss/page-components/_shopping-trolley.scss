@@ -4,7 +4,7 @@
   background: g.$highlight-bg;
   position: relative;
   color: g.$light-text;
-  font-weight: 800;
+  font-weight: g.$bold-font;
   text-align: center;
   z-index: -11; // Must stay below main menu dropdown
 
@@ -48,7 +48,7 @@
   }
 
   &_item_row {
-    font-weight: 800;
+    font-weight: g.$bold-font;
     text-align: center;
   }
 
@@ -94,19 +94,30 @@
   }
 
   &_form {
-    font-weight: 800;
+    font-weight: g.$bold-font;
   }
 }
 
 .wp-shopping-cart-tnc-container {
   @extend %default-checkbox;
+
+  & label {
+    display: flex;
+  }
 }
 
 .empty-trolley-wrap {
   border: g.$primary-rule-border;
   background: white;
   text-align: center;
-  font-weight: 800;
+  font-weight: g.$bold-font;
   padding: 50px;
   margin: 50px auto;
+}
+
+.wp-shopping-cart-tnc-error {
+  color: g.$accent;
+  font-style: italic;
+  text-decoration: underline g.$accent dotted 5px;
+  text-underline-offset: 10px;
 }

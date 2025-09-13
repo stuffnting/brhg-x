@@ -59,7 +59,7 @@
     }
 
     & th {
-      font-weight: 800;
+      font-weight: g.$bold-font;
       border: 1px solid g.$dark-bg;
       border-right-color: g.$pagination-borders;
     }
@@ -77,7 +77,7 @@
 
 .event-list {
   &__table {
-    font-weight: 800;
+    font-weight: g.$bold-font;
   }
 
   &__head {
@@ -101,7 +101,7 @@
   &__cell {
     &--number {
       width: 10ch;
-      font-weight: 800;
+      font-weight: g.$bold-font;
     }
     &--isbn {
       width: 20ch;

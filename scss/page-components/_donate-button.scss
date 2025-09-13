@@ -2,7 +2,7 @@
 
 .brhg-donate-btn {
   &__p {
-    font-weight: 800;
+    font-weight: g.$bold-font;
   }
 
   &__list {
@@ -37,7 +37,7 @@
 
   &__label {
     display: block;
-    font-weight: 800;
+    font-weight: g.$bold-font;
     margin-bottom: -6px;
   }
 
@@ -47,7 +47,7 @@
     flex-wrap: wrap;
     gap: 10px;
     font-size: 1.2em;
-    font-weight: 800;
+    font-weight: g.$bold-font;
   }
 
   &__input {
@@ -55,7 +55,7 @@
     text-align: center;
     width: 110px;
     padding: 5px;
-    font-weight: 800;
+    font-weight: g.$bold-font;
     border-width: 3px;
   }
 

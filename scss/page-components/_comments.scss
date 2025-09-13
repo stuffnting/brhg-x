@@ -10,7 +10,7 @@
   }
 
   &__title {
-    font-weight: 800;
+    font-weight: g.$bold-font;
     margin-bottom: 1em;
   }
 
@@ -25,9 +25,7 @@
     @extend %default-checkbox;
 
     & label {
-      display: block;
-      width: 100%;
-      margin-bottom: 0.75em;
+      @extend %form-labels;
     }
   }
 
@@ -57,8 +55,7 @@
 
   &__note-before,
   &__note-after {
-    margin-bottom: 1em;
-    font-size: g.$small-text;
+    @extend %note-before-form;
 
     & a {
       @include g.defaultLink;
@@ -100,7 +97,7 @@
   }
 
   &__comment {
-    font-weight: 800;
+    font-weight: g.$bold-font;
     margin-bottom: $comment-bottom-margin;
 
     &:last-child {

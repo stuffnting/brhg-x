@@ -51,14 +51,16 @@
     }
   }
 
+  $hamburger-size: 35px;
+
   &__hamburger-icon {
     background: {
       image: url(images/hamburger.svg);
-      size: 35px 35px;
+      size: $hamburger-size $hamburger-size;
       position: center;
     }
-    height: 35px;
-    width: 35px;
+    height: $hamburger-size;
+    width: $hamburger-size;
     display: inline-block;
     vertical-align: text-top;
   }
