@@ -3,7 +3,7 @@
 .related {
   width: 100%;
 
-  @include g.mediaQ(1000px) {
+  @include g.mediaQ(g.$relate-bp-large) {
     @include g.flexParent(false, false, false, false, 30px);
     max-width: g.$max-width-torso;
     margin: 0 auto;
@@ -21,16 +21,16 @@
     gap: g.$default-gap;
     width: 100%;
 
-    @include g.mediaQ(500px) {
+    @include g.mediaQ(g.$relate-bp-small) {
       grid-template-columns: repeat(3, 1fr);
     }
-    @include g.mediaQ(800px) {
+    @include g.mediaQ(g.$relate-bp-medium) {
       grid-template-columns: repeat(6, 1fr);
     }
-    @include g.mediaQ(1000px) {
+    @include g.mediaQ(g.$relate-bp-large) {
       grid-template-columns: repeat(2, 1fr);
     }
-    @include g.mediaQ(1200px) {
+    @include g.mediaQ(g.$relate-bp-x-large) {
       grid-template-columns: repeat(3, 1fr);
     }
   }

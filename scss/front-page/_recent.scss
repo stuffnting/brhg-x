@@ -140,15 +140,15 @@ $slider-scroll-bottom-height: 33px;
     padding: 40px 20px;
     position: relative;
 
-    @include g.mediaQ(600px) {
+    @include g.mediaQ(g.$front-page-slider-bp-small) {
       padding: 40px 40px 40px 35px;
     }
 
-    @include g.mediaQ(800px) {
+    @include g.mediaQ(g.$front-page-slider-bp-medium) {
       padding: 50px 40px 30px 35px;
     }
 
-    @include g.mediaQ(900px) {
+    @include g.mediaQ(g.$front-page-slider-bp-large) {
       padding: 50px 60px 30px 50px;
     }
 

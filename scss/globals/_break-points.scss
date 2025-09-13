@@ -15,6 +15,17 @@ $front-page-intro-grid-bp-small: 650px;
 $front-page-intro-grid-bp-medium: 800px;
 $front-page-intro-grid-bp-large: 1250px;
 
+// Headlines
+
+$front-page-headlines-bp-medium: 850px;
+$front-page-headlines-bp-large: 1500px;
+
+// Front page - slider
+
+$front-page-slider-bp-small: 600px;
+$front-page-slider-bp-medium: 800px;
+$front-page-slider-bp-large: 900px;
+
 // Front page - recent
 $front-page-recent-bp-x-small: 400px;
 $front-page-recent-bp-small: 650px;
@@ -30,8 +41,19 @@ $toa-bp-medium: 1000px;
 $toa-bp-large: 1200px;
 
 // Single pages
-$single-page-bp-large: 1100px;
-$single-page-bp-small: 550px;
+$single-item-bp-medium: 780px;
+$single-item-bp-large: 1100px;
+$single-item-bp-x-large: 1470px;
+$single-page-details-bp-large: 1100px;
+$single-page-details-bp-small: 550px;
+$relate-bp-small: 500px;
+$relate-bp-medium: 800px;
+$relate-bp-large: 1000px;
+$relate-bp-x-large: 1200px;
+
+// Single event
+
+$single-event-details-bp: 650px;
 
 // Comments
 $comments-bp-x-small: 450px;

@@ -26,7 +26,7 @@
   justify-content: space-evenly;
   padding: 0 5px;
 
-  @include g.mediaQ(850px) {
+  @include g.mediaQ(g.$front-page-headlines-bp-medium) {
     display: flex;
   }
 
@@ -45,14 +45,14 @@
       margin-bottom: 200px;
     }
 
-    @include g.mediaQ(850px) {
+    @include g.mediaQ(g.$front-page-headlines-bp-medium) {
       width: 100%;
       &:not(:last-child) {
         margin-bottom: unset;
       }
     }
 
-    @include g.mediaQ(1500px) {
+    @include g.mediaQ(g.$front-page-headlines-bp-large) {
       flex-basis: 45%;
     }
 
