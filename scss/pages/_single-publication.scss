@@ -13,9 +13,7 @@
 }
 
 .pub-covers {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
+  @include g.flexParent(false, false, center, false, 20px);
   margin: 50px 0;
 
   & img {

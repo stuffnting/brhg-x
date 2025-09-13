@@ -9,10 +9,7 @@
 
   &--2up {
     @include g.mediaQ(g.$single-page-bp-small) {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 0 4%;
+      @include g.flexParent(false, wrap, space-between, false, 0 4%);
     }
 
     @include g.mediaQ(g.$single-page-bp-large) {

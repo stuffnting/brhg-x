@@ -8,9 +8,7 @@
   margin: 0 auto;
 
   @include g.mediaQ(g.$hamburger-menu-break) {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    @include g.flexParent(false, false, space-between, center, false);
     height: 35px;
   }
 
@@ -184,15 +182,13 @@
 }
 
 .search-modal {
+  @include g.flexParent(false, false, center, center, false);
   background-color: #000d;
   height: 100vh;
   width: 100%;
   position: absolute;
   top: 0;
   z-index: 2000; // Must be higher than the banner (modal HTML just before footer)
-  display: flex;
-  justify-content: center;
-  align-items: center;
   font-family: g.$highlight-font;
 
   &__form {
@@ -203,9 +199,7 @@
     text-align: center;
 
     @include g.mediaQ(450px) {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
+      @include g.flexParent(false, false, center, false, g.$default-gap);
       margin-bottom: 0;
     }
   }

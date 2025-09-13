@@ -28,8 +28,7 @@ $angel-skeleton-height: clamp(80px, 20vw, 145px);
   font-family: g.$highlight-font;
 
   &__title-wrap {
-    display: flex;
-    justify-content: center;
+    @include g.flexParent(false, false, center, false, false);
     margin-left: -26.5px; // angle is wider than skeleton, compensate to centre site title
   }
 
@@ -98,11 +97,9 @@ $scroll-height: 63px;
       image: url(images/scroll-middle.svg), none;
       size: 100% 100%;
     }
-
     height: $scroll-height;
 
-    display: flex;
-    justify-content: center;
+    @include g.flexParent(false, false, center, false, false);
     padding: 8px 10px 0;
     font-size: 1.15rem;
     font-weight: g.$bold-font;

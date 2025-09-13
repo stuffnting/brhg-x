@@ -57,10 +57,7 @@
   }
 
   &__text-wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-
+    @include g.flexParent(column, false, space-around, false, false);
     @include g.mediaQ(g.$front-page-intro-grid-bp-large) {
       justify-content: space-between;
     }
@@ -139,8 +136,7 @@
 
   &__image-link {
     display: block;
-    aspect-ratio: 1 / 1.414135;
-    overflow: hidden;
+    @include g.a4Image;
     margin-bottom: 20px;
 
     @include g.mediaQ(g.$front-page-intro-grid-bp-x-small) {
@@ -153,9 +149,7 @@
   }
 
   &__btn-wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: end;
+    @include g.flexParent(column, false, end, false, false);
     margin-top: 5px;
   }
 

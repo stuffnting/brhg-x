@@ -1,7 +1,6 @@
-@use "colours" as c;
-@use "fonts" as f;
-@use "placeholders";
-@use "layout" as l;
+@forward "placeholders";
+
+@use "placeholders" as p;
 
 @mixin mediaQ($width) {
   @media only screen and (min-width: $width) {
@@ -10,12 +9,12 @@
 }
 
 @mixin defaultYSpace {
-  margin-bottom: l.$default-y-space;
+  margin-bottom: p.$default-y-space;
 }
 
 @mixin defaultXSpace {
-  margin-left: l.$default-x-space;
-  margin-right: l.$default-x-space;
+  margin-left: p.$default-x-space;
+  margin-right: p.$default-x-space;
 }
 
 @mixin defaultLink($colour: true, $decor: true, $hover: true) {
@@ -100,7 +99,7 @@
 }
 
 @mixin recentRelatedTitle() {
-  font-family: f.$highlight-font;
+  font-family: p.$highlight-font;
   font-size: clamp(22px, 3vw, 30px);
 }
 
@@ -109,5 +108,35 @@
 
   &__title {
     @extend %highlight-box-title;
+  }
+}
+
+@mixin flexParent(
+  $direction: false,
+  $wrap: false,
+  $justify: false,
+  $align: false,
+  $gap: false
+) {
+  display: flex;
+
+  @if $direction {
+    flex-direction: $direction;
+  }
+
+  @if $wrap {
+    flex-wrap: $wrap;
+  }
+
+  @if $justify {
+    justify-content: $justify;
+  }
+
+  @if $align {
+    align-items: $align;
+  }
+
+  @if $gap {
+    gap: $gap;
   }
 }

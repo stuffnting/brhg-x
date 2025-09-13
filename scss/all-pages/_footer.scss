@@ -20,14 +20,12 @@
 }
 
 %footer-menu-row {
-  display: flex;
-  flex-wrap: wrap;
+  @include g.flexParent(false, wrap, false, false, false);
 }
 
 .footer-menu {
   &__wrapper {
-    display: flex;
-    justify-content: center;
+    @include g.flexParent(false, false, center, false, false);
 
     @include g.mediaQ(g.$footer-menu-break) {
       padding-top: 100px;
@@ -101,7 +99,7 @@
 }
 
 .footer-copyright {
-  color: white;
+  color: g.$light-text;
   text-align: center;
   margin-top: 1em;
   font-size: 1.2rem;

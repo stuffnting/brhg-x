@@ -1,11 +1,10 @@
 @use "../globals/" as g;
 
 .thumb-only-listing {
+  display: flex;
   position: relative;
   // With object-fit on the child, flex forces picture to fill container larger than itself
-  display: flex;
-  aspect-ratio: 1 / 1.414135;
-  overflow: hidden;
+  @include g.a4Image;
   border: g.$pale-image-border;
   // For title sizing
   container-type: inline-size;
@@ -27,14 +26,12 @@
   }
 
   &__item-link {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
+    @include g.flexParent(column, false, center, center, false);
     position: absolute;
     top: 0;
     height: 100%;
     width: 100%;
+    text-align: center;
     background-color: rgba(0, 0, 0, 0.5);
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
@@ -74,7 +71,7 @@
   }
 }
 
-$gap: 20px;
+$gap: 10px;
 
 // Calculate the width of a thumb only list item
 @function thumbListItemWidth($cols) {
@@ -89,10 +86,7 @@ $window-widths: (
 );
 
 .thumb-only-listing__wrapper {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: $gap;
+  @include g.flexParent(false, wrap, center, false, $gap);
   width: 100%;
   margin-bottom: 100px;
 

@@ -6,8 +6,10 @@
 
   &--frame {
     font-family: g.$highlight-font;
-    background-image: url("images/contact.png");
-    background-size: 100% auto;
+    background: {
+      image: url("images/contact.png");
+      size: 100% auto;
+    }
     font-size: 21px;
     height: 486px;
     margin: 0 auto;

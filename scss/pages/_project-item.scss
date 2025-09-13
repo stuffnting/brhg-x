@@ -19,8 +19,7 @@
 }
 
 .project-item {
-  display: flex;
-  gap: 2%;
+  @include g.flexParent(false, false, false, false, 2%);
   margin-bottom: 2rem;
 
   & a {

@@ -40,10 +40,7 @@
 }
 
 .archive-item-content {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 4%;
+  @include g.flexParent(false, wrap, center, false, 4%);
   @include g.mediaQ(g.$archive-page-bp-small) {
     justify-content: space-between;
   }
@@ -82,8 +79,7 @@
   }
 
   &--text-thumb &__thumb-wrap {
-    display: flex;
-    align-items: center;
+    @include g.flexParent(false, false, false, center, false);
     background-color: g.$missing-thumb-bg;
     border: g.$pale-image-border;
     padding: 2em;
@@ -120,8 +116,7 @@
 .archive-item-gallery {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
-
+  gap: g.$default-gap;
   @include g.mediaQ(g.$archive-page-bp-x-small) {
     grid-template-columns: repeat(4, 1fr);
   }

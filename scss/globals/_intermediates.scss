@@ -1,0 +1,18 @@
+@forward "mixins";
+
+@use "mixins" as m;
+
+%gallery-thumb-row {
+  @include m.flexParent(false, false, center, first baseline, m.$default-gap);
+  margin: 3em 0 3em;
+
+  & figure {
+    margin: 0;
+  }
+
+  & img {
+    margin: 0;
+    width: 100%;
+    height: auto;
+  }
+}

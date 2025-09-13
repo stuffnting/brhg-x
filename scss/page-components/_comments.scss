@@ -44,8 +44,7 @@
   }
 
   &__input--cookies-consent {
-    display: flex;
-    align-items: center;
+    @include g.flexParent(false, false, false, center, false);
     gap: 1em;
   }
 
@@ -74,8 +73,10 @@
   $comment-bottom-margin: 3em;
 
   &__list {
-    list-style-type: decimal;
-    list-style-position: inside;
+    list-style: {
+      type: decimal;
+      position: inside;
+    }
     margin-bottom: 100px;
 
     @include g.mediaQ(g.$comments-bp-x-small) {
@@ -123,8 +124,7 @@
   }
 
   &__meta {
-    display: flex;
-    align-items: center;
+    @include g.flexParent(false, false, false, center, false);
     gap: 1em;
     margin-bottom: 1em;
 

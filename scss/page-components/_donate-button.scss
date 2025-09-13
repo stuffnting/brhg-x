@@ -7,10 +7,7 @@
 
   &__list {
     list-style: none;
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    flex-wrap: wrap;
+    @include g.flexParent(false, wrap, center, false, g.$default-gap);
     padding: 0 !important;
     margin: 0 0 20px 0;
   }
@@ -20,18 +17,15 @@
   }
 
   &__link {
-    padding-left: 2em;
-    padding-right: 2em;
+    padding: {
+      left: g.$default-x-space;
+      right: g.$default-x-space;
+    }
     display: inline-block;
   }
 
   &__amount {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 20px;
+    @include g.flexParent(column, wrap, center, center, 20px);
     margin-top: 30px;
   }
 
@@ -42,10 +36,7 @@
   }
 
   &__input-wrap {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 10px;
+    @include g.flexParent(false, wrap, false, center, g.$default-gap);
     font-size: 1.2em;
     font-weight: g.$bold-font;
   }

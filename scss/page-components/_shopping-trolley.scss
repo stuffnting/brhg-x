@@ -76,7 +76,7 @@
 .wp_cart {
   &_item_info {
     display: flex;
-    gap: 10px;
+    gap: g.$default-gap;
   }
 
   &_item_thumbnail img {

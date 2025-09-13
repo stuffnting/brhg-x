@@ -1,18 +1,12 @@
 @use "../globals" as g;
 
 .search-form {
+  @include g.flexParent(false, false, center, false, g.$default-gap);
   width: 100%;
   max-width: g.$main-text-width;
   margin: 50px auto;
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-
   &__form {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    @include g.flexParent(column, false, center, center, false);
   }
 
   &__search-fieldset {

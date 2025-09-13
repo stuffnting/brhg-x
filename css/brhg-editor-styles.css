@@ -548,7 +548,7 @@ img:where(:not(figure img)) {
   display: flex;
   justify-content: space-evenly;
   align-items: first baseline;
-  gap: 10px;
+  gap: g.$default-gap;
   margin: 1em 0;
 }
 

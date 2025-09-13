@@ -47,12 +47,8 @@
   }
 
   &__items-wrap {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
+    @include g.flexParent(false, wrap, center, center, 30px);
     align-content: space-evenly;
-    gap: 30px;
     margin: 50px 0;
   }
 

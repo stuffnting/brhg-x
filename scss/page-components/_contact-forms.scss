@@ -65,10 +65,13 @@ form.submitting .wpcf7-spinner {
     visibility: visible;
     margin-left: 10px;
     top: 5px;
+
     &::before {
-      border-color: #f3f3f3;
-      border-top: 5px solid #3498db;
-      border-radius: 50%;
+      border: {
+        color: g.$light-text;
+        top: 5px solid g.$accent;
+        radius: 50%;
+      }
     }
   }
 }

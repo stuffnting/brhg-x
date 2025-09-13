@@ -4,8 +4,7 @@
   width: 100%;
 
   @include g.mediaQ(1000px) {
-    display: flex;
-    gap: 30px;
+    @include g.flexParent(false, false, false, false, 30px);
     max-width: g.$max-width-torso;
     margin: 0 auto;
     padding: 15px;
@@ -19,7 +18,7 @@
   &__items-wrap {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
+    gap: g.$default-gap;
     width: 100%;
 
     @include g.mediaQ(500px) {

@@ -1,3 +1,8 @@
+@forward "colours";
+@forward "layout";
+@forward "fonts";
+@forward "break-points";
+
 @use "colours" as c;
 @use "layout" as l;
 @use "fonts" as f;
@@ -220,24 +225,6 @@
   display: block;
   max-width: 100%;
   height: auto;
-}
-
-%gallery-thumb-row {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: first baseline;
-  gap: 10px;
-  margin: 3em 0 3em;
-
-  & figure {
-    margin: 0;
-  }
-
-  & img {
-    margin: 0;
-    width: 100%;
-    height: auto;
-  }
 }
 
 %gallery-caption-hack {

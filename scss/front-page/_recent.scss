@@ -2,8 +2,7 @@
 
 %title-wrap {
   @include g.mediaQ(g.$front-page-recent-bp-small) {
-    display: flex;
-    justify-content: space-between;
+    @include g.flexParent(false, false, space-between, false, false);
   }
 }
 
@@ -81,15 +80,14 @@
   &__item {
     display: grid;
     grid-template-columns: 1fr 2fr;
-    gap: 10px;
+    gap: g.$default-gap;
   }
 
   &__item-thumb {
+    @include g.a4Image;
     display: flex; // To stretch missing thumb
     width: 100%;
-    aspect-ratio: 0.70710678118654752440084436210485;
     border: g.$pale-image-border;
-    overflow: hidden;
   }
 
   &__item-missing-thumb {

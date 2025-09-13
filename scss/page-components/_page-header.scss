@@ -7,9 +7,7 @@
 }
 
 .page-header {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  @include g.flexParent(column, false, center, false, false);
   max-width: g.$wide-content-width;
   margin-left: auto;
   margin-right: auto;
@@ -42,9 +40,7 @@
   }
 
   &__archive-intro {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    @include g.flexParent(column, false, center, false, false);
     max-width: g.$main-text-width;
     margin: 0 auto;
 
