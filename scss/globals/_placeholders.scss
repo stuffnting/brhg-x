@@ -65,27 +65,31 @@
   }
 }
 
+// Links
+
+$underline-width: 0.15em;
+
+%default-link-core {
+  text-decoration-line: underline;
+  text-decoration-color: rgba(255, 189, 33, 0);
+  text-decoration-thickness: $underline-width;
+  text-underline-offset: $underline-width;
+  transition: text-decoration-color 500ms ease-in;
+}
+
 %default-link-colour {
   color: c.$default-link;
 }
 
 %default-link-decor {
-  text-decoration-line: underline;
-  text-decoration-style: dotted;
   text-decoration-color: c.$default-link-underline;
-  text-decoration-thickness: 0.15em;
-  text-underline-offset: 3px;
-}
-
-%default-link-no-decor {
-  text-decoration: none;
+  text-decoration-style: dotted;
 }
 
 %default-link-hover {
-  &:hover,
-  &:focus {
-    text-decoration-line: underline;
-    text-decoration-style: solid;
+  &:hover {
+    text-decoration: underline solid $underline-width;
+    text-decoration-color: rgba(255, 189, 33, 1);
   }
 }
 
@@ -148,6 +152,7 @@
   cursor: pointer;
   font-size: 1rem;
   font-weight: f.$bold-font;
+  transition: background-color 0.5s ease-out;
 
   &:hover {
     background-color: c.$accent;

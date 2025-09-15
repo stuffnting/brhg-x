@@ -18,13 +18,13 @@
 }
 
 @mixin defaultLink($colour: true, $decor: true, $hover: true) {
+  @extend %default-link-core;
+
   @if $colour {
     @extend %default-link-colour;
   }
   @if $decor {
     @extend %default-link-decor;
-  } @else {
-    @extend %default-link-no-decor;
   }
   @if $hover {
     @extend %default-link-hover;
@@ -138,5 +138,13 @@
 
   @if $gap {
     gap: $gap;
+  }
+}
+
+@mixin imageHover() {
+  transition: transform 250ms ease-in;
+
+  &:hover {
+    transform: scale(1.05);
   }
 }

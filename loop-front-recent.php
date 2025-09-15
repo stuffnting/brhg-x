@@ -11,24 +11,31 @@
 
 <?php
 // The loop for each recent stuff section
-while ($recent_stuff->have_posts()) : $recent_stuff->the_post(); ?>
+while ($recent_stuff->have_posts()) : $recent_stuff->the_post();
+
+    $title_atts = the_title_attribute(array('echo' => false));
+    $link = esc_url(get_permalink());
+?>
     <article class="fp-recent__item">
         <div class="fp-recent__item-thumb">
-            <?php // Sort out the thumbnail 
-            $thumb_attr = array(
-                'class' => 'fp-recent__item-img',
-                'loading' => 'lazy'
-            );
+            <a class="fp-recent__item-thumb-link" title="More about <?php echo $title_atts; ?>" href="<?php echo $link; ?>" rel="bookmark">
+                <?php // Sort out the thumbnail 
 
-            if (has_post_thumbnail()) {
-                the_post_thumbnail('big_thumb', $thumb_attr);
-            } else {
-                echo '<div class="fp-recent__item-missing-thumb"><!--missing image--></div>';
-            }
-            ?>
+                $thumb_attr = array(
+                    'class' => 'fp-recent__item-img',
+                    'loading' => 'lazy'
+                );
+
+                if (has_post_thumbnail()) {
+                    the_post_thumbnail('big_thumb', $thumb_attr);
+                } else {
+                    echo '<div class="fp-recent__item-missing-thumb"><!--missing image--></div>';
+                }
+                ?>
+            </a>
         </div>
         <h3 class="fp-recent__item-title">
-            <a class="fp-recent__item-link" title="More about <?php the_title_attribute(); ?>" href="<?php the_permalink(); ?>" rel="bookmark">
+            <a class="fp-recent__item-link" title="More about <?php echo $title_atts; ?>" href="<?php echo $link; ?>" rel="bookmark">
                 <?php
                 if ('pamphlets' === $type) {
                     echo get_the_terms($post->ID, 'pub_range')[0]->name;

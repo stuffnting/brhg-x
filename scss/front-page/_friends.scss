@@ -55,6 +55,7 @@
   &__item-img {
     max-width: 150px;
     max-height: 86px;
+    @include g.imageHover;
 
     @include g.mediaQ(g.$front-page-intro-grid-bp-small) {
       max-width: 200px;

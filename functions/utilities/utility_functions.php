@@ -490,7 +490,7 @@ function brhg2016_archive_thumb($size = 'big_thumb', $echo = true) {
     global $post;
 
     $thumb_attr = array(
-        'class' => "archive-item-content__thumb-img",
+        'class' => "arch-item-content__img",
     );
 
     $item = array(
@@ -571,7 +571,7 @@ function brhg2016_archive_missing_thumb($text) {
     /*     // Make missing thumb a link for pamphlet and event series archive pages.
     if (is_post_type_archive('pamphlets') || is_post_type_archive('event_series')) {
         $link_tag_open = sprintf(
-            "<a href ='%s' title='%s' class='archive-item-missing-thumb-link'>",
+            "<a href ='%s' title='%s' class='arch-item-missing-thumb-link'>",
             get_permalink(),
             the_title_attribute(array('echo' => false))
         );
@@ -580,8 +580,8 @@ function brhg2016_archive_missing_thumb($text) {
 
     $missing_thumb = sprintf(
         "%s\n
-                                    <img src='%s' width='212' height='300' class='archive-item-thumb' alt='transparent fiddle' />\n
-                                    <span class='archive-item-missing-thumb-text'>%s</span>\n
+                                    <img src='%s' width='212' height='300' class='arch-item-thumb' alt='transparent fiddle' />\n
+                                    <span class='arch-item-missing-thumb-text'>%s</span>\n
                                 %s\n",
         $link_tag_open,
         get_stylesheet_directory_uri() . '/images/transparent-212x300.png',
@@ -589,7 +589,7 @@ function brhg2016_archive_missing_thumb($text) {
         $link_tag_close
     ); */
 
-    $missing_thumb_replacement_text = "<div class='archive-item-content__missing-thumb-text'>$text</div>";
+    $missing_thumb_replacement_text = "<div class='arch-item-content__missing-thumb-text'>$text</div>";
 
     echo  $missing_thumb_replacement_text;
 }

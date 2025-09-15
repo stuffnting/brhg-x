@@ -105,22 +105,22 @@ if ($friends_fields['fp_show_friends_section']) :
 ?>
 
 <!-- Recent headline frames -->
-<section id="fp-headlines" class="fp-headlines" aria-label="News feed">
+<section id="fp-h-line" class="fp-h-line" aria-label="News feed">
     <!-- News Headline Frame -->
-    <div id="headline-frame-1" class="fp-headlines__frame-outer">
-        <div class="fp-headlines__frame-inner">
-            <h2 class="fp-headlines__title">News Feed</h2>
+    <div id="headline-frame-1" class="fp-h-line__frame-outer">
+        <div class="fp-h-line__frame-inner">
+            <h2 class="fp-h-line__title">News Feed</h2>
             <?php include(locate_template('loop-front-headlines.php')); ?>
-            <div class="fp-headlines__more"><a href="<?php echo esc_url(site_url('/news-feed/')); ?>">Go to the news page.</a></div>
-            <div class="fp-headlines__more"><a href="<?php echo esc_url(get_bloginfo_rss('rss2_url')); ?>">News Feed RSS.</a></div>
+            <div class="fp-h-line__more"><a href="<?php echo esc_url(site_url('/news-feed/')); ?>" class="fp-h-line__more-link">Go to the news page.</a></div>
+            <div class="fp-h-line__more"><a href="<?php echo esc_url(get_bloginfo_rss('rss2_url')); ?>" class="fp-h-line__more-link">News Feed RSS.</a></div>
         </div>
     </div>
     <!-- Events Headline Frame -->
-    <div id="headline-frame-2" class="fp-headlines__frame-outer">
-        <div class="fp-headlines__frame-inner">
-            <h2 class="fp-headlines__title">Pending Events</h2>
+    <div id="headline-frame-2" class="fp-h-line__frame-outer">
+        <div class="fp-h-line__frame-inner">
+            <h2 class="fp-h-line__title">Pending Events</h2>
             <?php get_template_part('loop', 'front-diary'); ?>
-            <div class="fp-headlines__more">
+            <div class="fp-h-line__more">
                 <a href="<?php echo esc_url(site_url('/event-diary/')); ?>">See all pending events on the diary page.</a>
             </div>
         </div>

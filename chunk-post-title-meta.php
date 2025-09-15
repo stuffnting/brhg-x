@@ -15,7 +15,7 @@
 <?php
 $subtitle_tag = (is_home() || is_archive() || is_search()) ? 'h3' : 'h2';
 $class_base = (is_home() || is_archive() || is_search())
-    ? "archive-item-header"
+    ? "arch-item-header"
     : "page-header";
 
 // Subtitle

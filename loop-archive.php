@@ -12,33 +12,33 @@
 // Archive item type
 
 if (has_term('gallery', 'article_type')) {
-    $archive_item_content = "archive-item-gallery";
-    $archive_item_more = "archive-item-content__more-wrap--gallery";
+    $archive_item_content = "arch-item-gallery";
+    $archive_item_more = "arch-item-content__more-wrap--gallery";
     $extra_content_class = '';
 } elseif (has_term('video-2', 'article_type') && brhg2016_get_vids(1, false)) {
-    $archive_item_content = "archive-item-content";
+    $archive_item_content = "arch-item-content";
     $archive_item_more = '';
     $extra_content_class = '';
 } else {
-    $archive_item_content = "archive-item-content";
+    $archive_item_content = "arch-item-content";
     $archive_item_more = "";
     // Find out if there is a thumbnail to be used
     $thumb_test = brhg2016_archive_thumb('', false);
     $extra_content_class = '';
 
     if ($thumb_test === 'text') {
-        $extra_content_class = 'archive-item-content--text-thumb';
+        $extra_content_class = 'arch-item-content--text-thumb';
     } elseif ($thumb_test === false) {
-        $extra_content_class = 'archive-item-content--no-thumb';
+        $extra_content_class = 'arch-item-content--no-thumb';
     }
 }
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class('archive-item'); ?> aria-label="Archive item">
-    <header class="archive-item-header">
-        <h2 class='archive-item-header__title'>
-            <a href="<?php the_permalink(); ?>" class="archive-item-header__title-link">
+<article id="post-<?php the_ID(); ?>" <?php post_class('arch-item'); ?> aria-label="Archive item">
+    <header class="arch-item-header">
+        <h2 class='arch-item-header__title'>
+            <a href="<?php the_permalink(); ?>" class="arch-item-header__title-link">
                 <?php the_title(); ?>
             </a>
         </h2>
@@ -61,7 +61,7 @@ if (has_term('gallery', 'article_type')) {
 
             if (!empty($vids)) {
         ?>
-                <div class="archive-item-content__video">
+                <div class="arch-item-content__video">
                     <?php
                     foreach ($vids as $vid) {
                         echo $vid;
@@ -82,15 +82,16 @@ if (has_term('gallery', 'article_type')) {
         ) {
 
             if ($thumb_test !== false): ?>
-                <div class='archive-item-content__thumb-wrap'>
-                    <?php brhg2016_archive_thumb(); ?>
+                <div class='arch-item-content__img-wrap arch-item-content__img-wrap--single'>
+                    <a href="<?php the_permalink(); ?>" class="arch-item-content__thumb-link">
+                        <?php brhg2016_archive_thumb(); ?>
+                    </a>
                 </div>
             <?php endif; ?>
 
-            <div class="archive-item-content__excerpt">
+            <div class="arch-item-content__excerpt">
                 <?php echo brhg2016_custom_excerpt(500); ?>
             </div>
-
 
             <?php
         } elseif (has_term('gallery', 'article_type')) {
@@ -114,11 +115,11 @@ if (has_term('gallery', 'article_type')) {
             }
 
             foreach ($chosen_images as $image) {
-                $atts = array('class' => 'archive-item-gallery__img');
+                $atts = array('class' => 'arch-item-content__img');
             ?>
 
-                <figure class="archive-item-gallery__img-wrap">
-                    <a href="<?php the_permalink(); ?>" class="archive-item-gallery__img-link">
+                <figure class="arch-item-content__img-wrap">
+                    <a href="<?php the_permalink(); ?>" class="arch-item-content__img-link">
                         <?php echo wp_get_attachment_image($image, 'big_thumb', false, $atts); ?>
                     </a>
                 </figure>
@@ -127,21 +128,21 @@ if (has_term('gallery', 'article_type')) {
             }
         } ?>
 
-        <div class="archive-item-content__more-wrap <?php echo $archive_item_more; ?>">
-            <a href="<?php the_permalink(); ?>" class="archive-item-content__more-btn">
+        <div class="arch-item-content__more-wrap <?php echo $archive_item_more; ?>">
+            <a href="<?php the_permalink(); ?>" class="arch-item-content__more-btn">
                 <?php _e('Read More', 'brhg2016'); ?> &raquo;
             </a>
         </div>
     </div>
 
-    <footer class="archive-item-footer" aria-label="Archive item details">
+    <footer class="arch-item-footer" aria-label="Archive item details">
         <div class="details-block details-block--archive">
             <?php
             $class = '';
             if (get_query_var('special_url', 'none') != 'event-diary' && get_post_type() == 'events') {
                 $class  = 'details-block__details--after-event';
             ?>
-                <div class="details-block__details archive-item-footer__details--event">
+                <div class="details-block__details arch-item-footer__details--event">
                     <span class="details-block__title">Event Details </span><br>
                     <?php get_template_part('chunk', 'events'); ?>
                 </div>

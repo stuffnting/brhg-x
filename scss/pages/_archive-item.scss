@@ -1,10 +1,10 @@
 @use "../globals" as g;
 
-.archive-item {
+.arch-item {
   margin: 0 auto 100px;
 }
 
-.archive-item-header {
+.arch-item-header {
   margin-bottom: 25px;
 
   &__header {
@@ -39,29 +39,33 @@
   }
 }
 
-.archive-item-content {
+.arch-item-content {
   @include g.flexParent(false, wrap, center, false, 4%);
   @include g.mediaQ(g.$archive-page-bp-small) {
     justify-content: space-between;
   }
 
-  &__thumb-wrap {
-    margin-bottom: 2em;
+  &__img-wrap {
+    border: g.$pale-image-border;
     @include g.a4Image;
 
-    @include g.mediaQ(g.$archive-page-bp-small) {
-      width: 20%;
-      margin-bottom: 0;
+    &--single {
+      margin-bottom: 2em;
+      @include g.mediaQ(g.$archive-page-bp-small) {
+        width: 20%;
+        margin-bottom: 0;
+      }
     }
   }
 
-  &__thumb-img {
+  &__img {
     @extend %responsive-img;
-    @include g.a4Image;
     width: 100%;
+    height: 100%;
     object-fit: cover;
     margin: 0 auto;
-    border: g.$pale-image-border;
+
+    @include g.imageHover;
   }
 
   &__excerpt {
@@ -78,7 +82,7 @@
     width: 100%;
   }
 
-  &--text-thumb &__thumb-wrap {
+  &--text-thumb &__img-wrap {
     @include g.flexParent(false, false, false, center, false);
     background-color: g.$missing-thumb-bg;
     border: g.$pale-image-border;
@@ -106,33 +110,18 @@
   }
 }
 
-.archive-item-footer {
+.arch-item-footer {
   margin-top: 25px;
   border-top: g.$pale-rule-border;
   border-bottom: g.$pale-rule-border;
   padding: 25px 0;
 }
 
-.archive-item-gallery {
+.arch-item-gallery {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: g.$default-gap;
   @include g.mediaQ(g.$archive-page-bp-x-small) {
     grid-template-columns: repeat(4, 1fr);
-  }
-
-  &__img-wrap {
-    @include g.a4Image;
-    display: flex;
-  }
-
-  &__img-link {
-    display: flex;
-  }
-
-  &__img {
-    @extend %responsive-img;
-    object-fit: cover;
-    border: g.$pale-image-border;
   }
 }

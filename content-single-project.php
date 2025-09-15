@@ -66,7 +66,7 @@ $project = brhg2016_project_query();
 
                         <div class="project-item <?php echo $missing_thumb_class; ?><?php echo $counter_class ?>">
                             <?php if ($has_thumb) { ?>
-                                <div class="project-item__thumb">
+                                <div class="project-item__img-wrap">
                                     <?php brhg2016_archive_thumb(); ?>
                                 </div>
                             <?php } ?>

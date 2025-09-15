@@ -20,8 +20,8 @@
 
 // Begin
 
-.fp-headlines {
-  margin-top: g.$fp-headlines-spacing;
+.fp-h-line {
+  margin-top: g.$fp-h-line-spacing;
   display: block;
   justify-content: space-evenly;
   padding: 0 5px;
@@ -118,9 +118,13 @@
   &__more {
     text-align: center;
   }
+
+  &__more-link {
+    @include g.defaultLink(false, false, true);
+  }
 }
 
-.fp-headlines-item {
+.fp-h-line-item {
   margin-bottom: 0.5em;
 
   &:last-child {
@@ -128,12 +132,6 @@
   }
 
   &__link {
-    color: g.$light-text;
-    text-decoration: none;
-
-    &:hover,
-    &:focus {
-      text-decoration: underline;
-    }
+    @include g.defaultLink(false, false, true);
   }
 }

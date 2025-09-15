@@ -22,13 +22,17 @@
   }
 
   & a {
-    @include g.defaultLink(true, false, true);
+    color: g.$primary;
     padding: 3px 0 3px 38px;
     display: inline-block;
     background: {
       image: url(images/trolley.svg);
       size: auto 75%;
       position: 3px 4px;
+    }
+    transition: color 250ms ease-in;
+    &:hover {
+      color: g.$light-text;
     }
   }
 }
@@ -44,7 +48,10 @@
 
 .wspsc_cart {
   &_header_image {
-    margin: 0 auto 0 0;
+    margin: 25px auto;
+    border: none;
+    width: 100px;
+    height: auto;
   }
 
   &_item_row {
@@ -65,11 +72,18 @@
   }
 
   &_item_thumb td {
-    vertical-align: middle;
+    vertical-align: top;
+    padding-bottom: 1em;
+  }
+}
+
+.wpsc_cart {
+  &_title {
+    text-align: center;
   }
 
-  &_subtotal td {
-    padding-top: 10px;
+  &_total td {
+    padding-bottom: 1em;
   }
 }
 
@@ -83,8 +97,8 @@
     margin: 0;
   }
 
-  &_checkout_button:hover {
-    opacity: 0.7;
+  &_checkout_button {
+    @include g.imageHover;
   }
 }
 

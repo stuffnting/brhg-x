@@ -5,7 +5,7 @@
 
   @include g.defaultTextItems;
 
-  & a:where(:not(.brhg-btn):not(h1)) {
+  & :where(a:not(.brhg-btn):not(h1)) {
     @include g.defaultLink;
   }
 
