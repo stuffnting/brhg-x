@@ -69,6 +69,7 @@
 
   &_item_qty {
     @extend %default-input;
+    width: 7ch;
   }
 
   &_item_thumb td {
@@ -93,8 +94,16 @@
     gap: g.$default-gap;
   }
 
-  &_item_thumbnail img {
-    margin: 0;
+  &_item_thumbnail {
+    display: none;
+
+    @include g.mediaQ(500px) {
+      display: initial;
+    }
+
+    & img {
+      margin: 0;
+    }
   }
 
   &_checkout_button {

@@ -45,17 +45,33 @@ function brhg2024_add_pamphlet_content($content) {
     $where_to_buy_link
   );
 
-  $img_args = array('class' => 'pub-covers__img');
+  // Covers
+  $covers = array('front', 'back');
+  $covers_html = '';
+
+  foreach ($covers as $cover) {
+    $cover_field = "pam_{$cover}_cover";
+    $cover_url = wp_get_attachment_image_url(get_field($cover_field), 'full');
+
+    if (! $cover_url) {
+      continue;
+    }
+    $img_args = array('class' => 'pub-covers__img', 'alt' => $cover . ' cover');
+    $cover_img = wp_get_attachment_image(get_field($cover_field), 'big_thumb', false, $img_args);
+
+    $covers_html .= sprintf(
+      "<a href='%s' class='pub-covers__link'>%s</a>",
+      esc_url($cover_url),
+      $cover_img,
+    );
+  }
 
   // Covers
   $pamphlet_covers_html = sprintf(
     "<div class='pub-covers'>
-      <a href='%s' class='pub-covers__link'>%s</a><a href='%s' class='pub-covers__link'>%s</a>
+      %s
     </div>\n",
-    wp_get_attachment_image_url(get_field('pam_front_cover'), 'full'),
-    wp_get_attachment_image(get_field('pam_front_cover'), 'big_thumb', false, $img_args),
-    wp_get_attachment_image_url(get_field('pam_back_cover'), 'full'),
-    wp_get_attachment_image(get_field('pam_back_cover'), 'big_thumb', false, $img_args)
+    $covers_html
   );
 
   //reviews
@@ -79,6 +95,12 @@ function brhg2024_pamphlet_reviews_html($pamphlet_id) {
 
       // Get the meta values
       $review_text = get_sub_field('pamphlet_review_text');
+
+      // Sometimes the last review is an empty row
+      if (empty($review_text)) {
+        continue;
+      }
+
       $split_review_text = get_sub_field('pamphlet_review_split');
       $review_source = get_sub_field('pamphlet_review_source');
       $review_link_type = get_sub_field('pamphlet_review_link_type');

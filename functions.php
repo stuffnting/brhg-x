@@ -526,3 +526,34 @@ function brhg2025_add_class_to_gallery_wrapper($html, $attr, $instance) {
 
     return $html;
 }
+
+/**
+ * *** For Live Link only ***
+ */
+
+add_filter('wp_get_attachment_url', function ($url, $post_id) {
+    return preg_replace('/^http:/', 'https:', $url);
+}, 10, 2);
+
+add_filter('wp_calculate_image_srcset', function ($sources) {
+    foreach ($sources as &$source) {
+        $source['url'] = preg_replace('/^http:/', 'https:', $source['url']);
+    }
+    return $sources;
+});
+
+add_filter('wp_get_attachment_image_src', function ($image) {
+    if (is_array($image) && isset($image[0])) {
+        $image[0] = preg_replace('/^http:/', 'https:', $image[0]);
+    }
+    return $image;
+});
+
+add_filter('the_content', function ($content) {
+    return str_replace('http:', 'https:', $content);
+});
+
+
+add_filter('img_caption_shortcode_width', function ($width) {
+    return 0; // Prevents WordPress from adding width
+});

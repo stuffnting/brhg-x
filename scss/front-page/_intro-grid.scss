@@ -87,7 +87,7 @@
 }
 
 #front-page-intro {
-  @include g.mediaQ(g.$front-page-intro-grid-bp-x-small) {
+  @include g.mediaQ(g.$front-page-intro-grid-bp-xx-small) {
     display: grid;
     grid-template-columns: 1fr;
     gap: 0 30px;
@@ -106,6 +106,22 @@
       "F4T F4T F4T"
       "F4I F4C F4C"
       "F4B F4B F4B";
+  }
+
+  @include g.mediaQ(g.$front-page-intro-grid-bp-small) {
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-areas:
+      "ABT ABT ABT ABT ABT ABT"
+      "ABT ABT ABT ABT ABT ABT"
+      "ABT ABT ABT ABT ABT ABT"
+      "F1T F1T F1T F2T F2T F2T"
+      "F1I F1I F1I F2I F2I F2I"
+      "F1C F1C F1C F2C F2C F2C"
+      "F1B F1B F1B F2B F2B F2B"
+      "F3T F3T F3T F4T F4T F4T"
+      "F3I F3I F3I F4I F4I F4I"
+      "F3C F3C F3C F4C F4C F4C"
+      "F3B F3B F3B F4B F4B F4B";
   }
 
   @include g.mediaQ(g.$front-page-intro-grid-bp-medium) {

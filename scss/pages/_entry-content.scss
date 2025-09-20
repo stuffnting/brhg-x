@@ -21,7 +21,7 @@
     margin-top: 0;
   }
 
-  & img:where(figure img) {
+  & :where(figure img) {
     margin-bottom: 0;
     margin-top: 0;
   }
@@ -32,9 +32,10 @@
 
   & :where(figure) {
     margin: 0 auto 3em;
+    display: table;
   }
 
-  & figure:not(.gallery-item, :first-child) {
+  & > figure:not(:first-child) {
     margin-top: 3em;
   }
 

@@ -51,7 +51,7 @@
                 <a href="mailto:<?php echo brhg2024_get_main_email(true) ?>">
                     <?php echo brhg2024_get_main_email(true) ?>
                 </a>
-                <span class="cherub-menu-dash"> - </span><br class="cherub-menu-break">
+                <span class="cherub-menu-dash">&nbsp;&nbsp;|&nbsp;&nbsp; </span><br class="cherub-menu-break">
                 <a href="<?php echo esc_url(get_site_url()); ?>">brh.org.uk</a>
             </div>
         </nav>

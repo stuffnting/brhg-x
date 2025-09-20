@@ -72,6 +72,10 @@ if (has_term('gallery', 'article_type')) {
             }
         }
 
+        /**
+         * If this is not a video item, or it is a video item without any embed links found
+         */
+
         // Only show title for these post types, don't show thumb and excerpt
         $title_only = array('contributors', 'venues');
 
@@ -83,7 +87,7 @@ if (has_term('gallery', 'article_type')) {
 
             if ($thumb_test !== false): ?>
                 <div class='arch-item-content__img-wrap arch-item-content__img-wrap--single'>
-                    <a href="<?php the_permalink(); ?>" class="arch-item-content__thumb-link">
+                    <a href="<?php the_permalink(); ?>" class="arch-item-content__img-link">
                         <?php brhg2016_archive_thumb(); ?>
                     </a>
                 </div>

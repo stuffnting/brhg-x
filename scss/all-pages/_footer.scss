@@ -2,6 +2,7 @@
 
 .footer-oxo {
   @extend %oxo; // In placeholders
+  margin-top: 25px;
 }
 
 .site-footer {
@@ -95,6 +96,7 @@
     @extend %footer-menu-row;
 
     justify-content: center;
+    letter-spacing: 0.1ch;
   }
 }
 

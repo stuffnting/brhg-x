@@ -8,7 +8,7 @@
 
 .torso {
   min-height: calc(100vh - 500px);
-  padding: 0 15px;
+  padding: 0 g.$torso-padding;
   max-width: g.$max-width-torso;
   @extend %torso-spacing;
 }

@@ -6,14 +6,11 @@
 
 .arch-item-header {
   margin-bottom: 25px;
+  text-align: center;
+  margin-bottom: 20px;
 
-  &__header {
-    text-align: center;
-    margin-bottom: 20px;
-
-    @include g.mediaQ(g.$archive-page-bp-small) {
-      text-align: left;
-    }
+  @include g.mediaQ(g.$archive-page-bp-x-small) {
+    text-align: left;
   }
 
   &__title {
@@ -41,37 +38,48 @@
 
 .arch-item-content {
   @include g.flexParent(false, wrap, center, false, 4%);
-  @include g.mediaQ(g.$archive-page-bp-small) {
+
+  @include g.mediaQ(g.$archive-page-bp-x-small) {
     justify-content: space-between;
   }
 
   &__img-wrap {
-    border: g.$pale-image-border;
-    @include g.a4Image;
+    min-width: 1%; // Protect against image not loading
 
     &--single {
       margin-bottom: 2em;
-      @include g.mediaQ(g.$archive-page-bp-small) {
+      @include g.mediaQ(g.$archive-page-bp-x-small) {
         width: 20%;
         margin-bottom: 0;
       }
     }
   }
 
+  &__img-link {
+    @include g.a4Image;
+    border: g.$pale-image-border;
+    display: block;
+  }
+
   &__img {
     @extend %responsive-img;
     width: 100%;
     height: 100%;
+    max-height: 80vh;
     object-fit: cover;
     margin: 0 auto;
 
     @include g.imageHover;
   }
 
+  &__video {
+    width: 100%;
+  }
+
   &__excerpt {
     width: 100%;
 
-    @include g.mediaQ(g.$archive-page-bp-small) {
+    @include g.mediaQ(g.$archive-page-bp-x-small) {
       width: 76%;
       position: relative;
       top: -6px;

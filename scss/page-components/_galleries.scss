@@ -1,39 +1,26 @@
 @use "../globals/" as g;
 
 .gallery {
-  @extend %gallery-thumb-row;
+  @extend %gallery-and-thumb-row;
 
   @at-root .entry-content .gallery:first-child {
     margin-top: 0;
   }
 
-  & figcaption {
-    @extend %gallery-caption;
-  }
-
-  & .gallery-item {
-    flex: 1;
-  }
-
-  & .gallery-icon::after {
-    @extend %gallery-caption-hack;
-  }
-
   &.no-border img {
     border: none;
+  }
+
+  & figcaption {
+    @extend %gallery-caption;
   }
 }
 
 // Gallery and thumb-row gallery
 .thumb-row {
-  @extend %gallery-thumb-row;
+  @extend %gallery-and-thumb-row; // intermediate
 
   & figcaption {
     @extend %gallery-caption;
-  }
-
-  // Hack to compensate for missing caption, where there is no baseline to align to
-  & a::after {
-    @extend %gallery-caption-hack;
   }
 }

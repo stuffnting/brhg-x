@@ -2,17 +2,29 @@
 
 @use "mixins" as m;
 
-%gallery-thumb-row {
-  @include m.flexParent(false, false, center, first baseline, m.$default-gap);
+%gallery-and-thumb-row {
+  @include m.flexParent(
+    false,
+    wrap,
+    space-evenly,
+    first baseline,
+    m.$default-gap
+  );
+  overflow: hidden;
   margin: 3em 0 3em;
 
-  & figure {
+  & > p,
+  & > figure {
     margin: 0;
+    flex: 1 1 calc((100% - 2 * m.$default-gap) / 2);
+
+    @include m.mediaQ(600px) {
+      flex: 1 1 calc((100% - 3 * m.$default-gap) / 4);
+    }
   }
 
   & img {
-    margin: 0;
     width: 100%;
-    height: auto;
+    margin: 0;
   }
 }

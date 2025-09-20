@@ -19,10 +19,9 @@
   }
 
   &__item-img {
-    object-fit: cover;
+    object-fit: cover; /* Fill container, maintain aspect-ratio */
     height: auto;
     width: 100%;
-    object-fit: cover; /* Fill container, maintain aspect-ratio */
   }
 
   &__item-link {

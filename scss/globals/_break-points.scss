@@ -1,3 +1,5 @@
+@use "layout" as l;
+
 // html
 $html-pg-small: 600px;
 
@@ -7,11 +9,12 @@ $main-menu-contents-break: 1070px;
 $hamburger-menu-break: 675px;
 
 // Footer menu
-$footer-menu-break: 780px;
+$footer-menu-break: l.$main-text-width;
 
 // Front page - intro
+$front-page-intro-grid-bp-xx-small: 350px;
 $front-page-intro-grid-bp-x-small: 450px;
-$front-page-intro-grid-bp-small: 650px;
+$front-page-intro-grid-bp-small: 550px;
 $front-page-intro-grid-bp-medium: 800px;
 $front-page-intro-grid-bp-large: 1250px;
 
@@ -41,15 +44,18 @@ $toa-bp-medium: 1000px;
 $toa-bp-large: 1200px;
 
 // Single pages
-$single-item-bp-medium: 780px;
+$single-item-bp-medium: l.$main-text-width;
 $single-item-bp-large: 1100px;
 $single-item-bp-x-large: 1470px;
 $single-page-details-bp-large: 1100px;
 $single-page-details-bp-small: 550px;
+
 $relate-bp-small: 500px;
 $relate-bp-medium: 800px;
 $relate-bp-large: 1000px;
 $relate-bp-x-large: 1200px;
+
+$gallery-bp-small: 600px;
 
 // Single event
 

@@ -87,10 +87,13 @@ if ($archive_type === 'tag-index') {
     /**
      * Other archive pages
      */
-} else { ?>
-    <div class="archive-p8n__wrap archive-p8n__wrap--top">
-        <?php echo $pagination; ?>
-    </div>
+} else {
+    if (!empty($pagination)) {
+    ?>
+        <div class="archive-p8n__wrap archive-p8n__wrap--top">
+            <?php echo $pagination; ?>
+        </div>
+    <?php } ?>
 
     <section class="archive-content">
         <?php
@@ -114,9 +117,11 @@ if ($archive_type === 'tag-index') {
 
 <?php } ?>
 
-<div class="archive-p8n__wrap archive-p8n__wrap--bottom">
-    <?php echo $pagination; ?>
-</div>
+<?php if (!empty($pagination)) { ?>
+    <div class="archive-p8n__wrap archive-p8n__wrap--bottom">
+        <?php echo $pagination; ?>
+    </div>
+<?php } ?>
 
 <?php
 get_footer();

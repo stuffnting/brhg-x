@@ -16,6 +16,12 @@ html {
   font-size: 1.125rem;
 }
 
+iframe {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+}
+
 // Legacy
 strong,
 b {
