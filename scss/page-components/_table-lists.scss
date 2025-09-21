@@ -181,6 +181,7 @@ $tables: (
     }
     #{$pre}__table-wrap {
       width: $width;
+      overflow: hidden;
     }
   }
 }

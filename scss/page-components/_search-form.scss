@@ -64,6 +64,7 @@
   &__select {
     @extend %default-form-field;
     width: 100%;
+    height: max-content; // Fix Chrome bug
     padding: 6px 0;
     overflow: {
       y: scroll;
