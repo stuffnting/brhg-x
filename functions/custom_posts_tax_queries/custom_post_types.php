@@ -420,3 +420,14 @@ function brhg2024_remove_post_type_attribute_support() {
     remove_post_type_support('project', 'page-attributes');
     remove_post_type_support('contributors', 'page-attributes');
 }
+
+/**
+ * Add custom post types to RSS feed
+ */
+add_filter('request', 'brhg2016_rss_add_custom_post_types');
+
+function brhg2016_rss_add_custom_post_types($qv) {
+    if (isset($qv['feed']) && !isset($qv['post_type']))
+        $qv['post_type'] = array('post', 'events', 'books', 'articles', 'pamphlets', 'rad_his_listings');
+    return $qv;
+}

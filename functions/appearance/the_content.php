@@ -1,38 +1,37 @@
 <?php
 
 /**
+ * Remove <p> tags that contain only whitespace or <br> tags
+ */
+add_filter('the_content', 'brhg2025_remove_empty_paras', 500);
+
+function brhg2025_remove_empty_paras($content) {
+    $content = force_balance_tags($content);
+    $content = preg_replace('#<p>(\s|&nbsp;|<br\s*/?>)*<\/p>#mi', '', $content);
+    return $content;
+}
+
+/**
  * Kill wpautop for WPCF7
  */
 add_filter('wpcf7_autop_or_not', '__return_false');
 
 /**
- * The event-list shortcode.
- *
- * @package Wordpress
- * @subpackage BRHG2016
- * @since BRHG2016 1.0
+ * Wrap embed iframes in a div
  */
+add_filter('embed_oembed_html', 'brhg_wrap_embed_with_div', 10, 3);
+
+function brhg_wrap_embed_with_div($html, $url, $attr) {
+    return '<div class="iframe-container">' . $html . '</div>';
+}
 
 /**
- * Normally, wpautop runs on the_content with priority 10, and do_shortcodes with priority 11.
- * This function runs selected shortcodes at priority 8 to protect against wpautop adding stray p tags.
+ * Prevent WP from adding a style attribute, which contains a width, to the figure wrap div.
+ * The width prevents the the figure element from being responsive without !important.
  */
-
-add_filter('the_content', 'brhg2025_run_shortcodes_before_wpautop', 8);
-
-function brhg2025_run_shortcodes_before_wpautop($content) {
-
-    // Check for the specific shortcode
-    if (has_shortcode($content, 'event_list_wrapper')) {
-        // Run shortcodes. This will include the nested shortcode.
-        $new_content = do_shortcode($content);
-
-        // Belt and braces: remove blank lines before running wpautop.
-        return wpautop(preg_replace('/^\s*[\r\n]+/m', '', $new_content));
-    }
-
-    return $content;
-}
+add_filter('img_caption_shortcode_width', function ($width) {
+    return 0; // Prevents WordPress from adding width
+});
 
 /**
  * Filters a single post content. Called from the single.php template file.
@@ -56,7 +55,8 @@ function brhg2016_content_filter() {
     $content_out = '';
 
     // Remove blank lines
-    $content = str_replace('&nbsp;', '', get_the_content());
+    //$content = str_replace('&nbsp;', '', get_the_content());
+    $content = get_the_content();
 
     // Add a Where To Buy link and covers to pamphlets
     if (get_post_type() == 'pamphlets') :
@@ -108,8 +108,6 @@ function brhg2016_content_filter() {
 
     echo $content_out;
 }
-
-
 
 /**
  * Add the contributor's list to after the content of a single Contributor item.

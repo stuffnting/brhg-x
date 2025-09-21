@@ -20,19 +20,20 @@
 
 ## Pages
 
-- Material for Schools: replace the three pictures with a gallery.
+---- Material for Schools: replace the three pictures with a gallery.
+
 - Material for Schools: redo heading so that only one primary source warning is needed.
 - Miners project page: add .no-borders class to gallery shortcode
 
 ## All articles
 
-- Search for h1
-- Re-order all headings
-- look for where .no-border can be used on images
+------ Search for h1
+------ Re-order all headings
+------ look for where .no-border can be used on images
 
 ## Videos
 
-- Check embedding of Youtube Videos.
+------ Check embedding of Youtube Videos.
 
 ## Events
 
@@ -57,7 +58,6 @@
 <label class="wpcf7-form__label" for="your-message-wwi">Your Message *
 [textarea* your-message id:your-message-wwi class:wpcf7-form__textarea]
 </label>
-
 <p class="wpcf7-form__p">Prove you are not a robot...</p>
 [captchac captcha-333 fg:#ffffff bg:#000000 size:l]
 <p>Enter the code above here:</p>

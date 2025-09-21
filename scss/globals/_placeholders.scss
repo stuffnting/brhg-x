@@ -212,6 +212,10 @@ $underline-width: 0.15em;
   width: 100%;
   margin-bottom: 1em;
   font-style: f.$form-label-font-style;
+
+  & * {
+    font-style: normal;
+  }
 }
 
 %note-before-form {

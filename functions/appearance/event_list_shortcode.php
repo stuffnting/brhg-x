@@ -1,6 +1,40 @@
 <?php
 
 /**
+ * Run the event_list_wrapper early to avoid wpautop p tag hell.
+ * 
+ * *** Note *** wpautop() and shortcode_unautop() run at priority 10, 
+ * but shortcode normally run at 11.
+ * 
+ * Method from embed shortcode. 
+ * @link https://github.com/WordPress/WordPress/blob/master/wp-includes/class-wp-embed.php#L62
+ * 
+ * @param string $content The content.
+ * @return string The content with the wrapper shortcode processed, but the nested shortcodes intact.
+ */
+add_filter('the_content', 'brhg2025_run_event_list_wrapper_early', 7);
+
+function brhg2025_run_event_list_wrapper_early($content) {
+
+    global $shortcode_tags;
+
+    // Back up current registered shortcodes and clear them all out.
+    $orig_shortcode_tags = $shortcode_tags;
+    remove_all_shortcodes();
+
+    // Add event_list_wrapper shortcode
+    add_shortcode('event_list_wrapper', 'brhg2024_make_event_programme');
+
+    // Do the shortcode (only the [event_list_wrapper][/event_list_wrapper] one is registered).
+    $content = do_shortcode($content, true);
+
+    // Put the original shortcodes back.
+    $shortcode_tags = $orig_shortcode_tags;
+
+    return $content;
+}
+
+/**
  * A wrapper for all events list tables.
  * 
  * *** !!! NOTE: When this shortcode runs is controlled from publication_the_content_filter !!! ***
@@ -9,10 +43,8 @@
  *                  title       The title for the events list wrapper, e.g. 'Programme 2025.
  * @param string    $content    The content of the shortcode. This will include the shortcodes 
  *                              for the individual tables.
- * @return string   All of the programme lists, including the wrapper. Only returns a populated 
- *                  string if the shortcode has contents, otherwise returns an empty string.
+ * @return string   The contents of the shortcode, including the nested shortcodes, wrapped in the outer HTML.
  */
-add_shortcode('event_list_wrapper', 'brhg2024_make_event_programme');
 
 function brhg2024_make_event_programme($atts, $content = null) {
     $atts = shortcode_atts(
@@ -25,8 +57,6 @@ function brhg2024_make_event_programme($atts, $content = null) {
 
     $content = brhg2024_change_headers_in_content($content, 'h3', 'event-prog__prog-sub-title');
 
-    $nested_content = do_shortcode($content);
-
     // Only return a populated string if the shortcode has contents.
     if (isset($content)) {
         $new_content = sprintf(
@@ -35,12 +65,10 @@ function brhg2024_make_event_programme($atts, $content = null) {
             %s\n
             </section>\n",
             $atts['title'],
-            $nested_content,
+            $content,
         );
 
-
-        // DO the shortcodes contained within the contents.
-        return preg_replace('/^\s*[\r\n]+/m', '', $new_content);
+        return $new_content;
     }
 
     return '';
