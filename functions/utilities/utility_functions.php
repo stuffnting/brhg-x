@@ -496,14 +496,15 @@ function brhg2016_archive_thumb($size = 'big_thumb', $echo = true) {
     $item = array(
         'event'                 => get_post_type() === 'events' ? true : false,
         'connected_series'      => false,
-        'connected_has_thumb' => false,
+        'connected_has_thumb'   => false,
         'brhg_event'            => get_post_meta($post->ID, 'brhg_event_filter', true) !== 'other' ? true : false,
-        'has_thumb'    => has_post_thumbnail($post)
+        'has_thumb'             => has_post_thumbnail($post),
+        'not_brhg_use_featured' => get_post_meta($post->ID, 'event_featured_image', true) ?? false
     );
 
     if ($item['event'] === true) {
 
-        //get the ID of the connected Event Series, and the series thumb   
+        // Get the ID of the connected Event Series, and the series thumb   
         $item['connected_series'] = (isset($post->series[0]))
             ? (int) $post->series[0]->ID
             :  false;
@@ -512,7 +513,11 @@ function brhg2016_archive_thumb($size = 'big_thumb', $echo = true) {
             : false;
 
         // Series with thumb
-        if ($item['connected_series'] && $item['connected_has_thumb']) {
+        if (
+            $item['connected_series']
+            && $item['connected_has_thumb']
+            && ! $item['not_brhg_use_featured']
+        ) {
 
             if ($echo === true) {
                 echo get_the_post_thumbnail($item['connected_series'], $size, $thumb_attr);

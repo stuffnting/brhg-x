@@ -36,7 +36,11 @@ if (have_posts()) :
             get_template_part('content', 'page-header');
 
             // If this is an event/book/pamphlet there will be two blocks in the info box
-            $two_up = (get_post_type() === 'events' || get_post_type() === 'books' || get_post_type() === 'pamphlets') ? true : false;
+            $two_up = (
+                get_post_type() === 'events'
+                || get_post_type() === 'books'
+                || get_post_type() === 'pamphlets'
+            ) ? true : false;
             $extra_class = $two_up ? " details-block--2up" : "";
 
             ?>
@@ -78,7 +82,18 @@ if (have_posts()) :
                         </div>
                     <?php
                     }
+
+                    /**
+                     * Social media share buttons
+                     * 
+                     * brhg2025_show_social_share_on() and brhg2025_social_media_share 
+                     * are in functions/appearance/social_media_share.php
+                     */
+                    if (is_singular(brhg2025_show_social_share_on())) {
+                        echo brhg2025_social_media_share();
+                    }
                     ?>
+
                 </section>
                 <div class="single-item__main">
                     <section aria-label="Article main content" class="entry-content">

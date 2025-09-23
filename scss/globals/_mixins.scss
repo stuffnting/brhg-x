@@ -49,8 +49,8 @@
 
   @if $blockquote {
     & :where(blockquote) {
-      @include defaultYSpace;
-      @include defaultXSpace;
+      margin-right: 2em;
+      margin-left: 2em;
       & footer {
         text-align: right;
       }
@@ -141,10 +141,10 @@
   }
 }
 
-@mixin imageHover() {
+@mixin imageHover($scale: 1.05) {
   transition: transform 250ms ease-in;
 
   &:hover {
-    transform: scale(1.05);
+    transform: scale($scale);
   }
 }

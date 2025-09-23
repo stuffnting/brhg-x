@@ -12,7 +12,7 @@
             "required": 1,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "33.3333",
+                "width": "25",
                 "class": "",
                 "id": ""
             },
@@ -29,26 +29,59 @@
             "save_other_choice": 0
         },
         {
-            "key": "field_65e073a58a7f7",
-            "label": "Events filter",
-            "name": "events_filter",
+            "key": "field_4f83418dac671",
+            "label": "BRHG Event Filter",
+            "name": "brhg_event_filter",
             "aria-label": "",
-            "type": "clone",
-            "instructions": "",
+            "type": "radio",
+            "instructions": "Is this a BRHG event or somebody else's event?",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "25",
                 "class": "",
                 "id": ""
             },
-            "clone": [
-                "group_5baa59cd2f4f8"
+            "choices": {
+                "brhg": "BRHG Event",
+                "other": "Somebody Else's Event"
+            },
+            "default_value": "brhg",
+            "return_format": "value",
+            "allow_null": 0,
+            "other_choice": 0,
+            "allow_in_bindings": 1,
+            "layout": "vertical",
+            "save_other_choice": 0
+        },
+        {
+            "key": "field_68d1b5e494975",
+            "label": "Event Featured Image",
+            "name": "event_featured_image",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "If this event is not organised by BRHG you can choose to use the post thumbnail on archive pages, rather than the event series poster.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_4f83418dac671",
+                        "operator": "==",
+                        "value": "other"
+                    }
+                ]
             ],
-            "display": "seamless",
-            "layout": "block",
-            "prefix_label": 0,
-            "prefix_name": 0
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "message": "Use featured image",
+            "default_value": 0,
+            "allow_in_bindings": 0,
+            "ui_on_text": "Yes",
+            "ui_off_text": "No",
+            "ui": 1
         },
         {
             "key": "field_68bff855af93d",
@@ -67,11 +100,11 @@
                 ]
             ],
             "wrapper": {
-                "width": "33.333333",
+                "width": "25",
                 "class": "",
                 "id": ""
             },
-            "message": "Do you want a map on this page?",
+            "message": "Add a map?",
             "default_value": 0,
             "allow_in_bindings": 0,
             "ui_on_text": "Yes",
@@ -167,5 +200,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1757447901
+    "modified": 1758576064
 }

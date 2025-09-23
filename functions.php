@@ -71,6 +71,8 @@ if (! is_admin()) {
     require_once('functions/utilities/inline_scripts.php');
     // Content filters for the single.php template file
     require_once('functions/appearance/the_content.php');
+    // Social media share buttons for posts
+    require_once('functions/appearance/social_media_share.php');
     // Content filter for single publications page
     require_once('functions/publications/publication_the_content_filter.php');
     //Comments and comment form

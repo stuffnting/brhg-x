@@ -5,13 +5,13 @@
 
   @include g.defaultTextItems;
 
-  & :where(a:not(.brhg-btn):not(h1)) {
+  & :where(a:not(.brhg-btn)) {
     @include g.defaultLink;
   }
 
   @include g.defaultHeadings;
 
-  & :where(img:not(.fp-friends__item-img)) {
+  & :where(img:not(.fp-friends__item-img, .social-share__icon)) {
     @extend %responsive-img;
     border: g.$pale-image-border;
     margin: 2em auto 2em;
@@ -31,12 +31,12 @@
   }
 
   & :where(figure) {
-    margin: 0 auto 3em;
+    margin: 0 auto 2em;
     display: table;
   }
 
   & > figure:not(:first-child) {
-    margin-top: 3em;
+    margin-top: 2em;
   }
 
   & figcaption {
@@ -60,5 +60,23 @@
 
   & details[open] summary::after {
     display: none;
+  }
+
+  & :where(table) {
+    font-size: g.$small-text;
+    margin: 1em 0 2em;
+    width: 100%;
+  }
+
+  & :where(td, th) {
+    padding: 0.5em;
+  }
+
+  & tr {
+    border-bottom: 3px solid g.$border-rule;
+  }
+
+  .wp-audio-shortcode {
+    margin-bottom: 1em;
   }
 }

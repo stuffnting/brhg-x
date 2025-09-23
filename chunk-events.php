@@ -27,13 +27,16 @@ $show_event_filter = 'yes';
 
 // For the Event Diary page
 if (get_query_var('special_url') == 'event-diary') {
-    $show_none = 'no';
-    // For archive pages
-} elseif (is_archive()) {
-    $show_all = 'no';
     $show_location = 'no';
     $show_price = 'no';
-    //$show_event_filter = 'no';
+    $show_event_filter = 'no';
+    // For archive pages
+} elseif (is_archive()) {
+    $show_location = 'no';
+    $show_price = 'no';
+    $show_event_filter = 'no';
+    $show_speakers = 'no';
+    $show_time = 'no';
     // For single Event pages
 } elseif (is_singular()) {
     $show_none = 'no';

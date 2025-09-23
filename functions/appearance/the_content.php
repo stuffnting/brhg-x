@@ -97,13 +97,23 @@ function brhg2016_content_filter() {
 
         $content_out = sprintf(
             "%s\n
-            <section class='event-details-single highlight-box'>
+            <section class='event-details-single details-block highlight-box'>
             <p class='highlight-box__title'>Event details</p>
             <div class='event-details-single__details'>%s</div>
             </section>\n",
             $content_out,
             $event_details
         );
+    }
+
+    /**
+     * Social media share buttons
+     * 
+     * brhg2025_show_social_share_on() and brhg2025_social_media_share 
+     * are in functions/appearance/social_media_share.php
+     */
+    if (is_singular(brhg2025_show_social_share_on())) {
+        $content_out .= brhg2025_social_media_share();
     }
 
     echo $content_out;
