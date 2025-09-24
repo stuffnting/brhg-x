@@ -35,7 +35,7 @@
 
   &__nav {
     background: {
-      image: url(images/cherub-middle.svg);
+      image: url("../images/cherub-middle.svg");
       size: 100% 100%;
     }
     padding: 0.5em 10px;
@@ -60,7 +60,7 @@
       @extend %cherubs;
 
       content: "";
-      background-image: url(images/cherub-left.svg);
+      background-image: url("../images/cherub-left.svg");
       aspect-ratio: 197/252;
       right: 99.25%;
       bottom: -100%;
@@ -70,7 +70,7 @@
       @extend %cherubs;
 
       content: "";
-      background-image: url(images/cherub-right.svg);
+      background-image: url("../images/cherub-right.svg");
       aspect-ratio: 208/252;
       left: 99.25%;
       bottom: -100%;

@@ -18,7 +18,7 @@
     @include g.mediaQ(g.$hamburger-menu-break) {
       display: block;
       background: {
-        image: url(images/search.svg);
+        image: url("../images/search.svg");
         size: 65%;
         position: center;
         color: g.$primary;
@@ -53,7 +53,7 @@
 
   &__hamburger-icon {
     background: {
-      image: url(images/hamburger.svg);
+      image: url("../images/hamburger.svg");
       size: $hamburger-size $hamburger-size;
       position: center;
     }

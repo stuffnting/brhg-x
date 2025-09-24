@@ -120,7 +120,7 @@ $underline-width: 0.15em;
 
 %oxo {
   background: {
-    image: url(images/header-oxo.svg);
+    image: url("../images/header-oxo.svg");
     color: c.$primary;
     repeat: repeat-x;
   }
@@ -129,7 +129,7 @@ $underline-width: 0.15em;
 
   &::before {
     content: "";
-    background-image: url(images/wavy-line.svg);
+    background-image: url("../images/wavy-line.svg");
     width: 100%;
     position: absolute;
     height: 4px;

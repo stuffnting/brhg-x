@@ -24,3 +24,31 @@
     @extend %gallery-caption;
   }
 }
+
+.thumb-row-height {
+  display: flex;
+  gap: 10px;
+  margin: 3em 0;
+  flex-direction: column;
+  align-items: center;
+  & > * {
+    flex: 1 1 auto;
+  }
+
+  & img {
+    max-width: 450px;
+    width: 100%;
+    height: auto;
+
+    margin: 0;
+    object-fit: cover;
+  }
+
+  @include g.mediaQ(g.$main-text-width) {
+    flex-direction: row;
+
+    & img {
+      height: 175px;
+    }
+  }
+}

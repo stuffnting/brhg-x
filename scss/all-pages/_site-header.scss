@@ -11,7 +11,7 @@ $angel-skeleton-height: clamp(80px, 20vw, 145px);
   &::after {
     content: "";
     background: {
-      image: url(images/menu-bottom-line.svg);
+      image: url("../images/menu-bottom-line.svg");
       size: 100% 100%;
     }
     width: 100%;
@@ -94,7 +94,7 @@ $scroll-height: 63px;
 
   &__wrap {
     background: {
-      image: url(images/scroll-middle.svg), none;
+      image: url("../images/scroll-middle.svg"), none;
       size: 100% 100%;
     }
     height: $scroll-height;
@@ -108,7 +108,7 @@ $scroll-height: 63px;
 
     &::before {
       @extend %scrolls;
-      background-image: url(images/scroll-left.svg);
+      background-image: url("../images/scroll-left.svg");
       right: 99.9%;
       width: 56px;
       margin-right: -1px;
@@ -116,7 +116,7 @@ $scroll-height: 63px;
 
     &::after {
       @extend %scrolls;
-      background-image: url(images/scroll-right.svg);
+      background-image: url("../images/scroll-right.svg");
       left: 99.9%;
       width: 42px;
       margin-left: -2px;

@@ -11,7 +11,7 @@
       {
         "format": "compressed",
         "extensionName": ".css",
-        "savePath": "/"
+        "savePath": "/css"
       }
     ],
     "cSpell.words": [

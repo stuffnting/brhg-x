@@ -74,7 +74,7 @@ if (! is_admin()) {
     // Social media share buttons for posts
     require_once('functions/appearance/social_media_share.php');
     // Content filter for single publications page
-    require_once('functions/publications/publication_the_content_filter.php');
+    require_once('functions/publications/publication_the_content_and_trolley.php');
     //Comments and comment form
     require_once('functions/appearance/comment_form.php');
     // Front page about and featured sections
@@ -153,13 +153,23 @@ add_action('wp_enqueue_scripts', 'brhg2016_theme_style_scripts');
 function brhg2016_theme_style_scripts() {
     //add jquery
     wp_enqueue_script('jquery');
+
     //add the style sheet
     wp_enqueue_style(
         'main-style',
-        get_stylesheet_uri(),
+        get_theme_file_uri('css/style.css'),
         array(),
-        filemtime(get_template_directory() . '/style.css')
+        filemtime(get_template_directory() . '/css/style.css')
     );
+
+    if (is_front_page()) {
+        wp_enqueue_style(
+            'front-page-style',
+            get_theme_file_uri('css/front-page.css'),
+            array('main-style'),
+            filemtime(get_template_directory() . '/css/front-page.css')
+        );
+    }
 
     // Tiny Slider for font page
     if (is_front_page()) {

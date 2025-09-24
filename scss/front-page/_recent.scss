@@ -140,7 +140,7 @@ $slider-scroll-bottom-height: 33px;
 
   &__outer {
     background: {
-      image: url(images/slider-frame-middle.svg);
+      image: url("../images/slider-frame-middle.svg");
       size: 100% 100%;
     }
     margin-bottom: $slider-scroll-bottom-height;

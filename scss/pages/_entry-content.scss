@@ -62,18 +62,18 @@
     display: none;
   }
 
-  & :where(table) {
+  & :where(table:not(.brhg-trolley)) {
     font-size: g.$small-text;
     margin: 1em 0 2em;
     width: 100%;
-  }
 
-  & :where(td, th) {
-    padding: 0.5em;
-  }
+    :where(& td, & th) {
+      padding: 0.5em;
+    }
 
-  & tr {
-    border-bottom: 3px solid g.$border-rule;
+    :where(& tr) {
+      border-bottom: 3px solid g.$border-rule;
+    }
   }
 
   .wp-audio-shortcode {

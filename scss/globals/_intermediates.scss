@@ -13,8 +13,7 @@
   overflow: hidden;
   margin: 3em 0 3em;
 
-  & > p,
-  & > figure {
+  & > * {
     margin: 0;
     flex: 1 1 calc((100% - 2 * m.$default-gap) / 2);
 

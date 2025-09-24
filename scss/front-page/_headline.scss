@@ -59,7 +59,7 @@
     &::before {
       @extend %frame-scrolls;
       background: {
-        image: url(images/headline-frame-top-scroll.svg);
+        image: url("../images/headline-frame-top-scroll.svg");
         position-y: bottom;
       }
       height: $scroll-top-height;
@@ -69,7 +69,7 @@
     &::after {
       @extend %frame-scrolls;
       background: {
-        image: url(images/headline-frame-bottom-scroll.svg);
+        image: url("../images/headline-frame-bottom-scroll.svg");
         position-y: top;
       }
       height: $scroll-bottom-height;
@@ -83,7 +83,7 @@
     $frame-bottom-height: 61px;
 
     background: {
-      image: url(images/headline-frame-middle.svg);
+      image: url("../images/headline-frame-middle.svg");
       size: 100% 100%;
     }
     width: 100%;
@@ -95,14 +95,14 @@
 
     &::before {
       @extend %frame-top-bottom;
-      background-image: url(images/headline-frame-top.svg);
+      background-image: url("../images/headline-frame-top.svg");
       height: $frame-top-height;
       bottom: 100%;
     }
 
     &::after {
       @extend %frame-top-bottom;
-      background-image: url(images/headline-frame-bottom.svg), none;
+      background-image: url("../images/headline-frame-bottom.svg"), none;
       height: $frame-bottom-height;
       top: 100%;
     }

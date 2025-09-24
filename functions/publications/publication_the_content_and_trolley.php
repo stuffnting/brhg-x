@@ -322,11 +322,17 @@ function brhg2024_filter_wp_simple_cart_trolly_shortcode($output, $tag) {
 
   if ($test_position != false) {
 
-    // Change the checkout button
-    $new_checkout_button = get_theme_file_uri('images/checkout.svg');
-    $old_checkout_button = plugins_url('wordpress-simple-paypal-shopping-cart/images/paypal_checkout_EN.png');
+    // Add a class to the table
+    $old_table_tag = "<table";
+    $new_table_tag = '<table class="brhg-trolley" ';
 
-    $new_output = str_replace($old_checkout_button, $new_checkout_button, $output);
+    $new_output .= str_replace($old_table_tag, $new_table_tag, $output);
+
+    // Change the checkout button
+    $old_checkout_button = plugins_url('wordpress-simple-paypal-shopping-cart/images/paypal_checkout_EN.png');
+    $new_checkout_button = get_theme_file_uri('images/checkout.svg');
+
+    $new_output .= str_replace($old_checkout_button, $new_checkout_button, $new_output);
 
     // Find where to add the delivery warning
     $position = strpos($new_output, $searchString) - strlen($searchString);
