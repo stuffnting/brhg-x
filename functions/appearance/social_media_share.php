@@ -10,7 +10,7 @@ function brhg2025_show_social_share_on() {
     'articles',
     'pamphlets',
     'event_series',
-    'event',
+    'events',
     'rad_his_listings',
     'post',
     'books'

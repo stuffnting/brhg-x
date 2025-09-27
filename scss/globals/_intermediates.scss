@@ -1,5 +1,4 @@
-@forward "mixins";
-
+@use "layout" as l;
 @use "mixins" as m;
 
 %gallery-and-thumb-row {
@@ -8,17 +7,17 @@
     wrap,
     space-evenly,
     first baseline,
-    m.$default-gap
+    l.$default-gap
   );
   overflow: hidden;
   margin: 3em 0 3em;
 
   & > * {
     margin: 0;
-    flex: 1 1 calc((100% - 2 * m.$default-gap) / 2);
+    flex: 1 1 calc((100% - 2 * l.$default-gap) / 2);
 
     @include m.mediaQ(600px) {
-      flex: 1 1 calc((100% - 3 * m.$default-gap) / 4);
+      flex: 1 1 calc((100% - 3 * l.$default-gap) / 4);
     }
   }
 

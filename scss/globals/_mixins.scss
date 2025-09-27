@@ -1,5 +1,5 @@
-@forward "placeholders";
-
+@use "layout" as l;
+@use "fonts" as f;
 @use "placeholders" as p;
 
 @mixin mediaQ($width) {
@@ -9,12 +9,12 @@
 }
 
 @mixin defaultYSpace {
-  margin-bottom: p.$default-y-space;
+  margin-bottom: l.$default-y-space;
 }
 
 @mixin defaultXSpace {
-  margin-left: p.$default-x-space;
-  margin-right: p.$default-x-space;
+  margin-left: l.$default-x-space;
+  margin-right: l.$default-x-space;
 }
 
 @mixin defaultLink($colour: true, $decor: true, $hover: true) {
@@ -94,12 +94,12 @@
 }
 
 @mixin a4Image() {
-  aspect-ratio: p.$a4-aspect-ratio;
+  aspect-ratio: l.$a4-aspect-ratio;
   overflow: hidden;
 }
 
 @mixin recentRelatedTitle() {
-  font-family: p.$highlight-font;
+  font-family: f.$highlight-font;
   font-size: clamp(22px, 3vw, 30px);
 }
 

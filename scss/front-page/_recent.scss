@@ -18,7 +18,7 @@
 @mixin sliderFrameScrolls($bg-img, $margin, $height, $top-bottom) {
   @extend %slider-scrolls;
   background: {
-    image: url($bg-img), none;
+    image: url($bg-img);
     position: center;
   }
   margin: $margin;

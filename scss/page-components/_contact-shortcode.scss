@@ -8,7 +8,7 @@
     @include g.mediaQ(600px) {
       font-family: g.$highlight-font;
       background: {
-        image: url("images/contact.png");
+        image: url("../images/contact.png");
         size: 100% auto;
       }
       font-size: 21px;

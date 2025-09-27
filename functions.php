@@ -154,7 +154,7 @@ function brhg2016_theme_style_scripts() {
     //add jquery
     wp_enqueue_script('jquery');
 
-    //add the style sheet
+    //add the mainstyle sheet
     wp_enqueue_style(
         'main-style',
         get_theme_file_uri('css/style.css'),
@@ -162,12 +162,13 @@ function brhg2016_theme_style_scripts() {
         filemtime(get_template_directory() . '/css/style.css')
     );
 
+    // Front page styles
     if (is_front_page()) {
         wp_enqueue_style(
             'front-page-style',
-            get_theme_file_uri('css/front-page.css'),
+            get_theme_file_uri('css/front-page-style.css'),
             array('main-style'),
-            filemtime(get_template_directory() . '/css/front-page.css')
+            filemtime(get_template_directory() . '/css/front-page-style.css')
         );
     }
 
