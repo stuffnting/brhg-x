@@ -499,7 +499,7 @@ function brhg2016_archive_thumb($size = 'big_thumb', $echo = true) {
         'connected_has_thumb'   => false,
         'brhg_event'            => get_post_meta($post->ID, 'brhg_event_filter', true) !== 'other' ? true : false,
         'has_thumb'             => has_post_thumbnail($post),
-        'not_brhg_use_featured' => get_post_meta($post->ID, 'event_featured_image', true) ?? false
+        'use_featured_image' => get_post_meta($post->ID, 'event_featured_image', true) ?? false
     );
 
     if ($item['event'] === true) {
@@ -516,7 +516,7 @@ function brhg2016_archive_thumb($size = 'big_thumb', $echo = true) {
         if (
             $item['connected_series']
             && $item['connected_has_thumb']
-            && ! $item['not_brhg_use_featured']
+            && ! $item['use_featured_image']
         ) {
 
             if ($echo === true) {

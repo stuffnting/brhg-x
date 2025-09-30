@@ -12,7 +12,7 @@
             "required": 1,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "25",
+                "width": "33.333",
                 "class": "",
                 "id": ""
             },
@@ -34,11 +34,11 @@
             "name": "brhg_event_filter",
             "aria-label": "",
             "type": "radio",
-            "instructions": "Is this a BRHG event or somebody else's event?",
+            "instructions": "Is this a BRHG event or somebody else's event? If Someone Else's Event is selected, a message is added to the events listing indicating that BRHG is not the organiser of the event.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "25",
+                "width": "33.333",
                 "class": "",
                 "id": ""
             },
@@ -55,12 +55,33 @@
             "save_other_choice": 0
         },
         {
+            "key": "field_68daae9b582b7",
+            "label": "Is this a miscellaneous event?",
+            "name": "misc_event",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "Is this an event that will be in a miscellaneous event series, or in a specific event series? Setting this\r\noptional, if unsure leave as No.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33.3333",
+                "class": "",
+                "id": ""
+            },
+            "message": "Miscellaneous event?",
+            "default_value": 0,
+            "allow_in_bindings": 0,
+            "ui_on_text": "Yes",
+            "ui_off_text": "No",
+            "ui": 1
+        },
+        {
             "key": "field_68d1b5e494975",
             "label": "Event Featured Image",
             "name": "event_featured_image",
             "aria-label": "",
             "type": "true_false",
-            "instructions": "If this event is not organised by BRHG you can choose to use the post thumbnail on archive pages, rather than the event series poster.",
+            "instructions": "If this event is not organised by BRHG, or is in a miscellaneous event series, you can choose to use the post thumbnail on archive pages, rather than the event series poster.",
             "required": 0,
             "conditional_logic": [
                 [
@@ -69,10 +90,17 @@
                         "operator": "==",
                         "value": "other"
                     }
+                ],
+                [
+                    {
+                        "field": "field_68daae9b582b7",
+                        "operator": "==",
+                        "value": "1"
+                    }
                 ]
             ],
             "wrapper": {
-                "width": "25",
+                "width": "33.333",
                 "class": "",
                 "id": ""
             },
@@ -100,7 +128,7 @@
                 ]
             ],
             "wrapper": {
-                "width": "25",
+                "width": "33.333",
                 "class": "",
                 "id": ""
             },
@@ -200,5 +228,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1758576064
+    "modified": 1759162778
 }
