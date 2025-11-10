@@ -42,7 +42,7 @@ function brhg2016_register_my_cpts() {
         "show_ui"               => true,
         "has_archive"           => false,
         "show_in_menu"          => true,
-        "exclude_from_search"   => false,
+        "exclude_from_search"   => true,
         "capability_type"       => "post",
         "map_meta_cap"          => true,
         "hierarchical"          => false,

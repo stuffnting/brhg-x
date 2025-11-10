@@ -332,11 +332,12 @@ function brhg2024_filter_wp_simple_cart_trolly_shortcode($output, $tag) {
     $old_checkout_button = plugins_url('wordpress-simple-paypal-shopping-cart/images/paypal_checkout_EN.png');
     $new_checkout_button = get_theme_file_uri('images/checkout.svg');
 
-    $new_output .= str_replace($old_checkout_button, $new_checkout_button, $new_output);
+    $new_output = str_replace($old_checkout_button, $new_checkout_button, $new_output);
 
     // Find where to add the delivery warning
     $position = strpos($new_output, $searchString) - strlen($searchString);
     $contact_url = get_site_url(null, '/contact-us/');
+
 
     $delivery_warning = "<div class='delivery-address-warning'>
       <p>*** Delivery Address ***</p>

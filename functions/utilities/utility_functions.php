@@ -290,58 +290,79 @@ function brhg2016_intro_test_edit_link() {
  *
  */
 function brhg2016_archive_filter($list = 'button', $separator = ' * ') {
+
     // Create a dropdown button or a string of links?
     $list = ($list === 'button') ? 'list' : '';
 
     // Get the taxonomy used to create the filter, query var type_tax set in functions/custom_query.php
     $type_tax = get_query_var('type_tax', '');
+    $post_type = get_query_var('post_type', '');
 
     // If this archive page has no filter, bail
-    if (!$type_tax) {
+    /*     if (!$type_tax) {
         return 0;
-    }
+    } */
 
-    $name = get_query_var('page_title', '');
+    $name = "";
+    $label = "";
+    $filter = "";
 
-    // 'show_option_all' creates the link to display all articles
-    $args = array(
-        'taxonomy'          => $type_tax,
-        'title_li'          => '',
-        'orderby'           => 'count',
-        'order'             => 'DESC',
-        'echo'              => 0,
-        'show_option_all'   => 'All ' . $name,
-        'style'             => $list,
-    );
+    if ($post_type === 'events' || $post_type === 'event_series') {
+        $label = "Filter Events";
+        $filter = '<li><a href="' . site_url('events') . '">All Events</a></li>';
+        $filter .= '<li><a href="' . site_url('event-diary') . '">Pending Events</a></li>';
+        $filter .= '<li><a href="' . site_url('event-series') . '">Event Series</a></li>';
+    } elseif ($post_type === 'pamphlets') {
+        $label = "View Publications By...";
+        $filter = '<li><a href="' . site_url('pamphleteer') . '">Publication Range</a></li>';
+        $filter .= '<li><a href="' . site_url('publication-collections') . '">Publication Collections</a></li>';
+    } elseif (!empty($type_tax)) {
 
-    if ($type_tax === 'category') {
-        $args['orderby']    = 'name';
-        $args['order']      = 'ASC';
-    }
+        $name = get_query_var('page_title', '');
+        $label = "Filter $name By Type";
 
-    // Get the links, if 'style' => 'list' this is a list without <ul> or <ol> tags
-    $filter = wp_list_categories($args);
+        // 'show_option_all' creates the link to display all articles
+        $args = array(
+            'taxonomy'          => $type_tax,
+            'title_li'          => '',
+            'orderby'           => 'count',
+            'order'             => 'DESC',
+            'echo'              => 0,
+            'show_option_all'   => 'All ' . $name,
+            'style'             => $list,
+        );
+
+        if ($type_tax === 'category') {
+            $args['orderby']    = 'name';
+            $args['order']      = 'ASC';
+        }
+
+        // Get the links, if 'style' => 'list' this is a list without <ul> or <ol> tags
+        $filter = wp_list_categories($args);
 
 
-    // Correct the 'All' link which wp_list_categories() gives the home page url
-    switch ($type_tax) {
-        case 'category':
-            $new_url = site_url('subject-index');
-            $pattern = "%" . site_url() . "%";
-            $filter = preg_replace($pattern, $new_url, $filter, 1);
-            break;
+        // Correct the 'All' link which wp_list_categories() gives the home page url
+        switch ($type_tax) {
+            case 'category':
+                $new_url = site_url('subject-index');
+                $pattern = "%" . site_url() . "%";
+                $filter = preg_replace($pattern, $new_url, $filter, 1);
+                break;
 
-        case 'listing_type':
-            $new_url = site_url('radical-history-listings');
-            $pattern = "%" . site_url() . "%";
-            $filter = preg_replace($pattern, $new_url, $filter, 1);
-            break;
+            case 'listing_type':
+                $new_url = site_url('radical-history-listings');
+                $pattern = "%" . site_url() . "%";
+                $filter = preg_replace($pattern, $new_url, $filter, 1);
+                break;
+        }
+    } else {
+        return;
     }
 
     if ($list === 'list' && $filter) {
         $filter = "<nav class='archive-filter' aria-label='Filter by type'>\n
                         <button type='button' class='archive-filter__btn' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>\n
-                            Filter $name By Type <span class='caret'></span>\n
+                            $label <span class='caret'></span>\n
                         </button>\n 
                         <ul class='archive-filter__dropdown'>$filter</ul>\n 
                     </nav>";

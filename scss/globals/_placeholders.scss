@@ -5,8 +5,10 @@
 // Text
 
 %default-headings {
-  margin-top: 1em;
-  margin-bottom: 1em;
+  margin: {
+    top: 1em;
+    bottom: 1em;
+  }
 }
 
 %default-h2 {
@@ -26,13 +28,17 @@
   & > :where(ul:not(.toggle-list)) {
     margin-bottom: l.$default-y-space;
     & > :where(li) {
-      background-image: url("../images/q.svg");
-      background-size: 0.65em auto;
-      background-repeat: no-repeat;
-      background-position: 0 6px;
+      background: {
+        image: url("../images/q.svg");
+        size: 0.65em auto;
+        repeat: no-repeat;
+        position: 0 6px;
+      }
       padding-left: 1.2em;
-      margin-left: l.$default-x-space;
-      margin-right: l.$default-x-space;
+      margin: {
+        left: l.$default-x-space;
+        right: l.$default-x-space;
+      }
     }
   }
   & :where(ul ul li) {
@@ -46,11 +52,15 @@
 
 %default-ol-list {
   & :where(ol) {
-    margin-left: l.$default-x-space;
-    margin-right: l.$default-x-space;
+    margin: {
+      left: l.$default-x-space;
+      right: l.$default-x-space;
+    }
     & :where(li) {
-      list-style-type: decimal;
-      list-style-position: outside;
+      list-style: {
+        type: decimal;
+        position: outside;
+      }
       margin-left: 1.1em;
     }
   }
@@ -65,10 +75,12 @@
 $underline-width: 0.15em;
 
 %default-link-core {
-  text-decoration-line: underline;
-  text-decoration-color: rgba(255, 189, 33, 0);
-  text-decoration-thickness: $underline-width;
-  text-underline-offset: $underline-width;
+  text: {
+    decoration-line: underline;
+    decoration-color: rgba(255, 189, 33, 0);
+    decoration-thickness: $underline-width;
+    underline-offset: $underline-width;
+  }
   transition: text-decoration-color 500ms ease-in;
 }
 
@@ -77,14 +89,18 @@ $underline-width: 0.15em;
 }
 
 %default-link-decor {
-  text-decoration-color: c.$default-link-underline;
-  text-decoration-style: dotted;
+  text: {
+    decoration-color: c.$default-link-underline;
+    decoration-style: dotted;
+  }
 }
 
 %default-link-hover {
   &:hover {
-    text-decoration: underline solid $underline-width;
-    text-decoration-color: rgba(255, 189, 33, 1);
+    text: {
+      decoration: underline solid $underline-width;
+      decoration-color: rgba(255, 189, 33, 1);
+    }
   }
 }
 
@@ -124,7 +140,10 @@ $underline-width: 0.15em;
 
   &::before {
     content: "";
-    background-image: url("../images/wavy-line.svg");
+    background: {
+      image: url("../images/wavy-line.svg");
+      size: 100% 4px;
+    }
     width: 100%;
     position: absolute;
     height: 4px;

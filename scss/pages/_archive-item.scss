@@ -6,12 +6,7 @@
 
 .arch-item-header {
   margin-bottom: 25px;
-  text-align: center;
   margin-bottom: 20px;
-
-  @include g.mediaQ(g.$archive-page-bp-x-small) {
-    text-align: left;
-  }
 
   &__title {
     margin: 0 0 10px;
@@ -91,11 +86,16 @@
   }
 
   &--text-thumb &__img-wrap {
-    @include g.flexParent(false, false, false, center, false);
-    background-color: g.$missing-thumb-bg;
-    border: g.$pale-image-border;
-    padding: 2em;
-    font-size: g.$small-text;
+    align-self: start;
+  }
+
+  &--text-thumb &__img-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
+    background-color: #f5f5f5;
+    font-size: 0.8em;
     text-align: center;
   }
 
