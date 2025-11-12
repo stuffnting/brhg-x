@@ -129,6 +129,10 @@
   }
 }
 
+.brhg-trolley-wrap {
+  margin-bottom: 5rem;
+}
+
 .empty-trolley-wrap {
   border: g.$primary-rule-border;
   background: white;
@@ -138,9 +142,66 @@
   margin: 50px auto;
 }
 
-.wp-shopping-cart-tnc-error {
+.wp-shopping-cart-tnc-error,
+.wpsc-manual-checkout-field-error {
   color: g.$accent;
   font-style: italic;
   text-decoration: underline g.$accent dotted 5px;
   text-underline-offset: 10px;
+}
+
+.wpsc-manual-checkout {
+  &-section {
+    margin-top: 2rem;
+  }
+
+  &-section-or {
+    color: g.$accent;
+    margin-top: 2rem;
+  }
+}
+
+.wpsc-manual-payment {
+  &-proceed-to-checkout-btn {
+    color: g.$primary;
+    border: 3.5px solid g.$accent;
+    padding: 10px;
+    border-radius: 13px;
+    cursor: pointer;
+    transition: 0.5s ease-in;
+
+    &:hover {
+      transform: scale(1.075);
+    }
+  }
+
+  &-form-instructions {
+    margin-bottom: 2rem;
+  }
+
+  &-form-field {
+    & label {
+      @extend %form-labels;
+      font-weight: 400;
+    }
+
+    & input {
+      @extend %default-input;
+      width: 100%;
+    }
+  }
+
+  &-address-section-label {
+    margin: 2em 0 1em;
+  }
+
+  &-form-submit-section {
+    display: flex;
+    gap: 1em;
+  }
+
+  &-form-submit,
+  &-form-cancel {
+    @extend %default-button;
+  }
 }

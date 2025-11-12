@@ -349,10 +349,33 @@ function brhg2024_filter_wp_simple_cart_trolly_shortcode($output, $tag) {
 
     $position += strlen($searchString);
     $new_output = substr_replace($new_output, $delivery_warning, $position, 0);
+
+    // Manual checkout form
+    $manual_checkout_form_required = array(
+      "First Name" => "First Name*",
+      "Email" => "Email*",
+      "Email* Checkout" => "Email Checkout", // Protect the Email in the button
+      "Shipping Address" => "Posting Address (to post outside the UK, <a href='$contact_url'>email first</a> to check postage)",
+      "Street Address" => "Street Address*",
+      "City" => "City/Town*",
+      "State" => "County/Region*",
+      "Postal Code" => "Post Code*"
+    );
+
+    foreach ($manual_checkout_form_required as $before => $after) {
+      $new_output = str_replace($before, $after, $new_output);
+    }
+
+    $manual_checkout_search_string = '<div class="wpsc-manual-checkout-section">';
+    $insert_or_position = strpos($new_output, $manual_checkout_search_string);
+    $or = '<div class="wpsc-manual-checkout-section-or">OR</div>';
+    $new_output = substr_replace($new_output, $or, $insert_or_position, 0);
   } else {
     // Trolley is empty.
     $new_output = "<div class='empty-trolley-wrap'>{$output}</div>";
   }
+
+  //snt_dump($new_output);
 
   return $new_output;
 }
