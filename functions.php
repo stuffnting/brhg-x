@@ -57,6 +57,8 @@ if (is_admin()) {
     require_once('functions/publications/publications_sales_count.php');
     // Help Page
     require_once('functions/admin/brhg2016_help.php');
+    // Filter ACF post options fields, e.g. Is BRHG event?
+    require_once('functions/custom_posts_tax_queries/afc_filter_for_posts.php');
 }
 
 /**
@@ -162,8 +164,8 @@ function brhg2016_theme_style_scripts() {
         filemtime(get_template_directory() . '/css/style.css')
     );
 
-    // Front page styles
-    if (is_front_page()) {
+    // Front page styles and needed for friends page
+    if (is_front_page() || is_page('friends')) {
         wp_enqueue_style(
             'front-page-style',
             get_theme_file_uri('css/front-page-style.css'),

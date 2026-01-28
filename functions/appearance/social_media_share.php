@@ -61,15 +61,25 @@ function brhg2025_social_media_share() {
   $reddit_url = add_query_arg($reddit_args, $reddit_base_url);
   $reddit_icon = get_theme_file_uri('images/social-reddit.svg');
 
+  // Bluesky
+  $bluesky_base_url = 'https://bsky.app/intent/compose';
+
+  $bluesky_args = array(
+    'text' => $url
+  );
+
+  $bluesky_url = add_query_arg($bluesky_args, $bluesky_base_url);
+  $bluesky_icon = get_theme_file_uri('images/social-bluesky.svg');
+
   $html_out = sprintf(
     "<div class='social-share'>
-      <a href='%2\$s' class='social-share__link' title='Share on Twitter' target='_blank' %1\$s><img src='%3\$s' class='social-share__icon no-border'></a>
+      <a href='%2\$s' class='social-share__link' title='Share on Bluesky' target='_blank' %1\$s><img src='%3\$s' class='social-share__icon no-border'></a>
       <a href='%4\$s' class='social-share__link' title='Share on Facebook' target='_blank' %1\$s><img src='%5\$s' class='social-share__icon no-border'></a>
       <a href='%6\$s' class='social-share__link' title='Share on Reddit' target='_blank' %1\$s><img src='%7\$s' class='social-share__icon no-border'></a>
     </div>",
     'rel="noopener noreferrer"',
-    esc_url($twitter_url),
-    esc_url($twitter_icon),
+    esc_url($bluesky_url),
+    esc_url($bluesky_icon),
     esc_url($fb_url),
     esc_url($fb_icon),
     esc_url($reddit_url),

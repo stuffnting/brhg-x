@@ -85,6 +85,8 @@ function brhg2025_comments_form() {
         __('Save my name and email in this browser for the next time I comment.')
       )
     );
+  } else {
+    $cookies = '';
   }
 
   $comment_field = sprintf(

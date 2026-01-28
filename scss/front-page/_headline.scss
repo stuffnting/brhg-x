@@ -104,7 +104,7 @@
       @extend %frame-top-bottom;
       background-image: url("../images/headline-frame-bottom.svg"), none;
       height: $frame-bottom-height;
-      top: 100%;
+      top: 99.9%;
     }
   }
 

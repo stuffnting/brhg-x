@@ -111,7 +111,7 @@
             "center_lng": -2.5925802999999998,
             "zoom": 16,
             "height": 400,
-            "return_format": "leaflet",
+            "return_format": "osm",
             "allow_map_layers": 1,
             "max_markers": "",
             "layers": [
@@ -130,7 +130,8 @@
                 "class": "",
                 "id": ""
             },
-            "leaflet_map": "{\"lat\":51.4570956,\"lng\":-2.5925803,\"zoom\":16,\"layers\":[\"OpenStreetMap.Mapnik\"],\"markers\":[]}"
+            "allow_in_bindings": 1,
+            "leaflet_map": "{\"lat\":51.457095600000002,\"lng\":-2.5925802999999998,\"zoom\":16,\"layers\":[\"OpenStreetMap.Mapnik\"],\"markers\":[]}"
         },
         {
             "key": "field_56cf4c6c2bce3",
@@ -211,5 +212,6 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1705510689
+    "display_title": "",
+    "modified": 1763553910
 }
