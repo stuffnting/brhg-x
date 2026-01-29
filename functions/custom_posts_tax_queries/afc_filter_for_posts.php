@@ -27,7 +27,7 @@ function brhg2026_post_options_filter($field) {
   $fields_array = brhg2026_event_option_fields();
 
   // Hide the event option fields on post types that are not events
-  if ($screen->post_type !== 'events' && in_array($field['key'], $fields_array)) {
+  if ($screen?->post_type !== 'events' && in_array($field['key'], $fields_array)) {
     return false; // Hides the field
   }
 
