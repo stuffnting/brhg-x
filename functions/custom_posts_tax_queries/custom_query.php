@@ -89,7 +89,11 @@ function brhg2016_alter_the_query($request) {
         *  Admin page queries are altered by brhg2016_admin_queries(), see below
         */
 
-        // This is for the search filters from search result archive pages and the Search Page itself
+
+        /**
+         * This is for the search filter from in the search result pages and the Search Page itself.
+         * It tidies up empty arrays that are left when the 'Any' option is used to clear a previous selection.
+         */
         if (array_key_exists('sent_from', $request)) {
             if (isset($request['category_name']) && is_array($request['category_name'])) {
                 //$request['category_name'] = (count($request['category_name']) > 1) ? implode(',', $request['category_name']) : $request['category_name'][0];
@@ -114,7 +118,7 @@ function brhg2016_alter_the_query($request) {
         /*
         *  Redirects
         *  Contributors archive page redirects to contrib_alpha taxonomy page so that they are paginated alphabetically.
-        *  Check that ?s is not set to stop the search filter messing up if searching for contributors
+        *  Check that ?s is not set, to stop the search filter messing up if searching for contributors
         */
         if ($dummy_query->is_post_type_archive('contributors') && array_key_exists('s', $request)) {
             wp_redirect(get_term_link('a', 'contrib_alpha'), 301);
@@ -685,7 +689,6 @@ function brhg2016_request_data_list($section = 'none', $tax = 'none', $query = n
 
     endif;
 
-
     return $brhg2016_request;
 }
 
@@ -755,31 +758,6 @@ function brhg2016_special_urls_title_tag() {
     $title = get_query_var('page_title');
     return $title . ' - Bristol Radical History Group';
 }
-
-/**
- * Reset the conditionals for special urls.
- *
- * The pre_get_posts filter is added in brhg2016_special_urls() above.
- *
- */
-
-/* function brhg2016_special_urls_archive_true( $query ){
-    
-    $query_var = get_query_var( 'special_url' );
-
-    if ( $query->is_main_query() && in_array( $query_var, array("news-feed", "subject-index", "radical-history-listings", "tag-index" )) ) {
-
-        $query->is_page = 0;
-        $query->is_singular = 0;
-        $query->is_home = 0;       
-        $query->is_post_type_archive = 1;
-        $query->is_archive = 1;
-
-    } elseif ( $query->is_main_query() &&  $query_var === 'bookshop' ) {
-        $query->is_archive = 0;
-        $query->is_single = 1;        
-    }
-} */
 
 /**
  * Reset the conditionals for special urls.

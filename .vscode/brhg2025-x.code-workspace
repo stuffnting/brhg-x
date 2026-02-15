@@ -1,8 +1,8 @@
 {
   "folders": [
     {
-      "path": ".."
-    }
+      "path": "..",
+    },
   ],
   "settings": {
     "editor.hover.delay": 1000,
@@ -11,8 +11,8 @@
       {
         "format": "compressed",
         "extensionName": ".css",
-        "savePath": "/css"
-      }
+        "savePath": "/css",
+      },
     ],
     "prettier.printWidth": 120,
     "prettier.singleAttributePerLine": false,
@@ -22,17 +22,23 @@
       "bloginfo",
       "brhg",
       "dashicons",
+      "gmaps",
       "hellip",
+      "Microkid",
       "notosans",
       "numberposts",
       "searchform",
+      "staticize",
       "unautop",
       "widefat",
       "wpautop",
+      "wpemoji",
       "wpsc",
+      "wpseo",
       "wpspsc",
-      "wspsc"
+      "wspsc",
+      "yoast",
     ],
-    "intelephense.diagnostics.undefinedTypes": false
-  }
+    "intelephense.diagnostics.undefinedTypes": false,
+  },
 }

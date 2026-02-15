@@ -156,7 +156,7 @@ function brhg2016_theme_style_scripts() {
     //add jquery
     wp_enqueue_script('jquery');
 
-    //add the mainstyle sheet
+    //add the main stylesheet
     wp_enqueue_style(
         'main-style',
         get_theme_file_uri('css/style.css'),
@@ -302,9 +302,9 @@ function brhg2016_remove_version() {
 /**
  * Kill Yoast SEO dropdown filter on admin pages
  */
-add_action('admin_init', 'wpse151723_remove_yoast_seo_posts_filter', 20);
+add_action('admin_init', 'brhg_remove_yoast_seo_posts_filter', 20);
 
-function wpse151723_remove_yoast_seo_posts_filter() {
+function brhg_remove_yoast_seo_posts_filter() {
     global $wpseo_metabox;
 
     if ($wpseo_metabox) {
@@ -318,7 +318,7 @@ function wpse151723_remove_yoast_seo_posts_filter() {
 add_filter('wpseo_json_ld_output', '__return_false');
 
 /**
- * Kill eemojis
+ * Kill emojis
  */
 add_action('init', 'brhg2025_disable_emojis');
 
@@ -348,48 +348,3 @@ function brhg2025_disable_emojis_tinymce($plugins) {
  */
 add_filter('wp_is_application_passwords_available', '__return_false');
 add_filter('xmlrpc_enabled', '__return_false');
-
-
-
-/**
- * *** For Live Link only ***
- */
-
-/* add_filter('wp_get_attachment_url', function ($url, $post_id) {
-    return preg_replace('/^http:/', 'https:', $url);
-}, 10, 2);
-
-add_filter('wp_calculate_image_srcset', function ($sources) {
-    foreach ($sources as &$source) {
-        $source['url'] = preg_replace('/^http:/', 'https:', $source['url']);
-    }
-    return $sources;
-});
-
-add_filter('wp_get_attachment_image_src', function ($image) {
-    if (is_array($image) && isset($image[0])) {
-        $image[0] = preg_replace('/^http:/', 'https:', $image[0]);
-    }
-    return $image;
-});
-
-add_filter('the_content', function ($content) {
-    return str_replace('http:', 'https:', $content);
-}); */
-
-// Add a bs class to make image size responsive
-// This only works for new images added via tinyMCE
-// functions/utility_functions.php/brhg2016_content_filter() takes care of legacy images
-/* add_filter('get_image_tag_class', 'brhg2016_image_tag', 0, 4);
-
-function brhg2016_image_tag($class, $id, $align, $size) {
-
-    $class = $class . ' img-responsive';
-
-    return $class;
-}
-
-add_filter('wp_get_attachment_image_attributes', function ($attr) {
-    $attr['class'] .= ' img-responsive';
-    return $attr;
-}); */

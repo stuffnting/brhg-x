@@ -11,7 +11,7 @@
     ?>
 
  <div id="search-filter-form" class="search-form">
-     <form role="search" method="post" class="search-form__form" action="<?php echo home_url('/'); ?>">
+     <form role="search" method="get" class="search-form__form" action="<?php echo home_url('/'); ?>">
          <fieldset class="search-form__search-fieldset" name="search-box">
              <label for="search-term" class="search-form__label">
                  <span class="search-form__field-name">Search Term:</span>

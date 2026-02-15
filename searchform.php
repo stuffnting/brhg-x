@@ -1,7 +1,7 @@
 <?php
 
 /**
- * The search form displayed by get_search_form()
+ * The search form displayed by get_search_form() on 404 and no content
  *
  * @package Wordpress
  * @subpackage BRHG2016

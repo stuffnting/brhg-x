@@ -30,14 +30,22 @@ if (get_query_var('special_url') == 'event-diary') {
     $show_location = 'no';
     $show_price = 'no';
     $show_event_filter = 'no';
-    // For archive pages
-} elseif (is_archive()) {
+// For archive pages
+} elseif (is_archive() && ! is_search()) {
     $show_location = 'no';
     $show_price = 'no';
     $show_event_filter = 'no';
     $show_speakers = 'no';
     $show_time = 'no';
-    // For single Event pages
+// For search pages
+} elseif (is_search()) {
+    $show_location = 'no';
+    $show_venues = 'no';
+    $show_price = 'no';
+    $show_event_filter = 'no';
+    $show_speakers = 'no';
+    $show_time = 'no';
+// For single Event pages
 } elseif (is_singular()) {
     $show_none = 'no';
 }

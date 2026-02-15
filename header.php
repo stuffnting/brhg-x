@@ -97,7 +97,7 @@
             );
             ?>
 
-            <button id="searchTriggerBtn" class="main-menu-bar__search-btn" title="Search" data-modal-target="#search-form-modal"><!--Search--></button>
+            <button id="searchTriggerBtn" class="main-menu-bar__search-btn" title="Search" data-modal-target="#search-form-modal"><!--Search. Modal in footer.--></button>
 
         </nav>
 
